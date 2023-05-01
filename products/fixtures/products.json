@@ -1,6 +1,6 @@
 [
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 1,
         "fields": {
             "brand": 1,
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 2,
         "fields": {
             "brand": 1,
@@ -32,7 +32,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 3,
         "fields": {
             "brand": 1,
@@ -48,7 +48,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 4,
         "fields": {
             "brand": 1,
@@ -64,7 +64,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 5,
         "fields": {
             "brand": 1,
@@ -80,7 +80,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 6,
         "fields": {
             "brand": 1,
@@ -96,7 +96,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 7,
         "fields": {
             "brand": 1,
@@ -112,7 +112,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 8,
         "fields": {
             "brand": 1,
@@ -128,7 +128,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 9,
         "fields": {
             "brand": 1,
@@ -144,7 +144,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 10,
         "fields": {
             "brand": 1,
@@ -160,7 +160,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 11,
         "fields": {
             "brand": 2,
@@ -176,7 +176,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 12,
         "fields": {
             "brand": 2,
@@ -192,7 +192,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 13,
         "fields": {
             "brand": 2,
@@ -208,7 +208,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 14,
         "fields": {
             "brand": 2,
@@ -224,7 +224,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 15,
         "fields": {
             "brand": 2,
@@ -240,7 +240,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 16,
         "fields": {
             "brand": 2,
@@ -256,7 +256,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 17,
         "fields": {
             "brand": 2,
@@ -272,7 +272,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 18,
         "fields": {
             "brand": 2,
@@ -288,7 +288,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 19,
         "fields": {
             "brand": 2,
@@ -304,7 +304,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 20,
         "fields": {
             "brand": 2,
@@ -320,7 +320,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 21,
         "fields": {
             "brand": 3,
@@ -336,7 +336,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 22,
         "fields": {
             "brand": 3,
@@ -352,7 +352,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 23,
         "fields": {
             "brand": 3,
@@ -368,7 +368,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 24,
         "fields": {
             "brand": 3,
@@ -384,7 +384,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 25,
         "fields": {
             "brand": 3,
@@ -400,7 +400,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 26,
         "fields": {
             "brand": 3,
@@ -416,7 +416,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 27,
         "fields": {
             "brand": 3,
@@ -432,7 +432,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 28,
         "fields": {
             "brand": 3,
@@ -448,7 +448,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 29,
         "fields": {
             "brand": 3,
@@ -464,7 +464,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 30,
         "fields": {
             "brand": 4,
@@ -480,7 +480,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 31,
         "fields": {
             "brand": 4,
@@ -496,7 +496,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 32,
         "fields": {
             "brand": 4,
@@ -512,7 +512,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 33,
         "fields": {
             "brand": 4,
@@ -528,7 +528,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 34,
         "fields": {
             "brand": 4,
@@ -544,7 +544,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 35,
         "fields": {
             "brand": 4,
@@ -560,7 +560,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 36,
         "fields": {
             "brand": 4,
@@ -576,7 +576,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 37,
         "fields": {
             "brand": 4,
@@ -592,7 +592,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 38,
         "fields": {
             "brand": 4,
@@ -608,7 +608,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 39,
         "fields": {
             "brand": 4,
@@ -624,7 +624,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 40,
         "fields": {
             "brand": 4,
@@ -640,7 +640,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 41,
         "fields": {
             "brand": 5,
@@ -656,7 +656,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 42,
         "fields": {
             "brand": 5,
@@ -672,7 +672,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 43,
         "fields": {
             "brand": 5,
@@ -688,7 +688,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 44,
         "fields": {
             "brand": 5,
@@ -704,7 +704,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 45,
         "fields": {
             "brand": 5,
@@ -720,7 +720,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 46,
         "fields": {
             "brand": 5,
@@ -736,7 +736,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 47,
         "fields": {
             "brand": 5,
@@ -752,7 +752,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 48,
         "fields": {
             "brand": 5,
@@ -768,7 +768,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 49,
         "fields": {
             "brand": 5,
@@ -784,7 +784,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 50,
         "fields": {
             "brand": 5,
@@ -800,7 +800,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 51,
         "fields": {
             "brand": 6,
@@ -816,7 +816,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 52,
         "fields": {
             "brand": 6,
@@ -832,7 +832,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 53,
         "fields": {
             "brand": 6,
@@ -848,7 +848,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 54,
         "fields": {
             "brand": 6,
@@ -864,7 +864,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 55,
         "fields": {
             "brand": 6,
@@ -880,7 +880,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 56,
         "fields": {
             "brand": 4,
@@ -896,7 +896,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 57,
         "fields": {
             "brand": 4,
@@ -912,7 +912,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 58,
         "fields": {
             "brand": 4,
@@ -928,7 +928,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 59,
         "fields": {
             "brand": 4,
@@ -944,7 +944,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 60,
         "fields": {
             "brand": 4,
@@ -960,7 +960,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 61,
         "fields": {
             "brand": 4,
@@ -976,7 +976,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 62,
         "fields": {
             "brand": 4,
@@ -992,7 +992,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 63,
         "fields": {
             "brand": 4,
@@ -1008,7 +1008,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 64,
         "fields": {
             "brand": 4,
@@ -1024,7 +1024,7 @@
         }
     },
     {
-        "model": "products.games",
+        "model": "products.product",
         "pk": 65,
         "fields": {
             "brand": 4,
