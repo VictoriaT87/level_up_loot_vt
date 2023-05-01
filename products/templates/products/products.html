@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="logo-font">Products</h2>
+            <hr class="w-50 mb-1">
+        </div>
+    </div>
+    {% for product in products %}
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+        <div class="card h-100 border-0">
+            <div class="card-body pb-0">
+                <p class="mb-0">{{ product.title }}</p>
+            </div>
+            <div class="card-footer bg-white pt-0 border-0 text-left">
+                <div class="row">
+                    <div class="col">
+                        <img class="card-img-top img-fluid" src="{{ product.image }}" alt="{{ product.alt_text }}">
+                        <p class="lead mb-0 text-left price">${{ product.price }}</p>
+                        <p class="lead mb-0 text-left description">{{ product.description }}</p>
+                        <p class="lead mb-0 text-left brand">{{ product.brand.friendly_name }}</p>
+                        <p class="lead mb-0 text-left category">{{ product.category.friendly_name }}</p>
+                        <p class="small mt-1 mb-0">
+                            <a class="text-muted" href="{{ product.url }}">
+                                <i class="fas fa-tag mr-1"></i>{{ product.title }}
+                            </a>
+                        </p>
+                        {% if product.average_rating %}
+                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.average_rating }} /
+                            5</small>
+                        {% else %}
+                        <small class="text-muted">No Rating</small>
+                        {% endif %}
+                        <!-- if superuser, links for edit and delete -->
+                        {% if request.user.is_superuser %}
+                        <small class="ml-3">
+                            <a href="">Edit</a>
+                            <a class="text-danger" href="">Delete</a>
+                        </small>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:1 %}
+    <div class="col-12 d-sm-none mb-5">
+        <hr>
+    </div>
+    {% endif %}
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+        <hr>
+    </div>
+    {% endif %}
+    {% if forloop.counter|divisibleby:3 %}
+    <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+        <hr>
+    </div>
+    {% endif %}
+    {% if forloop.counter|divisibleby:4 %}
+    <div class="col-12 d-none d-xl-block mb-5">
+        <hr>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="btt-button shadow-sm rounded-0 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>
+</div>
+
+{% endblock %}
