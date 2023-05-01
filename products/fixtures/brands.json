@@ -1,0 +1,50 @@
+[
+    {
+        "pk": 1,
+        "model": "products.brand",
+        "fields": {
+            "name": "funko",
+            "friendly_name": "Funko"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.brand",
+        "fields": {
+            "name": "mcfarlane",
+            "friendly_name": "McFarlane Toys"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.brand",
+        "fields": {
+            "name": "hasbro",
+            "friendly_name": "Hasbro"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.brand",
+        "fields": {
+            "name": "sideshow",
+            "friendly_name": "Sideshow"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.brand",
+        "fields": {
+            "name": "dark_horse",
+            "friendly_name": "Dark Horse"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.brand",
+        "fields": {
+            "name": "pure_arts",
+            "friendly_name": "Pure Arts"
+        }
+    }
+]
