@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 html {
     height: 100%;
 }
@@ -5,12 +7,14 @@ html {
 body {
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Lato';
+    font-family: 'Righteous', cursive;
 }
 
 .carousel-inner {
     height: 80vh;
 }
+
+
 
 .overlay {
     height: 100%;
@@ -87,6 +91,13 @@ body {
         right: 0;
         left: 0;
         z-index: 1030;
+    }
+
+    .logo-nav {
+        display: block;
+        margin-left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
     }
 
     .header-container {
