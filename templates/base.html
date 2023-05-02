@@ -70,13 +70,27 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item">
-                        <div class="text-center text-black nav-link">
-                            <div><i class="fas fa-search fa-lg"></i></div>
+                        <a class="text-black nav-link" href="#" id="search" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-search fa-lg"></i></div>
                             <p class="my-0">
                                 Search
                             </p>
-                        </div>
+                            </div>
                         </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="search">
+                            <form method="GET" action="{% url 'products' %}">
+                                <div class="input-group w-100">
+                                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </li>
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
