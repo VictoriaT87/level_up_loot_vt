@@ -14,6 +14,35 @@ body {
     height: 80vh;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 40px;
+  color: #00916e;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 40px;
+  color: #00916e;
+}
+.carousel-caption {
+    font-size: 2em;
+    bottom: 40px;   
+}
+
+.carousel-caption a {
+    color: #00916e;
+    text-decoration: none;
+}
+
 
 
 .overlay {
@@ -24,6 +53,16 @@ body {
     position: fixed;
     background: white;
     z-index: -1;
+}
+
+#delivery-banner {
+    background-color: #00916e;
+    color: white;
+    text-transform: uppercase;
+}
+
+.carousel-item img {
+    width: 100%;
 }
 
 
@@ -39,6 +78,7 @@ body {
 
 .logo-font {
     text-transform: uppercase;
+    color: #00916e;
 }
 
 .main-logo-link {
