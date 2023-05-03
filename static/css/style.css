@@ -109,17 +109,40 @@ body {
 }
 
 .card {
-        border: 1px solid #e1e2e7 !important;
-        border-radius: 0;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        -webkit-transition: border 2s ease-out;
-        -moz-transition: border 2s ease-out;
-        -o-transition: border 2s ease-out;
-        transition: border 2s ease-out;
-        -webkit-transition: box-shadow 2s ease-out;
-        -moz-transition: box-shadow 2s ease-out;
-        -o-transition: box-shadow 2s ease-out;
-        transition: box-shadow 2s ease-out;
+    border: 1px solid #e1e2e7 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+}
+
+.product-image {
+    display: flex;
+    width: 20em;
+    margin: 1rem auto;
+}
+
+.product-btn {
+    color: #fff;
+    background-color: #000;
+}
+
+.product-btn:hover {
+    color: #000;
+    background-color: #fff;
+    border: 1px solid black;
+}
+
+.product-links {
+    margin-top: 1em;
+    line-height: 1em;
+}
+
+.card-links a {
+    text-decoration: none;
+}
+
+.card-links a:hover {
+    text-decoration: none;
+    font-size: large;
 }
 
 /* from Bulma */
