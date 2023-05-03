@@ -108,7 +108,19 @@ body {
     color: #000;
 }
 
-
+.card {
+        border: 1px solid #e1e2e7 !important;
+        border-radius: 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        -webkit-transition: border 2s ease-out;
+        -moz-transition: border 2s ease-out;
+        -o-transition: border 2s ease-out;
+        transition: border 2s ease-out;
+        -webkit-transition: box-shadow 2s ease-out;
+        -moz-transition: box-shadow 2s ease-out;
+        -o-transition: box-shadow 2s ease-out;
+        transition: box-shadow 2s ease-out;
+}
 
 /* from Bulma */
 .icon {
