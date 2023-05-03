@@ -28,7 +28,46 @@ body {
     width: 100%;
 }
 
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    background-color: #fff;
+}
 
+.navbar {
+    background-color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .show>.nav-link, .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: #000;
+}
+
+.dropdown {
+    font-size: larger;
+}
+
+.dropdown-item, .dropdown-menu {
+    background-color: #fff;
+    color: #000;  
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #000;
+}
+
+.nav-icon, .nav-text {
+    color: #000;
+}
+
+.search-button {
+    background-color: #000;
+    color: #fff;
+}
 
 .carousel {
     display: none;
@@ -45,13 +84,17 @@ body {
 }
 
 #delivery-banner {
-    background-color: #00916e;
-    color: white;
+    background-color: #e5e5e5;
+    color: #000;
     text-transform: uppercase;
 }
 
 .carousel-item img {
     width: 100%;
+}
+
+.carousel-caption .slide-two {
+    color: #000;
 }
 
 
@@ -67,7 +110,7 @@ body {
 
 .logo-font {
     text-transform: uppercase;
-    color: #00916e;
+    color: #000;
 }
 
 .main-logo-link {
@@ -152,13 +195,13 @@ body {
     {
       content: '>';
       font-size: 40px;
-      color: #00916e;
+      color: #fff;
     }
     
     .carousel-control-prev-icon:after {
       content: '<';
       font-size: 40px;
-      color: #00916e;
+      color: #fff;
     }
     .carousel-caption {
         font-size: 2em;
@@ -166,7 +209,7 @@ body {
     }
     
     .carousel-caption a {
-        color: #00916e;
+        color: #fff;
         text-decoration: none;
     }
 }
