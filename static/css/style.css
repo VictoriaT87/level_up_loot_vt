@@ -10,6 +10,11 @@ body {
     font-family: 'Righteous', cursive;
 }
 
+.index-brands {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
 .brand-logo-row {
     flex-direction: row;
     justify-content: space-evenly;
@@ -41,7 +46,10 @@ body {
     background-color: #fff;
 }
 
-.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .show>.nav-link, .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+.navbar-light .navbar-nav .nav-link,
+.navbar-light .navbar-nav .show>.nav-link,
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
     color: #000;
 }
 
@@ -49,18 +57,21 @@ body {
     font-size: larger;
 }
 
-.dropdown-item, .dropdown-menu {
+.dropdown-item,
+.dropdown-menu {
     background-color: #fff;
-    color: #000;  
+    color: #000;
 }
 
-.dropdown-item:focus, .dropdown-item:hover {
+.dropdown-item:focus,
+.dropdown-item:hover {
     color: #fff;
     text-decoration: none;
     background-color: #000;
 }
 
-.nav-icon, .nav-text {
+.nav-icon,
+.nav-text {
     color: #000;
 }
 
@@ -183,31 +194,31 @@ body {
     .carousel-inner {
         height: 80vh;
     }
-    
+
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      height: 100px;
-      width: 100px;
-      background-image: none;
+        height: 100px;
+        width: 100px;
+        background-image: none;
     }
-    
-    .carousel-control-next-icon:after
-    {
-      content: '>';
-      font-size: 40px;
-      color: #fff;
+
+    .carousel-control-next-icon:after {
+        content: '>';
+        font-size: 40px;
+        color: #fff;
     }
-    
+
     .carousel-control-prev-icon:after {
-      content: '<';
-      font-size: 40px;
-      color: #fff;
+        content: '<';
+        font-size: 40px;
+        color: #fff;
     }
+
     .carousel-caption {
         font-size: 2em;
-        bottom: 40px;   
+        bottom: 40px;
     }
-    
+
     .carousel-caption a {
         color: #fff;
         text-decoration: none;
