@@ -27,25 +27,25 @@
                             class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
                             </option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                            <option value="price__asc" {% if current_sorting == 'price__asc' %}selected{% endif %}>Price
                                 (low to high)</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                            <option value="price__desc" {% if current_sorting == 'price__desc' %}selected{% endif %}>Price
                                 (high to low)</option>
-                            <option value="title_asc" {% if current_sorting == 'title_asc' %}selected{% endif %}>Name
+                            <option value="title__asc" {% if current_sorting == 'title__asc' %}selected{% endif %}>Name
                                 (A-Z)</option>
-                            <option value="title_desc" {% if current_sorting == 'title_desc' %}selected{% endif %}>Name
+                            <option value="title__desc" {% if current_sorting == 'title__desc' %}selected{% endif %}>Name
                                 (Z-A)</option>
-                            <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand
+                            <option value="brand__asc" {% if current_sorting == 'brand__asc' %}selected{% endif %}>Brand
                                 (A-Z)</option>
-                            <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Brand
+                            <option value="brand__desc" {% if current_sorting == 'brand__desc' %}selected{% endif %}>Brand
                                 (Z-A)</option>
-                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>
+                            <option value="category__asc" {% if current_sorting == 'category__asc' %}selected{% endif %}>
                                 Category (A-Z)</option>
-                            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
+                            <option value="category__desc" {% if current_sorting == 'category__desc' %}selected{% endif %}>
                                 Category (Z-A)</option>
-                            <option value="average_rating_asc" {% if current_sorting == 'average_rating_asc' %}selected{% endif %}>Rating
+                            <option value="average_rating__asc" {% if current_sorting == 'average_rating__asc' %}selected{% endif %}>Rating
                                 (low to high)</option>
-                            <option value="average_rating_desc" {% if current_sorting == 'average_rating_desc' %}selected{% endif %}>Rating
+                            <option value="average_rating__desc" {% if current_sorting == 'average_rating__desc' %}selected{% endif %}>Rating
                                 (high to low)</option>
                         </select>
             </div>
@@ -136,4 +136,36 @@
     </a>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+    
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("__")[0];
+                var direction = selectedVal.split("__")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
