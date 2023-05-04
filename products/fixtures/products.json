@@ -68,7 +68,7 @@
         "pk": 5,
         "fields": {
             "brand": 1,
-            "category": 5,
+            "category": 3,
             "sku": 219248,
             "title": "Funko Pop! The Flash (2023) - Batman Diamond Glitter #1342",
             "price": 20.99,
@@ -212,14 +212,14 @@
         "pk": 14,
         "fields": {
             "brand": 2,
-            "category": 5,
+            "category": 3,
             "sku": 290573,
-            "title": "McFarlane Toys Black Adam Page Punchers John Constantine Action Figure",
+            "title": "McFarlane Toys The Joker (The Dark Knight Trilogy)",
             "price": 27.99,
             "image_url": "",
-            "image": "../media/constantine_mcfarlane.jpg",
-            "description": "7 in or 18 cm tall, Multiple points of articulation, Each figure comes with a base and with various character-specific accessories, Includes a collectible comic, which inspired this figure & a collectible art card with artwork on the front, and a character biography on the back, Window box collector packaging",
-            "alt_text": "Action figure of a man in a coat, a character from Black Adam",
+            "image": "../media/joker_mcfarlane.jpg",
+            "description": "Incredibly detailed 7” scale figure based off The Dark Knight Trilogy. Designed with Ultra Articulation with up to 22 moving parts for full range of posing and play. The Joker comes with a stack of cash, Bane build-a figure hands, head and base. Included collectible art card with character art on the front, and character biography on the back",
+            "alt_text": "Action figure of The Joker from Batman",
             "average_rating": 4
         }
     },
@@ -516,7 +516,7 @@
         "pk": 33,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 3,
             "sku": 136351,
             "title": "Spider Man - Carnage",
             "price": 197.19,
@@ -532,7 +532,7 @@
         "pk": 34,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 3,
             "sku": 232876,
             "title": "X-Men - Storm",
             "price": 563.40,
@@ -548,14 +548,14 @@
         "pk": 35,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 3,
             "sku": 228637,
-            "title": "Batman - Ninja Batman 2.0",
+            "title": "Batman - Batmobile",
             "price": 253.53,
             "image_url": "",
-            "image": "../media/ninja_batman_sideshow.avif",
-            "description": "In the animated DC Comics film Batman Ninja, Batman, along with several of his allies and adversaries, are thrust back in time to medieval Japan. The Dark Knight takes on the weapons and methods of the ninja to defeat Joker and his other villains, who are now feudal lords. Box Size: Height: 11.4 cm, Width: 25.4 cm, Depth: 39.4 cm",
-            "alt_text": "A figure of Batman dressed like a Samurai",
+            "image": "../media/batmobile_sideshow.webp",
+            "description": "The Batmobile is on its way to fight crime in Gotham City! As one of the iconic bat gadgets, the technologically advanced Batmobile is a heavily armored tactical assault vehicle in Batman's arsenal. Based on Christopher Nolan's The Dark Knight trilogy, Sideshow and Hot Toys present the super-vehicle Batmobile as a stunning sixth scale collectible vehicle that can be paired with a Batman figure to recreate more breathtaking scenes! Box Size: Height: 33.7 cm, Width: 57.1 cm, Depth: 82.5 cm",
+            "alt_text": "A figure of the Batmobile car from Batman",
             "average_rating": 4
         }
     },
@@ -788,7 +788,7 @@
         "pk": 50,
         "fields": {
             "brand": 5,
-            "category": 5,
+            "category": 2,
             "sku": 289924,
             "title": "Stranger Things: Into The Fire #1 Exclusive Variant Comic Bundle",
             "price": 49.99,
@@ -884,7 +884,7 @@
         "pk": 56,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 4,
             "sku": 244127,
             "title": "Demon Souls: Kyojuro Rengoku",
             "price": 159.00,
@@ -900,7 +900,7 @@
         "pk": 57,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 4,
             "sku": 305182,
             "title": "Demon Souls: Nichirin Sword (Tengen Uzui)",
             "price": 262.00,
@@ -916,7 +916,7 @@
         "pk": 58,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 4,
             "sku": 169421,
             "title": "My Hero Academia: Izuku Midoriya",
             "price": 189.00,
@@ -932,7 +932,7 @@
         "pk": 59,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 4,
             "sku": 302344,
             "title": "One Piece: Black Maria (Glitter Of Ha)",
             "price": 93.90,
@@ -948,7 +948,7 @@
         "pk": 60,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 4,
             "sku": 114287,
             "title": "My Hero Academia: Katsuki Bakugo",
             "price": 353.00,
@@ -964,7 +964,7 @@
         "pk": 61,
         "fields": {
             "brand": 4,
-            "category": 5,
+            "category": 4,
             "sku": 172043,
             "title": "One Piece: Luffy Taro 'Warriors Alliance'",
             "price": 165.00,

@@ -30,13 +30,5 @@
             "name": "anime",
             "friendly_name": "Anime"
         }
-    },
-    {
-        "pk": 5,
-        "model": "products.category",
-        "fields": {
-            "name": "comics",
-            "friendly_name": "Comics"
-        }
     }
 ]
