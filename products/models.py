@@ -48,6 +48,18 @@ class Product(models.Model):
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     on_sale = models.BooleanField(default=False)
+    sale_price = models.DecimalField(max_digits=4, decimal_places=2)
+    discount = models.IntegerField(default=0)
+    discounted_price = models.IntegerField(null=True)
+    
+
+    @property
+    def discounted_price(self):
+        return ((self.price)*(self.discount))/100
+
+    @property
+    def sale_price(self):
+        return (self.price)-(self.discounted_price)
 
     def __str__(self):
         return self.title

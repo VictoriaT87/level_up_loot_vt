@@ -185,6 +185,16 @@ a.category-badge > span.badge:hover {
     margin-right: 1em;
 }
 
+.price-box {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
+
+.price-font-original {
+    text-decoration: line-through
+}
+
 /* from Bulma */
 .icon {
     align-items: center;

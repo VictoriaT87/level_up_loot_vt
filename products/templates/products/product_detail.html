@@ -69,8 +69,21 @@
                 </div>
             </div>
             <div class="price-box">
+                {% if product.on_sale %}
+                <p class="mb-0 pt-3 pb-1 text-center">
+                     Sale Price:
+                    <span class="h3 text-left font-weight-bold price-font">
+                    €{{ product.sale_price|floatformat:2 }}</span>
+                </p>
+                <p class="mb-0 pt-3 pb-1 text-center">
+                    Original Price:
+                    <span class="h3 text-left font-weight-bold price-font-original text-decoration-line-through">
+                    €{{ product.price }}</span>
+                </p>
+                {% else %}
                 <p class="mb-0 pt-3 pb-1 text-center"><span class="h3 text-left font-weight-bold price-font">
                     €{{ product.price }}</span></p>
+                {% endif %}
             </div>
             <form class="form" action="" method="POST">
                 {% csrf_token %}
