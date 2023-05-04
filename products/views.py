@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Product, Brand, Category
 from .forms import ProductForm
 
@@ -14,7 +15,7 @@ def all_products(request):
     query = None
     sort = None
     brand = None
-    category = None
+    categories = None
     sale = False
     direction = None
 
@@ -31,7 +32,7 @@ def all_products(request):
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
-                    sortkey = f'-{sortkey}'
+                    sortkey = f'--{sortkey}'
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
@@ -68,7 +69,8 @@ def all_products(request):
         'search_term': query,
         'sale': sale,
         'brand': brand,
-        'category': category
+        'current_categories': categories,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
