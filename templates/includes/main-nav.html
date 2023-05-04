@@ -7,11 +7,10 @@
                 Category
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="category-link">
-                <a href="" class="dropdown-item">Gaming</a>
-                <a href="" class="dropdown-item">TV Shows</a>
-                <a href="" class="dropdown-item">Movies</a>
-                <a href="" class="dropdown-item">Anime</a>
-                <a href="" class="dropdown-item">Comics</a>
+                <a href="{% url 'products' %}?category=game_figures" class="dropdown-item">Gaming</a>
+                <a href="{% url 'products' %}?category=tv_shows" class="dropdown-item">TV Shows</a>
+                <a href="{% url 'products' %}?category=movies" class="dropdown-item">Movies</a>
+                <a href="{% url 'products' %}?category=anime" class="dropdown-item">Anime</a>
             </div>
         </li>
 
@@ -21,12 +20,11 @@
                 Brand
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="brand-link">
-                <a href="" class="dropdown-item">Funko</a>
-                <a href="" class="dropdown-item">McFarlane Toys</a>
-                <a href="" class="dropdown-item">Hasbro</a>
-                <a href="" class="dropdown-item">Sideshow</a>
-                <a href="" class="dropdown-item">Dark Horse</a>
-                <a href="" class="dropdown-item">Pure Arts</a>
+                <a href="{% url 'products' %}?brand=funko" class="dropdown-item">Funko</a>
+                <a href="{% url 'products' %}?brand=hasbro" class="dropdown-item">Hasbro</a>
+                <a href="{% url 'products' %}?brand=sideshow" class="dropdown-item">Sideshow</a>
+                <a href="{% url 'products' %}?brand=dark_horse" class="dropdown-item">Dark Horse</a>
+                <a href="{% url 'products' %}?brand=pure_arts" class="dropdown-item">Pure Arts</a>
             </div>
         </li>
 
@@ -36,9 +34,9 @@
                 All Products
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="{% url 'products' %}" class="dropdown-item">By Price</a>
-                <a href="{% url 'products' %}" class="dropdown-item ">By Brand</a>
-                <a href="{% url 'products' %}" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=average_rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>

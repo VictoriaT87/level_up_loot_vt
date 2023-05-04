@@ -13,6 +13,9 @@ def all_products(request):
     products = Product.objects.all()
     query = None
     sort = None
+    brand = None
+    category = None
+    sale = False
     direction = None
 
     if request.GET:
@@ -32,14 +35,18 @@ def all_products(request):
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(category__title__in=categories)
-            categories = Category.objects.filter(title__in=categories)
+            category = request.GET['category']
+            products = products.filter(category__name=category)
+            category = get_object_or_404(Category, name=category)
 
         if 'brand' in request.GET:
-            brands = request.GET['brand'].split(',')
-            products = products.filter(brand__title__in=brands)
-            brands = Brand.objects.filter(title__in=brands)
+            brand = request.GET['brand']
+            products = products.filter(brand__name=brand)
+            brand = get_object_or_404(Brand, name=brand)
+
+        if 'sale' in request.GET:
+            sale = True
+            products = products.filter(on_sale=True)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -59,6 +66,9 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
+        'sale': sale,
+        'brand': brand,
+        'category': category
     }
 
     return render(request, 'products/products.html', context)
