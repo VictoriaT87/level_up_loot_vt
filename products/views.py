@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.db.models import Q
 from .models import Product, Brand, Category
 from .forms import ProductForm
 
@@ -14,10 +15,50 @@ def all_products(request):
     sort = None
     direction = None
 
+    if request.GET:
+
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+
+            if sortkey == 'title':
+                sortkey = 'lower_title'
+                products = products.annotate(lower_title=Lower('title'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
+        if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__title__in=categories)
+            categories = Category.objects.filter(title__in=categories)
+
+        if 'brand' in request.GET:
+            brands = request.GET['brand'].split(',')
+            products = products.filter(brand__title__in=brands)
+            brands = Brand.objects.filter(title__in=brands)
+
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(
+                               request,
+                               "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+
+            queries = (Q(title__icontains=query) |
+                       Q(description__icontains=query))
+            products = products.filter(queries)
+
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
+        'search_term': query,
     }
 
     return render(request, 'products/products.html', context)
