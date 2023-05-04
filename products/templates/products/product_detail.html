@@ -15,7 +15,7 @@
 <div class="container-fluid mt-4 mb-5">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-5">
+            <div class="image-container my-3">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
                     <img class="card-img-top product-image-lg" src="{{ product.image.url }}" alt="{{ product.title }}">
@@ -29,27 +29,26 @@
         </div>
 
         <div class="col-12 col-md-6 col-lg-4 mb-1">
-            <div class="product-details-container mb-5 mt-md-4">
-                <p class="mb-0 h4 font-weight-bold brand-font-alt mb-1 mt-3">{{ product.title }}</p>
-
-                <p class="small mt-1 mb-0">
-                    <span class="h6 pb-3 brand-font-alt brand-name-link">
-                        Brand:
-                        <a class="alt-text-muted font-weight-bold"
-                            href="{% url 'products' %}?brand={{ product.brand.name }}">
-                            {{ product.brand.friendly_name }}
-                        </a></span>
-                </p>
-                {% if product.category %}
-                <p class="small mt-1 mb-0">
-                    <span class="h6 pb-3 brand-font-alt brand-name-link">
-                        Category:
-                        <a class="alt-text-muted font-weight-bold"
-                            href="{% url 'products' %}?category={{ product.category.name }}">
-                            {{ product.category.friendly_name }}
-                        </a></span>
-                </p>
-                {% endif %}
+            <div class="product-details-container mt-md-4">
+                <p class="mb-0 h4 font-weight-bold product-card mb-1 mt-3">{{ product.title }}</p>
+                <div class="product-links d-inline-flex">
+                    <p class="small mt-1 mb-0">
+                        <span class="h6 pb-3 product-card brand-name-link">
+                            Brand:
+                            <a class="alt-text-muted font-weight-bold"
+                                href="{% url 'products' %}?brand={{ product.brand.name }}">
+                                {{ product.brand.friendly_name }}
+                            </a></span>
+                    </p>
+                    <p class="small mt-1 mb-0">
+                        <span class="h6 pb-3 brand-font-alt brand-name-link">
+                            Category:
+                            <a class="alt-text-muted font-weight-bold"
+                                href="{% url 'products' %}?category={{ product.category.name }}">
+                                {{ product.category.friendly_name }}
+                            </a></span>
+                    </p>
+                </div>
                 <div class="card description-card">
                     <div class="card-header">
                         <p class="mb-0 brand-font-alt h6">
@@ -60,18 +59,27 @@
                     <div class="card-body">
                         <p class="mt-3">{{ product.description }}</p>
                     </div>
+                    {% if product.average_rating %}
+                    <small class="text-muted d-flex justify-content-center align-items-center mt-auto">
+                        User Rating:
+                        <i class="fas fa-star mr-1"></i> {{product.average_rating }} / 5</small>
+                    {% else %}
+                    <small class="text-muted d-flex justify-content-center mt-auto">No Rating</small>
+                    {% endif %}
                 </div>
             </div>
             <div class="price-box">
-                <p class="mb-0 pt-3 pb-1"><span class="h3 text-left font-weight-bold price-font">€{{ product.price }}</span></p>
+                <p class="mb-0 pt-3 pb-1 text-center"><span class="h3 text-left font-weight-bold price-font">
+                    €{{ product.price }}</span></p>
             </div>
             <form class="form" action="" method="POST">
                 {% csrf_token %}
                 <div class="form-row">
-                    <div class="col-12">
-                        <p class="mt-3"><strong>Quantity:</strong></p>
-                        <div class="form-group w-50">
-                            <div class="input-group input-group-{{ product.id }}">
+                    <div class="col-12 text-center">
+
+                        <div class="form-group quantity-form mt-3">
+                            <p><strong>Quantity:</strong></p>
+                            <div class="input-group  w-50 input-group-{{ product.id }}">
 
                                 <div class="input-group-prepend">
                                     <button class="decrement-qty btn btn-black rounded-0 decrement-qty_{{ product.id }}"
@@ -98,7 +106,7 @@
                         </div>
                     </div>
 
-                    <div class="col-12{% if s %}-12 mt-2{% endif %}">
+                    <div class="col-12{% if s %}-12 mt-2{% endif %} text-center">
                         <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-2">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>

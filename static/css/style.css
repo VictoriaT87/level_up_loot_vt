@@ -145,6 +145,27 @@ body {
     font-size: large;
 }
 
+.product-details-container {
+    text-align: center;
+    line-height: 35px;
+}
+
+.quantity-form {
+    display: flex;
+    align-items: baseline;
+    
+    justify-content: center;
+}
+
+.quantity-form p {
+    margin-right: 2em;
+    margin-bottom: 0;
+}
+
+.product-links p {
+    margin-right: 1em;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
