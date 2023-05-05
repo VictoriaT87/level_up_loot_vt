@@ -53,14 +53,34 @@ body {
     color: #000;
 }
 
+a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
 .dropdown {
     font-size: larger;
+}
+
+.dropdown-menu {
+    visibility:visible;
+    border-radius: 0;
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
 }
 
 .dropdown-item,
 .dropdown-menu {
     background-color: #fff;
     color: #000;
+    margin: -0.125rem 0 0; /* dropdown stays open on hover */
+}
+
+.dropdown-item {
+    padding: 0.25rem 0;
 }
 
 .dropdown-item:focus,
@@ -68,6 +88,15 @@ body {
     color: #fff;
     text-decoration: none;
     background-color: #000;
+}
+
+/* dropdown open on hover: https://stackoverflow.com/questions/46604391/how-to-open-dropdown-on-hover-in-bootstrap-4*/
+.dropdown:hover>.dropdown-menu {
+    display: block;
+   }
+
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none; 
 }
 
 .nav-icon,
@@ -315,15 +344,20 @@ a.category-badge > span.badge:hover {
         z-index: 1030;
     }
 
-    .logo-nav {
-        display: block;
-        margin-left: 50%;
-        -webkit-transform: translateX(-50%);
-        transform: translateX(-50%);
-    }
-
     .header-container {
         padding-top: 164px;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+
+    #top-nav {
+        justify-content: space-between;
+    }
+
+    .logo-nav {
+        display: block;
     }
 
     .carousel {

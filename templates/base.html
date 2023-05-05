@@ -24,7 +24,7 @@
     {% endblock %}
 
     {% block corejs %}
-    <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/52324bbdec.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -46,30 +46,88 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex justify-content-between">
             <div class="logo-nav">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <h2 class="logo-font my-0">LevelUp! Loot</h2>
                 </a>
             </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+
+            <div class="row nav-dropdown">
+                <ul class="row navbar-nav w-auto mx-auto">
+
+                    <li class="nav-item dropdown disabled">
+                        <a class="logo-font nav-link mr-5" href="#" id="category-link"
+                            aria-haspopup="true" aria-expanded="false">
+                            Category
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="category-link">
+                            <a href="{% url 'products' %}?category=game_figures" class="dropdown-item">Gaming</a>
+                            <a href="{% url 'products' %}?category=tv_shows" class="dropdown-item">TV Shows</a>
+                            <a href="{% url 'products' %}?category=movies" class="dropdown-item">Movies</a>
+                            <a href="{% url 'products' %}?category=anime" class="dropdown-item">Anime</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="logo-font nav-link mr-5" href="#" id="brand-link"
+                            aria-haspopup="true" aria-expanded="false">
+                            Brand
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="brand-link">
+                            <a href="{% url 'products' %}?brand=funko" class="dropdown-item">Funko</a>
+                            <a href="{% url 'products' %}?brand=hasbro" class="dropdown-item">Hasbro</a>
+                            <a href="{% url 'products' %}?brand=sideshow" class="dropdown-item">Sideshow</a>
+                            <a href="{% url 'products' %}?brand=dark_horse" class="dropdown-item">Dark Horse</a>
+                            <a href="{% url 'products' %}?brand=pure_arts" class="dropdown-item">Pure Arts</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="logo-font nav-link mr-5" href="#" id="all-products-link"
+                            aria-haspopup="true" aria-expanded="false">
+                            All Products
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                            <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                            <a href="{% url 'products' %}?sort=average_rating&direction=desc" class="dropdown-item ">By
+                                Rating</a>
+                            <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By
+                                Category</a>
+                            <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="logo-font nav-link" href="{% url 'products' %}?sale" id="sale-link"
+                            aria-haspopup="true" aria-expanded="false">Sale</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item">
-                        <a class="text-black nav-link" href="#" id="search" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
+                        <a class="text-black nav-link" href="#" id="search" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-search fa-lg nav-icon"></i></div>
-                            <p class="my-0 nav-text">
-                                Search
-                            </p>
+                                <p class="my-0 nav-text">
+                                    Search
+                                </p>
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="search">
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="input-group w-100">
-                                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search Products">
+                                    <input class="form-control border border-black rounded-0" type="text" name="q"
+                                        placeholder="Search Products">
                                     <div class="input-group-append">
-                                        <button class="search-button form-control btn border border-black rounded-0" type="submit">
+                                        <button class="search-button form-control btn border border-black rounded-0"
+                                            type="submit">
                                             <i class="search-button fas fa-arrow-right"></i>
                                         </button>
                                     </div>
@@ -123,7 +181,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 {% include 'includes/mobile-nav.html' %}
-                {% include 'includes/main-nav.html' %}
             </nav>
         </div>
         <div id="delivery-banner" class="row text-center">
@@ -160,6 +217,42 @@
     {% block postloadjs %}
     <script type="text/javascript">
         $('.toast').toast('show');
+    </script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(){
+    // make it as accordion for smaller screens
+    if (window.innerWidth > 992) {
+    
+        document.querySelectorAll('.navbar .nav-item').forEach(function(everyitem){
+    
+            everyitem.addEventListener('mouseover', function(e){
+    
+                let el_link = this.querySelector('a[data-bs-toggle]');
+    
+                if(el_link != null){
+                    let nextEl = el_link.nextElementSibling;
+                    el_link.classList.add('show');
+                    nextEl.classList.add('show');
+                }
+    
+            });
+            everyitem.addEventListener('mouseleave', function(e){
+                let el_link = this.querySelector('a[data-bs-toggle]');
+    
+                if(el_link != null){
+                    let nextEl = el_link.nextElementSibling;
+                    el_link.classList.remove('show');
+                    nextEl.classList.remove('show');
+                }
+    
+    
+            })
+        });
+    
+    }
+    // end if innerWidth
+    }); 
+    // DOMContentLoaded  end
     </script>
     {% endblock %}
 
