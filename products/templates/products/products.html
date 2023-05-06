@@ -29,6 +29,9 @@
                             class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
                             </option>
+                            <option value="created_on__desc" {% if current_sorting == 'date_desc' %}selected{% endif %}>New Arrivals</option>
+                            <option value="average_rating__desc" {% if current_sorting == 'average_rating__desc' %}selected{% endif %}>
+                                Top Rated</option>
                             <option value="price__asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
                                 (low to high)</option>
                             <option value="price__desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
@@ -37,18 +40,7 @@
                                 (A-Z)</option>
                             <option value="title__desc" {% if current_sorting == 'title__desc' %}selected{% endif %}>Name
                                 (Z-A)</option>
-                            <option value="brand__asc" {% if current_sorting == 'brand__asc' %}selected{% endif %}>Brand
-                                (A-Z)</option>
-                            <option value="brand__desc" {% if current_sorting == 'brand__desc' %}selected{% endif %}>Brand
-                                (Z-A)</option>
-                            <option value="category__asc" {% if current_sorting == 'category__asc' %}selected{% endif %}>
-                                Category (A-Z)</option>
-                            <option value="category__desc" {% if current_sorting == 'category__desc' %}selected{% endif %}>
-                                Category (Z-A)</option>
-                            <option value="average_rating__asc" {% if current_sorting == 'average_rating__asc' %}selected{% endif %}>
-                                Rating (low to high)</option>
-                            <option value="average_rating__desc" {% if current_sorting == 'average_rating__desc' %}selected{% endif %}>
-                                Rating (high to low)</option>
+                            
                         </select>
                     </div>
                 </div>

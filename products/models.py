@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -51,6 +52,7 @@ class Product(models.Model):
     sale_price = models.DecimalField(max_digits=4, decimal_places=2)
     discount = models.IntegerField(default=0)
     discounted_price = models.IntegerField(null=True)
+    created_on = models.DateField(default=timezone.now)
     
 
     @property
