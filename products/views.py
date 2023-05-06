@@ -36,9 +36,9 @@ def all_products(request):
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
-            categories = request.GET['category']
-            products = products.filter(category__name=categories)
-            categories = get_object_or_404(Category, name=categories)
+            category = request.GET['category']
+            products = products.filter(category__name=category)
+            category = get_object_or_404(Category, name=category)
 
         if 'brand' in request.GET:
             brand = request.GET['brand']
