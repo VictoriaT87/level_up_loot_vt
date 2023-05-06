@@ -67,6 +67,7 @@ a:hover {
     border-radius: 0;
     font-weight: bold;
     padding: 0;
+    left: auto;
 }
 
 .dropdown-item,
@@ -77,7 +78,7 @@ a:hover {
 }
 
 .dropdown-item {
-    padding: 0.25rem 0;
+    padding: 0.25rem;
 }
 
 .dropdown-item:focus,
