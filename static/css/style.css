@@ -66,10 +66,7 @@ a:hover {
     visibility:visible;
     border-radius: 0;
     font-weight: bold;
-    transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    -webkit-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
+    padding: 0;
 }
 
 .dropdown-item,
@@ -143,7 +140,7 @@ a.category-badge > span.badge:hover {
 }
 
 #delivery-banner {
-    background-color: #e5e5e5;
+    background-color: #f6f6f6;
     color: #000;
     text-transform: uppercase;
 }
@@ -160,6 +157,11 @@ a.category-badge > span.badge:hover {
     border: 1px solid #e1e2e7 !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 0.25rem;
+}
+
+.brands {
+    margin: -25px;
+    background-color: #f6f6f6;
 }
 
 .product-image {

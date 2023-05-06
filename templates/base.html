@@ -46,16 +46,16 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex justify-content-between">
+        <div id="topnav" class="row d-none d-lg-flex justify-content-between">
             <div class="logo-nav">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
                     <h2 class="logo-font my-0">LevelUp! Loot</h2>
                 </a>
             </div>
 
-            <div class="row nav-dropdown">
+            <div class="row nav-dropdown pt-lg-2">
                 <ul class="row navbar-nav w-auto mx-auto">
-
+                    
                     <li class="nav-item dropdown disabled">
                         <a class="logo-font nav-link mr-5" href="#" id="category-link"
                             aria-haspopup="true" aria-expanded="false">
@@ -185,7 +185,7 @@
         </div>
         <div id="delivery-banner" class="row text-center">
             <div class="col ">
-                <h4 class="my-1">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
+                <h4 class="my-2">Free delivery on orders over ${{ free_delivery_threshold }}!</h4>
             </div>
         </div>
     </header>
