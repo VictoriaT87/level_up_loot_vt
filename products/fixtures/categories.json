@@ -3,16 +3,16 @@
         "pk": 1,
         "model": "products.category",
         "fields": {
-            "name": "game_figures",
-            "friendly_name": "Gaming"
+            "name": "anime",
+            "friendly_name": "Anime"
         }
     },
     {
         "pk": 2,
         "model": "products.category",
         "fields": {
-            "name": "tv_shows",
-            "friendly_name": "TV Shows"
+            "name": "gaming",
+            "friendly_name": "Gaming"
         }
     },
     {
@@ -27,8 +27,8 @@
         "pk": 4,
         "model": "products.category",
         "fields": {
-            "name": "anime",
-            "friendly_name": "Anime"
+            "name": "tv_shows",
+            "friendly_name": "TV Shows"
         }
     }
 ]

@@ -3,16 +3,16 @@
         "pk": 1,
         "model": "products.brand",
         "fields": {
-            "name": "funko",
-            "friendly_name": "Funko"
+            "name": "dark_horse",
+            "friendly_name": "Dark Horse"
         }
     },
     {
         "pk": 2,
         "model": "products.brand",
         "fields": {
-            "name": "mcfarlane",
-            "friendly_name": "McFarlane Toys"
+            "name": "funko",
+            "friendly_name": "Funko"
         }
     },
     {
@@ -27,24 +27,24 @@
         "pk": 4,
         "model": "products.brand",
         "fields": {
-            "name": "sideshow",
-            "friendly_name": "Sideshow"
+            "name": "mcfarlane",
+            "friendly_name": "McFarlane Toys"
         }
     },
     {
         "pk": 5,
         "model": "products.brand",
         "fields": {
-            "name": "dark_horse",
-            "friendly_name": "Dark Horse"
+            "name": "pure_arts",
+            "friendly_name": "Pure Arts"
         }
     },
     {
         "pk": 6,
         "model": "products.brand",
         "fields": {
-            "name": "pure_arts",
-            "friendly_name": "Pure Arts"
+            "name": "sideshow",
+            "friendly_name": "Sideshow"
         }
     }
 ]
