@@ -3,14 +3,14 @@
 // Disable +/- buttons outside 1-99 range
 function handleEnableDisable(itemId) {
     // get the current value of the item id
-    let currentValue = parseInt($(`#id_qty_${itemId}`).val());
+    let currentValue = parseInt($(`.id_qty_${itemId}`).val());
     // disable the button if it goes below 2
-    let minusDisabled = currentValue < 1;
+    let minusDisabled = currentValue < 2;
     // disable the button if it goes above 98
     let plusDisabled = currentValue > 98;
     // set the button attribute to true or false if outside the range allows
-    $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-    $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+    $(`.decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+    $(`.increment-qty_${itemId}`).prop('disabled', plusDisabled);
 }
 
 // Ensure proper enabling/disabling of all inputs on page load
@@ -28,6 +28,7 @@ $('.qty_input').change(function () {
 
 // Increment quantity
 $('.increment-qty').click(function (e) {
+    e.preventDefault();
     let itemId = $(this).data('item_id');
     // go up the DOM to find the closest input-group class
     // then find the closest class with qty_input class
@@ -41,6 +42,7 @@ $('.increment-qty').click(function (e) {
 
 // Decrement quantity
 $('.decrement-qty').click(function (e) {
+    e.preventDefault();
     let itemId = $(this).data('item_id');
     // go up the DOM to find the closest input-group class
     // then find the closest class with qty_input class
