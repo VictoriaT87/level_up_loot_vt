@@ -50,9 +50,9 @@
                 <div><i class="fas fa-shopping-bag fa-lg nav-icon"></i></div>
                 <p class="my-0 nav-text">
                     {% if total %}
-                    ${{ total|floatformat:2 }}
+                    €{{ total|floatformat:2 }}
                     {% else %}
-                    $0.00
+                    €0.00
                     {% endif %}
                 </p>
             </div>
