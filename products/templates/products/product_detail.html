@@ -17,13 +17,9 @@
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-3">
                 {% if product.image %}
-                <a href="{{ product.image.url }}" target="_blank">
                     <img class="card-img-top product-image-lg" src="{{ product.image.url }}" alt="{{ product.title }}">
-                </a>
                 {% else %}
-                <a href="">
                     <img class="card-img-top product-image-lg" src="" alt="{{ product.title }}">
-                </a>
                 {% endif %}
             </div>
         </div>

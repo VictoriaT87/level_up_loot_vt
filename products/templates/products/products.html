@@ -69,12 +69,12 @@
                     <h4 class="card-title text-center mt-auto">{{ product.title }}</h4>
                     <div class="mt-auto card-links">
                         {% if product.brand %}
-                        <a class="product-links text-decoration-none" href="#">
+                        <a class="product-links text-decoration-none" href="{% url 'products' %}?brand={{ product.brand.name }}">
                             <span class="p-2 mt-4 text-black">Brand: {{ product.brand.friendly_name }}</span>
                         </a>
                         {% endif %}
                         {% if product.category %}
-                        <a class="product-links text-decoration-none" href="#">
+                        <a class="product-links text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
                             <span class="p-2 mt-4 text-black">Category: {{ product.category.friendly_name }}</span>
                         </a>
                         {% endif %}
@@ -92,7 +92,7 @@
                         <p class="h4 mb-0 pb-1"><span class="text-left brand-font">€{{ product.price }}</span></p>
                     </div>
 
-                    <a href="#" class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
+                    <a href="{% url 'product_detail' product.id %}" class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
 
                         <!-- <span class="icon">
                             <i class="fas fa-info"></i>
