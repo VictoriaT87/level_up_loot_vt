@@ -58,9 +58,9 @@
             </div>
         </div>
     </div>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mx-5 mb-5">
+    <div class="row mx-5 mb-5">
         {% for product in products %}
-        <div class="col mb-4 mt-4">
+        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <div class="card h-100">
                 <a href="{% url 'product_detail' product.id %}">
                     <img class="card-img-top product-image" src="{{ product.image }}" alt="{{ product.alt_text }}">
