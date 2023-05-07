@@ -120,13 +120,20 @@
         form.submit();
     })
 
-    // Remove item and reload on click
-    $('.remove-item').click(function (e) {
+        // Remove item and reload on click
+        $('.remove-item').click(function (e) {
+        // add the csrf token
         var csrfToken = "{{ csrf_token }}";
+        // remove item id and size
         var itemId = $(this).attr('id').split('remove_')[1];
+        // create url to post to
         var url = `/cart/remove/${itemId}/`;
-        var data = { 'csrfmiddlewaretoken': csrfToken };
+        // data to send the server
+        var data = {
+            'csrfmiddlewaretoken': csrfToken,
+        };
 
+        // post form url and data, reload page
         $.post(url, data)
             .done(function () {
                 location.reload();

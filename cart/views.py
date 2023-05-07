@@ -57,3 +57,21 @@ def adjust_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
+
+
+def remove_from_cart(request, item_id):
+    """Remove an item from the shopping cart"""
+
+    product = Product.objects.get(pk=item_id.split('_')[0])
+    cart = request.session.get('cart', {})
+
+    try:
+        cart.pop(item_id)
+        messages.success(request, f'Removed {product.title}')
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)
+
