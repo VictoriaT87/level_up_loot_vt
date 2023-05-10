@@ -29,18 +29,19 @@
                             class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
                             </option>
-                            <option value="created_on__desc" {% if current_sorting == 'date_desc' %}selected{% endif %}>New Arrivals</option>
+                            <option value="created_on__desc" {% if current_sorting == 'date_desc' %}selected{% endif %}>
+                                New Arrivals</option>
                             <option value="average_rating__desc" {% if current_sorting == 'average_rating__desc' %}selected{% endif %}>
                                 Top Rated</option>
                             <option value="price__asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
                                 (low to high)</option>
                             <option value="price__desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
-                                    (high to low)</option>
+                                (high to low)</option>
                             <option value="title__asc" {% if current_sorting == 'title__asc' %}selected{% endif %}>Name
                                 (A-Z)</option>
                             <option value="title__desc" {% if current_sorting == 'title__desc' %}selected{% endif %}>Name
                                 (Z-A)</option>
-                            
+
                         </select>
                     </div>
                 </div>
@@ -69,12 +70,14 @@
                     <h4 class="card-title text-center mt-auto">{{ product.title }}</h4>
                     <div class="mt-auto card-links">
                         {% if product.brand %}
-                        <a class="product-links text-decoration-none" href="{% url 'products' %}?brand={{ product.brand.name }}">
+                        <a class="product-links text-decoration-none"
+                            href="{% url 'products' %}?brand={{ product.brand.name }}">
                             <span class="p-2 mt-4 text-black">Brand: {{ product.brand.friendly_name }}</span>
                         </a>
                         {% endif %}
                         {% if product.category %}
-                        <a class="product-links text-decoration-none" href="{% url 'products' %}?category={{ product.category.name }}">
+                        <a class="product-links text-decoration-none"
+                            href="{% url 'products' %}?category={{ product.category.name }}">
                             <span class="p-2 mt-4 text-black">Category: {{ product.category.friendly_name }}</span>
                         </a>
                         {% endif %}
@@ -85,6 +88,13 @@
                     {% else %}
                     <small class="text-muted d-flex justify-content-center mt-auto">No Rating</small>
                     {% endif %}
+                    <!-- if superuser, links for edit and delete -->
+                    {% if request.user.is_superuser %}
+                    <small class="ml-3">
+                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                    </small>
+                    {% endif %}
                 </div>
 
                 <div class="card-footer bg-white text-center mb-2">
@@ -92,7 +102,8 @@
                         <p class="h4 mb-0 pb-1"><span class="text-left brand-font">€{{ product.price }}</span></p>
                     </div>
 
-                    <a href="{% url 'product_detail' product.id %}" class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
+                    <a href="{% url 'product_detail' product.id %}"
+                        class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
 
                         <!-- <span class="icon">
                             <i class="fas fa-info"></i>
