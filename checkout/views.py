@@ -51,12 +51,16 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
-            order = order_form.save()
-
+            order = order_form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_cart = json.dumps(cart)
+            order.save()
             # from context processer
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
+                    # if item is integer, doesn't have size
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
@@ -64,9 +68,20 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
+                    else:
+                        # if item has size
+                        for size, quantity in item_data['items_by_size'].items():
+                            order_line_item = OrderLineItem(
+                                order=order,
+                                product=product,
+                                quantity=quantity,
+                                product_size=size,
+                            )
+                            order_line_item.save()
+                # if item doesn't exist
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your cart wasn't found. "
+                        "One of the products in your cart wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
