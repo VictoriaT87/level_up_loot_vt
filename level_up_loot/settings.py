@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-victoriat87-level-up-loo-rkld2p0dnf.us2.codeanyapp.com', 'localhost']
+    'https://8000-victoriat87-leveluploot-g4nbbne6o2l.ws-eu96b.gitpod.io/', 'localhost']
 
 
 # Application definition
