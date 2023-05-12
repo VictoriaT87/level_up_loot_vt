@@ -26,7 +26,7 @@
                 <form method="POST" action="{% url 'edit_product' product.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
-                        {% if field.title != 'image' %}
+                        {% if field.name != 'image' %}
                             {{ field | as_crispy_field }}
                         {% else %}
                             {{ field }}
