@@ -1,0 +1,1 @@
+web: gunicorn level_up_loot.wsgi:application
