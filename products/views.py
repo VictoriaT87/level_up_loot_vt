@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Brand, Category
-from .forms import ProductForm
+from .models import Product, Brand, Category, Reviews
+from .forms import ProductForm, ReviewsForm
 
 import random
 
@@ -85,9 +85,13 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     products = Product.objects.all()
 
+    reviews = Reviews.objects.filter(
+        product=product).order_by('-created_on')
+
     template = 'products/product_detail.html'
     context = {
         'product': product,
+        'reviews': reviews,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -168,3 +172,25 @@ def delete_product(request, product_id):
     messages.info(request, f'{product_title} deleted')
 
     return redirect(reverse('products'))
+
+
+def add_review(request, product_id):
+    """ Add a Product Review """
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        review_form = ReviewsForm(request.POST)
+
+        if review_form.is_valid():
+                Reviews.objects.create(
+                        product=product,
+                        user=request.user,
+                        title=request.POST['title'],
+                        review=request.POST['review'],
+                )
+                reviews = Reviews.objects.filter(product=product)
+                messages.success(
+                    request, 'Your review has been successfully added!')
+                return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Your review has not been submitted')
+    return redirect(reverse('product_detail', args=[product.id]))

@@ -1,11 +1,13 @@
 from django.db import models
 from django.utils import timezone
 
+from django.contrib.auth.models import User
+
 # Create your models here.
 
 
 class Category(models.Model):
-
+    """ Model for all categories """
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -20,7 +22,7 @@ class Category(models.Model):
 
 
 class Brand(models.Model):
-
+    """ Model for all brands """
     class Meta:
         verbose_name_plural = 'Brands'
 
@@ -35,6 +37,7 @@ class Brand(models.Model):
 
 
 class Product(models.Model):
+    """ Model for all products """
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     brand = models.ForeignKey(
@@ -62,6 +65,19 @@ class Product(models.Model):
     @property
     def sale_price(self):
         return (self.price)-(self.discounted_price)
+
+    def __str__(self):
+        return self.title
+
+
+class Reviews(models.Model):
+    """ Model for product reviews """
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100, blank=True)
+    review = models.TextField(max_length=500, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
