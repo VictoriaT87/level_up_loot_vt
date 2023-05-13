@@ -136,12 +136,23 @@
         </div>
     </div>
     <div class="row d-flex mt-4 mb-4">
+        <div class="col-12{% if s %}-12 mt-2{% endif %} text-center w-70 d-flex flex-column mb-5 align-items-center">
+            <h3>Customer Reviews</h3>
+            {% for review in reviews %}
+                <div class="border reviews">
+                    <h4 class="font-weight-bold mb-2 mt-3">{{ review.title }}</p>
+                    <h5 class="font-weight-bold mb-2 mt-3">Posted by: {{ review.user }} on {{ review.created_on }}</p>
+                    <p class="text-black mb-2 mt-3">Review Text: {{ review.review }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% if user.is_authenticated %}
         <div class="col-12{% if s %}-12 mt-2{% endif %} text-center w-70 d-flex align-items-center justify-content-center">
-            <form action="{% url 'add_review' product.id %}" method="POST">
+            <form action="{% url 'add_review' product.id %}" method="POST" class="review-form">
                 {% csrf_token %}
-                <h5>Review This Product:</h5>
+                <h4>Review This Product</h4>
                 <div>
-                    Review Title:
+                    Title:
                     <input type="text" class="form-control" name="title">
                     <br>
                     Review:
@@ -150,16 +161,8 @@
                     <input type="submit" value="Submit Review" class="btn btn-black rounded-0">
                 </div>
             </form>
-            <div class="col-sm col-md-8 p-5 text-center">
-                <h3>Customer Reviews</h3>
-                {% for review in reviews %}
-                    <div class="border">
-                        <p class="font-weight-bold mb-2 mt-3">{{ review.title }} Posted by: {{ review.user }} on {{ review.created_on }}</p>
-                        <p class="text-black mb-2 mt-3">Review Text: {{ review.review }}</p>
-                    </div>
-                {% endfor %}
-            </div>
         </div> 
+        {% endif %}
         
     </div>
     <div class="row">

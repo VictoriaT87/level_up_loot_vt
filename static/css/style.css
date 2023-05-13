@@ -7,7 +7,7 @@ html {
 body {
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Righteous', cursive;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 .index-brands {
@@ -254,6 +254,14 @@ a.category-badge > span.badge:hover {
     text-decoration: line-through
 }
 
+.review-form {
+    width: 100%;
+}
+
+.reviews {
+    width: 100%;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -493,6 +501,14 @@ a.category-badge > span.badge:hover {
     .carousel-caption a {
         color: #fff;
         text-decoration: none;
+    }
+
+    .review-form {
+        width: 25%;
+    }
+
+    .reviews {
+        width: 25%;
     }
 }
 
