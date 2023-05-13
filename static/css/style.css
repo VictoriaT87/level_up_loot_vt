@@ -262,6 +262,12 @@ a.category-badge > span.badge:hover {
     width: 100%;
 }
 
+.delete-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
