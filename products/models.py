@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 from django.contrib.auth.models import User
+from profiles.models import UserProfile
 
 # Create your models here.
 
@@ -57,8 +58,7 @@ class Product(models.Model):
     discounted_price = models.IntegerField(null=True)
     created_on = models.DateField(default=timezone.now)
 
-    favourites = models.ManyToManyField(
-        User, related_name='favourite', default=None, blank=True)
+    favourites = models.ManyToManyField(UserProfile)
     
 
     @property

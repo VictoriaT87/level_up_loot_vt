@@ -10,6 +10,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Brand, Category, Reviews
 from .forms import ProductForm, ReviewsForm
+from profiles.models import UserProfile
 
 import random
 
@@ -231,12 +232,3 @@ class DeleteReview(LoginRequiredMixin, DeleteView):
         return super(DeleteReview, self).delete(
             request, *args, **kwargs)
 
-
-@ login_required
-def add_favourite(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
-    if product.favourites.filter(id=request.user.id).exists():
-        product.favourites.remove(request.user)
-    else:
-        product.favourites.add(request.user)
-    return redirect(reverse('product_detail', args=[product.id]))

@@ -55,19 +55,6 @@
                     <div class="card-body">
                         <p class="mt-3">{{ product.description }}</p>
                     </div>
-                    {% if request.user.is_authenticated %}
-
-                    {% if fav %}
-                    <div>
-                        <a href="" class="favourites"><i class="far fa-heart"></i></a>
-                    </div>
-                    {% else %}
-                    <div>
-                      <a href="{% url 'add_favourite' product.id %}" class="favourites"><i class="far fa-heart"></i></a>
-                    </div>
-                    {% endif %}
-
-                    {% endif %}
                     {% if product.average_rating %}
                     <small class="text-muted d-flex justify-content-center align-items-center mt-auto">
                         User Rating:
