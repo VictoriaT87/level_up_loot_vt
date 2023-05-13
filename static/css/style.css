@@ -502,14 +502,6 @@ a.category-badge > span.badge:hover {
         color: #fff;
         text-decoration: none;
     }
-
-    .review-form {
-        width: 25%;
-    }
-
-    .reviews {
-        width: 25%;
-    }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */

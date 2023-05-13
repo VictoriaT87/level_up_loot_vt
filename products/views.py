@@ -1,6 +1,11 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.http import HttpResponseRedirect
+from django.views.generic import UpdateView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Brand, Category, Reviews
@@ -54,14 +59,13 @@ def all_products(request):
             query = request.GET['q']
             if not query:
                 messages.error(
-                               request,
-                               "You didn't enter any search criteria!")
+                    request,
+                    "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
             queries = (Q(title__icontains=query) |
                        Q(description__icontains=query))
             products = products.filter(queries)
-
 
     current_sorting = f'{sort}_{direction}'
 
@@ -174,6 +178,7 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
+@login_required
 def add_review(request, product_id):
     """ Add a Product Review """
     product = get_object_or_404(Product, pk=product_id)
@@ -181,16 +186,30 @@ def add_review(request, product_id):
         review_form = ReviewsForm(request.POST)
 
         if review_form.is_valid():
-                Reviews.objects.create(
-                        product=product,
-                        user=request.user,
-                        title=request.POST['title'],
-                        review=request.POST['review'],
-                )
-                reviews = Reviews.objects.filter(product=product)
-                messages.success(
-                    request, 'Your review has been successfully added!')
-                return redirect(reverse('product_detail', args=[product.id]))
+            Reviews.objects.create(
+                product=product,
+                user=request.user,
+                title=request.POST['title'],
+                review=request.POST['review'],
+            )
+            reviews = Reviews.objects.filter(product=product)
+            messages.success(
+                request, 'Your review has been successfully added!')
+            return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Your review has not been submitted')
     return redirect(reverse('product_detail', args=[product.id]))
+
+
+class UpdateReview(LoginRequiredMixin,
+                   SuccessMessageMixin, UpdateView):
+    """
+    A view to edit a Review
+    """
+    model = Reviews
+    form_class = ReviewsForm
+    template_name = "products/edit_review.html"
+    success_message = "Your review was updated!"
+
+    def get_success_url(self):
+        return reverse('product_detail', kwargs={'product_id': self.object.product_id})

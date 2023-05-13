@@ -17,9 +17,9 @@
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
             <div class="image-container my-3">
                 {% if product.image %}
-                    <img class="card-img-top product-image-lg" src="{{ product.image.url }}" alt="{{ product.title }}">
+                <img class="card-img-top product-image-lg" src="{{ product.image.url }}" alt="{{ product.title }}">
                 {% else %}
-                    <img class="card-img-top product-image-lg" src="" alt="{{ product.title }}">
+                <img class="card-img-top product-image-lg" src="" alt="{{ product.title }}">
                 {% endif %}
             </div>
         </div>
@@ -65,7 +65,7 @@
                     <!-- if superuser, links for edit and delete -->
                     {% if request.user.is_superuser %}
                     <small class="ml-3">
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
                         <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                     {% endif %}
@@ -74,18 +74,18 @@
             <div class="price-box">
                 {% if product.on_sale %}
                 <p class="mb-0 pt-3 pb-1 text-center">
-                     Sale Price:
+                    Sale Price:
                     <span class="h3 text-left font-weight-bold price-font">
-                    €{{ product.sale_price|floatformat:2 }}</span>
+                        €{{ product.sale_price|floatformat:2 }}</span>
                 </p>
                 <p class="mb-0 pt-3 pb-1 text-center">
                     Original Price:
                     <span class="h3 text-left font-weight-bold price-font-original text-decoration-line-through">
-                    €{{ product.price }}</span>
+                        €{{ product.price }}</span>
                 </p>
                 {% else %}
                 <p class="mb-0 pt-3 pb-1 text-center"><span class="h3 text-left font-weight-bold price-font">
-                    €{{ product.price }}</span></p>
+                        €{{ product.price }}</span></p>
                 {% endif %}
             </div>
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
@@ -135,19 +135,26 @@
             </form>
         </div>
     </div>
-    <div class="row d-flex mt-4 mb-4">
-        <div class="col-12{% if s %}-12 mt-2{% endif %} text-center w-70 d-flex flex-column mb-5 align-items-center">
+    <div class="row d-flex mt-4 mb-4 align-content-center justify-content-center flex-column">
+        <div class="col-6{% if s %}-12 mt-2{% endif %} text-center d-flex flex-column mb-5 align-items-center">
             <h3>Customer Reviews</h3>
             {% for review in reviews %}
-                <div class="border reviews">
-                    <h4 class="font-weight-bold mb-2 mt-3">{{ review.title }}</p>
-                    <h5 class="font-weight-bold mb-2 mt-3">Posted by: {{ review.user }} on {{ review.created_on }}</p>
-                    <p class="text-black mb-2 mt-3">Review Text: {{ review.review }}</p>
-                </div>
+            <div class="border reviews">
+                <h5 class="font-weight-bold text-black p-1 mb-2 mt-3">{{ review.title }}</h5>
+                    <h6 class="font-weight-bold text-black p-1 mb-2 mt-1">Posted by: {{ review.user }} on {{ review.created_on }}</h6>
+                        <p class="text-black font-size-larger mb-2 mt-3">{{ review.review }}</p>
+            </div>
+            {% if review.user == request.user or request.user.is_superuser %}
+            <div>
+                <a href="{% url 'update_review' review.id %}" class="btn btn-black my-2 ml-2">Update Review</a>
+            </div>
+            {% endif %}
             {% endfor %}
+
         </div>
         {% if user.is_authenticated %}
-        <div class="col-12{% if s %}-12 mt-2{% endif %} text-center w-70 d-flex align-items-center justify-content-center">
+        <div
+            class="col-6{% if s %}-12 mt-2{% endif %} text-center w-70 d-flex align-items-center justify-content-center">
             <form action="{% url 'add_review' product.id %}" method="POST" class="review-form">
                 {% csrf_token %}
                 <h4>Review This Product</h4>
@@ -161,12 +168,9 @@
                     <input type="submit" value="Submit Review" class="btn btn-black rounded-0">
                 </div>
             </form>
-        </div> 
+        </div>
         {% endif %}
-        
-    </div>
-    <div class="row">
-        
+
     </div>
 </div>
 
