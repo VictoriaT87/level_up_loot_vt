@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -222,7 +222,7 @@ class DeleteReview(LoginRequiredMixin, DeleteView):
     model = Reviews
     template_name = "products/delete_review.html"
     success_message = "Review deleted successfully."
-   
+
     def get_success_url(self):
         return reverse('product_detail', kwargs={'product_id': self.object.product_id})
 
@@ -230,3 +230,13 @@ class DeleteReview(LoginRequiredMixin, DeleteView):
         messages.success(self.request, self.success_message)
         return super(DeleteReview, self).delete(
             request, *args, **kwargs)
+
+
+@ login_required
+def add_favourite(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if product.favourites.filter(id=request.user.id).exists():
+        product.favourites.remove(request.user)
+    else:
+        product.favourites.add(request.user)
+    return redirect(reverse('product_detail', args=[product.id]))

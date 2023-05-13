@@ -55,6 +55,19 @@
                     <div class="card-body">
                         <p class="mt-3">{{ product.description }}</p>
                     </div>
+                    {% if request.user.is_authenticated %}
+
+                    {% if fav %}
+                    <div>
+                        <a href="" class="favourites"><i class="far fa-heart"></i></a>
+                    </div>
+                    {% else %}
+                    <div>
+                      <a href="{% url 'add_favourite' product.id %}" class="favourites"><i class="far fa-heart"></i></a>
+                    </div>
+                    {% endif %}
+
+                    {% endif %}
                     {% if product.average_rating %}
                     <small class="text-muted d-flex justify-content-center align-items-center mt-auto">
                         User Rating:
@@ -141,8 +154,9 @@
             {% for review in reviews %}
             <div class="border reviews">
                 <h5 class="font-weight-bold text-black p-1 mb-2 mt-3">{{ review.title }}</h5>
-                    <h6 class="font-weight-bold text-black p-1 mb-2 mt-1">Posted by: {{ review.user }} on {{ review.created_on }}</h6>
-                        <p class="text-black font-size-larger mb-2 mt-3">{{ review.review }}</p>
+                <h6 class="font-weight-bold text-black p-1 mb-2 mt-1">Posted by: {{ review.user }} on {{
+                    review.created_on }}</h6>
+                <p class="text-black font-size-larger mb-2 mt-3">{{ review.review }}</p>
             </div>
             {% if review.user == request.user or request.user.is_superuser %}
             <div>

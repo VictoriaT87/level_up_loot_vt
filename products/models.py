@@ -56,6 +56,9 @@ class Product(models.Model):
     discount = models.IntegerField(default=0)
     discounted_price = models.IntegerField(null=True)
     created_on = models.DateField(default=timezone.now)
+
+    favourites = models.ManyToManyField(
+        User, related_name='favourite', default=None, blank=True)
     
 
     @property
