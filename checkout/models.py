@@ -13,6 +13,18 @@ from products.models import Product
 from profiles.models import UserProfile
 
 
+class Coupon(models.Model):
+    code = models.CharField(max_length=50, unique=True)
+    discount = models.IntegerField(help_text="Discount in Percentage")
+    active = models.BooleanField(default=True)
+    start_date = models.DateField()
+    expiry_date = models.DateField()
+    created_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.code
+
+
 class Order(models.Model):
     # number can't be edited, is permanent
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -41,6 +53,8 @@ class Order(models.Model):
     original_cart = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(
         max_length=254, null=False, blank=False, default='')
+    coupon = models.ForeignKey(Coupon, on_delete=models.SET_NULL,
+                               blank=True, null=True)
 
     def _generate_order_number(self):
         # underscore means private method, only used inside class
@@ -61,6 +75,8 @@ class Order(models.Model):
                 settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
+        if self.coupon is not None:
+            self.order_total = self.order_total - self.coupon.discount
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
