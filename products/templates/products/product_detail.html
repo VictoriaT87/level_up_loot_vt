@@ -89,11 +89,16 @@
                 {% endif %}
             </div>
             <div class="col pt-2 pl-0">
-                <p class="text-right mb-0">
-                    <span class="pr-1">Wishlist: </span>
+                <p class="wishlist-p">
+                    {% if wishlist %}
+                    <span class="pr-1">Remove from Wishlist: </span>
+                        <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist"><i class="fas fa-heart"></i></a>
+                    {% else %}
+                    <span class="pr-1">Add to Wishlist: </span>
                     <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
                         <i class="far fa-heart"></i>
                     </a>
+                    {% endif %}
                 </p>
             </div>
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">

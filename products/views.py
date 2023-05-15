@@ -11,6 +11,7 @@ from django.db.models.functions import Lower
 from .models import Product, Brand, Category, Reviews
 from .forms import ProductForm, ReviewsForm
 from profiles.models import UserProfile
+from wishlist.models import Wishlist
 
 import random
 
@@ -93,8 +94,12 @@ def product_detail(request, product_id):
     reviews = Reviews.objects.filter(
         product=product).order_by('-created_on')
 
+    user = get_object_or_404(UserProfile, user=request.user)
+    wishlist = Wishlist.objects.filter(user=user.user)
+
     template = 'products/product_detail.html'
     context = {
+        'wishlist': wishlist,
         'product': product,
         'reviews': reviews,
     }
