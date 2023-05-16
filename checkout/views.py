@@ -33,7 +33,7 @@ def add_coupon(request):
     try:
         coupon = Coupon.objects.get(code=code)
         request.session['coupon_id'] = coupon.id
-        messages.success(request, f'Coupon code: { code } applied')
+        messages.info(request, f'Coupon code: { code } applied')
     except Coupon.DoesNotExist:
         request.session['coupon_id'] = None
         messages.error(request, f'Sorry, { code } is not a valid code')

@@ -44,11 +44,14 @@ def cart_contents(request):
     else:
         grand_total = delivery + total
         stripe_total = round(grand_total * 100)
+
+    sub_total = total + delivery
     
     context = {
         'cart_items': cart_items,
         'coupon': coupon,
         'total': total,
+        'sub_total': sub_total,
         'product_count': product_count,
         'delivery': delivery,
         'discount': discount,
