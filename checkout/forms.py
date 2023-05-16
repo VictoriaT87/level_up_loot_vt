@@ -1,5 +1,13 @@
 from django import forms
-from .models import Order
+from .models import Order, Coupon
+
+
+class CouponForm(forms.Form):
+    code = forms.CharField(widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Promo code',
+    }))
+
 
 
 class OrderForm(forms.ModelForm):

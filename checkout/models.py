@@ -15,7 +15,7 @@ from profiles.models import UserProfile
 
 class Coupon(models.Model):
     code = models.CharField(max_length=50, unique=True)
-    discount = models.IntegerField(help_text="Discount in Percentage")
+    discount = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0, help_text="Discount in Percentage")
     active = models.BooleanField(default=True)
     start_date = models.DateField()
     expiry_date = models.DateField()

@@ -3,8 +3,9 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from .forms import OrderForm
+from .forms import OrderForm, CouponForm
 from .models import Order, OrderLineItem
+from .models import Coupon
 
 from products.models import Product
 from profiles.models import UserProfile
@@ -13,6 +14,33 @@ from cart.contexts import cart_contents
 
 import stripe
 import json
+
+
+def get_coupon(request, code):
+    # coupon code based on freeCodeCamp.org
+    # credited in README
+    try:
+        coupon = Coupon.objects.get(code=code)
+        return coupon
+    except ObjectDoesNotExist:
+        messages.info(request, "This coupon does not exist")
+        return redirect('checkout')
+
+
+def add_coupon(request):
+    code = request.POST.get('code')
+
+    try:
+        coupon = Coupon.objects.get(code=code)
+        request.session['coupon_id'] = coupon.id
+        messages.success(request, f'Coupon code: { code } applied')
+    except Coupon.DoesNotExist:
+        request.session['coupon_id'] = None
+        messages.error(request, f'Sorry, { code } is not a valid code')
+        return redirect('checkout')
+    else:
+        return redirect('checkout')
+
 
 @require_POST
 def cache_checkout_data(request):
@@ -38,6 +66,8 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
+    coupon_form = CouponForm()
+
     if request.method == 'POST':
         cart = request.session.get('cart', {})
 
@@ -54,6 +84,11 @@ def checkout(request):
         }
         order_form = OrderForm(form_data)
         if order_form.is_valid():
+            coupon = request.session.get('coupon_id')
+            if coupon is not None:
+                code = Coupon.objects.get(pk=coupon)
+                order.coupon = code
+                request.session['coupon_id'] = None
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
@@ -132,6 +167,7 @@ def checkout(request):
         'order_form': order_form,
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
+        'coupon_form': coupon_form,
     }
 
     return render(request, template, context)
