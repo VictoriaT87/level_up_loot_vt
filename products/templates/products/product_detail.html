@@ -15,7 +15,7 @@
 <div class="container-fluid mt-4 mb-5">
     <div class="row">
         <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-            <div class="image-container my-3">
+            <div class="image-container">
                 {% if product.image %}
                 <img class="card-img-top product-image-lg" src="{{ product.image.url }}" alt="{{ product.title }}">
                 {% else %}
@@ -58,7 +58,7 @@
                     {% if product.average_rating %}
                     <small class="text-muted d-flex justify-content-center align-items-center mt-auto">
                         User Rating:
-                        <i class="fas fa-star mr-1"></i> {{product.average_rating }} / 5</small>
+                        <i class="fas fa-star ml-2 mr-1"></i> {{product.average_rating }} / 5</small>
                     {% else %}
                     <small class="text-muted d-flex justify-content-center mt-auto">No Rating</small>
                     {% endif %}
@@ -88,18 +88,18 @@
                         €{{ product.price }}</span></p>
                 {% endif %}
             </div>
-            <div class="col pt-2 pl-0">
-                <p class="wishlist-p">
+            <div class="mt-2 wishlist-div d-flex justify-content-center">
                     {% if wishlist %}
-                    <span class="pr-1">Remove from Wishlist: </span>
-                        <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist"><i class="fas fa-heart"></i></a>
+                    <span class="pr-4 d-flex">Remove from Wishlist: </span>
+                        <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
+                            <div class="wishlist-icon"><i class="fas fa-heart"></i></div>
+                        </a>
                     {% else %}
-                    <span class="pr-1">Add to Wishlist: </span>
+                    <span class="pr-4 d-flex">Add to Wishlist: </span>
                     <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
-                        <i class="far fa-heart"></i>
+                        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
                     </a>
                     {% endif %}
-                </p>
             </div>
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
@@ -169,7 +169,7 @@
         </div>
         {% if user.is_authenticated %}
         <div
-            class="col-6{% if s %}-12 mt-2{% endif %} text-center w-70 d-flex align-items-center justify-content-center">
+            class="col-6{% if s %}-12 mt-2{% endif %} text-center w-70 d-flex align-items-center justify-content-center mb-5">
             <form action="{% url 'add_review' product.id %}" method="POST" class="review-form">
                 {% csrf_token %}
                 <h4>Review This Product</h4>

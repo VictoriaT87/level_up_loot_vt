@@ -276,6 +276,15 @@ a.category-badge > span.badge:hover {
     color: #000;
 }
 
+.product-image-lg {
+    max-width: 600px;
+}
+
+.image-container {
+    margin-top: 2em;
+}
+
+
 /* from Bulma */
 .icon {
     align-items: center;
