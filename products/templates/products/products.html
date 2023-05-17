@@ -91,16 +91,31 @@
                     <!-- if superuser, links for edit and delete -->
                     {% if request.user.is_superuser %}
                     <small class="ml-3">
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> | 
+                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
                         <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                     {% endif %}
                 </div>
 
                 <div class="card-footer bg-white text-center mb-2">
-                    <div class="price-box mb-1">
-                        <p class="h4 mb-0 pb-1"><span class="text-left brand-font">€{{ product.price }}</span></p>
+                    {% if product.on_sale %}
+                    <div class="bg-white text-center mb-2">
+                        <p class="mb-0 pt-3 text-center">
+                            Sale Price:
+                            <span class="h4 text-left font-weight-bold price-font">
+                                €{{ product.sale_price|floatformat:2 }}</span>
+                        </p>
+                        <p class="mb-0 pt-3 text-center">
+                            Price:
+                            <span
+                                class="h4 text-left font-weight-bold price-font-original text-decoration-line-through">
+                                €{{ product.price }}</span>
+                        </p>
                     </div>
+                    {% else %}
+                    <p class="mb-0 pt-3 pb-1 text-center"><span class="h3 text-left font-weight-bold price-font">
+                            €{{ product.price }}</span></p>
+                    {% endif %}
 
                     <a href="{% url 'product_detail' product.id %}"
                         class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
