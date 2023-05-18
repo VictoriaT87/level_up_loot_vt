@@ -4,23 +4,28 @@
 {% block content %}
 <section class="carousel">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img class="d-block w-100" src="/media/slide-2.png" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <a href="{% url 'products' %}">Shop Now</a>
+                    <a href="/products/32/">Shop Now</a>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="/media/slide-3.png" alt="Second slide">
+                <img class="d-block w-100 second-slide" src="/media/slide-3.png" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block text-black">
-                    <a href="{% url 'products' %}" class=" slide-two">Shop Now</a>
+                    <a href="/products/26/" class=" slide-two">Shop Now</a>
                 </div>
             </div>
             <div class="carousel-item">
                 <img class="d-block w-100" src="/media/slide-1.png" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <a href="{% url 'products' %}">Shop Now</a>
+                    <a href="/products/47/">Shop Now</a>
                 </div>
             </div>
         </div>
@@ -90,14 +95,18 @@
         <div class="row brand-logo-row">
             <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
                 <a href="{% url 'products' %}?brand=funko"><img src="/media/funko-logo.png" alt="funko logo"></a>
-                <a href="{% url 'products' %}?brand=dark_horse"><img src="/media/darkhorse-logo.png" alt="darkhorse logo"></a>
-                <a href="{% url 'products' %}?brand=pure_arts"><img src="/media/purearts-logo.png" alt="pure arts logo"></a>
+                <a href="{% url 'products' %}?brand=dark_horse"><img src="/media/darkhorse-logo.png"
+                        alt="darkhorse logo"></a>
+                <a href="{% url 'products' %}?brand=pure_arts"><img src="/media/purearts-logo.png"
+                        alt="pure arts logo"></a>
 
             </div>
             <div class="col-sm-6 col-md-3 col-lg-3 col-xl-3">
-                <a href="{% url 'products' %}?brand=mcfarlane"><img src="/media/mcfarlane-logo.png" alt="hasbro logo"></a>
+                <a href="{% url 'products' %}?brand=mcfarlane"><img src="/media/mcfarlane-logo.png"
+                        alt="hasbro logo"></a>
                 <a href="{% url 'products' %}?brand=hasbro"><img src="/media/hasbro-logo.png" alt="hasbro logo"></a>
-                <a href="{% url 'products' %}?brand=sideshow"><img src="/media/sideshow-logo.png" alt="sideshow logo"></a>
+                <a href="{% url 'products' %}?brand=sideshow"><img src="/media/sideshow-logo.png"
+                        alt="sideshow logo"></a>
             </div>
         </div>
     </div>

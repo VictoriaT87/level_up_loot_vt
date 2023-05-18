@@ -631,6 +631,10 @@ a.category-badge > span.badge:hover {
         margin-top: 5em;
     }
 
+    .carousel-indicators {
+        bottom: 60px;
+    }
+
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         height: 100px;
