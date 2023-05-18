@@ -29,7 +29,6 @@ body {
 }
 
 .brand-logo-row img {
-    margin: 2em;
     width: 100%;
 }
 
@@ -121,6 +120,19 @@ a:hover {
     z-index: -1;
 }
 
+.home div {
+    padding-top: 100px;
+}
+
+.home div h1 {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.home p {
+    font-size: 1.25em;
+}
+
 a.category-badge > span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
@@ -158,6 +170,16 @@ a.category-badge > span.badge:hover {
     border: 1px solid #e1e2e7 !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border-radius: 0.25rem;
+}
+
+.why-us {
+    padding: 2em 0;
+}
+
+.why-us h2 {
+    margin: 1em 0;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .why-us-item img {
@@ -499,6 +521,10 @@ a.category-badge > span.badge:hover {
         z-index: 1030;
     }
 
+    .home div {
+        padding-top: 0;
+    }
+
     .header-container {
         padding-top: 164px;
     }
@@ -519,8 +545,12 @@ a.category-badge > span.badge:hover {
         display: contents;
     }
 
+    .carousel-item {
+        height: 100%;
+    }
+
     .carousel-inner {
-        height: 80vh;
+        margin-top: 5em;
     }
 
     .carousel-control-prev-icon,
@@ -551,6 +581,10 @@ a.category-badge > span.badge:hover {
         color: #fff;
         text-decoration: none;
     }
+}
+
+@media only screen and (min-width: 768px) {
+    
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
