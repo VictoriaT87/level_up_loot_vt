@@ -1,6 +1,5 @@
 .order-history {
     max-height: 416px; /* height of profile form + submit button */
-    overflow-y: auto;
 }
 
 #profile-update-form .form-control {
@@ -18,4 +17,10 @@
 
 #id_default_country option:first-child {
     color: #aab7c4;
+}
+
+@media (max-width: 991px) {
+    .order-history {
+        margin-top: 1em;
+    }
 }

@@ -291,6 +291,7 @@ a.category-badge > span.badge:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 5em;
 }
 
 .favourites {
@@ -363,6 +364,16 @@ a.category-badge > span.badge:hover {
 
 .btn-black {
     background: black;
+    color: white;
+}
+
+.btn-red {
+    background: red;
+    color: white;
+}
+
+.btn-red:hover {
+    background: rgb(255, 67, 67);
     color: white;
 }
 

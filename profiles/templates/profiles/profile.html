@@ -31,11 +31,11 @@
                     {{ form|crispy }}
                     <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
                 </form>
-                <a class='profile-btns mobile-profile-btns btn btn-secondary btn-lg mt-1 mb-1'
+                <a class='btn btn-red rounded-0 text-uppercase'
             href="{% url 'user-delete' user.pk %}">Delete
             Account</a>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 order-history">
                 <p class="text-muted">Order History</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
