@@ -249,6 +249,10 @@ a.category-badge > span.badge:hover {
     line-height: 35px;
 }
 
+.product-detail {
+    justify-content: space-evenly;
+}
+
 .quantity-form {
     display: flex;
     align-items: baseline;

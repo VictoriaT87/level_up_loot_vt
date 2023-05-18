@@ -83,14 +83,14 @@
                         {% endif %}
                     </div>
                     {% if product.average_rating %}
-                    <small class="text-muted d-flex justify-content-center mt-auto">
+                    <small class="text-muted d-flex justify-content-center mt-auto align-items-center">
                         <i class="fas fa-star mr-1"></i>{{product.average_rating }} / 5</small>
                     {% else %}
                     <small class="text-muted d-flex justify-content-center mt-auto">No Rating</small>
                     {% endif %}
                     <!-- if superuser, links for edit and delete -->
                     {% if request.user.is_superuser %}
-                    <small class="ml-3">
+                    <small class="ml-3 mt-2">
                         <a href="{% url 'edit_product' product.id %}">Edit</a> |
                         <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
