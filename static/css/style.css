@@ -518,6 +518,68 @@ a.category-badge > span.badge:hover {
     overflow-y: auto;
 }
 
+/* Footer */
+
+.footer {
+    flex-shrink: 0;
+    background-color: black;
+    text-align: center;
+}
+
+.footer-container {
+    padding-bottom: 20px;
+}
+
+.footer .row {
+    padding-top: 20px;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content {
+    color: #fff;
+}
+
+.footer-col {
+    padding-top: 20px;
+}
+
+.footer-row {
+    padding: 0;
+    margin: 0;
+}
+
+.social-links {
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+.social-links a {
+    text-decoration: none;
+}
+
+.social-links i {
+    padding: 10px;
+}
+
+.copyright,
+.credits {
+    color: #fff;
+}
+
+.form-control {
+    width: 100%;
+    text-align: center;
+    display: flex;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
