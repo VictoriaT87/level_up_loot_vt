@@ -54,7 +54,6 @@ def cart_contents(request):
         'sub_total': sub_total,
         'product_count': product_count,
         'delivery': delivery,
-        'discount': discount,
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,

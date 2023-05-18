@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black m-5 delete-div">
+  <div class="verticle-center">
+    <h2 class="delete">Delete your account</h2>
+    <hr>
+    <p class="delete-p">Are you sure you want to delete your account? This action cannot be undone.</p>
+    <form action="." method="POST" class="padding" id="delete">{% csrf_token %}
+      {{ form.as_p}}
+      <button type="submit" class="btn btn-secondary profile-btns">Confirm</button>
+      <a class="btn btn-outline-secondary" href="{% url 'user-delete' user.pk %}">Return</a>
+    </form>
+  </div>
+</div>
+{%endblock%}

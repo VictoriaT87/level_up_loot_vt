@@ -1,6 +1,13 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+from django.urls import reverse, reverse_lazy
+from django.http import HttpResponseRedirect
+
+from django.views.generic import View, UpdateView, DetailView, DeleteView
+from django.contrib import messages
 
 from .models import UserProfile
 from .forms import UserProfileForm
@@ -51,3 +58,27 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+class DeleteProfile(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """
+    Deletes the currently signed-in user and all associated data.
+    """
+
+    model = UserProfile
+    template_name = "profiles/profile_delete.html"
+    form_class = UserProfileForm
+    success_url = reverse_lazy("home")
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.user == self.request.user
+
+    def delete(self, request, *args, **kwargs):
+        """
+        Delete Profile for logged in user
+        """
+        user = self.get_object().user
+        user.delete()
+        messages.success(self.request, "Profile successfully deleted")
+        return HttpResponseRedirect(self.success_url)
