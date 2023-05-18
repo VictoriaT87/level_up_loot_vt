@@ -160,9 +160,8 @@ a.category-badge > span.badge:hover {
     border-radius: 0.25rem;
 }
 
-.brands {
-    margin: -25px;
-    background-color: #f6f6f6;
+.why-us-item img {
+    width: 100px;
 }
 
 /* -------------------------------- Product Form including clearable file input widget to handle image field */
@@ -282,6 +281,33 @@ a.category-badge > span.badge:hover {
 
 .image-container {
     margin-top: 2em;
+}
+
+.why-us {
+    background-color: #f6f6f6;
+}
+
+.why-us .why-us-item {
+    padding: 15px;
+    background: var(--color-default);
+    height: 100%;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.why-us .why-us-item h3 {
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    padding-bottom: 8px;
+    font-size: 22px;
+    position: relative;
+    text-align: center;
+}
+
+.why-us .why-us-item p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
 }
 
 
