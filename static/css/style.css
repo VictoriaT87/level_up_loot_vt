@@ -5,6 +5,9 @@ html {
 }
 
 body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Fjalla One', sans-serif;
@@ -63,7 +66,7 @@ a:hover {
 }
 
 .dropdown-menu {
-    visibility:visible;
+    visibility: visible;
     border-radius: 0;
     font-weight: bold;
     padding: 0;
@@ -74,7 +77,8 @@ a:hover {
 .dropdown-menu {
     background-color: #fff;
     color: #000;
-    margin: -0.125rem 0 0; /* dropdown stays open on hover */
+    margin: -0.125rem 0 0;
+    /* dropdown stays open on hover */
 }
 
 .dropdown-item {
@@ -91,10 +95,10 @@ a:hover {
 /* dropdown open on hover: https://stackoverflow.com/questions/46604391/how-to-open-dropdown-on-hover-in-bootstrap-4*/
 .dropdown:hover>.dropdown-menu {
     display: block;
-   }
+}
 
 .dropdown>.dropdown-toggle:active {
-    pointer-events: none; 
+    pointer-events: none;
 }
 
 .nav-icon,
@@ -134,7 +138,7 @@ a:hover {
     font-size: 1.25em;
 }
 
-a.category-badge > span.badge:hover {
+a.category-badge>span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
 }
@@ -257,7 +261,7 @@ a.category-badge > span.badge:hover {
 .quantity-form {
     display: flex;
     align-items: baseline;
-    
+
     justify-content: center;
 }
 
@@ -399,8 +403,10 @@ a.category-badge > span.badge:hover {
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
-    margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* text-secondary */
+    margin-top: 1.5rem;
+    /* mt-4 */
+    color: #6c757d;
+    /* text-secondary */
 }
 
 .allauth-form-inner-content input {
@@ -418,8 +424,8 @@ a.category-badge > span.badge:hover {
 
 .allauth-form-inner-content button,
 .allauth-form-inner-content input[type='submit'] {
-	/* btn */
-	display: inline-block;
+    /* btn */
+    display: inline-block;
     font-weight: 400;
     color: #fff;
     text-align: center;
@@ -436,18 +442,19 @@ a.category-badge > span.badge:hover {
     border-radius: 0;
 
     /* standard bootstrap btn transitions */
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .allauth-form-inner-content button:hover,
-.allauth-form-inner-content input[type='submit']:hover {	
-	color: #fff;
+.allauth-form-inner-content input[type='submit']:hover {
+    color: #fff;
     background-color: #222;
     border-color: #222;
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+    color: #17a2b8;
+    /* text-info */
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -469,10 +476,10 @@ a.category-badge > span.badge:hover {
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
@@ -521,6 +528,7 @@ a.category-badge > span.badge:hover {
 /* Footer */
 
 .footer {
+    margin-top: 3em;
     flex-shrink: 0;
     background-color: black;
     text-align: center;
@@ -665,9 +673,7 @@ a.category-badge > span.badge:hover {
     }
 }
 
-@media only screen and (min-width: 768px) {
-    
-}
+@media only screen and (min-width: 768px) {}
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
@@ -711,7 +717,8 @@ a.category-badge > span.badge:hover {
         font-size: .75rem;
     }
 
-    .increment-qty, .decrement-qty {
+    .increment-qty,
+    .decrement-qty {
         padding: .25rem .5rem !important;
     }
 }
