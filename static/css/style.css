@@ -106,6 +106,10 @@ a:hover {
     color: #000;
 }
 
+#sale-link {
+    color: crimson;
+}
+
 .search-button {
     background-color: #000;
     color: #fff;
@@ -588,12 +592,6 @@ a.category-badge>span.badge:hover {
 .copyright,
 .credits {
     color: #fff;
-}
-
-.form-control {
-    width: 100%;
-    text-align: center;
-    display: flex;
 }
 
 /* -------------------------------- Media Queries */
