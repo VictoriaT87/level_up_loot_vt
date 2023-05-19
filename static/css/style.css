@@ -304,6 +304,19 @@ a.category-badge>span.badge:hover {
     width: 100%;
 }
 
+.delete {
+    text-transform: uppercase;
+    font-size: xx-large;
+}
+
+.delete-div {
+    height: -webkit-fill-available;
+}
+
+#delete {
+    margin: 1em;
+}
+
 .delete-form {
     display: flex;
     flex-direction: column;
