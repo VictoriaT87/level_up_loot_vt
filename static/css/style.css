@@ -224,6 +224,14 @@ a.category-badge>span.badge:hover {
     margin: 1rem auto;
 }
 
+.delete-btn{
+    color: #dc3545;
+}
+
+.edit-btn {
+    color: #007bff;
+}
+
 .product-btn {
     color: #fff;
     background-color: #000;

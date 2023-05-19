@@ -65,9 +65,39 @@
                     <!-- if superuser, links for edit and delete -->
                     {% if request.user.is_superuser %}
                     <small class="ml-3">
-                        <a href="{% url 'edit_product' product.id %}">Edit</a> |
-                        <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                        <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a> |
+                        <button class="btn delete-btn" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
+                    <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog"
+                        aria-labelledBy="fm-modal-grid" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header m-auto">
+                                    <h1 class="text-center text-black">Attention!</h1>
+                                    <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row justify-content-center">
+                                            <div class="col-12 col-sm-6">
+                                                <p>Are you sure you want to delete {{product.title}}</p>
+                                                <p>This can not be undone.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <a class="text-danger delete-btn" href="{% url 'delete_product' product.id %}">Delete</a>
+                                    <button class="btn edit-btn" data-dismiss="modal">Cancel</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     </small>
+                    
                     {% endif %}
                 </div>
             </div>
@@ -89,17 +119,17 @@
                 {% endif %}
             </div>
             <div class="mt-2 wishlist-div d-flex justify-content-center">
-                    {% if wishlist %}
-                    <span class="pr-4 d-flex">Remove from Wishlist: </span>
-                        <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
-                            <div class="wishlist-icon"><i class="fas fa-heart"></i></div>
-                        </a>
-                    {% else %}
-                    <span class="pr-4 d-flex">Add to Wishlist: </span>
-                    <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
-                        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
-                    </a>
-                    {% endif %}
+                {% if wishlist %}
+                <span class="pr-4 d-flex">Remove from Wishlist: </span>
+                <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
+                    <div class="wishlist-icon"><i class="fas fa-heart"></i></div>
+                </a>
+                {% else %}
+                <span class="pr-4 d-flex">Add to Wishlist: </span>
+                <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
+                    <div class="wishlist-icon"><i class="far fa-heart"></i></div>
+                </a>
+                {% endif %}
             </div>
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
