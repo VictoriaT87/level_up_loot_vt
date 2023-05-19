@@ -13,6 +13,10 @@ body {
     font-family: 'Fjalla One', sans-serif;
 }
 
+.container {
+    min-height: 100%;
+}
+
 .index-brands {
     text-transform: uppercase;
     font-weight: 600;
@@ -228,7 +232,7 @@ a.category-badge>span.badge:hover {
     margin: 1rem auto;
 }
 
-.delete-btn{
+.delete-btn {
     color: #dc3545;
 }
 

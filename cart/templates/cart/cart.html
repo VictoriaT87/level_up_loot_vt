@@ -3,7 +3,7 @@
 {% load cart_tools %}
 
 {% block page_header %}
-<div class="container header-container">
+<div class="header-container">
     <div class="row">
         <div class="col"></div>
     </div>
@@ -118,8 +118,17 @@
                             </a>
                         </td>
                     </tr>
-                    {% endif %}
+                   {% else %}
+            <p class="lead mb-5">Your cart is empty.</p>
+            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Keep Shopping</span>
+            </a>
+            {% endif %} 
             </div>
+            
         </div>
     </div>
     {% endblock %}
