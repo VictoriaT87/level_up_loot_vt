@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
+from django.core.mail import send_mail
+from django.contrib import messages
+
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -18,27 +22,18 @@ def faqs(request):
 
 
 def contact(request):
-    """
-    Contact Page and Form
-    """
+    """ View to return Contact Us form """
     if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("thank-you"))
-        else:
-            messages.error(
-                request,
-                "Failed to send message. Please try again. All fields are required.",
-            )
+        message_name = request.POST['name']
+        message_email = request.POST['email']
+        message = request.POST['message']
 
-    form = ContactForm()
-    context = {"form": form}
-    return render(request, "home/contact.html", context)
-
-
-def contact_thank_you(request):
-    """
-    Conact Thank You Page
-    """
-    return render(request, "home/contact_thank_you.html")
+        send_mail('message from ' + message_name,
+                  message + ' reply to this message ' + message_email,
+                  message_email,
+                  ['victoriaemt@gmail.com'])
+        messages.success(request,
+                         'Thank You, your email has been sent. We will contact you shortly.')
+        return render(request, "home/contact.html")
+    else:
+        return render(request, "home/contact.html")

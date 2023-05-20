@@ -1,4 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+/* Root Colours */
+
+:root {
+    --color-default: #555;
+    --blue: #3d85c6;
+    --black: #000;
+    --white: #fff;
+}
+
+:root {
+    scroll-behavior: smooth;
+}
 
 html {
     height: 100%;
@@ -177,8 +188,8 @@ a.category-badge>span.badge:hover {
 }
 
 #delivery-banner {
-    background-color: #f6f6f6;
-    color: #000;
+    background-color: var(--blue);
+    color: var(--white);
     text-transform: uppercase;
 }
 
@@ -252,14 +263,14 @@ a.category-badge>span.badge:hover {
 }
 
 .product-btn {
-    color: #fff;
-    background-color: #000;
+    color: var(--white);
+    background-color: var(--blue);
 }
 
 .product-btn:hover {
-    color: #000;
+    color: var(--blue);
     background-color: #fff;
-    border: 1px solid black;
+    border: 1px solid var(--blue);
 }
 
 .product-links {
@@ -394,7 +405,7 @@ a.category-badge>span.badge:hover {
 
 .logo-font {
     text-transform: uppercase;
-    color: #000;
+    color: var(--blue);
 }
 
 .main-logo-link {
@@ -564,6 +575,109 @@ a.category-badge>span.badge:hover {
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+/* Contact Page */
+
+.contact h2 {
+    color: var(--blue);
+    text-align: center;
+    padding: 20px;
+}
+
+.contact .container .row {
+    margin-bottom: 20px;
+}
+
+.contact .info-item {
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+    padding: 20px 0 30px 0;
+}
+
+.contact .info-item i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+    line-height: 0;
+    color: var(--blue);
+    border-radius: 50%;
+    border: 2px dotted var(--blue);
+}
+
+.contact .info-item h3 {
+    font-size: 20px;
+    color: var(--blue);
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.contact .info-item p {
+    padding: 0;
+    line-height: 24px;
+    font-size: 1em;
+    margin-bottom: 0;
+}
+
+.contact-form-container {
+    margin: auto;
+}
+
+.contact-form {
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+    padding: 0 30px 30px 30px;
+}
+
+.contact-form label {
+    color: var(--blue);
+    font-size: 1.5em;
+}
+
+.contact-form .form-group {
+    padding-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 18px;
+    margin: 1em;
+}
+
+.contact-form .message {
+    height: 150px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--color-primary);
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact-form .contact-p {
+    text-align: center;
+    color: var(--blue);
+    font-size: 1.4em;
+}
+
+#contact-form p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* Footer */
 
