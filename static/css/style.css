@@ -165,7 +165,7 @@ a:hover {
 
 .faqs {
     text-align: center;
-    width: 80%;
+    max-width: 980px;
     margin: auto;
 }
 
