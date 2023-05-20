@@ -28,27 +28,10 @@ body {
     min-height: 100%;
 }
 
-.index-brands {
+.index-title {
+    color: var(--blue);
     text-transform: uppercase;
     font-weight: 600;
-}
-
-.brand-logo-row {
-    flex-direction: row;
-    justify-content: space-evenly;
-}
-
-.brand-logo-row div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: 2em;
-}
-
-.brand-logo-row img {
-    margin-top: 1em;
-    width: 100%;
 }
 
 .fixed-top {
@@ -68,7 +51,7 @@ body {
 .navbar-light .navbar-nav .show>.nav-link,
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:focus {
-    color: #000;
+    color: var(--blue);
 }
 
 a:hover {
@@ -91,7 +74,7 @@ a:hover {
 .dropdown-item,
 .dropdown-menu {
     background-color: #fff;
-    color: #000;
+    color: var(--blue);
     margin: -0.125rem 0 0;
     /* dropdown stays open on hover */
 }
@@ -104,7 +87,7 @@ a:hover {
 .dropdown-item:hover {
     color: #fff;
     text-decoration: none;
-    background-color: #000;
+    background-color: var(--blue);
 }
 
 /* dropdown open on hover: https://stackoverflow.com/questions/46604391/how-to-open-dropdown-on-hover-in-bootstrap-4*/
@@ -118,7 +101,7 @@ a:hover {
 
 .nav-icon,
 .nav-text {
-    color: #000;
+    color: var(--blue);
 }
 
 #sale-link {
@@ -126,7 +109,7 @@ a:hover {
 }
 
 .search-button {
-    background-color: #000;
+    background-color: var(--blue);
     color: #fff;
 }
 
@@ -144,11 +127,34 @@ a:hover {
     z-index: -1;
 }
 
+.brands {
+    display: flex;
+}
+
+.brand-logo-row {
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.brand-logo-row div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em;
+}
+
+.brand-logo-row img {
+    margin-top: 1em;
+    width: 100%;
+}
+
 .home div {
     padding-top: 100px;
 }
 
 .home div h1 {
+    color: var(--blue);
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -193,14 +199,6 @@ a.category-badge>span.badge:hover {
     text-transform: uppercase;
 }
 
-.carousel-item img {
-    width: 100%;
-}
-
-.carousel-caption .slide-two {
-    color: #000;
-}
-
 .card {
     border: 1px solid #e1e2e7 !important;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -208,17 +206,18 @@ a.category-badge>span.badge:hover {
 }
 
 .why-us {
-    padding: 2em 0;
+    padding: 2em;
 }
 
 .why-us h2 {
-    margin: 1em 0;
+    color: var(--white);
     text-transform: uppercase;
     font-weight: 600;
 }
 
 .why-us-item img {
     width: 100px;
+    filter: invert(1);
 }
 
 /* -------------------------------- Product Form including clearable file input widget to handle image field */
@@ -367,18 +366,18 @@ a.category-badge>span.badge:hover {
 }
 
 .why-us {
-    background-color: #f6f6f6;
+    background-color: var(--blue);
 }
 
 .why-us .why-us-item {
     padding: 15px;
-    background: var(--color-default);
     height: 100%;
     line-height: 1.8;
     text-align: center;
 }
 
 .why-us .why-us-item h3 {
+    color: var(--white);
     font-weight: 700;
     margin: 0 0 20px 0;
     padding-bottom: 8px;
@@ -738,6 +737,147 @@ a.category-badge>span.badge:hover {
 
 /* -------------------------------- Media Queries */
 
+
+@media screen and (min-width: 1366px) {
+    .brand-desktop .brand-desktop-links .brand-desktop-div {
+        padding: 0.5rem 2.75vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .rectangle {
+        position: relative;
+        border-top: 3.75vw solid transparent;
+        background-color: transparent;
+        overflow-y: visible;
+        z-index: 1
+    }
+
+    .brand-desktop .brand-desktop-text {
+        width: 50%;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 0 4rem 0 8rem;
+        color: #fff;
+        z-index: 1;
+    }
+
+    .brand-desktop .brand-desktop-text:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: var(--blue);
+        z-index: -1;
+    }
+
+    .brand-desktop .brand-desktop-text h2 {
+        margin: 0 0 2rem;
+    }
+
+    .brand-desktop .brand-desktop-links {
+        margin: 2em;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .brand-desktop .brand-desktop-links .brand-desktop-div {
+        max-width: 16.666%;
+        padding: .5rem 1vw
+    }
+
+    .brand-desktop .brand-desktop-links .brand-desktop-div a {
+        display: block;
+        -webkit-transition: -webkit-transform .3s linear;
+        transition: -webkit-transform .3s linear;
+        transition: transform .3s linear;
+        transition: transform .3s linear, -webkit-transform .3s linear
+    }
+
+    .brand-desktop .brand-desktop-links .brand-desktop-div img {
+        display: block;
+        width: 15rem;
+        max-width: 100%;
+        margin: 0 auto
+    }
+
+    .brand-desktop .brand-desktop-links .brand-desktop-div:hover a {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1)
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    .brand-desktop {
+        position: relative;
+        padding: 2.6rem 0;
+        z-index: 1
+    }
+
+    .brand-desktop {
+        position: relative;
+        padding-bottom: 3.8rem;
+        overflow-x: hidden
+    }
+
+    .brand-desktop .brand-desktop-text {
+        text-align: center
+    }
+
+    .brand-desktop .brand-desktop-text h2 {
+        margin: 0 1rem 3rem
+    }
+
+    .brand-desktop .brand-desktop-text {
+        position: absolute;
+        bottom: 1rem;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        color: #101820
+    }
+
+    .brand-desktop .brand-desktop-links {
+        margin: 0 0 3.5rem;
+        padding: 0 1rem
+    }
+
+    .brand-desktop .brand-desktop-links .brand-desktop-div {
+        padding: .4rem;
+        background: #fff;
+        border-radius: 50%;
+        overflow: hidden
+    }
+}
+
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
@@ -783,12 +923,22 @@ a.category-badge>span.badge:hover {
         height: 100%;
     }
 
-    .carousel-inner {
-        margin-top: 5em;
+    .carousel-item img {
+        width: 100%;
     }
 
-    .carousel-indicators {
-        bottom: 60px;
+    .carousel-caption .slide-two {
+        color: var(--blue);
+    }
+
+    .carousel-inner {
+        margin-top: 5em;
+        border-bottom: 1px solid var(--blue);
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 5%;
     }
 
     .carousel-control-prev-icon,
@@ -801,13 +951,13 @@ a.category-badge>span.badge:hover {
     .carousel-control-next-icon:after {
         content: '>';
         font-size: 40px;
-        color: #fff;
+        color: var(--blue);
     }
 
     .carousel-control-prev-icon:after {
         content: '<';
         font-size: 40px;
-        color: #fff;
+        color: var(--blue);
     }
 
     .carousel-caption {
@@ -818,6 +968,26 @@ a.category-badge>span.badge:hover {
     .carousel-caption a {
         color: #fff;
         text-decoration: none;
+    }
+
+    .brands {
+        display: none;
+    }
+
+    .brand-desktop-link {
+        color: var(--white);
+        font-size: 1.5em;
+        text-decoration: underline;
+    }
+
+    .brand-desktop {
+        padding: 2rem 0;
+        margin: 0 0 2rem;
+    }
+
+    .brand-img {
+        position: relative;
+        display: block
     }
 }
 
@@ -852,6 +1022,11 @@ a.category-badge>span.badge:hover {
 
     #delivery-banner h4 {
         font-size: .9rem;
+    }
+
+    .brand-desktop,
+    .rectangle {
+        display: none;
     }
 
     .btn.btn-outline-black.rounded-0,
