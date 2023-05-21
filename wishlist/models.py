@@ -8,11 +8,8 @@ from products.models import Product
 
 class Wishlist(models.Model):
     """ A model for a user's wishlist """
-    user = models.ForeignKey(User, null=True, blank=True,
-                             on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, null=True, blank=True,
-                                on_delete=models.CASCADE, default=1)
-    # automatically create and add date when a review is added
+    products = models.ManyToManyField(Product, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     date_added = models.DateField(auto_now_add=True, blank=False, null=False)
 
     def __str__(self):

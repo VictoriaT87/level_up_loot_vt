@@ -15,22 +15,21 @@ def view_wishlist(request):
     Show a user's wishlist
     """
     if not request.user.is_authenticated:
-        messages.error(request,
-                       'Sorry, you need to be logged in to add your Wishlist.')
         return redirect(reverse('account_login'))
 
     user = get_object_or_404(UserProfile, user=request.user)
-    wishlist = Wishlist.objects.filter(user=user.user)
-    products = Product.objects.all()
+    try:
+        wishlist = Wishlist.objects.get(user=user.user)
+    except Wishlist.DoesNotExist:
+        wishlist = None
 
     template = 'wishlist/wishlist.html'
-
     context = {
-        'products': products,
         'wishlist': wishlist,
     }
-    
+
     return render(request, template, context)
+
 
 
 @login_required
@@ -39,22 +38,17 @@ def add_wishlist(request, product_id):
     Add a view to show the wishlist
     """
     if not request.user.is_authenticated:
-        messages.error(request,
-                       'Please log in to add items to your Wishlist.')
+        messages.error(request, 'Please log in to add items to your Wishlist.')
         return redirect(reverse('account_login'))
-        
-    user = get_object_or_404(UserProfile, user=request.user)
+
     product = get_object_or_404(Product, pk=product_id)
-    
-    already_added = Wishlist.objects.filter(product=product,
-                                       user=user.user).exists()
-    if already_added:
+    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+
+    if product in wishlist.products.all():
         messages.info(request, f'{product.title} is already in your Wishlist!')
-        return redirect(reverse('product_detail', args=[product.id]))
     else:
-        Wishlist.objects.create(user=user.user, product=product)
-    messages.success(request,
-                     f'{product.title} has been added to your Wishlist!')
+        wishlist.products.add(product)
+        messages.success(request, f'{product.title} has been added to your Wishlist!')
 
     return redirect(reverse('product_detail', args=[product.id]))
 
@@ -69,11 +63,10 @@ def remove_wishlist(request, product_id):
                        'Please log in to remove items from your Wishlist.')
         return redirect(reverse('account_login'))
 
-    user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
-    Wishlist.objects.filter(product=product,
-                                       user=user.user).delete()
-    messages.info(request,
-                  f'{product.title} has been removed from your Wishlist!')
+    wishlist = Wishlist.objects.get(user=request.user)
+    
+    wishlist.products.remove(product)
+    messages.info(request, f'{product.title} has been removed from your Wishlist!')
 
     return redirect(reverse('product_detail', args=[product.id]))

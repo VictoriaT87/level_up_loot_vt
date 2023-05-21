@@ -7,7 +7,6 @@ from .models import Wishlist
 class WishlistAdmin(admin.ModelAdmin):
     list_display = (
         'user',
-        'product',
         'date_added',
     )
 

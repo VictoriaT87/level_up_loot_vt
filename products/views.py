@@ -83,28 +83,24 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
+@login_required
 def product_detail(request, product_id):
     """
     A view to show individual product details
     """
-
     product = get_object_or_404(Product, pk=product_id)
-    products = Product.objects.all()
+    reviews = Reviews.objects.filter(product=product).order_by('-created_on')
 
-    reviews = Reviews.objects.filter(
-        product=product).order_by('-created_on')
-
-    user = get_object_or_404(UserProfile, user=request.user)
-    wishlist = Wishlist.objects.filter(user=user.user)
+    user = request.user
+    wishlist = Wishlist.objects.filter(user=user, products=product_id).exists()
 
     template = 'products/product_detail.html'
     context = {
-        'wishlist': wishlist,
         'product': product,
         'reviews': reviews,
+        'wishlist': wishlist,
     }
-
-    return render(request, 'products/product_detail.html', context)
+    return render(request, template, context)
 
 
 @login_required

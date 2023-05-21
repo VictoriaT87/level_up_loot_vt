@@ -119,18 +119,28 @@
                 {% endif %}
             </div>
             <div class="mt-2 wishlist-div d-flex justify-content-center">
-                {% if wishlist %}
-                <span class="pr-4 d-flex">Remove from Wishlist: </span>
-                <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
-                    <div class="wishlist-icon"><i class="fas fa-heart"></i></div>
-                </a>
+                {% if wishlist is not None %}
+                    {% if wishlist %}
+                        <span class="pr-4 d-flex">Remove from Wishlist: </span>
+                        <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
+                            <div class="wishlist-icon"><i class="fas fa-heart"></i></div>
+                        </a>
+                    {% else %}
+                        <span class="pr-4 d-flex">Add to Wishlist: </span>
+                        <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
+                            <div class="wishlist-icon"><i class="far fa-heart"></i></div>
+                        </a>
+                    {% endif %}
                 {% else %}
-                <span class="pr-4 d-flex">Add to Wishlist: </span>
-                <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
-                    <div class="wishlist-icon"><i class="far fa-heart"></i></div>
-                </a>
+                    <span class="pr-4 d-flex">Add to Wishlist: </span>
+                    <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
+                        <div class="wishlist-icon"><i class="far fa-heart"></i></div>
+                    </a>
                 {% endif %}
             </div>
+            
+            
+            
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">

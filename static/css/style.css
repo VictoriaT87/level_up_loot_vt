@@ -25,8 +25,8 @@ body {
     font-family: 'Fjalla One', sans-serif;
 }
 
-.container {
-    min-height: 100%;
+p {
+    font-size: 1.25em;
 }
 
 .index-title {
@@ -173,11 +173,6 @@ a:hover {
 .faq-font,
 .faq-content h4 {
     color: #3d85c6;
-}
-
-a.category-badge>span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
 }
 
 .btt-button {
