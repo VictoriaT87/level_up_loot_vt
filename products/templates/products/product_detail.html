@@ -120,18 +120,22 @@
             </div>
             <div class="mt-2 wishlist-div d-flex justify-content-center">
                 {% if wishlist is not None %}
+                <!-- to check if the wishlist is not none - some users won't have a wishlist when account first made -->
                     {% if wishlist %}
+                    <!-- if the wishlist exists and is not empty -->
                         <span class="pr-4 d-flex">Remove from Wishlist: </span>
                         <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
                             <div class="wishlist-icon"><i class="fas fa-heart"></i></div>
                         </a>
                     {% else %}
+                    <!-- if the wishlist exists and is empty -->
                         <span class="pr-4 d-flex">Add to Wishlist: </span>
                         <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
                             <div class="wishlist-icon"><i class="far fa-heart"></i></div>
                         </a>
                     {% endif %}
                 {% else %}
+                <!-- if the wishlist doesn't exist -->
                     <span class="pr-4 d-flex">Add to Wishlist: </span>
                     <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
                         <div class="wishlist-icon"><i class="far fa-heart"></i></div>

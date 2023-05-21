@@ -5,6 +5,8 @@ from .models import Wishlist
 
 
 class WishlistAdmin(admin.ModelAdmin):
+    search_fields = ['user',]
+    filter_horizontal = ('products',)
     list_display = (
         'user',
         'date_added',
