@@ -36,7 +36,7 @@
 </section>
 
 
-<section class="home m-5">
+<!-- <section class="home m-5">
     <div class="text-center my-4">
         <h1>Premium Collectible Statues</h1>
     </div>
@@ -45,8 +45,10 @@
     <p class="text-black text-center pt-2 my-2">All shipped directly from our Irish warehouse - no import fees or
         hidden charges.</p>
 
-</section>
+</section> -->
 
+
+<!-- Mobile Version of Brands Display-->
 <section class="brands">
     <div class="container">
         <h1 class="index-title text-center pt-4 my-4">Brands</h1>
@@ -71,8 +73,7 @@
     </div>
 </section>
 
-
-
+<!-- Desktop Version of Brands Display-->
 <section class="brand-desktop rectangle">
     <div class="brand-desktop-text">
         <h2 class="h1">All Your Favorite Brands</h2>
@@ -81,34 +82,34 @@
     <div class="brand-desktop-links">
         <div class="brand-desktop-div">
             <div>
-                <a href="{% url 'products' %}?brand=dark_horse" class="brand-img"><img
-                    src="/media/darkhorse-logo.png" alt="darkhorse logo"></a>
+                <a href="{% url 'products' %}?brand=dark_horse" class="brand-img"><img src="/media/darkhorse-logo.png"
+                        alt="darkhorse logo"></a>
             </div>
         </div>
         <div class="brand-desktop-div">
             <div>
-                <a href="{% url 'products' %}?brand=hasbro" class="brand-img"><img
-                    src="/media/hasbro-logo.png" alt="hasbro logo"></a>
+                <a href="{% url 'products' %}?brand=hasbro" class="brand-img"><img src="/media/hasbro-logo.png"
+                        alt="hasbro logo"></a>
             </div>
         </div>
         <div class="brand-desktop-div">
             <div>
-                <a href="{% url 'products' %}?brand=pure_arts" class="brand-img"><img
-                        src="/media/purearts-logo.png" alt="pure arts logo"></a>
+                <a href="{% url 'products' %}?brand=pure_arts" class="brand-img"><img src="/media/purearts-logo.png"
+                        alt="pure arts logo"></a>
             </div>
         </div>
     </div>
     <div class="brand-desktop-links">
         <div class="brand-desktop-div">
             <div>
-                <a href="{% url 'products' %}?brand=mcfarlane" class="brand-img"><img
-                        src="/media/mcfarlane-logo.png" alt="hasbro logo"></a>
+                <a href="{% url 'products' %}?brand=mcfarlane" class="brand-img"><img src="/media/mcfarlane-logo.png"
+                        alt="hasbro logo"></a>
             </div>
         </div>
         <div class="brand-desktop-div">
             <div>
                 <a href="{% url 'products' %}?brand=funko" class="brand-img"><img src="/media/funko-logo.png"
-                    alt="funko logo"></a>
+                        alt="funko logo"></a>
             </div>
         </div>
         <div class="brand-desktop-div">
@@ -122,6 +123,44 @@
 
 
 
+
+<!-- Featured Products -->
+<section class="featured">
+    <h2 class="display-4 logo-font text-center pt-2 my-5">
+        Featured Products
+    </h2>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mx-3 mb-5">
+        {% for product in products %}
+        {% if product.is_featured %}
+        <div class="col mb-4">
+            <div class="card card-alt h-100">
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top product-image img-fluid" src="{{ product.image.url }}"
+                        alt="{{ product.name }}">
+                </a>
+                <div class="card-body">
+                    <h3 class="card-title logo-font-alt h6 text-center">{{ product.title }}</h3>
+                </div>
+                <div class="card-footer bg-white text-center mb-2">
+                    <div class="price-box mb-1">
+                        <p class="h4 mb-0 pb-1"><span class="text-left logo-font">€{{ product.price }}</span></p>
+                    </div>
+                    <a href="{% url 'product_detail' product.id %}"
+                        class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
+                        <span class="text-uppercase">Shop Now</span>
+                        <span class="icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Why Shop With Us -->
 <section id="why-us" class="why-us">
     <div class="section-header text-center p-3">
         <h2 class="index-title">Why Shop With Us?</h2>
@@ -157,6 +196,10 @@
         </div>
     </div>
 </section><!-- End Section -->
+
+
+
+
 
 
 

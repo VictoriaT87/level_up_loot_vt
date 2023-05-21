@@ -3,6 +3,7 @@
 :root {
     --color-default: #555;
     --blue: #3d85c6;
+    --green: #3dc6c2;
     --black: #000;
     --white: #fff;
 }
@@ -194,7 +195,7 @@ a.category-badge>span.badge:hover {
 }
 
 #delivery-banner {
-    background-color: var(--blue);
+    background-color: var(--green);
     color: var(--white);
     text-transform: uppercase;
 }
@@ -681,9 +682,8 @@ a.category-badge>span.badge:hover {
 /* Footer */
 
 .footer {
-    margin-top: 3em;
     flex-shrink: 0;
-    background-color: black;
+    background-color: var(--green);
     text-align: center;
 }
 
@@ -748,8 +748,6 @@ a.category-badge>span.badge:hover {
 
     .rectangle {
         position: relative;
-        border-top: 3.75vw solid transparent;
-        background-color: transparent;
         overflow-y: visible;
         z-index: 1
     }
@@ -933,7 +931,6 @@ a.category-badge>span.badge:hover {
 
     .carousel-inner {
         margin-top: 5em;
-        border-bottom: 1px solid var(--blue);
     }
 
     .carousel-control-prev,

@@ -52,13 +52,12 @@ class Product(models.Model):
         max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    is_featured = models.BooleanField(default=False)
     on_sale = models.BooleanField(default=False)
     sale_price = models.DecimalField(max_digits=4, decimal_places=2)
     discount = models.IntegerField(default=0)
     discounted_price = models.IntegerField(null=True)
     created_on = models.DateField(default=timezone.now)
-
-    favourites = models.ManyToManyField(UserProfile)
     
 
     @property

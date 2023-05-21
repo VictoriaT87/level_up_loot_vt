@@ -1,4 +1,5 @@
 from django.shortcuts import render, reverse
+from products.models import Product
 from django.core.mail import send_mail
 from django.contrib import messages
 
@@ -11,7 +12,11 @@ def index(request):
     """
     View to return index page
     """
-    return render(request, 'home/index.html')
+    products = Product.objects.all()
+    context = {
+        'products': products,
+    }
+    return render(request, 'home/index.html', context)
 
 
 def faqs(request):
