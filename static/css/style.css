@@ -1,10 +1,8 @@
 /* Root Colours */
 
 :root {
-    --color-default: #555;
+    --color-default: #000;
     --blue: #3d85c6;
-    --green: #3dc6c2;
-    --black: #000;
     --white: #fff;
 }
 
@@ -45,7 +43,7 @@ p {
 }
 
 .navbar {
-    background-color: #fff;
+    background-color: var(--color-default);
 }
 
 .navbar-light .navbar-nav .nav-link,
@@ -56,7 +54,7 @@ p {
 }
 
 a:hover {
-    color: #000;
+    color: var(--white);
     text-decoration: underline;
 }
 
@@ -74,8 +72,8 @@ a:hover {
 
 .dropdown-item,
 .dropdown-menu {
-    background-color: #fff;
-    color: var(--blue);
+    background-color: var(--color-default);
+    color: var(--white);
     margin: -0.125rem 0 0;
     /* dropdown stays open on hover */
 }
@@ -86,9 +84,9 @@ a:hover {
 
 .dropdown-item:focus,
 .dropdown-item:hover {
-    color: #fff;
+    color: var(--color-default);
     text-decoration: none;
-    background-color: var(--blue);
+    background-color: var(--white);
 }
 
 /* dropdown open on hover: https://stackoverflow.com/questions/46604391/how-to-open-dropdown-on-hover-in-bootstrap-4*/
@@ -100,17 +98,26 @@ a:hover {
     pointer-events: none;
 }
 
+.logo-font {
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
 .nav-icon,
 .nav-text {
-    color: var(--blue);
+    color: var(--white);
 }
 
 #sale-link {
-    color: crimson;
+    color: var(--blue);
 }
 
 .search-button {
-    background-color: var(--blue);
+    background-color: var(--color-default);
     color: #fff;
 }
 
@@ -190,7 +197,7 @@ a:hover {
 }
 
 #delivery-banner {
-    background-color: var(--green);
+    background-color: var(--blue);
     color: var(--white);
     text-transform: uppercase;
 }
@@ -398,14 +405,7 @@ a:hover {
     width: 1.5rem;
 }
 
-.logo-font {
-    text-transform: uppercase;
-    color: var(--blue);
-}
 
-.main-logo-link {
-    width: fit-content;
-}
 
 .shop-now-button {
     background: black;
@@ -674,11 +674,104 @@ a:hover {
 }
 
 
+/* Categories Section */
+
+.categories {
+    margin-bottom: 42px;
+    overflow: hidden;
+    position: relative;
+}
+
+.container-categories {
+    padding: 0 30px;
+    max-width: 1600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.categories-header {
+    max-width: 660px;
+    margin: 0 0 42px;
+    position: relative;
+    margin: 0 auto 42px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.categories-div {
+    display: block;
+    padding: 0;
+    list-style: none;
+    margin: 0 0 0 -30px;
+    font-size: 0;
+    text-align: center;
+}
+
+.categories-item {
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    padding-left: 30px;
+    font-size: 15px;
+    font-size: 1rem;
+}
+
+.categories-img-div {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 360px;
+    margin-bottom: 30px;
+    padding-bottom: 24px;
+}
+
+.categories-a {
+    display: block;
+}
+
+.img-box {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box-title {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 12px 24px;
+}
+
+.categories-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-box-title-text {
+    text-align: center;
+    position: relative;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+}
+
 /* Footer */
 
 .footer {
     flex-shrink: 0;
-    background-color: var(--green);
+    background-color: var(--color-default);
     text-align: center;
 }
 
@@ -983,7 +1076,12 @@ a:hover {
     }
 }
 
-@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 768px) {
+    .categories-item {
+        width: 33.33333%!important;
+    }
+
+}
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {

@@ -48,6 +48,89 @@
 </section> -->
 
 
+<section class="categories">
+    <div class="container-categories">
+        <div class="display-4 text-black text-center pt-2 my-5">
+            <h2>Featured Brands</h2>
+        </div>
+        <div class="categories-div">
+            <div class="categories-item">
+                <a href="{% url 'products' %}?brand=funko" class="categories-a">
+                    <div class="categories-img-div">
+                        <div class="img-box">
+                            <img src="/media/mewtwo-preview.png" alt="">
+                        </div>
+                        <div class="img-box-title categories-flex">
+                            <h3 class="img-box-title-text">Funko Pop!</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="categories-item">
+                <a href="{% url 'products' %}?brand=sideshow" class="categories-a">
+                    <div class="categories-img-div">
+                        <div class="img-box">
+                            <img src="media/izuku_sideshow.avif" alt="">
+                        </div>
+                        <div class="img-box-title categories-flex">
+                            <h3 class="img-box-title-text">Sideshow</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="categories-item">
+                <a href="{% url 'products' %}?brand=hasbro" class="categories-a">
+                    <div class="categories-img-div">
+                        <div class="img-box">
+                            <img src="/media/hasbro-preview.png" alt="">
+                        </div>
+                        <div class="img-box-title categories-flex">
+                            <h3 class="img-box-title-text">Hasbro</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="categories-item">
+                <a href="{% url 'products' %}?brand=dark_horse" class="categories-a">
+                    <div class="categories-img-div">
+                        <div class="img-box">
+                            <img src="media/darkhorse-preview.png" alt="">
+                        </div>
+                        <div class="img-box-title categories-flex">
+                            <h3 class="img-box-title-text">DarkHorse</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="categories-item">
+                <a href="{% url 'products' %}?brand=mcfarlane" class="categories-a">
+                    <div class="categories-img-div">
+                        <div class="img-box">
+                            <img src="media/mcfarlane-preview.png" alt="">
+                        </div>
+                        <div class="img-box-title categories-flex">
+                            <h3 class="img-box-title-text">McFarlane</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="categories-item">
+                <a href="{% url 'products' %}?brand=pure_arts" class="categories-a">
+                    <div class="categories-img-div">
+                        <div class="img-box">
+                            <img src="media/purearts-preview.png" alt="">
+                        </div>
+                        <div class="img-box-title categories-flex">
+                            <h3 class="img-box-title-text">PureArts</h3>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- Mobile Version of Brands Display-->
 <section class="brands">
     <div class="container">
@@ -122,11 +205,9 @@
 </section>
 
 
-
-
 <!-- Featured Products -->
 <section class="featured">
-    <h2 class="display-4 logo-font text-center pt-2 my-5">
+    <h2 class="display-4 text-black text-center pt-2 my-5">
         Featured Products
     </h2>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mx-3 mb-5">
