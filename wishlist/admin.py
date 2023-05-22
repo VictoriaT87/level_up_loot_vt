@@ -5,7 +5,9 @@ from .models import Wishlist
 
 
 class WishlistAdmin(admin.ModelAdmin):
+    # search by username
     search_fields = ['user',]
+    # adds boxes side by side to allow removing/adding products in admin
     filter_horizontal = ('products',)
     list_display = (
         'user',
