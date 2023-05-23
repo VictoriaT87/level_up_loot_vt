@@ -83,7 +83,6 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
-@login_required
 def product_detail(request, product_id):
     """
     A view to show individual product details
@@ -91,16 +90,24 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Reviews.objects.filter(product=product).order_by('-created_on')
 
-    user = request.user
-    wishlist = Wishlist.objects.filter(user=user, products=product_id).exists()
+    if not request.user.is_authenticated:
+        template = 'products/product_detail.html'
+        context = {
+            'product': product,
+            'reviews': reviews,
+        }
+        return render(request, template, context)
+    else:
+        user = request.user
+        wishlist = Wishlist.objects.filter(user=user, products=product_id).exists()
 
-    template = 'products/product_detail.html'
-    context = {
-        'product': product,
-        'reviews': reviews,
-        'wishlist': wishlist,
-    }
-    return render(request, template, context)
+        template = 'products/product_detail.html'
+        context = {
+            'product': product,
+            'reviews': reviews,
+            'wishlist': wishlist,
+        }
+        return render(request, template, context)
 
 
 @login_required
@@ -232,4 +239,3 @@ class DeleteReview(LoginRequiredMixin, DeleteView):
         messages.success(self.request, self.success_message)
         return super(DeleteReview, self).delete(
             request, *args, **kwargs)
-
