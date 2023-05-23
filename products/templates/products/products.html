@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="row mx-5 mb-5">
+    <div class="row mb-5 product-row">
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <div class="card h-100">
@@ -67,24 +67,24 @@
                     <img class="card-img-top product-image" src="{{ product.image }}" alt="{{ product.alt_text }}">
                 </a>
                 <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                    <h4 class="card-title text-center mt-auto">{{ product.title }}</h4>
+                    <h4 class="card-title text-black text-center mt-auto">{{ product.title }}</h4>
                     <div class="mt-auto card-links">
                         {% if product.brand %}
                         <a class="product-links text-decoration-none"
                             href="{% url 'products' %}?brand={{ product.brand.name }}">
-                            <span class="p-2 mt-4 text-black">Brand: {{ product.brand.friendly_name }}</span>
+                            <span class="p-2 mt-4 card-brand">Brand: {{ product.brand.friendly_name }}</span>
                         </a>
                         {% endif %}
                         {% if product.category %}
                         <a class="product-links text-decoration-none"
                             href="{% url 'products' %}?category={{ product.category.name }}">
-                            <span class="p-2 mt-4 text-black">Category: {{ product.category.friendly_name }}</span>
+                            <span class="p-2 mt-4 card-brand">Category: {{ product.category.friendly_name }}</span>
                         </a>
                         {% endif %}
                     </div>
                     {% if product.average_rating %}
                     <small class="text-muted d-flex justify-content-center mt-auto align-items-center">
-                        <i class="fas fa-star mr-1"></i>{{product.average_rating }} / 5</small>
+                        <i class="fas fa-star mr-1"></i> {{product.average_rating }} / 5</small>
                     {% else %}
                     <small class="text-muted d-flex justify-content-center mt-auto">No Rating</small>
                     {% endif %}

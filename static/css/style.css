@@ -27,6 +27,16 @@ p {
     font-size: 1.25em;
 }
 
+a {
+    color: var(--blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-default);
+    text-decoration: none;
+}
+
 .index-title {
     color: var(--blue);
     text-transform: uppercase;
@@ -59,10 +69,7 @@ p {
     background-color: var(--color-default) !important;
 }
 
-a:hover {
-    color: var(--white);
-    text-decoration: underline;
-}
+
 
 .dropdown {
     font-size: larger;
@@ -106,7 +113,7 @@ a:hover {
 
 .logo-font {
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--color-default);
 }
 
 .main-logo-link {
@@ -330,20 +337,6 @@ a:hover {
     color: var(--white);
 }
 
-.home div {
-    padding-top: 100px;
-}
-
-.home div h1 {
-    color: var(--blue);
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.home p {
-    font-size: 1.25em;
-}
-
 .faqs {
     text-align: center;
     max-width: 980px;
@@ -423,9 +416,13 @@ a:hover {
     border-radius: 0;
 }
 
+.product-row {
+    margin: 0 3em;
+}
+
 .product-image {
     display: flex;
-    width: 20em;
+    max-width: 15em;
     margin: 1rem auto;
 }
 
@@ -439,13 +436,13 @@ a:hover {
 
 .product-btn {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--color-default);
 }
 
 .product-btn:hover {
-    color: var(--blue);
+    color: var(--color-default);
     background-color: #fff;
-    border: 1px solid var(--blue);
+    border: 1px solid var(--color-default);
 }
 
 .product-links {
@@ -453,8 +450,16 @@ a:hover {
     line-height: 1em;
 }
 
+.description-card {
+    height: 20em;
+}
+
+.card-brand {
+    color: var(--blue);
+}
+
 .card-links a {
-    text-decoration: none;
+    color: var(--blue);
 }
 
 .card-links a:hover {
@@ -474,8 +479,8 @@ a:hover {
 .quantity-form {
     display: flex;
     align-items: baseline;
-
     justify-content: center;
+    color: black;
 }
 
 .quantity-form p {
@@ -491,6 +496,10 @@ a:hover {
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
+}
+
+.price-font {
+    color: var(--color-default);
 }
 
 .price-font-original {
@@ -1060,12 +1069,6 @@ a:hover {
         z-index: -1;
     }
 
-    
-
-    .home div {
-        padding-top: 0;
-    }
-
     .header-container {
         padding-top: 164px;
     }
@@ -1236,6 +1239,10 @@ a:hover {
     .category-rectangle .h1 {
         padding: 0.75em 0;
         font-size: 2em;
+    }
+
+    .product-row {
+        margin: 0;
     }
 
 }
