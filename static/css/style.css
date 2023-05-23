@@ -121,6 +121,42 @@ a:hover {
     color: #fff;
 }
 
+.hero {
+    display: none;
+}
+
+.hero-mobile {
+    background-color: black;
+    margin-top: 108px;
+    height: 100%;
+}
+
+.hero-content-mobile {
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    background-color: var(--color-default);
+}
+
+.hero-text-mobile h2 {
+    margin-top: 20px;
+}
+
+.hero-text-mobile p {
+    padding: 1.5em;
+}
+
+.hero-content-image-mobile {
+    padding: 0;
+    margin-top: 3em;
+}
+
+.hero-btn-mobile {
+    margin-top: 1em;
+    background-color: white;
+}
+
+
 .carousel {
     display: none;
 }
@@ -1079,6 +1115,88 @@ a:hover {
         z-index: 1030;
     }
 
+    /* Hero Section */
+
+    .hero-mobile {
+        display: none;
+    }
+
+    .hero {
+        display: block;
+        overflow-x: hidden;
+        padding: 0;
+        color: #fff;
+        z-index: 1;
+        width: 100%;
+        height: 100vh;
+        padding: 80px 0;
+        margin: 0;
+        position: relative;
+    }
+
+    .hero .info {
+        background-image: url(/media/yhrom_purearts.webp);
+        background-position: left 11em top 8em;
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+    }
+
+    .hero-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-content {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-image {
+        display: none;
+    }
+
+    .hero-text {
+        width: 100%;
+        margin: 5%;
+        left: 15%;
+        top: 10%;
+        text-align: center;
+    }
+
+
+    .hero-text h2 {
+        font-size: 3em;
+        padding-bottom: 10px;
+    }
+
+    .hero-text p {
+        line-height: 1.5em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.5em;
+    }
+
+    .hero-btn {
+        width: 15em;
+        margin-top: 1em;
+        color: var(--color-default);
+        background-color: var(--white);
+        border: 1px solid white;
+    }
+
+    .hero-btn:hover {
+        color: var(--white);
+        background: var(--color-default);
+    }
+
     .home div {
         padding-top: 0;
     }
@@ -1108,7 +1226,7 @@ a:hover {
     }
 
     .carousel-item img {
-        width: 100%;
+        height: 92vh;
     }
 
     .carousel-caption .slide-two {
