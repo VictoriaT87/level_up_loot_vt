@@ -156,11 +156,6 @@ a:hover {
     background-color: white;
 }
 
-
-.carousel {
-    display: none;
-}
-
 .overlay {
     height: 100%;
     width: 100%;
@@ -1215,60 +1210,6 @@ a:hover {
 
     .logo-nav {
         display: block;
-    }
-
-    .carousel {
-        display: contents;
-    }
-
-    .carousel-item {
-        height: 100%;
-    }
-
-    .carousel-item img {
-        height: 92vh;
-    }
-
-    .carousel-caption .slide-two {
-        color: var(--blue);
-    }
-
-    .carousel-inner {
-        margin-top: 5em;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 5%;
-    }
-
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-        height: 100px;
-        width: 100px;
-        background-image: none;
-    }
-
-    .carousel-control-next-icon:after {
-        content: '>';
-        font-size: 40px;
-        color: var(--blue);
-    }
-
-    .carousel-control-prev-icon:after {
-        content: '<';
-        font-size: 40px;
-        color: var(--blue);
-    }
-
-    .carousel-caption {
-        font-size: 2em;
-        bottom: 40px;
-    }
-
-    .carousel-caption a {
-        color: #fff;
-        text-decoration: none;
     }
 
     .categories {
