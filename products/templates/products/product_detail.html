@@ -13,6 +13,7 @@
 
 {% block content %}
 <div class="container-fluid mt-4 mb-5">
+    <h1 class="text-black h4 text-center product-title mb-3 mt-3">{{ product.title }}</h1>
     <div class="row product-detail">
         <div class="col-12 col-md-6 col-lg-4">
             <div class="image-container">
@@ -26,7 +27,6 @@
 
         <div class="col-12 col-md-6 col-lg-4 mb-1">
             <div class="product-details-container mt-md-4">
-                <p class="mb-0 h4 font-weight-bold text-black product-card mb-1 mt-3">{{ product.title }}</p>
                 <div class="product-links d-inline-flex">
                     <p class="small mt-1 mb-0">
                         <span class="h6 pb-3 product-card text-black">
@@ -47,12 +47,27 @@
                 </div>
                 <div class="card description-card mt-3">
                     <div class="card-header">
-                        <p class="mb-0 h4 text-black">
-                            Description
-                        </p>
-                        </a>
+                        <div class="price-box">
+                            {% if product.on_sale %}
+                            <p class="mb-0 pt-3 pb-1 text-center">
+                                Sale Price:
+                                <span class="h3 text-left product-title">
+                                    €{{ product.sale_price|floatformat:2 }}</span>
+                            </p>
+                            <p class="mb-0 pt-3 pb-1 text-center">
+                                Original Price:
+                                <span class="h3 text-left product-title price-font-original text-decoration-line-through">
+                                    €{{ product.price }}</span>
+                            </p>
+                            {% else %}
+                            <p class="mb-0 pt-3 pb-1 text-center product-title">
+                                Price:
+                                <span class="h3 text-left product-title">
+                                    €{{ product.price }}</span></p>
+                            {% endif %}
+                        </div>
                     </div>
-                    <div class="card-body px-5 text-black">
+                    <div class="card-body h-200 px-5 text-black">
                         <p class="mt-3">{{ product.description }}</p>
                     </div>
                     {% if product.average_rating %}
@@ -101,23 +116,7 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="price-box">
-                {% if product.on_sale %}
-                <p class="mb-0 pt-3 pb-1 text-center">
-                    Sale Price:
-                    <span class="h3 text-left font-weight-bold price-font">
-                        €{{ product.sale_price|floatformat:2 }}</span>
-                </p>
-                <p class="mb-0 pt-3 pb-1 text-center">
-                    Original Price:
-                    <span class="h3 text-left font-weight-bold price-font-original text-decoration-line-through">
-                        €{{ product.price }}</span>
-                </p>
-                {% else %}
-                <p class="mb-0 pt-3 pb-1 text-center"><span class="h3 text-left font-weight-bold price-font">
-                        €{{ product.price }}</span></p>
-                {% endif %}
-            </div>
+            
             <div class="mt-2 wishlist-div d-flex justify-content-center">
                 {% if wishlist is not None %}
                 <!-- to check if the wishlist is not none - some users won't have a wishlist when account first made -->

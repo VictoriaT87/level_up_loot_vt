@@ -37,12 +37,6 @@ a:hover {
     text-decoration: none;
 }
 
-.index-title {
-    color: var(--blue);
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
 .fixed-top {
     position: fixed;
     top: 0;
@@ -113,7 +107,7 @@ a:hover {
 
 .logo-font {
     text-transform: uppercase;
-    color: var(--color-default);
+    color: var(--white);
 }
 
 .main-logo-link {
@@ -416,6 +410,18 @@ a:hover {
     border-radius: 0;
 }
 
+.title-font {
+    color: var(--color-default);
+}
+
+.product-title {
+    color: var(--color-default);
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 .product-row {
     margin: 0 3em;
 }
@@ -451,7 +457,7 @@ a:hover {
 }
 
 .description-card {
-    height: 20em;
+    max-height: 30em;
 }
 
 .card-brand {
