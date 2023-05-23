@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-
+<!-- Hero Section -->
 <section id="hero" class="hero">
     <div class="info d-flex align-items-center">
         <div class="hero-container col-xl-6">
@@ -13,7 +13,7 @@
                     <a class='btn btn-lg btn-block hero-btn' href="/products/51/">Order Now</a></p>
                 </div>
                 <div class="col-lg-6 hero-content-image">
-                    <img class="hero-image" src="/media/yhrom_purearts.webp" width="600" height="400"
+                    <img class="hero-image" src="/media/yhrom_purearts.webp"
                         alt="Image of a buddha statue">
                 </div>
             </div>
@@ -21,6 +21,8 @@
     </div>
 </section>
 
+
+<!-- Hero Mobile Section -->
 <section id="hero-mobile" class="hero-mobile">
     <div class="info d-flex align-items-center">
         <div class="hero-container-mobile col-xl-6">
@@ -30,8 +32,15 @@
                     <p>Celebrate your victory over Yhorm today by ordering a limited edition 1/12 scale statue!
                     <a class='btn btn-lg btn-block hero-btn-mobile' href="/products/51/">Order Now</a></p>
                 </div>
+                <div class="col-lg-6 hero-text-mobile-small">
+                    <h2>Premium Collectible Statues</h2>
+                    <p>All shipped from Ireland</p>
+                    <p>Quick delivery</p>
+                    <p>No import fees!</p>
+                    <a class='btn btn-lg btn-block hero-btn-mobile' href="{% url 'products' %}">Shop Now</a></p>
+                </div>
                 <div class="col-lg-6 hero-content-image-mobile">
-                    <img class="hero-image-mobile" src="/media/yhrom_purearts.webp" width="600" height="400"
+                    <img class="hero-image-mobile" src="/media/yhrom_purearts.webp"
                         alt="Image of a buddha statue">
                 </div>
             </div>
@@ -40,17 +49,7 @@
 </section>
 
 
-<!-- <section class="home m-5">
-    <div class="text-center my-4">
-        <h1>Premium Collectible Statues</h1>
-    </div>
-    <p class="text-black text-center pt-2 my-2">We ship the highest quality Premium Statues from your favourite Games,
-        Animes, Movies and TV Shows.</p>
-    <p class="text-black text-center pt-2 my-2">All shipped directly from our Irish warehouse - no import fees or
-        hidden charges.</p>
-</section> -->
-
-
+<!-- Brand Section -->
 <section class="brands">
     <div class="container-brands">
         <div>
@@ -133,90 +132,9 @@
     </div>
 </section>
 
-
-<!-- Mobile Version of Categories Display-->
-<section class="categories">
-    <div class="container">
-        <h1 class="index-title text-center pt-4 my-4">Categories</h1>
-        <h2 class="text-center">We stock exclusive collectibles and statues from the most premium
-            collections.</h2>
-        <div class="row categories-logo-row">
-            <div class="clearfix">
-                <div class="column menu right">
-                    <ul>
-                        <li class="margin" style="background-color: #2a9d8f;"><a href="{% url 'products' %}?category=gaming"
-                                class="categories-link">Gaming</a></li>
-                        <li style="background-color: #f4a261;"><a href="{% url 'products' %}?category=tv_shows"
-                                class="categories-link">TV Shows</a></li>
-                    </ul>
-                </div>
-                <div class="column menu left">
-                    <ul>
-                        <li class="margin" style="background-color: #e76f51;"><a href="{% url 'products' %}?category=movies"
-                                class="categories-link">Movies</a></li>
-                        <li style="background-color: #e9c46a;"><a href="{% url 'products' %}?category=anime"
-                                class="categories-link">Anime</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Desktop Version of Categories Display-->
-<!-- <section class="categories-desktop rectangle">
-    <div class="categories-desktop-text">
-        <h2 class="h1">Shop Your Favorite Categories</h2>
-        <a href="{% url 'products' %}?sort=category" class="categories-desktop-link">See All Categories</a>
-    </div>
-    <div class="categories-desktop-links">
-        <div class="categories-desktop-div">
-            <div>
-                <a href="{% url 'products' %}?categories=dark_horse" class="categories-img"><img src="/media/darkhorse-logo.png"
-                        alt="darkhorse logo"></a>
-            </div>
-        </div>
-        <div class="categories-desktop-div">
-            <div>
-                <a href="{% url 'products' %}?categories=hasbro" class="categories-img"><img src="/media/hasbro-logo.png"
-                        alt="hasbro logo"></a>
-            </div>
-        </div>
-        <div class="categories-desktop-div">
-            <div>
-                <a href="{% url 'products' %}?categories=pure_arts" class="categories-img"><img src="/media/purearts-logo.png"
-                        alt="pure arts logo"></a>
-            </div>
-        </div>
-    </div>
-    <div class="categories-desktop-links">
-        <div class="categories-desktop-div">
-            <div>
-                <a href="{% url 'products' %}?categories=mcfarlane" class="categories-img"><img src="/media/mcfarlane-logo.png"
-                        alt="hasbro logo"></a>
-            </div>
-        </div>
-        <div class="categories-desktop-div">
-            <div>
-                <a href="{% url 'products' %}?categories=funko" class="categories-img"><img src="/media/funko-logo.png"
-                        alt="funko logo"></a>
-            </div>
-        </div>
-        <div class="categories-desktop-div">
-            <div>
-                <a href="{% url 'products' %}?categories=sideshow" class="categories-img">
-                    <img src="/media/sideshow-logo.png" alt="sideshow logo"></a>
-            </div>
-        </div>
-    </div>
-</section> -->
-
-
-
-
 <!-- Categories Section-->
 <section class="categories-desktop rectangle">
-    <div class="new-category-rectangle">
+    <div class="category-rectangle">
         <h2 class="h1">Choose Your Favorite Category</h2>
         <a href="{% url 'products' %}?sort=category" class="categories-desktop-link">See All Categories</a>
     </div>
@@ -246,7 +164,7 @@
     <h2 class="display-4 text-black text-center pt-2 my-5">
         Featured Products
     </h2>
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 mx-3 mb-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 mx-3 mb-5">
         {% for product in products %}
         {% if product.is_featured %}
         <div class="col mb-4">
