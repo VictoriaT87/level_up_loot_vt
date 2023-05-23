@@ -1251,4 +1251,8 @@ a:hover {
         margin: 0;
     }
 
+    .table {
+        display: none;
+    }
+
 }
