@@ -90,11 +90,18 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = Reviews.objects.filter(product=product).order_by('-created_on')
 
+    # code from https://www.youtube.com/watch?v=-Zqfzl9ovAw
+    related_products = list(Product.objects.filter(
+        category=product.category).exclude(pk=product_id))
+    if len(related_products) >= 4:
+        related_products = random.sample(related_products, 4)
+
     if not request.user.is_authenticated:
         template = 'products/product_detail.html'
         context = {
             'product': product,
             'reviews': reviews,
+            'related_products': related_products,
         }
         return render(request, template, context)
     else:
@@ -105,6 +112,7 @@ def product_detail(request, product_id):
         context = {
             'product': product,
             'reviews': reviews,
+            'related_products': related_products,
             'wishlist': wishlist,
         }
         return render(request, template, context)
