@@ -479,7 +479,7 @@ a:hover {
 }
 
 .product-detail {
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .quantity-form {
@@ -510,6 +510,14 @@ a:hover {
 
 .price-font-original {
     text-decoration: line-through
+}
+
+.review-accordian {
+    width: 75%;
+}
+
+.image-review-div {
+    text-align: -webkit-center;
 }
 
 .review-form {
@@ -549,7 +557,7 @@ a:hover {
 }
 
 .product-image-lg {
-    max-width: 600px;
+    max-width: 75%;
 }
 
 .image-container {
@@ -1113,7 +1121,6 @@ a:hover {
     .brands-item {
         width: 33.33333% !important;
     }
-
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
