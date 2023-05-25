@@ -13,7 +13,7 @@
 
 {% block content %}
 <div class="container-fluid mt-4 mb-5">
-    <h1 class="text-black h4 text-center product-title mb-3 mt-3">{{ product.title }}</h1>
+    <h1 class="text-black h3 text-center product-title mb-3 mt-3">{{ product.title }}</h1>
     <div class="row product-detail mb-5">
         <div class="col-12 col-lg-4 image-review-div">
             <div class="image-container">
@@ -24,6 +24,7 @@
                 {% endif %}
             </div>
 
+            <!-- Review Form in accordian -->
             {% if user.is_authenticated %}
             <div id="accordion" class="review-accordian">
                 <div class="card">
@@ -62,26 +63,10 @@
                     class="link-normal" href="{% url 'account_login' %}">Login</a> to leave a review.</p>
             {% endif %}
         </div>
+
+        <!-- Product Detail card -->
         <div class="col-12 col-lg-4">
             <div class="product-details-container mt-md-4">
-                <div class="product-links d-inline-flex">
-                    <p class="small mt-1 mb-0">
-                        <span class="h6 pb-3 product-card text-black">
-                            Brand:
-                            <a class="alt-text-muted font-weight-bold"
-                                href="{% url 'products' %}?brand={{ product.brand.name }}">
-                                {{ product.brand.friendly_name }}
-                            </a></span>
-                    </p>
-                    <p class="small mt-1 mb-0">
-                        <span class="h6 pb-3 text-black">
-                            Category:
-                            <a class="alt-text-muted font-weight-bold"
-                                href="{% url 'products' %}?category={{ product.category.name }}">
-                                {{ product.category.friendly_name }}
-                            </a></span>
-                    </p>
-                </div>
                 <div class="card description-card mt-3">
                     <div class="card-header">
                         <div class="price-box">
@@ -106,6 +91,25 @@
                             {% endif %}
                         </div>
                     </div>
+                    <div class="product-links mx-auto d-inline-flex">
+                        <p class="small mt-1 mb-0">
+                            <span class="h6 pb-3 product-card text-black">
+                                Brand:
+                                <a class="alt-text-muted font-weight-bold"
+                                    href="{% url 'products' %}?brand={{ product.brand.name }}">
+                                    {{ product.brand.friendly_name }}
+                                </a></span>
+                        </p>
+                        <p class="small mt-1 mb-0">
+                            <span class="h6 pb-3 text-black">
+                                Category:
+                                <a class="alt-text-muted font-weight-bold"
+                                    href="{% url 'products' %}?category={{ product.category.name }}">
+                                    {{ product.category.friendly_name }}
+                                </a>
+                            </span>
+                        </p>
+                    </div>
                     <div class="card-body h-200 px-5 text-black">
                         <p class="mt-3">{{ product.description }}</p>
                     </div>
@@ -116,10 +120,38 @@
                     {% else %}
                     <small class="d-flex text-black justify-content-center mt-auto">No Rating</small>
                     {% endif %}
+
+                    <!-- Add to Wishlist button -->
+                    <div class="mt-2 wishlist-div d-flex justify-content-center">
+                        {% if wishlist is not None %}
+                        <!-- to check if the wishlist is not none - some users won't have a wishlist when account first made -->
+                        {% if wishlist %}
+                        <!-- if the wishlist exists and is not empty -->
+                        <span class="pr-4 d-flex">Remove from Wishlist: </span>
+                        <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
+                            <div class="wishlist-icon"><i class="fas fa-heart"></i></div>
+                        </a>
+                        {% else %}
+                        <!-- if the wishlist exists and is empty -->
+                        <span class="pr-4 d-flex">Add to Wishlist: </span>
+                        <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
+                            <div class="wishlist-icon"><i class="far fa-heart"></i></div>
+                        </a>
+                        {% endif %}
+                        {% else %}
+                        <!-- if the wishlist doesn't exist -->
+                        <span class="pr-4 d-flex">Add to Wishlist: </span>
+                        <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
+                            <div class="wishlist-icon"><i class="far fa-heart"></i></div>
+                        </a>
+                        {% endif %}
+                    </div>
+
                     <!-- if superuser, links for edit and delete -->
                     {% if request.user.is_superuser %}
                     <small class="ml-3">
-                        <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a> |
+                        <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a>
+                        <!-- Modal for delete confirmation -->
                         <button class="btn delete-btn" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
                         <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog"
                             aria-labelledBy="fm-modal-grid" aria-hidden="true">
@@ -141,47 +173,20 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="modal-footer">
                                         <a class="text-danger delete-btn"
                                             href="{% url 'delete_product' product.id %}">Delete</a>
                                         <button class="btn edit-btn" data-dismiss="modal">Cancel</button>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </small>
-
                     {% endif %}
                 </div>
             </div>
 
-            <div class="mt-2 wishlist-div d-flex justify-content-center">
-                {% if wishlist is not None %}
-                <!-- to check if the wishlist is not none - some users won't have a wishlist when account first made -->
-                {% if wishlist %}
-                <!-- if the wishlist exists and is not empty -->
-                <span class="pr-4 d-flex">Remove from Wishlist: </span>
-                <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
-                    <div class="wishlist-icon"><i class="fas fa-heart"></i></div>
-                </a>
-                {% else %}
-                <!-- if the wishlist exists and is empty -->
-                <span class="pr-4 d-flex">Add to Wishlist: </span>
-                <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
-                    <div class="wishlist-icon"><i class="far fa-heart"></i></div>
-                </a>
-                {% endif %}
-                {% else %}
-                <!-- if the wishlist doesn't exist -->
-                <span class="pr-4 d-flex">Add to Wishlist: </span>
-                <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
-                    <div class="wishlist-icon"><i class="far fa-heart"></i></div>
-                </a>
-                {% endif %}
-            </div>
-
+            <!-- Quantity Form -->
             <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                 {% csrf_token %}
                 <div class="form-row">
@@ -225,7 +230,6 @@
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
-
             </form>
         </div>
     </div>
@@ -234,10 +238,10 @@
         <hr>
     </div>
 
-    <!-- Reviews -->
 
-    {% if user.is_authenticated %}
-    <div class="row col-12 col-lg-4 d-flex mt-4 mb-4 mx-auto align-content-center justify-content-center flex-column text-center">
+    <!-- Show Reviews -->
+    <div
+        class="row col-12 col-lg-4 d-flex mt-4 mb-4 mx-auto align-content-center justify-content-center flex-column text-center">
         <h3 class="product-title">Customer Reviews</h3>
         {% for review in reviews %}
         <div class="border reviews">
@@ -256,10 +260,16 @@
         <h5 class="font-weight-bold text-black mb-2 mt-3">No reviews yet! Log in to add yours.</h5>
         {% endfor %}
     </div>
-    {% endif %}
+</div>
+
+<div class="col-12 d-none d-xl-block mb-5">
+    <hr>
 </div>
 
 <!-- Related Products -->
+<div class="row col-12 d-flex mt-4 mb-4 mx-auto text-center">
+    <h3 class="product-title mx-auto">Other Pfoducts You Might Like</h3>
+</div>
 <div class="row mb-5 product-row">
     {% for product in related_products %}
     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -293,7 +303,8 @@
                 <!-- if superuser, links for edit and delete -->
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
-                    <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a> |
+                    <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a>
+                    <!-- Modal for delete confirmation -->
                     <button class="btn delete-btn" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
                     <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog"
                         aria-labelledBy="fm-modal-grid" aria-hidden="true">
@@ -315,12 +326,10 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="modal-footer">
                                     <a class="text-danger delete-btn"
                                         href="{% url 'delete_product' product.id %}">Delete</a>
                                     <button class="btn edit-btn" data-dismiss="modal">Cancel</button>
-
                                 </div>
                             </div>
                         </div>
@@ -350,10 +359,6 @@
 
                 <a href="{% url 'product_detail' product.id %}"
                     class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
-
-                    <!-- <span class="icon">
-                            <i class="fas fa-info"></i>
-                        </span> -->
                     <span class="text-uppercase">View Product</span>
                 </a>
             </div>
@@ -362,10 +367,21 @@
     {% endfor %}
 </div>
 
+<!-- Back to the top button -->
+<div class="btt-button shadow-sm rounded-0 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>
+</div>
 
 {% endblock%}
 
 {% block postloadjs %}
 {{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
 {% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
