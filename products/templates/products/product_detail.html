@@ -24,44 +24,7 @@
                 {% endif %}
             </div>
 
-            <!-- Review Form in accordian -->
-            {% if user.is_authenticated %}
-            <div id="accordion" class="review-accordian">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h5 class="mb-0">
-                            <button class="btn collapsed" data-toggle="collapse" data-target="#collapseOne"
-                                aria-expanded="false" aria-controls="collapseOne">
-                                <span class="text-black">Review This Product</span>
-                                <span class="icon"> <i class="fas fa-plus"></i></span>
-                            </button>
-                        </h5>
-                    </div>
-
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card-body">
-                            <form action="{% url 'add_review' product.id %}" method="POST" class="review-form">
-                                {% csrf_token %}
-                                <h4 class="text-black">Review This Product</h4>
-                                <div>
-                                    Title:
-                                    <input type="text" class="form-control" name="title" class="text-black">
-                                    <br>
-                                    Review:
-                                    <textarea name="review" rows="4" class="form-control"></textarea>
-                                    <br>
-                                    <input type="submit" value="Submit Review" class="btn btn-black rounded-0">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {% else %}
-            <p class="text-center">Please <a class="link-normal" href="{% url 'account_signup' %}">Register</a> or <a
-                    class="link-normal" href="{% url 'account_login' %}">Login</a> to leave a review.</p>
-            {% endif %}
+            
         </div>
 
         <!-- Product Detail card -->
@@ -71,21 +34,21 @@
                     <div class="card-header">
                         <div class="price-box">
                             {% if product.on_sale %}
-                            <p class="mb-0 pt-3 pb-1 text-center">
+                            <p class="mb-0 pt-3 pb-1 text-center text-white">
                                 Sale Price:
-                                <span class="h3 text-left product-title">
+                                <span class="h3 text-left product-title text-white">
                                     €{{ product.sale_price|floatformat:2 }}</span>
                             </p>
-                            <p class="mb-0 pt-3 pb-1 text-center">
-                                Original Price:
+                            <p class="mb-0 pt-3 pb-1 text-center text-white">
+                                Price:
                                 <span
-                                    class="h3 text-left product-title price-font-original text-decoration-line-through">
+                                    class="h3 text-left product-title price-font-original text-decoration-line-through text-white">
                                     €{{ product.price }}</span>
                             </p>
                             {% else %}
-                            <p class="mb-0 pt-3 pb-1 text-center product-title">
+                            <p class="mb-0 pt-3 pb-1 text-center product-title text-white">
                                 Price:
-                                <span class="h3 text-left product-title">
+                                <span class="h3 text-left product-title text-white">
                                     €{{ product.price }}</span>
                             </p>
                             {% endif %}
@@ -237,11 +200,49 @@
     <div class="col-12 d-none d-xl-block mb-5">
         <hr>
     </div>
+    
+    <!-- Review Form in accordian -->
+    {% if user.is_authenticated %}
+    <div id="accordion" class="review-accordian mx-auto">
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h5 class="mb-0 text-center">
+                    <button class="btn collapsed" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="false" aria-controls="collapseOne">
+                        <span class="text-white">Review This Product</span>
+                        <span class="icon text-white"> <i class="fas fa-plus"></i></span>
+                    </button>
+                </h5>
+            </div>
 
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-body">
+                    <form action="{% url 'add_review' product.id %}" method="POST" class="review-form">
+                        {% csrf_token %}
+                        <h4 class="text-black">Review This Product</h4>
+                        <div>
+                            Title:
+                            <input type="text" class="form-control" name="title" class="text-black">
+                            <br>
+                            Review:
+                            <textarea name="review" rows="4" class="form-control"></textarea>
+                            <br>
+                            <input type="submit" value="Submit Review" class="btn btn-black rounded-0">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <p class="text-center">Please <a class="link-normal" href="{% url 'account_signup' %}">Register</a> or <a
+            class="link-normal" href="{% url 'account_login' %}">Login</a> to leave a review.</p>
+    {% endif %}
 
     <!-- Show Reviews -->
     <div
-        class="row col-12 col-lg-4 d-flex mt-4 mb-4 mx-auto align-content-center justify-content-center flex-column text-center">
+        class="col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex mt-4 mb-4 mx-auto align-content-center justify-content-center flex-column text-center">
         <h3 class="product-title">Customer Reviews</h3>
         {% for review in reviews %}
         <div class="border reviews">
@@ -268,7 +269,7 @@
 
 <!-- Related Products -->
 <div class="row col-12 d-flex mt-4 mb-4 mx-auto text-center">
-    <h3 class="product-title mx-auto">Other Pfoducts You Might Like</h3>
+    <h3 class="product-title mx-auto">Other Products You Might Like</h3>
 </div>
 <div class="row mb-5 product-row">
     {% for product in related_products %}

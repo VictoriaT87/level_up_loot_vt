@@ -81,5 +81,10 @@ class Reviews(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['user', 'product'], name='reviews_per_user')
+        ]
+
     def __str__(self):
         return self.title

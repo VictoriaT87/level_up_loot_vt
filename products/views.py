@@ -6,6 +6,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
+from django.db import IntegrityError
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Brand, Category, Reviews
@@ -203,18 +204,22 @@ def add_review(request, product_id):
         review_form = ReviewsForm(request.POST)
 
         if review_form.is_valid():
-            Reviews.objects.create(
-                product=product,
-                user=request.user,
-                title=request.POST['title'],
-                review=request.POST['review'],
-            )
-            reviews = Reviews.objects.filter(product=product)
-            messages.success(
-                request, 'Your review has been successfully added!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            try:
+                Reviews.objects.create(
+                    product=product,
+                    user=request.user,
+                    title=request.POST['title'],
+                    review=request.POST['review'],
+                )
+                reviews = Reviews.objects.filter(product=product)
+                messages.success(
+                    request, 'Your review has been successfully added!')
+                return redirect(reverse('product_detail', args=[product.id]))
+            except IntegrityError:
+                messages.error(request, 'You have already reviewed this product.')
+                return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Your review has not been submitted')
+            messages.error(request, 'Your review has not been submitted.')
     return redirect(reverse('product_detail', args=[product.id]))
 
 

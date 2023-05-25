@@ -451,6 +451,11 @@ a:hover {
     border: 1px solid var(--color-default);
 }
 
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
 .product-links {
     margin-top: 1em;
     line-height: 1em;
@@ -558,6 +563,10 @@ a:hover {
 
 .product-image-lg {
     max-width: 75%;
+}
+
+.card-header {
+    background-color: var(--blue);
 }
 
 .image-container {
@@ -932,10 +941,7 @@ a:hover {
 
 @media screen and (min-width: 1024px) {}
 
-@media screen and (max-width: 1024px) {
-
-    
-}
+@media screen and (max-width: 1024px) {}
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -1121,6 +1127,10 @@ a:hover {
     .brands-item {
         width: 33.33333% !important;
     }
+
+    .review-accordian {
+        width: 25%;
+    }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -1202,7 +1212,8 @@ a:hover {
         width: 100%;
     }
 
-    .right, .left {
+    .right,
+    .left {
         top: 15em;
     }
 
