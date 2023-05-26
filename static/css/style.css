@@ -1,9 +1,9 @@
 /* Root Colours */
 
 :root {
-    --color-default: #000;
+    --color-default: #fff;
     --blue: #3d85c6;
-    --white: #fff;
+    --black: #000;
 }
 
 :root {
@@ -50,18 +50,19 @@ a:hover {
     background-color: var(--color-default);
 }
 
-.navbar-dark .navbar-nav .nav-link {
-    color: var(--white);
+.navbar-light .navbar-nav .nav-link {
+    color: var(--black);
 }
 
 .navbar-dark .navbar-toggler {
-    color: var(--white);
-    border-color: var(--white);
+    color: var(--black);
+    border-color: var(--black);
 }
 
 .bg-dark {
     background-color: var(--color-default) !important;
 }
+
 
 
 
@@ -80,7 +81,7 @@ a:hover {
 .dropdown-item,
 .dropdown-menu {
     background-color: var(--color-default);
-    color: var(--white);
+    color: var(--black);
     margin: -0.125rem 0 0;
     /* dropdown stays open on hover */
 }
@@ -93,7 +94,7 @@ a:hover {
 .dropdown-item:hover {
     color: var(--color-default);
     text-decoration: none;
-    background-color: var(--white);
+    background-color: var(--black);
 }
 
 /* dropdown open on hover: https://stackoverflow.com/questions/46604391/how-to-open-dropdown-on-hover-in-bootstrap-4*/
@@ -107,7 +108,7 @@ a:hover {
 
 .logo-font {
     text-transform: uppercase;
-    color: var(--white);
+    color: var(--black);
 }
 
 .main-logo-link {
@@ -116,7 +117,7 @@ a:hover {
 
 .nav-icon,
 .nav-text {
-    color: var(--white);
+    color: var(--black);
 }
 
 #sale-link {
@@ -125,7 +126,7 @@ a:hover {
 
 .search-button {
     background-color: var(--color-default);
-    color: #fff;
+    color: var(--black);
 }
 
 .hero {
@@ -167,7 +168,7 @@ a:hover {
 
 .hero-btn-mobile {
     margin-top: 1em;
-    background-color: white;
+    background-color: var(--black);
 }
 
 .overlay {
@@ -328,7 +329,7 @@ a:hover {
 
 .menu li a {
     text-decoration: none;
-    color: var(--white);
+    color: var(--black);
 }
 
 .faqs {
@@ -358,7 +359,7 @@ a:hover {
 
 #delivery-banner {
     background-color: var(--blue);
-    color: var(--white);
+    color: var(--color-default);
     text-transform: uppercase;
 }
 
@@ -373,7 +374,7 @@ a:hover {
 }
 
 .why-us h2 {
-    color: var(--white);
+    color: var(--color-default);
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -381,6 +382,37 @@ a:hover {
 .why-us-item img {
     width: 100px;
     filter: invert(1);
+}
+
+.why-us {
+    background-color: var(--blue);
+}
+
+.why-us .why-us-item {
+    padding: 15px;
+    height: 100%;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.why-us .why-us-item h3 {
+    color: var(--black);
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    padding-bottom: 8px;
+    font-size: 22px;
+    position: relative;
+    text-align: center;
+}
+
+.why-us .why-us-item p {
+    color: var(--color-default);
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    padding-bottom: 8px;
+    font-size: 22px;
+    position: relative;
+    text-align: center;
 }
 
 /* -------------------------------- Product Form including clearable file input widget to handle image field */
@@ -411,13 +443,11 @@ a:hover {
 }
 
 .title-font {
-    color: var(--color-default);
+    color: var(--black);
 }
 
 .product-title {
-    color: var(--color-default);
-    font-weight: 400;
-    font-style: normal;
+    color: var(--black);
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -441,7 +471,7 @@ a:hover {
 }
 
 .product-btn {
-    color: var(--white);
+    color: var(--black);
     background-color: var(--color-default);
 }
 
@@ -451,7 +481,8 @@ a:hover {
     border: 1px solid var(--color-default);
 }
 
-.btn.focus, .btn:focus {
+.btn.focus,
+.btn:focus {
     outline: 0;
     box-shadow: none;
 }
@@ -510,7 +541,7 @@ a:hover {
 }
 
 .price-font {
-    color: var(--color-default);
+    color: var(--black);
 }
 
 .price-font-original {
@@ -573,32 +604,7 @@ a:hover {
     margin: 2em 0;
 }
 
-.why-us {
-    background-color: var(--blue);
-}
 
-.why-us .why-us-item {
-    padding: 15px;
-    height: 100%;
-    line-height: 1.8;
-    text-align: center;
-}
-
-.why-us .why-us-item h3 {
-    color: var(--white);
-    font-weight: 700;
-    margin: 0 0 20px 0;
-    padding-bottom: 8px;
-    font-size: 22px;
-    position: relative;
-    text-align: center;
-}
-
-.why-us .why-us-item p {
-    line-height: 24px;
-    font-size: 14px;
-    margin-bottom: 0;
-}
 
 
 /* from Bulma */
@@ -882,7 +888,7 @@ a:hover {
 
 .footer {
     flex-shrink: 0;
-    background-color: var(--color-default);
+    background-color: var(--black);
     text-align: center;
 }
 
@@ -895,7 +901,7 @@ a:hover {
 }
 
 .footer a {
-    color: white;
+    color: var(--color-default);
 }
 
 .footer ul {
@@ -904,7 +910,7 @@ a:hover {
 }
 
 .footer-content {
-    color: #fff;
+    color: var(--color-default);
 }
 
 .footer-col {
@@ -931,7 +937,7 @@ a:hover {
 
 .copyright,
 .credits {
-    color: #fff;
+    color: var(--color-default);
 }
 
 /* -------------------------------- Media Queries */
@@ -980,9 +986,11 @@ a:hover {
     }
 
     .hero .info {
-        background-image: url(/media/yhrom_purearts.webp);
-        background-position: left 11em top 8em;
+        background-image: url(/media/ac.png);
+        background-position: left 0em top 0em;
         position: absolute;
+        background-size: cover;
+        width: 100%;
         inset: 0;
         z-index: 2;
     }
@@ -1015,6 +1023,11 @@ a:hover {
         text-align: center;
     }
 
+    .hero-inner {
+        border-radius: 5%;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 20px;
+    }
 
     .hero-text h2 {
         font-size: 3em;
@@ -1032,14 +1045,13 @@ a:hover {
     .hero-btn {
         width: 15em;
         margin-top: 1em;
-        color: var(--color-default);
-        background-color: var(--white);
-        border: 1px solid white;
+        color: var(--black);
+        background-color: var(--color-default);
     }
 
     .hero-btn:hover {
-        color: var(--white);
-        background: var(--color-default);
+        color: var(--color-default);
+        background-color: var(--black);
     }
 
 
@@ -1112,7 +1124,7 @@ a:hover {
     }
 
     .categories-desktop-link {
-        color: var(--white);
+        color: var(--black);
         font-size: 1.5em;
         text-decoration: underline;
     }
@@ -1182,13 +1194,13 @@ a:hover {
     }
 
     .category-rectangle .h1 {
-        color: var(--white);
+        color: var(--black);
         text-align: center;
         padding: 2em;
     }
 
     a.categories-desktop-link {
-        color: var(--white);
+        color: var(--black);
         font-size: 1.25em;
     }
 
