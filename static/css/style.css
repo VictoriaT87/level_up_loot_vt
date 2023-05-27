@@ -493,7 +493,7 @@ a:hover {
 }
 
 .description-card {
-    max-height: 30em;
+    max-height: 100%;
 }
 
 .card-brand {
@@ -550,10 +550,6 @@ a:hover {
 
 .review-accordian {
     width: 75%;
-}
-
-.image-review-div {
-    text-align: -webkit-center;
 }
 
 .review-form {

@@ -210,7 +210,7 @@
                 <div class="row mt-3">
                     <div class="card w-100">
                         <div class="card-body">
-                            <h3 class="card-title h6">{{ review.title }}</h3>
+                            <h4 class="mb-2">{{ review.title }}</h4>
                             <p><small class="text-muted p-0"><em>Posted by {{ review.user }} on 
                                 {{ review.created_on}}</em></small></p>
                             <p class="card-text">{{ review.review }}</p>
@@ -277,12 +277,13 @@
 
 
 <!-- Related Products -->
+<section>
 <div class="row col-12 d-flex mt-4 mb-4 mx-auto text-center">
     <h3 class="product-title mx-auto">Other Products You Might Like</h3>
 </div>
 <div class="row mb-5 product-row">
     {% for product in related_products %}
-    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-3">
         <div class="card h-100">
             <a href="{% url 'product_detail' product.id %}">
                 <img class="card-img-top product-image img-fluid" src="{{ product.image.url }}"
@@ -376,6 +377,7 @@
     </div>
     {% endfor %}
 </div>
+</section>
 
 <!-- Back to the top button -->
 <div class="btt-button shadow-sm rounded-0 border border-black">

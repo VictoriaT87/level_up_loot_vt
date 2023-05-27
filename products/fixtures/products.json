@@ -201,7 +201,7 @@
             "title": "Batman v Superman DC Films Premium Superman Action Figure",
             "price": 45.99,
             "image_url": "",
-            "image": "../media/superman_mcfarlane.jpg",
+            "image": "../media/superman_mcfarlane.webp",
             "description": "DC Collectibles introduces a new line of premium action figures inspired by the world's greatest heroes appearances on the silver screen! 6 in or 15 cm, Made by McFarlane Toys under the DC Collectibles banner, released in 2016, Officially licensed DC Comics action figure",
             "alt_text": "Action figure of Superman",
             "average_rating": 4.6667
@@ -233,7 +233,7 @@
             "title": "Demon Slayer: Giyu Tomioka Action Figure",
             "price": 25.99,
             "image_url": "",
-            "image": "../media/giyu_mcfarlane.jpg",
+            "image": "../media/giyu_mcfarlane.png",
             "description": "Fun pint sized 5 inch scale toy based on the Anime Demon Slayer, Designed with articulation for standard action figure movement, Giyu is based on his look from Demon Slayer season 1, Giyu includes a sword, Figure is showcased in Demon Slayer themed blister card packaging",
             "alt_text": "Toy model of a Japanese anime character in school clothes",
             "average_rating": 3.5
@@ -249,7 +249,7 @@
             "title": "Skyrim: Alduin (Gold) Action Figure",
             "price": 35.99,
             "image_url": "",
-            "image": "../media/alduin_mcfarlane.jpeg",
+            "image": "../media/alduin_mcfarlane.png",
             "description": "Alduin, the World Eater is a dragon and the primary antagonist of The Elder Scrolls V: Skyrim's Main Quest. He is considered the “wellspring” of the Nordic pantheon, as well as the harbinger of the apocalypse. Includes highly detailed dragon burial mound themed base and flight stand, Wings span wide at 15” and feature up and down movement, Alduin measures 9”H x 15”W x 10” D when fully displayed on elevated base.",
             "alt_text": "Model of a gold dragon from Skyrim",
             "average_rating": 5
@@ -265,7 +265,7 @@
             "title": "Avatar: The Last Airbender Final Battle 4-Pack Figures",
             "price": 40.00,
             "image_url": "",
-            "image": "../media/avatar_mcfarlane.jpg",
+            "image": "../media/avatar_mcfarlane.png",
             "description": "Final Battle Pack Includes: Aang: Along his journey, Aang mastered waterbending, earthbending, and firebending, becoming a fully realized Avatar. With the Fire Nation on the brink of global domination, Aang faced Fire Lord Ozai in a life-or-death battle, emerging victorious. And thanks to the help of his friends, he ended the war and restored balance to the world.",
             "alt_text": "A box of toy figures of characters from the anime Avatar: The Last Airbender",
             "average_rating": 4.5
@@ -425,7 +425,7 @@
             "title": "Marvel Legends Series Star-Lord Premium Electronic Roleplay Helmet",
             "price": 131.99,
             "image_url": "",
-            "image": "../media/star_lord_hasbro.jpg",
+            "image": "../media/star_lord_hasbro.webp",
             "description": "Marvel Legends proudly presents this 1:1 scale reproduction of Star-Lord's helmet as it appears throughout the Marvel Cinematic Universe. With movie-accurate sculpting and detailing across the helmet, this is the next essential Marvel Legends Roleplay item for your Marvel gear collection.",
             "alt_text": "A helmet of Star Lord from Guardians of the Galaxy",
             "average_rating": 3
@@ -809,7 +809,7 @@
             "title": "Dark Souls III: Yhorm 1/12",
             "price": 749.99,
             "image_url": "",
-            "image": "../media/yhrom_purearts.webp",
+            "image": "../media/yhrom_purearts.png",
             "description": "We are proud to present our limited masterpiece of Yhorm the Giant from Dark Souls III. This Colossal boss, also known as the Lord of Cinder, is recognizable by his enormous size, heavy machete, and glowing red eyes and skin. We wanted to represent Yhorm with his most iconic pose when he is sitting on his impressive throne. The big extra plus of this larger version is that the eyes, parts of Yhorm's skin and base can light up and glow thanks to LED devices that bring a whole new dimension to this masterpiece.",
             "alt_text": "A figure of a monster chracter from The Dark Souls game",
             "average_rating": 4.5
@@ -982,7 +982,7 @@
             "brand": 6,
             "category": 4,
             "sku": 209216,
-            "title": "The Mandalorian And The Child (Deluxe)",
+            "title": "The Mandalorian And The Child",
             "price": 295.00,
             "image_url": "",
             "image": "../media/mando_child_sideshow.webp",
@@ -1036,6 +1036,22 @@
             "image": "../media/ultraball_sideshow.avif",
             "description": "This premium quality, highly accurate Ultra Ball replica is made with an engineered metal shell, has a deeply colored surface that is sensitive to touch and proximity and features a brightly illuminated button and lift-to-display illuminated presentation case.  This Ultra Ball promises to be a beautiful addition to any Pokémon collection! Box Size: Height: 12.1 cm, Width: 12.1 cm, Depth: 22.9 cm",
             "alt_text": "A black pokeball",
+            "average_rating": 5
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 66,
+        "fields": {
+            "brand": 5,
+            "category": 2,
+            "sku": 223414,
+            "title": "Assassin's Creed: Animus Ezio",
+            "price": 764.00,
+            "image_url": "",
+            "image": "../media/animus_purearts.png",
+            "description": "We are proud to present Animus Ezio, the latest 1/4 scale statue to complete our Assassin's Creed Animus Collection!  Bring home Ezio Auditore as he majestically materializes from the iconic Santa Maria del Fiore with both blades at the ready. Add to the ambiance with white LED lights incorporated into the Animus effect behind Ezio.",
+            "alt_text": "An assassin in white cloak and hood",
             "average_rating": 5
         }
     }
