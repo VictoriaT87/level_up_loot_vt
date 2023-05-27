@@ -5,6 +5,8 @@ from .models import Product, Category, Brand
 
 
 class ProductAdmin(admin.ModelAdmin):
+    # search by username
+    search_fields = ['title',]
     list_display = (
         'title',
         'sku',

@@ -14,6 +14,8 @@ class OrderLineItemAdminInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     # add and edit orders in admin
     inlines = (OrderLineItemAdminInline,)
+    # search by username
+    search_fields = ['full_name', 'order_number',]
 
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
