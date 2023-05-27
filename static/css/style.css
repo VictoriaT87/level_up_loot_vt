@@ -133,20 +133,21 @@ a:hover {
     display: none;
 }
 
-.hero-mobile {
-    background-color: black;
-    margin-top: 108px;
+.hero-container-mobile {
+    margin: 0 auto;
 }
 
 .hero-content-mobile {
-    margin-top: 20px;
+    background-image: url(/media/ac.png);
+    background-position: center;
+    background-size: cover;
     text-align: center;
-    color: white;
-    background-color: var(--color-default);
+    color: var(--black);
+    padding-top: 5em;
 }
 
-.hero-text-mobile-small {
-    display: none;
+.hero-text-mobile {
+    color: var(--color-default);
 }
 
 .hero-text-mobile h2 {
@@ -166,8 +167,25 @@ a:hover {
     margin-top: 3em;
 }
 
-.hero-btn-mobile {
-    margin-top: 1em;
+.hero-inner {
+    border-radius: 5%;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-top: 20px;
+    position: relative;
+    left: 20%;
+    bottom: 2em;
+    max-width: 60%;
+}
+
+.hero-btn {
+    max-width: 15em;
+    margin: 1em auto;
+    color: var(--black);
+    background-color: var(--color-default);
+}
+
+.hero-btn:hover {
+    color: var(--color-default);
     background-color: var(--black);
 }
 
@@ -970,20 +988,14 @@ a:hover {
 
     .hero {
         display: block;
-        overflow-x: hidden;
-        padding: 0;
         color: #fff;
         z-index: 1;
-        width: 100%;
         height: 100vh;
-        padding: 80px 0;
         margin: 0;
-        position: relative;
     }
 
     .hero .info {
         background-image: url(/media/ac.png);
-        background-position: left 0em top 0em;
         position: absolute;
         background-size: cover;
         width: 100%;
@@ -1014,15 +1026,7 @@ a:hover {
     .hero-text {
         width: 100%;
         margin: 5%;
-        left: 15%;
-        top: 10%;
         text-align: center;
-    }
-
-    .hero-inner {
-        border-radius: 5%;
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 20px;
     }
 
     .hero-text h2 {
@@ -1132,6 +1136,12 @@ a:hover {
 }
 
 @media only screen and (min-width: 768px) {
+
+    .hero-mobile {
+        margin: 0 auto;
+        padding-top: 108px;
+    }
+
     .brands-item {
         width: 33.33333% !important;
     }
@@ -1251,13 +1261,6 @@ a:hover {
         margin-top: 0;
     }
 
-    .hero-image-mobile {
-        display: none;
-    }
-
-    .hero-text-mobile {
-        display: none;
-    }
 
     .hero-text-mobile-small {
         display: block;
