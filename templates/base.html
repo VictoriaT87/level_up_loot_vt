@@ -33,27 +33,83 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top">
-        <div class="row">
-            <nav class="navbar navbar-light bg-light navbar-expand-lg w-100">
-                <div id="topnav" class="row d-none d-lg-flex justify-content-between">
-                    <div class="logo-nav">
-                        <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                            <h2 class="logo-font my-0">LevelUp! Loot</h2>
-                        </a>
+    <header class="container-fluid sticky-top">
+        <!-- navbar -->
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h1 class="h2 logo-font text-black my-0"><strong>LevelUp!</strong> Loot</h1>
+                </a>
+            </div>
+            <!-- Search bar -->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <form method="GET" action="{% url 'products' %}">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-black rounded-0" type="text" name="q"
+                            placeholder="Search Products">
+                        <div class="input-group-append">
+                            <button class="search-button btn border border-black rounded-0" type="submit">
+                                <i class="search-button fas fa-arrow-right"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                </form>
+            </div>
+            <ul class="col-12 col-lg-4 my-auto py-1 py-lg-0 list-inline list-unstyled text-center text-lg-right my-0">
+                <li class="list-inline-item">
+                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="fas fa-user fa-lg nav-icon"></i></div>
+                            <p class="my-0 nav-text">My Account</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                        {% endif %}
+                        <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'wishlist' %}" class="dropdown-item">My Wishlist</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <a class="{% if total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_cart' %}">
+                        <div class="text-center">
+                            <div><i class="fas fa-shopping-bag fa-lg nav-icon"></i></div>
+                            <p class="my-0 nav-text">
+                                {% if total %}
+                                €{{ total|floatformat:2 }}
+                                {% else %}
+                                €0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- Navbar area -->
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg w-100">
+                <button class="navbar-toggler mb-1 rounded-0" type="button" data-toggle="collapse" data-target="#main-nav"
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
                 </button>
+                {% include 'includes/mobile-nav.html' %}
                 {% include 'includes/main-nav.html' %}
-                {% include 'includes/nav-items.html' %}
             </nav>
         </div>
+        <!-- Delivery banner area -->
         <div id="delivery-banner" class="row text-center">
-            <div class="col ">
-                <h4 class="my-2">Free delivery on orders over €{{ free_delivery_threshold }}!</h4>
+            <div class="col bg-black baby-blue-text">
+                <h2 class="h5 banner-font pt-2">
+                    <i class="fas fa-truck"></i> Free delivery on orders over €{{ free_delivery_threshold }}!
+                </h2>
             </div>
         </div>
     </header>

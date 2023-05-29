@@ -1,0 +1,82 @@
+<div id="logo-mobile" class="text-center">
+    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+        <h2 class="logo-font text-black my-0 mx-2"><strong>LevelUp!</strong> Loot</h2>
+    </a>
+
+<ul class="navbar-icons">
+    <!--Search Bar -->
+    <li class="list-inline-item">
+        <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <div class="text-center">
+                <div><i class="fas fa-search fa-lg" aria-hidden="true"></i></div>
+                <p class="my-0">Search</p>
+            </div>
+        </a>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <form method="GET" action="{% url 'products' %}">
+                <div class="input-group w-100">
+                    <input class="form-control border border-black rounded-0" type="text" name="q"
+                        placeholder="Search Products">
+                    <div class="input-group-append">
+                        <button class="search-button btn border border-black rounded-0" type="submit">
+                            <i class="search-button fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </li>
+    <!-- Profiles -->
+    <li class="list-inline-item dropdown">
+        <a class="text-black nav-link d-block d-lg-none" href="#" id="mobile-user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="text-center">
+                <div><i class="fas fa-user fa-lg"></i></div>
+                <p class="my-0">My Account</p>
+            </div>
+        </a>
+        <div class="dropdown-menu border-0 mr-1" aria-labelledby="mobile-user-options">
+            {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser %}
+                    <a href="{% url 'add_product' %}" class="dropdown-item mr-1">Product Management</a>
+                {% endif %}
+                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            {% else %}
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Sign Up</a>
+                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            {% endif %}
+        </div>
+    </li>
+    {% if request.user.is_authenticated %}
+    <li class="list-inline-item dropdown">
+        <a class="{% if wishlist %}alt-text-info font-weight-bold{% else %}text-black{% endif %} nav-link px-1 d-lg-none" href="{% url 'wishlist' %}">
+            <div class="text-center">
+                {% if wishlist.count %}
+                <div><i class="fas fa-heart fa-lg"></i></div>
+                <p class="my-0">Wishlist ({{ wishlist.count }})</p>
+                {% else %}
+                <div><i class="fas fa-heart fa-lg"></i></div>
+                <p class="my-0">Wishlist</p>
+                {% endif %}
+            </div>
+        </a>
+    </li>
+    {% endif %}
+
+    <li class="list-inline-item">
+        <a class="{% if grand_total %}alt-text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
+            <div class="text-center">
+                <div><i class="fas fa-shopping-cart fa-lg"></i></div>
+                <p class="my-0">
+                    {% if grand_total %}
+                        €{{ grand_total|floatformat:2 }}
+                    {% else %}
+                        €0.00
+                    {% endif %}
+                </p>
+            </div>
+        </a>
+    </li>
+</ul>
+</div>

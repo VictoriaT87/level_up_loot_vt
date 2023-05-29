@@ -52,6 +52,10 @@ a:hover {
     background-color: #fff;
 }
 
+.top-nav {
+    display: none;
+}
+
 .navbar {
     background-color: var(--white);
 }
@@ -60,7 +64,7 @@ a:hover {
     color: var(--black);
 }
 
-.navbar-dark .navbar-toggler {
+.navbar-toggler {
     color: var(--black);
     border-color: var(--black);
 }
@@ -69,7 +73,32 @@ a:hover {
     background-color: var(--white) !important;
 }
 
+.form-control:focus {
+    box-shadow: none;
+}
 
+
+/* -------------------------------- Navbar Styling */
+.navbar {
+    padding-bottom: 0;
+}
+
+.nav-link {
+    color: var(--black) !important;
+}
+
+.nav-fill .nav-item, .nav-fill>.nav-link {
+    text-align: start !important;
+}
+
+.dropdown-menu {
+    min-width: 25rem !important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-radius: 0;
+    border: 2px solid var(--blue);
+    background-color: var(--white);
+}
 
 
 .dropdown {
@@ -1055,9 +1084,6 @@ a:hover {
         z-index: 1030;
     }
 
-
-
-
     /* Categories Section */
 
     .categories {
@@ -1105,7 +1131,11 @@ a:hover {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 20px;
+    }
+
+    #logo-mobile {
+        display: none;
     }
 
     .navbar-nav {
@@ -1115,11 +1145,7 @@ a:hover {
     #top-nav {
         justify-content: space-between;
     }
-
-    .logo-nav {
-        display: block;
-    }
-
+    
     /* Categories Section */
 
     .categories {
