@@ -485,6 +485,12 @@ a:hover {
     color: var(--black);
 }
 
+.product-add {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .product-title {
     color: var(--black);
     letter-spacing: 1px;

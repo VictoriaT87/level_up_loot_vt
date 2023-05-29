@@ -17,7 +17,7 @@
     <div class="container mb-1">
         <div class="row">
             <div class="col">
-                <h2 class="wishlist-header">Your Wishlist</h2>
+                <h2 class="title-font text-center">Your Wishlist</h2>
             </div>
         </div>
     </div>
@@ -79,7 +79,7 @@
         </div>
         <!-- if no products exist in the users wishlist -->
         {% else %}
-        <div class="col mt-4 pl-0">
+        <div class="col mt-4 pl-0 text-center">
             <a href="{% url 'products' %}" class="btn btn-black rounded-0 text-uppercase mt-1">
                 <p class="text-center">Your Wishlist is currently empty - click the <span class="icon"><i
                             class="fas fa-heart fa-fw"></i></span> icon to add some!</p>
