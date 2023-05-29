@@ -16,6 +16,9 @@ body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
     padding: 0;
     margin: 0;
     color: #555;
@@ -636,7 +639,46 @@ a:hover {
     margin: 2em 0;
 }
 
+/* Profile Page */
 
+.profile-btn {
+    color: #fff;
+    margin: 10px;
+    background-color: var(--black);
+    border-color: #343a40;
+}
+
+.profile-btn:hover {
+    color: var(--black);
+    background-color: var(--white);
+    border-color: #343a40;
+}
+
+.order-list {
+    line-height: 1em;
+    font-size: .875em;
+    font-weight: 400;
+}
+
+.order-link {
+    color: var(--blue);
+}
+
+.order-link:hover {
+    color: var(--black);
+}
+
+.table-responsive {
+    margin-bottom: 2em;
+}
+
+.order-table {
+    border: 1px solid black;
+}
+
+.order-table td, .order-table th {
+    vertical-align: initial;
+}
 
 
 /* from Bulma */
@@ -691,8 +733,15 @@ a:hover {
 
 /* Allauth form formatting */
 
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
 .allauth-form-inner-content p {
     margin-top: 1.5rem;
+    font-size: 1rem;
     /* mt-4 */
     color: #6c757d;
     /* text-secondary */
@@ -743,7 +792,9 @@ a:hover {
 
 .allauth-form-inner-content a {
     color: #17a2b8;
-    /* text-info */
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 /* ------------------------------- bootstrap toasts */
@@ -797,7 +848,7 @@ a:hover {
 }
 
 .arrow-info {
-    border-bottom-color: #17a2b8 !important;
+    border-bottom-color: var(--blue) !important;
 }
 
 .arrow-light {
@@ -1172,6 +1223,10 @@ a:hover {
 
     .review-accordian {
         width: 25%;
+    }
+
+    .table-responsive {
+        display: table;
     }
 }
 

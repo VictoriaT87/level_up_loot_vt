@@ -15,64 +15,70 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <hr>
-            <h2 class="logo-font mb-4">My Profile</h2>
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12 col-lg-6">
-            <p class="text-muted">Default Delivery Information</p>
-            <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+<div id="dashboard-container" class="container first-element-buffer">
+
+    <h2 class="text-center title-font">Your Dashboard</h2>
+    <p class="text-center title-font">Update your profile and see your order history.</p>
+
+    <!-- https://getbootstrap.com/docs/5.0/components/navs-tabs/#pills -->
+    <!-- Tab Headings -->
+    <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="profile-btn active btn " id="pills-profile-tab" data-toggle="pill"
+                href="#pills-details" role="tab" aria-controls="pills-details" aria-selected="true">Profile</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="profile-btn btn " id="pills-orders-tab" data-toggle="pill" href="#pills-orders"
+                role="tab" aria-controls="pills-orders" aria-selected="false">Orders</a>
+        </li>
+    </ul>
+
+    <div class="tab-content table-sm col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-8" id="pills-tabContent">
+        <!-- Details Tab -->
+        <div class="tab-pane fade show active" id="pills-details" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn btn-black rounded-0 text-uppercase float-right">Update Information</button>
+                <button class="btn profile-btn float-right">Update Profile</button>
             </form>
-            <a class='btn btn-red rounded-0 text-uppercase' href="{% url 'user-delete' user.pk %}">Delete
-                Account</a>
         </div>
-        <div class="col-12 col-lg-6 order-history">
-            <p class="text-muted">Order History</p>
-            <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless">
-                    <thead>
-                        <tr>
-                            <th>Order Number</th>
-                            <th>Date</th>
-                            <th>Items</th>
-                            <th>Order Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for order in orders %}
-                        <tr>
-                            <td>
-                                <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}">
-                                    <!-- hover for full order number, truncate to 6 -->
-                                    {{ order.order_number|truncatechars:6 }}
-                                </a>
-                            </td>
-                            <td>{{ order.date }}</td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    {% for item in order.lineitems.all %}
-                                    <li class="small">
-                                        {{ item.product.title }} x{{ item.quantity }}
-                                    </li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td>${{ order.grand_total }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+
+        <!-- Orders Tab -->
+        <div class="tab-pane fade border-accent-primary" id="pills-orders" role="tabpanel"
+            aria-labelledby="pills-orders-tab">
+            <table class="table-responsive table-borderless text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Order</th>
+                        <th scope="col">Items</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr class="order-table">
+                        <td class="order-table-td">{{ order.date|date:"M d, Y" }}</td>
+                        <td class="order-table-td"><a href="{% url 'order_history' order.order_number %}"
+                                title="{{ order.order_number }}" class="order-link">{{ order.order_number|truncatechars:6 }}</a></td>
+                        <td class="order-table-td">
+                            {% for item in order.lineitems.all %}
+                            <p class="order-list">
+                                {{ item.product.title }} x{{ item.quantity }}
+                            </p>
+                            {% endfor %}</td>
+                        <td class="order-table-td">€{{ order.grand_total }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center">You haven't made any orders yet</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
+
 </div>
 {% endblock %}
 
