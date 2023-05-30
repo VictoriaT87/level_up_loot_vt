@@ -657,10 +657,6 @@ a:hover {
     color: #000;
 }
 
-.product-image-lg {
-    max-width: 75%;
-}
-
 .card-header {
     background-color: var(--blue);
 }
@@ -1090,7 +1086,7 @@ a:hover {
     }
 
     .nav-icon {
-        font-size: 1.5em!important;
+        font-size: 1.5em !important;
     }
 
     /* Categories Section */
@@ -1170,6 +1166,10 @@ a:hover {
     .categories-desktop {
         padding: 2rem 0;
         margin: 0 0 2rem;
+    }
+
+    .product-image-lg {
+        max-width: 75%;
     }
 }
 
@@ -1417,10 +1417,21 @@ a:hover {
         padding-top: 0.5rem;
     }
 
+    .nav-link {
+        padding: 0.5rem;
+    }
+
     .dropdown-menu {
         min-width: 15rem !important;
         margin-top: 0 !important;
         padding-top: 0 !important;
+    }
+
+    .card-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1em;
     }
 }
 

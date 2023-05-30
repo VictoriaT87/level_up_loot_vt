@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.http import Http404
 
 from .models import Wishlist
 from profiles.models import UserProfile
@@ -28,15 +29,18 @@ def add_wishlist(request, product_id):
     Add a view to show the wishlist
     """
     product = get_object_or_404(Product, pk=product_id)
-    wishlist = Wishlist.objects.get_or_create(user=request.user)
+    try:
+        wishlist = get_object_or_404(Wishlist, user=request.user.id)
+    except Http404:
+        wishlist = Wishlist.objects.create(user=request.user)
 
     if product in wishlist.products.all():
-        messages.info(request, f'{product.title} is already in your Wishlist!')
+        messages.info(request, 'The product is already in your wishlist!')
     else:
         wishlist.products.add(product)
-        messages.success(request, f'{product.title} has been added to your Wishlist!')
+        messages.info(request, 'Added the product to your wishlist')
 
-    return redirect(reverse('product_detail', args=[product.id]))
+    return redirect(reverse('product_detail', args=[product_id]))
 
 
 @login_required
