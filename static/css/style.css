@@ -77,6 +77,10 @@ a:hover {
     box-shadow: none;
 }
 
+.header-container {
+    padding-top: 20px;
+}
+
 
 /* -------------------------------- Navbar Styling */
 .navbar {
@@ -715,6 +719,11 @@ a:hover {
     vertical-align: initial;
 }
 
+#pills-delete {
+    padding: 30px;
+    margin-bottom: 1em;
+}
+
 
 /* from Bulma */
 .icon {
@@ -1264,10 +1273,6 @@ a:hover {
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
-    .header-container {
-        padding-top: 116px;
-    }
-
     body {
         height: calc(100vh - 116px);
     }
