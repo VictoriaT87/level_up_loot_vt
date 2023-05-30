@@ -57,8 +57,8 @@
             </div>
             <ul class="col-12 col-lg-4 my-auto py-1 py-lg-0 list-inline list-unstyled text-center text-lg-right my-0">
                 <li class="list-inline-item">
-                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
+                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                         <div class="text-center">
                             <div><i class="fas fa-user fa-lg nav-icon"></i></div>
                             <p class="my-0 nav-text">My Account</p>
@@ -79,7 +79,8 @@
                     </div>
                 </li>
                 <li class="list-inline-item">
-                    <a class="{% if total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_cart' %}">
+                    <a class="{% if total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                        href="{% url 'view_cart' %}">
                         <div class="text-center">
                             <div><i class="fas fa-shopping-bag fa-lg nav-icon"></i></div>
                             <p class="my-0 nav-text">
@@ -97,8 +98,8 @@
         <!-- Navbar area -->
         <div class="row bg-white">
             <nav class="navbar navbar-expand-lg w-100">
-                <button class="navbar-toggler mb-1 rounded-0" type="button" data-toggle="collapse" data-target="#main-nav"
-                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
                 </button>
                 {% include 'includes/mobile-nav.html' %}
                 {% include 'includes/main-nav.html' %}

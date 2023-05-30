@@ -7,6 +7,12 @@
     scroll-behavior: smooth;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 html,
 body {
     height: 100%;
@@ -29,10 +35,6 @@ body {
     flex: 1 0 auto;
 }
 
-p {
-    font-size: 1.25em;
-}
-
 a {
     color: var(--blue);
     text-decoration: none;
@@ -52,12 +54,20 @@ a:hover {
     background-color: #fff;
 }
 
+.header-container {
+    padding-top: 20px;
+}
+
+
+/* -------------------------------- Navbar Styling */
+
 .top-nav {
     display: none;
 }
 
 .navbar {
     background-color: var(--white);
+    padding-bottom: 0;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -65,38 +75,25 @@ a:hover {
 }
 
 .navbar-toggler {
-    color: var(--black);
-    border-color: var(--black);
-}
-
-.bg-dark {
-    background-color: var(--white) !important;
+    border: 1px solid black;
+    padding: 0.6rem 0.6rem;
+    font-size: 1rem;
 }
 
 .form-control:focus {
     box-shadow: none;
 }
 
-.header-container {
-    padding-top: 20px;
-}
-
-
-/* -------------------------------- Navbar Styling */
-.navbar {
-    padding-bottom: 0;
-}
-
 .nav-link {
     color: var(--black) !important;
 }
 
-.nav-fill .nav-item, .nav-fill>.nav-link {
+.nav-fill .nav-item,
+.nav-fill>.nav-link {
     text-align: start !important;
 }
 
 .dropdown-menu {
-    min-width: 25rem !important;
     margin-top: 0 !important;
     padding-top: 0 !important;
     border-radius: 0;
@@ -104,17 +101,11 @@ a:hover {
     background-color: var(--white);
 }
 
-
-.dropdown {
-    font-size: larger;
-}
-
 .dropdown-menu {
     visibility: visible;
     border-radius: 0;
     font-weight: bold;
     padding: 0;
-    left: auto;
 }
 
 .dropdown-item,
@@ -715,7 +706,8 @@ a:hover {
     border: 1px solid black;
 }
 
-.order-table td, .order-table th {
+.order-table td,
+.order-table th {
     vertical-align: initial;
 }
 
@@ -1093,6 +1085,14 @@ a:hover {
         z-index: 1030;
     }
 
+    .dropdown {
+        font-size: larger;
+    }
+
+    .nav-icon {
+        font-size: 1.5em!important;
+    }
+
     /* Categories Section */
 
     .categories {
@@ -1154,7 +1154,7 @@ a:hover {
     #top-nav {
         justify-content: space-between;
     }
-    
+
     /* Categories Section */
 
     .categories {
@@ -1174,6 +1174,15 @@ a:hover {
 }
 
 @media only screen and (min-width: 768px) {
+
+    .nav-link {
+        padding: 0.15rem;
+    }
+
+    .navbar-icons {
+        display: flex;
+        margin-bottom: 0 !important;
+    }
 
     /* Hero Section */
 
@@ -1273,20 +1282,18 @@ a:hover {
 
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
+
+    .navbar-icons {
+        display: flex;
+        margin-bottom: 0 !important;
+    }
+
     body {
         height: calc(100vh - 116px);
     }
 
     .display-4.logo-font.text-black {
         font-size: 2rem;
-    }
-
-    .nav-link {
-        padding: 0.15rem;
-    }
-
-    .nav-link i.fa-lg {
-        font-size: 1rem;
     }
 
     .navbar-toggler {
@@ -1369,6 +1376,12 @@ a:hover {
 }
 
 @media only screen and (max-width: 768px) {
+
+    .navbar-icons {
+        display: flex;
+        margin: 0 auto;
+    }
+
     .info.d-flex.align-items-center {
         margin-top: 5em;
     }
@@ -1395,6 +1408,20 @@ a:hover {
         display: none;
     }
 
+}
+
+@media only screen and (max-width: 574px) {
+    .navbar-icons {
+        display: flex;
+        margin: 0 auto;
+        padding-top: 0.5rem;
+    }
+
+    .dropdown-menu {
+        min-width: 15rem !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
 }
 
 @media only screen and (max-height: 500px) {
