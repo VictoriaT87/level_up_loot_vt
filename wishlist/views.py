@@ -28,7 +28,7 @@ def add_wishlist(request, product_id):
     Add a view to show the wishlist
     """
     product = get_object_or_404(Product, pk=product_id)
-    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+    wishlist = Wishlist.objects.get_or_create(user=request.user)
 
     if product in wishlist.products.all():
         messages.info(request, f'{product.title} is already in your Wishlist!')
