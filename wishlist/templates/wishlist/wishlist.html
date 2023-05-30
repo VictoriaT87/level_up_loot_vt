@@ -48,7 +48,8 @@
                             {% if product.image %}
                             <img class="img-fluid rounded w-50" src="{{ product.image.url }}" alt="{{ product.title }}">
                             {% else %}
-                            <img class="img-fluid rounded w-50" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
+                            <img class="img-fluid rounded w-50" src="{{ MEDIA_URL }}noimage.png"
+                                alt="{{ product.title }}">
                             {% endif %}
                         </td>
                         <td class="wishlist-title" data-label="Name:">
@@ -56,22 +57,24 @@
                         </td>
                         <td class="wishlist-title" data-label="Price:">
                             <div>
-                                <p class="mb-0 pb-1"><span class="text-left h5 brand-font">€{{ product.price }}</span></p>
+                                <p class="mb-0 pb-1"><span class="text-left h5 brand-font">€{{ product.price }}</span>
+                                </p>
                                 {% if product.on_sale %}
                                 <p class="mb-0"><s>€{{ product.sale_price|floatformat:2 }}</s></p>
                                 {% endif %}
                             </div>
                         </td>
                         <td class="wishlist" data-label="View Product:">
-                            <a href="{% url 'product_detail' product.id %}" aria-label="Link to View Product Detail Page">
+                            <a href="{% url 'product_detail' product.id %}"
+                                aria-label="Link to View Product Detail Page">
                                 <i class="fas fa-eye text-muted"></i>
                             </a>
                         </td>
                         <td class="wishlist" data-label="Remove Product:">
-                            <a href="{% url 'remove_wishlist' product.id %}" aria-label="Link to View Product Detail Page">
+                            <a href="{% url 'remove_wishlist' product.id %}?next={% url 'wishlist' %}" aria-label="Link to Remove Product">
                                 <i class="fas fa-minus-circle text-muted"></i>
                             </a>
-                        </td>
+                        </td>                        
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -79,15 +82,20 @@
         </div>
         <!-- if no products exist in the users wishlist -->
         {% else %}
-        <div class="col mt-4 pl-0 text-center">
-            <a href="{% url 'products' %}" class="btn btn-black rounded-0 text-uppercase mt-1">
-                <p class="text-center">Your Wishlist is currently empty - click the <span class="icon"><i
+        <div class="row">
+            <div class="col-12">
+                <p class="text-center text-black mt-3 h5">Your Wishlist is currently empty - click the <span class="icon"><i
                             class="fas fa-heart fa-fw"></i></span> icon to add some!</p>
-            </a>
+                <div class="text-center mt-4">
+                    <a href="{% url 'products' %}" class="btn btn-black rounded-0 text-uppercase mt-1">
+                        Go to Products
+                    </a>
+                </div>
+            </div>
         </div>
         {% endif %}
     </div>
-    
-    
+
+
 </div>
 {% endblock %}
