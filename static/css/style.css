@@ -41,7 +41,7 @@ a {
 }
 
 a:hover {
-    color: var(--white);
+    color: var(--black);
     text-decoration: none;
 }
 
@@ -163,10 +163,6 @@ a:hover {
     display: none;
 }
 
-.hero-mobile {
-    margin-top: 108px;
-}
-
 .hero-container-mobile {
     margin: 0 auto;
 }
@@ -196,7 +192,6 @@ a:hover {
     position: relative;
     margin: 0 auto;
     top: 15em;
-    width: 20em;
     padding: 1px 0;
 }
 
@@ -1194,7 +1189,7 @@ a:hover {
         display: block;
         color: #fff;
         z-index: 1;
-        height: 100vh;
+        height: 90vh;
         margin: 0;
     }
 
