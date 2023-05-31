@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    'levelup-loot-vt.herokuapp.com', 'localhost', '8000-victoriat87-leveluploot-g4nbbne6o2l.ws-eu97.gitpod.io']
+    'levelup-loot-vt.herokuapp.com', 'localhost', '8000-victoriat87-leveluploot-6i3qdheentf.ws-eu98.gitpod.io']
 
 
 # Application definition

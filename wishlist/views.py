@@ -16,7 +16,8 @@ def view_wishlist(request):
     Show a user's wishlist
     """
     user = get_object_or_404(UserProfile, user=request.user)
-    wishlist = get_object_or_404(Wishlist, user=user.user)
+    # https://www.queworx.com/django/django-get_or_create/
+    wishlist, created = Wishlist.objects.get_or_create(user=user.user)
 
     template_name = 'wishlist/wishlist.html'
     context = {'wishlist': wishlist}
