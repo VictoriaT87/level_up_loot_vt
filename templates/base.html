@@ -108,7 +108,8 @@
                 </li>
             </ul>
         </div>
-        <!-- Navbar area -->
+
+        <!-- Navbar -->
         <div class="row bg-white">
             <nav class="navbar navbar-expand-lg w-100">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
@@ -119,11 +120,12 @@
                 {% include 'includes/main-nav.html' %}
             </nav>
         </div>
-        <!-- Delivery banner area -->
+
+        <!-- Delivery Banner -->
         <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black baby-blue-text">
-                <h2 class="h5 banner-font pt-2">
-                    <i class="fas fa-truck"></i> Free delivery on orders over €{{ free_delivery_threshold }}!
+            <div class="col">
+                <h2 class="h5 pt-2">
+                    Free delivery on orders over €{{ free_delivery_threshold }}!
                 </h2>
             </div>
         </div>
