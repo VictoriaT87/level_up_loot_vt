@@ -58,7 +58,7 @@
                 <a href="{% url 'products' %}?brand=funko" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="/media/mewtwo-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}mewtwo-preview.png" alt="">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">Funko Pop!</h3>
@@ -70,7 +70,7 @@
                 <a href="{% url 'products' %}?brand=sideshow" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="/media/sideshow_preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}sideshow_preview.png" alt="">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">Sideshow</h3>
@@ -82,7 +82,7 @@
                 <a href="{% url 'products' %}?brand=hasbro" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="/media/hasbro-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}hasbro-preview.png" alt="">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">Hasbro</h3>
@@ -94,7 +94,7 @@
                 <a href="{% url 'products' %}?brand=dark_horse" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="media/darkhorse-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}darkhorse-preview.png" alt="">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">DarkHorse</h3>
@@ -106,7 +106,7 @@
                 <a href="{% url 'products' %}?brand=mcfarlane" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="media/mcfarlane-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}mcfarlane-preview.png" alt="">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">McFarlane</h3>
@@ -118,7 +118,7 @@
                 <a href="{% url 'products' %}?brand=pure_arts" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="media/purearts-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}purearts-preview.png" alt="">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">PureArts</h3>
@@ -203,7 +203,7 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="why-us-item position-relative">
                     <div class="icon">
-                        <img class="icon-img" src="/media/box.png" alt="small buddha art">
+                        <img class="icon-img" src="{{ MEDIA_URL }}box.png" alt="cardboard box graphic">
                     </div>
                     <p class="h3">Fast Shipping</p>
                 </div>
@@ -212,7 +212,7 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="why-us-item position-relative">
                     <div class="icon">
-                        <img class="icon-img" src="/media/hand.png" alt="small lotus art">
+                        <img class="icon-img" src="{{ MEDIA_URL }}hand.png" alt="hand holding money">
                     </div>
                     <p class="h3">No Import Fees</p>
                 </div><!-- End Item -->
@@ -221,7 +221,7 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
                 <div class="why-us-item position-relative">
                     <div class="icon">
-                        <img class="icon-img" src="/media/new-product.png" alt="small heart and hands art">
+                        <img class="icon-img" src="{{ MEDIA_URL }}new-product.png" alt="open cardboard box graphic">
                     </div>
                     <p class="h3">New Products Weekly</p>
                 </div>
