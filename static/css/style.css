@@ -693,10 +693,6 @@ a:hover {
     margin-bottom: 2em;
 }
 
-.order-table {
-    border: 1px solid black;
-}
-
 .order-table td,
 .order-table th {
     vertical-align: initial;
@@ -752,6 +748,10 @@ a:hover {
 
 .text-black {
     color: #000 !important;
+}
+
+.text-blue {
+    color: #3d85c6 !important;
 }
 
 .border-black {

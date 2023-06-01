@@ -61,7 +61,7 @@
                 </thead>
                 <tbody>
                     {% for order in orders %}
-                    <tr class="order-table">
+                    <tr class="order-table border">
                         <td class="order-table-td">{{ order.date|date:"M d, Y" }}</td>
                         <td class="order-table-td"><a href="{% url 'order_history' order.order_number %}"
                                 title="{{ order.order_number }}" class="order-link">
