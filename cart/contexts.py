@@ -6,14 +6,16 @@ from django.shortcuts import get_object_or_404
 from checkout.models import Coupon
 
 def cart_contents(request):
+
     cart_items = []
     total = 0
     product_count = 0
     cart = request.session.get('cart', {})
-    coupon_id = request.session.get('coupon_id', None)
+    coupon_id = request.session.get('coupon_id', int())
 
     try:
         coupon = Coupon.objects.get(id=coupon_id)
+
     except Coupon.DoesNotExist:
         coupon = None
 
@@ -28,7 +30,6 @@ def cart_contents(request):
                 'product': product,
             })
 
-
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
@@ -36,14 +37,12 @@ def cart_contents(request):
         delivery = 0
         free_delivery_delta = 0
     
-    discount = 0
-    
-    if coupon: 
-        # Calculate the discount amount
-        discount = total * (coupon.discount / Decimal(100)) 
+    if coupon:
+        discount = total * Decimal(coupon.discount / 100)
         grand_total =  total - discount + delivery
         stripe_total = round(grand_total * 100)
     else:
+        discount = 0
         grand_total = delivery + total
         stripe_total = round(grand_total * 100)
 

@@ -229,6 +229,7 @@ def checkout_success(request, order_number):
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,
+        'discount': order.coupon.discount if order.coupon else None,
     }
 
     return render(request, template, context)

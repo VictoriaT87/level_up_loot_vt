@@ -5,6 +5,7 @@ import uuid  # generate order number
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
+from decimal import Decimal
 
 from django_countries.fields import CountryField
 
@@ -75,8 +76,11 @@ class Order(models.Model):
                 settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
+        
+        # code for coupon
         if self.coupon is not None:
-            self.order_total = self.order_total - self.coupon.discount
+            discount = self.order_total * (self.coupon.discount / Decimal(100))
+            self.order_total -= discount
         self.grand_total = self.order_total + self.delivery_cost
         self.save()
 
