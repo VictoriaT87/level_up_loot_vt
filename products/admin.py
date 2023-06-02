@@ -16,7 +16,10 @@ class ProductAdmin(admin.ModelAdmin):
         'image',
         'on_sale',
         'sale_price',
+        'is_featured',
     )
+
+    list_editable = ('is_featured', 'on_sale',)
 
     ordering = ('title',)
 

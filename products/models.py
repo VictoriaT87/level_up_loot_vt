@@ -55,7 +55,7 @@ class Product(models.Model):
     is_featured = models.BooleanField(default=False)
     on_sale = models.BooleanField(default=False)
     sale_price = models.DecimalField(max_digits=4, decimal_places=2)
-    discount = models.IntegerField(default=0, help_text="Discount in Percentage")
+    discount = models.IntegerField(default=10, help_text="Discount in Percentage")
     discounted_price = models.IntegerField(null=True)
     created_on = models.DateField(default=timezone.now)
     
