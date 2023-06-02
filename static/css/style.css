@@ -149,6 +149,12 @@ a:hover {
     color: var(--blue);
 }
 
+
+.navbar-icons {
+    display: flex;
+    margin-bottom: 0 !important;
+}
+
 .nav-text {
     color: var(--black);
 }
@@ -561,6 +567,15 @@ a:hover {
 
 .description-card {
     max-height: 100%;
+}
+
+.sale-badge {
+    position: absolute;
+    right: 60px;
+    top: 12px;
+    font-size: 60%;
+    color: var(--white);
+    background-color: var(--blue);
 }
 
 .card-brand {
@@ -1173,6 +1188,14 @@ a:hover {
         flex-direction: row;
     }
 
+    .navbar-icons {
+        display: none;
+    }
+
+    .nav-item {
+        margin: 0 .75em;
+    }
+
     #top-nav {
         justify-content: space-between;
     }
@@ -1205,10 +1228,6 @@ a:hover {
         padding: 0.15rem;
     }
 
-    .navbar-icons {
-        display: flex;
-        margin-bottom: 0 !important;
-    }
 
     /* Hero Section */
 
@@ -1402,11 +1421,6 @@ a:hover {
 }
 
 @media only screen and (max-width: 768px) {
-
-    .navbar-icons {
-        display: flex;
-        margin: 0 auto;
-    }
 
     .info.d-flex.align-items-center {
         margin-top: 5em;
