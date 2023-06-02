@@ -38,7 +38,7 @@ def contact(request):
                   message_email,
                   ['victoriaemt@gmail.com'])
         messages.success(request,
-                         'Thank You, your email has been sent. We will contact you shortly.')
+                         'Thank you, your email has been sent. We will contact you shortly.')
         return render(request, "home/contact.html")
     else:
         return render(request, "home/contact.html")
