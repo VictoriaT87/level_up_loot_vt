@@ -1,15 +1,26 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
-<h1 class="mt-5">403 Forbidden</h1>
-
-<div class="shadow p-4 rounded m-5 error-page">
-    <div class="about-text row gy-4 justify-content-center">
-        <p">Sorry, you don't have permission to access that page.</p>
-        <br>
-        <p">Please return to the <a href="{% url 'home' %}">home</a> page now.</p>
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
     </div>
-</div>
-
+    <div class="container h-100">
+        <div class="row h-100 error-bg">
+            <div class="col-7 col-md-6 my-auto">
+                <h1 class="display-4 logo-font text-black">
+                    Sorry, you dont have permission to access that page.
+                </h1>
+                <div class="my-5">
+                    <h4>
+                        <a href="{% url 'products' %}" 
+                            class="product-btn btn btn-lg rounded-0 text-uppercase py-3">
+                                Return to shop
+                        </a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

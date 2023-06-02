@@ -253,6 +253,12 @@ a:hover {
     z-index: -1;
 }
 
+.error-bg {
+    background-image: url(/media/ac.png);
+    background-position: top;
+    background-size: cover;
+}
+
 
 /* Brands Section */
 
