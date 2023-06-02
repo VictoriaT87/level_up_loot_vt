@@ -41,14 +41,14 @@
                 <div class="col-2 mb-1">
                     <a href="{% url 'product_detail' item.product.id %}">
                         {% if item.product.image %}
-                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                        <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.title }}">
                         {% else %}
-                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
                         {% endif %}
                     </a>
                 </div>
                 <div class="col-7">
-                    <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                    <p class="my-0"><strong>{{ item.product.title }}</strong></p>
                     <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
                 </div>
                 <div class="col-3 text-right">
@@ -58,7 +58,7 @@
             {% endfor %}
             <div class="row mt-3 mb-3">
                 <div class="col align-self-end">
-                    <form class="border p-2" action="{% url 'add_coupon' %}" method="POST">
+                    <form class="p-2" action="{% url 'add_coupon' %}" method="POST">
                         {% csrf_token %}
                         <div class="input-group">
                             {{ coupon_form.code }}
@@ -67,6 +67,12 @@
                             </div>
                         </div>
                     </form>
+                    {% if coupon %}
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>Coupon Applied: <span class="text-blue">{{ coupon.code }}</span> </div>
+                        <div><a class="btn text-blue btn-sm m-0 text-right" href="{% url 'remove_coupon' %}">Remove Coupon</a></div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <hr class="my-0">

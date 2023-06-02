@@ -17,6 +17,7 @@ import json
 
 
 def get_coupon(request, code):
+    """ Get a coupon code stored in the database """
     # coupon code based on freeCodeCamp.org
     # credited in README
     try:
@@ -28,6 +29,8 @@ def get_coupon(request, code):
 
 
 def add_coupon(request):
+    """ Allow a user to add the coupon code """
+
     code = request.POST.get('code')
 
     try:
@@ -40,6 +43,13 @@ def add_coupon(request):
         return redirect('checkout')
     else:
         return redirect('checkout')
+
+
+def remove_coupon(request):
+    """ Remove coupon code """
+    del request.session['coupon_id']
+    messages.success(request, "The coupon has been removed")
+    return redirect('checkout')
 
 
 @require_POST
@@ -85,17 +95,19 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             coupon = request.session.get('coupon_id')
-            if coupon is not None:
-                code = Coupon.objects.get(pk=coupon)
-                order.coupon = code
-                request.session['coupon_id'] = None
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             order.save()
 
-            # from context processer
+            # Assign the coupon to the order
+            if coupon is not None:
+                code = Coupon.objects.get(pk=coupon)
+                order.coupon = code
+                request.session['coupon_id'] = None
+
+           # from context processer
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -123,13 +135,17 @@ def checkout(request):
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "There's nothing in your cart at the moment")
+            messages.error(
+                request, "There's nothing in your cart at the moment")
             return redirect(reverse('products'))
 
         # get current cart total from context.py
         current_cart = cart_contents(request)
         # get grand_total key from cart in context.py
         total = current_cart['grand_total']
+
+        discount = current_cart['discount']
+
         # round function to get integer
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -138,7 +154,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-         # Attempt to prefill the form with any info the user maintains in their profile
+        # Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -168,6 +184,7 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
         'coupon_form': coupon_form,
+        'discount': discount,
     }
 
     return render(request, template, context)
