@@ -11,33 +11,32 @@
 
 {% block content %}
 <div class="container">
-    <div class="product-add">
-        <div class="row">
-            <div>
-                <hr>
-                <h2 class="logo-font mb-4">Product Management</h2>
-                <h5 class="text-muted text-center">Add a Product</h5>
-                <hr>
-            </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <hr>
+            <h2 class="logo-font mb-4 text-blue">Product Management</h2>
+            <h5 class="text-muted">Add Product</h5>
+            <hr>
         </div>
+    </div>
 
-        <div class="row text-center">
-            <div>
-                <form method="POST" action="{% url 'add_product' %}" class="form mb-2" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {% for field in form %}
-                    {% if field.name != 'image' %}
-                    {{ field | as_crispy_field }}
-                    {% else %}
-                    {{ field }}
-                    {% endif %}
-                    {% endfor %}
-                    <div class="text-center">
-                        <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
-                        <button class="btn btn-black rounded-0" type="submit">Add Product</button>
-                    </div>
-                </form>
-            </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <form method="POST" action="{% url 'add_product' %}" class="form mb-2"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name != 'image' %}
+                {{ field | as_crispy_field }}
+                {% else %}
+                {{ field }}
+                {% endif %}
+                {% endfor %}
+                <div class="text-right">
+                    <a class="btn btn-outline-black rounded-0" href="{% url 'products' %}">Cancel</a>
+                    <button class="btn product-btn rounded-0" type="submit">Add Product</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

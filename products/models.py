@@ -52,10 +52,10 @@ class Product(models.Model):
         max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
-    is_featured = models.BooleanField(default=False)
+    is_featured = models.BooleanField(default=False, verbose_name="Feature on Home Page")
     on_sale = models.BooleanField(default=False)
     sale_price = models.DecimalField(max_digits=4, decimal_places=2)
-    discount = models.IntegerField(default=10, help_text="Discount in Percentage")
+    discount = models.IntegerField(default=10, help_text="Discount in Percentage", verbose_name="Discount If Product On Sale")
     discounted_price = models.IntegerField(null=True)
     created_on = models.DateField(default=timezone.now)
     
