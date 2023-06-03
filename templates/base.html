@@ -20,8 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
-    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet"
-                            type="text/css">
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-071822.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
 
@@ -29,6 +28,7 @@
     {% endblock %}
 
     {% block extra_js %}
+    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/55b2009d670eb222a041a344b/532454e1b72c711a11c56ecaf.js");</script>
     {% endblock %}
 
     <title>LevelUp! Loot {% block extra_title %}{% endblock %}</title>
@@ -79,7 +79,7 @@
                         {% endif %}
                     </div>
                 </li>
-                
+
                 {% if request.user.is_authenticated %}
                 <li class="list-inline-item">
                     <a class="text-black nav-link px-1" href="{% url 'wishlist' %}">
@@ -90,7 +90,7 @@
                     </a>
                 </li>
                 {% endif %}
-                
+
                 <li class="list-inline-item">
                     <a class="{% if total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
                         href="{% url 'view_cart' %}">
@@ -141,6 +141,8 @@
         {% include 'includes/toasts/toast_warning.html' %}
         {% elif level == 25 %}
         {% include 'includes/toasts/toast_success.html' %}
+        {% elif level == 20 %}
+        {% include 'includes/toasts/toast_wishlist.html' %}
         {% else %}
         {% include 'includes/toasts/toast_info.html' %}
         {% endif %}

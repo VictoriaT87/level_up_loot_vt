@@ -36,10 +36,10 @@ def add_wishlist(request, product_id):
         wishlist = Wishlist.objects.create(user=request.user)
 
     if product in wishlist.products.all():
-        messages.info(request, 'The product is already in your wishlist!')
+        messages.info(request, f'{product.title} is already on your Wishlist!')
     else:
         wishlist.products.add(product)
-        messages.info(request, 'Added the product to your wishlist')
+        messages.info(request, f'{product.title} has been added to your Wishlist!')
 
     return redirect(reverse('product_detail', args=[product_id]))
 
