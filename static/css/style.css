@@ -416,6 +416,14 @@ a:hover {
     color: #3d85c6;
 }
 
+.privacy-container {
+    width: 80%;
+}
+
+.privacy-container li {
+    list-style-type: none;
+}
+
 .btt-button {
     height: 42px;
     width: 42px;

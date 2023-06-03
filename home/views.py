@@ -26,6 +26,13 @@ def faqs(request):
     return render(request, "home/faqs.html")
 
 
+def privacy_policy(request):
+    """
+    FAQs Page
+    """
+    return render(request, "home/privacy_policy.html")
+
+
 def contact(request):
     """ View to return Contact Us form """
     if request.method == "POST":
