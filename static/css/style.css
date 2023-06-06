@@ -1039,8 +1039,7 @@ a:hover {
 }
 
 .footer .row {
-    padding-top: 20px;
-    align-items: baseline;
+    padding-top: 10px;
 }
 
 .footer a {
@@ -1052,8 +1051,15 @@ a:hover {
 }
 
 .footer ul {
+    line-height: 2em;
     list-style: none;
     padding: 0;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    line-height: 2.5em;
 }
 
 .footer-content {
@@ -1070,12 +1076,7 @@ a:hover {
 }
 
 #mc_embed_signup {
-    background: var(--white);
-    color: var(--black);
-}
-
-#mc_embed_signup_scroll {
-    padding-top: 10px;
+    color: var(--white);
 }
 
 #mc_embed_signup form {
@@ -1083,8 +1084,41 @@ a:hover {
     margin: 0 20px;
 }
 
+#mc_embed_signup h2 {
+    margin: 0;
+}
+
+#mc_embed_signup .helper_text {
+    display: none;
+}
+
+#mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {
+    color: var(--blue);
+}
+
+#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error {
+    border: 2px solid var(--blue);
+}
+
+#mc_embed_signup .foot {
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.brandingLogo img {
+    width: 90%;
+}
+
 #mc_embed_signup .button {
     background-color: var(--blue);
+    font-size: 20px;
+}
+
+#mc_embed_signup .button:hover {
+    color: var(--blue);
+    background-color: var(--white);
 }
 
 .social-links {
@@ -1337,6 +1371,15 @@ a:hover {
     .table-responsive {
         display: table;
     }
+
+    #mc_embed_signup .foot {
+        display: grid;
+        grid-template-columns: 2fr 2fr;
+        width: 96%;
+        align-items: center;
+        justify-content: space-evenly;
+        justify-items: end;
+    }
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
@@ -1486,6 +1529,10 @@ a:hover {
         flex-direction: column;
         align-items: center;
         margin-bottom: 1em;
+    }
+
+    #mc_embed_signup .mc-field-group {
+        width: 100%;
     }
 }
 
