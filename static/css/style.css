@@ -700,49 +700,6 @@ a:hover {
     margin: 2em 0;
 }
 
-/* Profile Page */
-
-.profile-btn {
-    color: #fff;
-    margin: 10px;
-    background-color: var(--black);
-    border-color: #343a40;
-}
-
-.profile-btn:hover {
-    color: var(--black);
-    background-color: var(--white);
-    border-color: #343a40;
-}
-
-.order-list {
-    line-height: 1em;
-    font-size: .875em;
-    font-weight: 400;
-}
-
-.order-link {
-    color: var(--blue);
-}
-
-.order-link:hover {
-    color: var(--black);
-}
-
-.table-responsive {
-    margin-bottom: 2em;
-}
-
-.order-table td,
-.order-table th {
-    vertical-align: initial;
-}
-
-#pills-delete {
-    padding: 30px;
-    margin-bottom: 1em;
-}
-
 
 /* from Bulma */
 .icon {
@@ -752,8 +709,6 @@ a:hover {
     height: 1.5rem;
     width: 1.5rem;
 }
-
-
 
 .shop-now-button {
     background: black;

@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-<div id="dashboard-container" class="container first-element-buffer">
+<div class="container first-element-buffer">
 
     <h2 class="text-center title-font">Your Dashboard</h2>
     <p class="text-center title-font">Update your delivery address and see your order history.</p>
@@ -86,8 +86,10 @@
         <!-- Delete Profile -->
         <div class="tab-pane fade border-accent-primary text-center text-black" id="pills-delete" role="tabpanel"
             aria-labelledby="pills-delete-tab">
+            <h2>Warning!</h2>
+            <h3>Account deletion is permanent. Proceed?</h3>
             <!-- Modal for delete confirmation -->
-            <button class="btn btn-danger btn-lg" data-toggle="modal" data-target="#fm-modal-grid">Delete This
+            <button class="btn btn-danger btn-lg mt-3" data-toggle="modal" data-target="#fm-modal-grid">Delete This
                 Account</button>
             <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledBy="fm-modal-grid"
                 aria-hidden="true">
