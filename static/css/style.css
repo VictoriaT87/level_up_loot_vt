@@ -1395,7 +1395,7 @@ a:hover {
 
     .error-bg {
         background-image: url(/media/ac.png);
-        background-size: cover;
+        background-position: top;
     }
 }
 
