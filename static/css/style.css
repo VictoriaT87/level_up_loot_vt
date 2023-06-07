@@ -585,7 +585,7 @@ a:hover {
 
 .sale-badge {
     position: absolute;
-    right: 60px;
+    right: 20px;
     top: 12px;
     font-size: 60%;
     color: var(--white);
@@ -1379,6 +1379,10 @@ a:hover {
         align-items: center;
         justify-content: space-evenly;
         justify-items: end;
+    }
+
+    .sale-badge {
+        right: 60px;
     }
 }
 
