@@ -257,13 +257,14 @@ a:hover {
     margin: auto;
 }
 
-.error-div {
-    margin: 15% 5%;
-}
-
 .error-bg {
     background-image: url(/media/ac.png);
     background-size: cover;
+    background-position: 35em;
+}
+
+.error-div {
+    margin: 15% 5%;
 }
 
 
@@ -1390,6 +1391,11 @@ a:hover {
 
     .sale-badge {
         right: 60px;
+    }
+
+    .error-bg {
+        background-image: url(/media/ac.png);
+        background-size: cover;
     }
 }
 
