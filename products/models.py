@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 from django.contrib.auth.models import User
 from profiles.models import UserProfile
@@ -58,6 +59,10 @@ class Product(models.Model):
     discounted_price = models.IntegerField(null=True)
     created_on = models.DateField(default=timezone.now)
     
+
+    def clean(self):
+        if self.price < 0:
+            raise ValidationError("Price cannot be negative.")
 
     @property
     def discounted_price(self):
