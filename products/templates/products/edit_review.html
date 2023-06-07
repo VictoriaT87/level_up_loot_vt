@@ -4,7 +4,9 @@
 {% block page_header %}
 <div class="header-container">
     <div class="row">
-        <div class="col"></div>
+        <div class="col">
+            <h2 class="logo-font text-black text-center">Update Your Review</h2>
+        </div>
     </div>
 </div>
 {% endblock %}
@@ -14,7 +16,6 @@
 {% block content %}
 <div class="container h-100">
     <div class="col-sm col-md-8 offset-md-2 p-2 my-5 bg-light">
-        <h2 class="logo-font text-black text-center">Update Your Review</h2>
         <form method="post" class="review-form">
             {% csrf_token %}
             {{ form | crispy }}

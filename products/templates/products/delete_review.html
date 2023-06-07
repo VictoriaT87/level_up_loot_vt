@@ -21,8 +21,10 @@
             <div><strong>{{ object.review }}</strong></div>
             <br>
             <p>This action cannot be undone!</p>
-            <button class="btn btn-danger my-2 ml-2" aria-label="delete post">Delete Review!</button>
-            <a class="btn btn-outline-black my-2 ml-2" href="{% url 'products' %}">Cancel</a>
+            <div>
+                <button class="btn btn-danger my-2 ml-2" aria-label="delete post">Delete Review!</button>
+                <a class="btn btn-outline-black my-2 ml-2" href="{% url 'products' %}">Cancel</a>
+            </div>
         </form>
     </div>
 </div>
