@@ -52,14 +52,14 @@
     <div class="container-brands">
         <div>
             <h2 class="display-4 text-black text-center pt-2 ">Shop Brands</h2>
-            <p class="text-center h4 mb-5">Find your favourite premium collectible brand now!</p>
+            <p class="text-center h4 mb-5 brand-title-p">Find your favourite premium collectible brand now!</p>
         </div>
         <div class="brands-div">
             <div class="brands-item">
                 <a href="{% url 'products' %}?brand=funko" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="{{ MEDIA_URL }}mewtwo-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}funko-preview.png" alt="pink pokemon figure">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">Funko Pop!</h3>
@@ -71,7 +71,7 @@
                 <a href="{% url 'products' %}?brand=sideshow" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="{{ MEDIA_URL }}sideshow_preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}sideshow-preview.png" alt="anime character statue">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">Sideshow</h3>
@@ -83,7 +83,7 @@
                 <a href="{% url 'products' %}?brand=hasbro" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="{{ MEDIA_URL }}hasbro-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}hasbro-preview.png" alt="star wars green soldier helmet">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">Hasbro</h3>
@@ -95,7 +95,7 @@
                 <a href="{% url 'products' %}?brand=dark_horse" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="{{ MEDIA_URL }}darkhorse-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}darkhorse-preview.png" alt="figure of a man holding an axe">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">DarkHorse</h3>
@@ -107,7 +107,7 @@
                 <a href="{% url 'products' %}?brand=mcfarlane" class="brands-a">
                     <div class="brands-img-div">
                         <div class="img-box">
-                            <img src="{{ MEDIA_URL }}mcfarlane-preview.png" alt="">
+                            <img src="{{ MEDIA_URL }}mcfarlane-preview.png" alt="toy pig man solider holding a gun">
                         </div>
                         <div class="img-box-title brands-flex">
                             <h3 class="img-box-title-text">McFarlane</h3>
@@ -159,7 +159,7 @@
 
 
 <!-- Featured Products -->
-<section class="featured">
+<section class="featured mt-3">
     <h2 class="display-4 text-black text-center pt-2">
         Featured Collectibles
     </h2>

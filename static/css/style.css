@@ -470,7 +470,6 @@ a:hover {
 
 .why-us-item img {
     width: 100px;
-    margin-top: 1em;
     filter: invert(1);
 }
 
@@ -485,21 +484,24 @@ a:hover {
     text-align: center;
 }
 
-.why-us-title {
-    color: var(--white);
+.why-us .why-us-item h3 {
+    color: var(--black);
+    font-weight: 700;
     margin: 0 0 20px 0;
     padding-bottom: 8px;
+    font-size: 22px;
     position: relative;
     text-align: center;
 }
 
-.why-us-p {
+.why-us .why-us-item p {
     color: var(--white);
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    padding-bottom: 8px;
+    font-size: 22px;
     position: relative;
     text-align: center;
-    font-size: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid white;
 }
 
 /* -------------------------------- Product Form including clearable file input widget to handle image field */
@@ -1323,14 +1325,6 @@ a:hover {
 
     .brands-item {
         width: 33.33333% !important;
-    }
-
-    .why-us-item img {
-        margin-top: 0;
-    }
-
-    .why-us-p {
-        border-bottom: none;
     }
 
     .review-accordian {
