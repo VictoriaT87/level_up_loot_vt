@@ -51,7 +51,8 @@
 <section class="brands">
     <div class="container-brands">
         <div>
-            <h2 class="display-4 text-black text-center pt-2 my-5">Shop Brands</h2>
+            <h2 class="display-4 text-black text-center pt-2 ">Shop Brands</h2>
+            <p class="text-center h4 mb-5">Find your favourite premium collectible brand now!</p>
         </div>
         <div class="brands-div">
             <div class="brands-item">
@@ -159,9 +160,10 @@
 
 <!-- Featured Products -->
 <section class="featured">
-    <h2 class="display-4 text-black text-center pt-2 my-5">
-        Featured Products
+    <h2 class="display-4 text-black text-center pt-2">
+        Featured Collectibles
     </h2>
+    <p class="text-center h4 mb-5">Check out some of our top rated statues!</p>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 mx-3 mb-5">
         {% for product in products %}
         {% if product.is_featured %}
@@ -169,10 +171,10 @@
             <div class="card h-100">
                 <a href="{% url 'product_detail' product.id %}">
                     <img class="card-img-top product-image img-fluid" src="{{ product.image.url }}"
-                        alt="{{ product.name }}">
+                        alt="{{ product.title }}">
                 </a>
                 <div class="card-body">
-                    <h3 class="card-title logo-font-alt h6 text-center">{{ product.title }}</h3>
+                    <h3 class="card-title text-black text-center mt-auto">{{ product.title }}</h3>
                 </div>
                 <div class="card-footer bg-white text-center mb-2">
                     <div class="price-box mb-1">
@@ -205,7 +207,8 @@
                     <div class="icon">
                         <img class="icon-img" src="{{ MEDIA_URL }}box.png" alt="cardboard box graphic">
                     </div>
-                    <p class="h3">Fast Shipping</p>
+                    <p class="why-us-title h3">Fast Shipping</p>
+                    <p class="why-us-p">All of our products are shipped from our Irish warehouse, meaning faster delivery!</p>
                 </div>
             </div><!-- End Item -->
 
@@ -214,7 +217,8 @@
                     <div class="icon">
                         <img class="icon-img" src="{{ MEDIA_URL }}hand.png" alt="hand holding money">
                     </div>
-                    <p class="h3">No Import Fees</p>
+                    <p class="why-us-title h3">No Import Fees</p>
+                    <p class="why-us-p">Take out the hassle of having to pay custom fees, shop within the EU and save money.</p>
                 </div><!-- End Item -->
             </div>
 
@@ -223,7 +227,8 @@
                     <div class="icon">
                         <img class="icon-img" src="{{ MEDIA_URL }}new-product.png" alt="open cardboard box graphic">
                     </div>
-                    <p class="h3">New Products Weekly</p>
+                    <p class="why-us-title h3">New Products Weekly</p>
+                    <p class="why-us-p">We're constantly updating our stock with the lastest collectibles from the best brands!</p>
                 </div>
             </div><!-- End Item -->
         </div>
