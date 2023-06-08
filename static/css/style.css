@@ -338,17 +338,16 @@ a:hover {
     text-transform: uppercase;
     color: var(--black);
     margin: 0;
-
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: center;
 }
 
-.brands-img-div:hover img {
-    opacity: 0.3;
+.brands-img-div img {
+    opacity: 0.5;
 }
 
-.brands-img-div:hover .img-box-title {
+.brands-img-div .img-box-title {
     opacity: 1;
 }
 
@@ -1260,6 +1259,24 @@ a:hover {
         padding: 20px;
         max-width: 50%;
         margin: 0;
+    }
+
+    /* Brands Section */
+
+    .brands-img-div img {
+        opacity: 1;
+    }
+    
+    .brands-img-div .img-box-title {
+        opacity: 0;
+    }
+
+    .brands-img-div:hover img {
+        opacity: 0.3;
+    }
+    
+    .brands-img-div:hover .img-box-title {
+        opacity: 1;
     }
 
     .brand-title-p {
