@@ -54,7 +54,7 @@
     </li>
     {% if request.user.is_authenticated %}
     <li class="list-inline-item">
-        <a class="{% if wishlist %}alt-text-info font-weight-bold{% else %}text-black{% endif %} nav-link px-1 d-lg-none"
+        <a class="text-black nav-link px-1 d-lg-none"
             href="{% url 'wishlist' %}">
             <div class="text-center">
                 <div><i class="fas fa-heart fa-lg nav-icon"></i></div>
