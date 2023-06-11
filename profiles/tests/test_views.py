@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
 from profiles.models import UserProfile
-from profiles.views import profile
+from profiles.views import profile, order_history, DeleteProfile
 from profiles.forms import UserProfileForm
 from checkout.models import Order
 from django.urls import reverse
@@ -104,3 +104,33 @@ class OrderHistoryViewTest(TestCase):
         messages = [m.message for m in get_messages(response.wsgi_request)]
         expected_message = f'This is a past confirmation for order number {self.order.order_number}. A confirmation email was sent on the order date.'
         self.assertIn(expected_message, messages)
+
+
+class DeleteProfileViewTest(TestCase):
+    """ Tests for DeleteProfile view """
+
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpass'
+        )
+
+        self.profile = self.user.userprofile
+
+    def test_delete_profile(self):
+        # Log in the user
+        self.client.login(username='testuser', password='testpass')
+
+        # Make a POST request to delete the profile
+        response = self.client.post(reverse('user-delete', kwargs={'pk': self.profile.pk}))
+
+        # Assert that the response is a redirect
+        self.assertRedirects(response, reverse('home'))
+
+        # Assert that the user is deleted
+        self.assertFalse(User.objects.filter(username='testuser').exists())
+
+        # Assert that the success message is added to the messages framework
+        messages = [m.message for m in get_messages(response.wsgi_request)]
+        self.assertIn('Profile successfully deleted', messages)
