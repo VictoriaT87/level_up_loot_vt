@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from profiles.models import UserProfile
 
 class UserProfileModelTest(TestCase):
+    """
+    Test for the UserProfile model
+    """
     @classmethod
     def setUpTestData(cls):
         # Create a test User
