@@ -98,3 +98,19 @@ class AddWishlistTest(TestCase):
         # Assert that the success message is displayed
         messages = [m.message for m in get_messages(response.wsgi_request)]
         self.assertIn(f'{self.product.title} has been added to your Wishlist!', messages)
+
+
+    def test_unauthenticated_user_view_wishlist(self):
+        # Make a GET request to the wishlist view
+        response = self.client.get(reverse('wishlist'))
+
+        # Assert that the response status code is 302 (redirect)
+        self.assertEqual(response.status_code, 302)
+
+        # Assert that the user is redirected to the login page
+        self.assertRedirects(response, reverse('account_login'))
+
+        # Assert that an error message is shown
+        # https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages/14909727#14909727
+        messages = [m.message for m in get_messages(response.wsgi_request)]
+        self.assertIn('Sorry, you need to be logged in to add your Wishlist.', messages)
