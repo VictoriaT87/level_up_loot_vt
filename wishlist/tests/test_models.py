@@ -42,6 +42,7 @@ class WishlistModelTest(TestCase):
         self.assertEqual(user.username, 'testuser')
 
     def test_date_added_field(self):
+        # test the date added field
         wishlist = Wishlist.objects.get(id=1)
         date_added = wishlist.date_added
         self.assertIsNotNone(date_added)
