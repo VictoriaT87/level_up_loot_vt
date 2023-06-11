@@ -134,7 +134,7 @@ class RemoveWishlistTest(TestCase):
         cls.wishlist = Wishlist.objects.create(user=cls.user)
         cls.wishlist.products.add(cls.product)
 
-    def test_authenticated_user_remove_wishlist(self):
+    def test_remove_wishlist(self):
         # Log in the user
         self.client.force_login(self.user)
 
@@ -150,14 +150,14 @@ class RemoveWishlistTest(TestCase):
         # Assert that the product is removed from the wishlist
         self.assertFalse(self.wishlist.products.filter(pk=self.product.id).exists())
 
-        # Assert that the success message is displayed
+        # Assert that the success message is shown
+        # https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages/14909727#14909727
         messages = [m.message for m in get_messages(response.wsgi_request)]
         self.assertIn(f'{self.product.title} has been removed from your Wishlist!', messages)
 
-    
-    def test_authenticated_user_remove_wishlist(self):
-        # Make a GET request to the wishlist view
-        response = self.client.get(reverse('remove_wishlist', args=[self.product.id]))
+    def test_remove_wishlist_unauthenticated_user(self):
+        # Make a POST request to remove the product from the wishlist without logging in
+        response = self.client.post(reverse('remove_wishlist', args=[self.product.id]))
 
         # Assert that the response status code is 302 (redirect)
         self.assertEqual(response.status_code, 302)
