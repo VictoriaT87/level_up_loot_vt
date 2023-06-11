@@ -6,6 +6,7 @@ from profiles.views import profile
 from profiles.forms import UserProfileForm
 from checkout.models import Order
 from django.urls import reverse
+from django.shortcuts import get_object_or_404
 
 
 class TestProfilesViews(TestCase):
@@ -19,20 +20,6 @@ class TestProfilesViews(TestCase):
             email='testuser@email.com'
         )
         testuser.save()
-
-        # Setup Test Order
-        Order.objects.create(
-            order_number='1234567890',
-            user_profile=UserProfile.objects.get(user=testuser),
-            full_name='Test User',
-            email='testuser@email.com',
-            phone_number='12345678',
-            country='IE',
-            postcode='12345',
-            town_or_city='Dublin',
-            street_address1='My Street',
-            county='Anywhere',
-        )
 
     def test_get_profile_page(self):
         # User can view profile page with GET
@@ -72,3 +59,48 @@ class TestProfilesViews(TestCase):
         # Assert that the user is redirected to the login page
         expected_url = f"{reverse('account_login')}?next={reverse('profile')}"
         self.assertRedirects(response, expected_url)
+
+
+class OrderHistoryViewTest(TestCase):
+    """ Tests for order history """
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpass'
+        )
+        # Setup Test Order
+        self.order = Order.objects.create(
+            order_number='1234567890',
+            user_profile=UserProfile.objects.get(user=self.user),
+            full_name='Test User',
+            email='testuser@email.com',
+            phone_number='12345678',
+            country='IE',
+            postcode='12345',
+            town_or_city='Dublin',
+            street_address1='My Street',
+            county='Anywhere',
+        )
+
+    def test_order_history_view(self):
+        # Log in the user
+        self.client.login(username='testuser', password='testpass')
+
+        # Make a GET request to the order history view
+        response = self.client.get(reverse('order_history', args=['1234567890']))
+
+        # Assert that the response status code is 200
+        self.assertEqual(response.status_code, 200)
+
+        # Assert that the correct template is used
+        self.assertTemplateUsed(response, 'checkout/checkout_success.html')
+
+        # Assert that the order instance is correctly passed to the context
+        order = response.context['order']
+        self.assertEqual(order, self.order)
+
+        # Assert that the correct message is added to the messages framework
+        messages = [m.message for m in get_messages(response.wsgi_request)]
+        expected_message = f'This is a past confirmation for order number {self.order.order_number}. A confirmation email was sent on the order date.'
+        self.assertIn(expected_message, messages)
