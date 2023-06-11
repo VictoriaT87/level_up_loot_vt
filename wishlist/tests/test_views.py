@@ -8,7 +8,9 @@ from products.models import Product
 
 
 class ViewWishlistTest(TestCase):
-    # Test a user viewing the wishlist
+    """
+    Test for viewing a wishlist
+    """
     @classmethod
     def setUpClass(cls):
         """
@@ -59,6 +61,9 @@ class ViewWishlistTest(TestCase):
 
 
 class AddWishlistTest(TestCase):
+    """
+    Test for adding to a wishlist
+    """
     @classmethod
     def setUpClass(cls):
         """
@@ -117,6 +122,9 @@ class AddWishlistTest(TestCase):
 
 
 class RemoveWishlistTest(TestCase):
+    """
+    Test for removing product from a wishlist
+    """
     @classmethod
     def setUpClass(cls):
         """

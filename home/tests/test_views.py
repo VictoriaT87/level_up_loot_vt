@@ -6,6 +6,9 @@ from products.models import Product
 
 
 class HomeViewTest(TestCase):
+    """
+    Tests for viewing the index page
+    """
     def test_home_view(self):
         # Create some products for testing
         Product.objects.create(title='Product 1', description='Description 1', price=9.99)
@@ -26,6 +29,9 @@ class HomeViewTest(TestCase):
 
 
 class FAQsViewTest(TestCase):
+    """
+    Tests for viewing the FAQ page
+    """
     def test_faqs_view(self):
         # Make a GET request to the FAQs view
         response = self.client.get(reverse('faqs'))
@@ -38,6 +44,9 @@ class FAQsViewTest(TestCase):
 
 
 class PrivacyPolicyViewTest(TestCase):
+    """
+    Tests for viewing the Privacy Policy page
+    """
     def test_privacy_policy_view(self):
         # Make a GET request to the privacy policy view
         response = self.client.get(reverse('privacy_policy'))
@@ -50,6 +59,9 @@ class PrivacyPolicyViewTest(TestCase):
 
 
 class ContactViewTest(TestCase):
+    """
+    Tests for the Contact Page
+    """
     def test_contact_view_get(self):
         # Make a GET request to the contact view
         response = self.client.get(reverse('contact'))

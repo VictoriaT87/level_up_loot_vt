@@ -4,6 +4,9 @@ from products.models import Product
 from wishlist.models import Wishlist
 
 class WishlistModelTest(TestCase):
+    """
+    Test for the wishlist model
+    """
     @classmethod
     def setUpTestData(cls):
         # Create a test User
