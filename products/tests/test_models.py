@@ -1,6 +1,7 @@
 from django.test import TestCase
 from products.models import Category, Brand, Product, Reviews
 
+from django.core.exceptions import ValidationError
 import decimal
 from decimal import Decimal
 
@@ -108,3 +109,17 @@ class ProductModelTest(TestCase):
         self.assertTrue(product.is_featured)
         self.assertTrue(product.on_sale)
         self.assertEqual(product.discount, 20)
+
+    
+    def test_clean_method(self):
+        # Test when price is negative
+        product = Product.objects.get(id=1)
+
+        product.price = Decimal('-9.99')
+        self.assertRaisesMessage(
+            ValidationError, "Price cannot be negative.")
+
+
+    def test_str_method(self):
+        product = Product.objects.get(id=1)
+        self.assertEqual(str(product), product.title)
