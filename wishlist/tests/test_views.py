@@ -55,7 +55,7 @@ class ViewWishlistTest(TestCase):
         # Assert that an error message is shown
         # https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages/14909727#14909727
         messages = [m.message for m in get_messages(response.wsgi_request)]
-        self.assertIn('Sorry, you need to be logged in to add your Wishlist.', messages)
+        self.assertIn('Sorry, you need to be logged in to add to your Wishlist.', messages)
 
 
 class AddWishlistTest(TestCase):
@@ -113,4 +113,59 @@ class AddWishlistTest(TestCase):
         # Assert that an error message is shown
         # https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages/14909727#14909727
         messages = [m.message for m in get_messages(response.wsgi_request)]
-        self.assertIn('Sorry, you need to be logged in to add your Wishlist.', messages)
+        self.assertIn('Sorry, you need to be logged in to add to your Wishlist.', messages)
+
+
+class RemoveWishlistTest(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        """
+        Create a user, product, and wishlist for testing
+        """
+        super().setUpClass()
+        cls.client = Client()
+        cls.user = User.objects.create_user(
+            username='testuser', password='testpass')
+        cls.product = Product.objects.create(
+            title="Test Product",
+            description="Test description",
+            price='9.99',
+        )
+        cls.wishlist = Wishlist.objects.create(user=cls.user)
+        cls.wishlist.products.add(cls.product)
+
+    def test_authenticated_user_remove_wishlist(self):
+        # Log in the user
+        self.client.force_login(self.user)
+
+        # Make a POST request to remove the product from the wishlist
+        response = self.client.post(reverse('remove_wishlist', args=[self.product.id]))
+
+        # Assert that the response status code is 302 (redirect)
+        self.assertEqual(response.status_code, 302)
+
+        # Assert that the user is redirected back to the wishlist page
+        self.assertRedirects(response, reverse('wishlist'))
+
+        # Assert that the product is removed from the wishlist
+        self.assertFalse(self.wishlist.products.filter(pk=self.product.id).exists())
+
+        # Assert that the success message is displayed
+        messages = [m.message for m in get_messages(response.wsgi_request)]
+        self.assertIn(f'{self.product.title} has been removed from your Wishlist!', messages)
+
+    
+    def test_authenticated_user_remove_wishlist(self):
+        # Make a GET request to the wishlist view
+        response = self.client.get(reverse('remove_wishlist', args=[self.product.id]))
+
+        # Assert that the response status code is 302 (redirect)
+        self.assertEqual(response.status_code, 302)
+
+        # Assert that the user is redirected to the login page
+        self.assertRedirects(response, reverse('account_login'))
+
+        # Assert that an error message is shown
+        # https://stackoverflow.com/questions/2897609/how-can-i-unit-test-django-messages/14909727#14909727
+        messages = [m.message for m in get_messages(response.wsgi_request)]
+        self.assertIn('Sorry, you need to be logged in to edit your Wishlist.', messages)

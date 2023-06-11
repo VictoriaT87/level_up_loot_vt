@@ -15,7 +15,7 @@ def view_wishlist(request):
 
     if not request.user.is_authenticated:
         messages.error(request,
-                       'Sorry, you need to be logged in to add your Wishlist.')
+                       'Sorry, you need to be logged in to add to your Wishlist.')
         return redirect(reverse('account_login'))
     
     user = get_object_or_404(UserProfile, user=request.user)
@@ -34,7 +34,7 @@ def add_wishlist(request, product_id):
 
     if not request.user.is_authenticated:
         messages.error(request,
-                       'Sorry, you need to be logged in to add your Wishlist.')
+                       'Sorry, you need to be logged in to add to your Wishlist.')
         return redirect(reverse('account_login'))
     
     product = get_object_or_404(Product, pk=product_id)
@@ -59,7 +59,7 @@ def remove_wishlist(request, product_id):
 
     if not request.user.is_authenticated:
         messages.error(request,
-                       'Sorry, you need to be logged in to add your Wishlist.')
+                       'Sorry, you need to be logged in to edit your Wishlist.')
         return redirect(reverse('account_login'))
     
     product = get_object_or_404(Product, pk=product_id)
