@@ -1,5 +1,6 @@
 from django.test import TestCase
 from products.models import Category, Brand, Product, Reviews
+from django.contrib.auth.models import User
 
 from django.core.exceptions import ValidationError
 import decimal
@@ -76,6 +77,10 @@ class BrandModelTest(TestCase):
 
 
 class ProductModelTest(TestCase):
+    """
+    Test Product Model
+    """
+
     @classmethod
     def setUpTestData(cls):
         # Set up test Product  
@@ -121,5 +126,31 @@ class ProductModelTest(TestCase):
 
 
     def test_str_method(self):
+        # Test string return
         product = Product.objects.get(id=1)
         self.assertEqual(str(product), product.title)
+
+
+class ReviewsModelTest(TestCase):
+    """
+    Test Review Model
+    """
+
+    @classmethod
+    def setUpTestData(cls):
+        # Create a user and a product for testing
+        user = User.objects.create(username='testuser')
+        product = Product.objects.create(title='Test Product', price=9.99)
+
+        # Create a review
+        Reviews.objects.create(
+            product=product,
+            user=user,
+            title='Test Review',
+            review='This is a test review'
+        )
+
+    def test_str_method(self):
+        # Test string return
+        review = Reviews.objects.get(id=1)
+        self.assertEqual(str(review), review.title)
