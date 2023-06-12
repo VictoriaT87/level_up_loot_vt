@@ -49,7 +49,7 @@ class ReviewsFormTest(TestCase):
         # Assert review is invalid
         form_data = {
             'title': '',
-            'review': 'This is a fantastic product. Highly recommended.',
+            'review': '',
         }
         form = ReviewsForm(data=form_data)
         self.assertFalse(form.is_valid())

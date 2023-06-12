@@ -35,3 +35,4 @@ class ReviewsForm(forms.ModelForm):
         fields = ['title', 'review']
 
     title = forms.CharField(max_length=100, required=True)
+    review = forms.CharField(max_length=100, required=True)
