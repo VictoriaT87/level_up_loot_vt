@@ -119,7 +119,6 @@ def product_detail(request, product_id):
         return render(request, template, context)
 
 
-@login_required
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
@@ -146,37 +145,29 @@ def add_product(request):
     return render(request, template, context)
 
 
-@login_required
-def edit_product(request, product_id):
-    """ Edit a product in the store """
-    if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+class EditProductView(UpdateView):
+    """ Update Product """
+    model = Product
+    form_class = ProductForm
+    template_name = 'products/edit_product.html'
 
-    product = get_object_or_404(Product, pk=product_id)
-    if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES, instance=product)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.error(request, 'Failed to update product. Please \
-                ensure the form is valid.')
-    else:
-        form = ProductForm(instance=product)
-        messages.info(request, f'You are editing {product.title}')
+    def get(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        messages.info(request, f'You are editing {self.object.title}')
+        return super().get(request, *args, **kwargs)
 
-    template = 'products/edit_product.html'
-    context = {
-        'form': form,
-        'product': product,
-    }
+    def form_valid(self, form):
+        messages.success(self.request, 'Successfully updated product!')
+        return super().form_valid(form)
 
-    return render(request, template, context)
+    def form_invalid(self, form):
+        messages.error(self.request, 'Failed to update product. Please ensure the form is valid.')
+        return super().form_invalid(form)
+
+    def get_success_url(self):
+        return reverse('product_detail', args=[self.object.id])
 
 
-@login_required
 def delete_product(request, product_id):
     """
     Delete a product from the store

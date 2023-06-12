@@ -4,6 +4,7 @@ from django.urls import reverse
 from products.models import Product, Category, Brand
 
 from django.contrib.messages import get_messages
+from urllib.parse import urlencode
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 class AllProductsViewTest(TestCase):
@@ -86,7 +87,6 @@ class ProductDetailTest(TestCase):
         testsuperuser = User.objects.create_superuser(
             username='superuser',
             password='testpw',
-            email='superuser@example.com'
         )
         testsuperuser.save()
 
@@ -111,6 +111,7 @@ class ProductDetailTest(TestCase):
         )
 
     def test_product_detail_view(self):
+        # Test the product detail page renders as expected
         client = Client()
         url = reverse('product_detail', args=[self.product.id])
         response = client.get(url)
