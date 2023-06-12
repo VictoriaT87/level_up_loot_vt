@@ -2,6 +2,7 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
 from products.models import Product, Category, Brand
+from products.views import EditProductView, all_products, product_detail, add_product
 
 from django.contrib.messages import get_messages
 from urllib.parse import urlencode
@@ -133,3 +134,45 @@ class ProductDetailTest(TestCase):
             self.assertIsNotNone(wishlist)
         else:
             self.assertIsNone(wishlist)
+
+
+class EditProductViewTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_superuser(
+            username='superuser',
+            password='testpw',
+        )
+        self.client.login(username='superuser', password='testpw')
+
+        self.product = Product.objects.create(
+            title="Test Product",
+            sku='123456',
+            description="Test description",
+            price='9.99',
+        )
+
+    def test_edit_product_view(self):
+        url = reverse('edit_product', args=[self.product.id])
+
+        # GET request to retrieve the edit form
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products/edit_product.html')
+        self.assertEqual(response.context['product'].title, "Test Product")
+
+        # POST request to update the product
+        updated_data = {
+            'title': 'Updated Product',
+            'sku': '654321',
+            'description': 'Updated description',
+            'price': '19.99',
+        }
+        
+        response = self.client.post(url, data=updated_data, follow=True)
+
+        # Check if the update is successful
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products/edit_product.html')
+
+        # Title successfully updated
+        self.assertEqual(response.context['product'].title, 'Updated Product')
