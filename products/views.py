@@ -107,7 +107,8 @@ def product_detail(request, product_id):
         return render(request, template, context)
     else:
         user = request.user
-        wishlist = Wishlist.objects.filter(user=user, products=product_id).exists()
+        wishlist = Wishlist.objects.filter(
+            user=user, products=product_id).exists()
 
         template = 'products/product_detail.html'
         context = {
@@ -161,7 +162,8 @@ class EditProductView(UpdateView):
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.error(self.request, 'Failed to update product. Please ensure the form is valid.')
+        messages.error(
+            self.request, 'Failed to update product. Please ensure the form is valid.')
         return super().form_invalid(form)
 
     def get_success_url(self):
@@ -207,7 +209,8 @@ def add_review(request, product_id):
                     request, 'Your review has been successfully added!')
                 return redirect(reverse('product_detail', args=[product.id]))
             except IntegrityError:
-                messages.error(request, 'You have already reviewed this product.')
+                messages.error(
+                    request, 'You have already reviewed this product.')
                 return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(request, 'Your review has not been submitted.')
