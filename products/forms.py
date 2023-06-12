@@ -33,3 +33,5 @@ class ReviewsForm(forms.ModelForm):
     class Meta:
         model = Reviews
         fields = ['title', 'review']
+
+    title = forms.CharField(max_length=100, required=True)
