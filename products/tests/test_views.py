@@ -7,6 +7,9 @@ from django.contrib.messages import get_messages
 from django.core.files.uploadedfile import SimpleUploadedFile
 
 class AllProductsViewTest(TestCase):
+    """
+    Test All Products View
+    """
     def setUp(self):
         # Create Superuser
         testsuperuser = User.objects.create_superuser(
@@ -72,3 +75,60 @@ class AllProductsViewTest(TestCase):
         response = self.client.get('/products/add/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/add_product.html')
+
+
+class ProductDetailTest(TestCase):
+    """
+    Test Product Details View
+    """
+    def setUp(self):
+         # Create Superuser
+        testsuperuser = User.objects.create_superuser(
+            username='superuser',
+            password='testpw',
+            email='superuser@example.com'
+        )
+        testsuperuser.save()
+
+        # Create test brand and category
+        self.category = Category.objects.create(name='Gaming')
+        self.brand = Brand.objects.create(name='Sideshow')
+
+        # https://stackoverflow.com/questions/26298821/django-testing-model-with-imagefield
+        image_file = SimpleUploadedFile(
+            name='box.png',
+            content=open('media/box.png', 'rb').read(),
+            content_type='image/png'
+        )
+
+        # Create test product
+        self.product = Product.objects.create(
+            title="Test Product",
+            sku='123456',
+            description="Test description",
+            price='9.99',
+            image=image_file,
+        )
+
+    def test_product_detail_view(self):
+        client = Client()
+        url = reverse('product_detail', args=[self.product.id])
+        response = client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+        # Assert that the correct template is used
+        self.assertTemplateUsed(response, 'products/product_detail.html')
+
+        # Assert that the product details are present in the response
+        self.assertContains(response, self.product.title)
+        self.assertContains(response, self.product.description)
+
+        # Assert that the related products are passed to the template
+        self.assertIn('related_products', response.context)
+
+        # Assert that if wishlist is in the user's session, IsNotNone. Otherwise None.
+        wishlist = response.context.get('wishlist')
+        if client.session.get('wishlist'):
+            self.assertIsNotNone(wishlist)
+        else:
+            self.assertIsNone(wishlist)
