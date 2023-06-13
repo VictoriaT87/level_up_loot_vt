@@ -280,7 +280,7 @@ class AddReviewViewTest(TestCase):
             price='9.99',
         )
 
-    def test_add_review_view(self):
+    def test_add_review_view_user(self):
         # Test Delete Product View as user
 
         url = reverse('add_review', args=[self.product.id])
@@ -305,3 +305,30 @@ class AddReviewViewTest(TestCase):
         # Verify the success message
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), 'Your review has been successfully added!')
+    
+
+    def test_add_review_view_invalid_form(self):
+        # Test Add Review invalid form
+
+        url = reverse('add_review', args=[self.product.id])
+        self.client.login(username='regularuser', password='testpw')
+
+        # Create an invalid review form
+        form_data = {
+            'title': '',
+            'review': 'This is a test review.',
+        }
+
+        # Send a POST request with an invalid form
+        response = self.client.post(url, form_data)
+
+        # Verify the response
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
+
+        # Verify that the review is not added
+        self.assertFalse(Reviews.objects.filter(product=self.product, user=self.user).exists())
+
+        # Verify the error message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), 'Your review has not been submitted.')
