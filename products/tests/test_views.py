@@ -1,8 +1,8 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
-from products.models import Product, Category, Brand
-from products.views import all_products, product_detail, add_product, edit_product, delete_product
+from products.models import Product, Category, Brand, Reviews
+from products.views import all_products, product_detail, add_product, edit_product, delete_product, add_review
 
 from django.shortcuts import get_object_or_404
 from django.contrib.messages import get_messages
@@ -257,3 +257,51 @@ class DeleteProductViewTest(TestCase):
         # Assert that the error message is displayed
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), "Sorry, only store owners can do that.")
+
+
+class AddReviewViewTest(TestCase):
+    """
+    Test Add Review View
+    """
+
+    def setUp(self):
+        # Create User
+        self.user = User.objects.create_user(
+            username='regularuser',
+            password='testpw',
+        )
+        self.client = Client()
+
+        # Create test product
+        self.product = Product.objects.create(
+            title="Test Product",
+            sku='123456',
+            description="Test description",
+            price='9.99',
+        )
+
+    def test_add_review_view(self):
+        # Test Delete Product View as user
+
+        url = reverse('add_review', args=[self.product.id])
+        self.client.login(username='regularuser', password='testpw')
+
+        # Create a valid review form
+        form_data = {
+            'title': 'Test Review',
+            'review': 'This is a test review.',
+        }
+
+        # Send a POST request to add the review
+        response = self.client.post(url, form_data)
+
+        # Verify the response
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('product_detail', args=[self.product.id]))
+
+        # Verify that the review is added
+        self.assertTrue(Reviews.objects.filter(product=self.product, user=self.user).exists())
+
+        # Verify the success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), 'Your review has been successfully added!')
