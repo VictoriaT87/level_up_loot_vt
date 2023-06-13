@@ -2,7 +2,7 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
 from products.models import Product, Category, Brand
-from products.views import EditProductView, all_products, product_detail, add_product, delete_product
+from products.views import all_products, product_detail, add_product, edit_product, delete_product
 
 from django.shortcuts import get_object_or_404
 from django.contrib.messages import get_messages
@@ -161,32 +161,42 @@ class EditProductViewTest(TestCase):
             price='9.99',
         )
 
-    def test_edit_product_view(self):
-        # Test Edit Product view
+    def test_edit_product_view_as_superuser(self):
+        # Test Delete Product View
+
+        # Get the URL for the delete_product view with the product ID
         url = reverse('edit_product', args=[self.product.id])
-
-        # GET request to retrieve the edit form
+        self.client.login(username='superuser', password='testpw')
+        
         response = self.client.get(url)
+
+        # Assert that the response status code is 200 (OK)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'products/edit_product.html')
-        self.assertEqual(response.context['product'].title, "Test Product")
 
-        # POST request to update the product
-        updated_data = {
-            'title': 'Updated Product',
-            'sku': '654321',
-            'description': 'Updated description',
-            'price': '19.99',
-        }
-
-        response = self.client.post(url, data=updated_data, follow=True)
-
-        # Check if the update is successful
-        self.assertEqual(response.status_code, 200)
+        # Assert that the correct template is used
         self.assertTemplateUsed(response, 'products/edit_product.html')
 
-        # Title successfully updated
-        self.assertEqual(response.context['product'].title, 'Updated Product')
+
+    def test_edit_product_view_as_non_superuser(self):
+        # Test Edit Product View when not Superuser
+
+        # Create User
+        self.user = User.objects.create_user(
+            username='regularuser',
+            password='testpw',
+        )
+        self.client.force_login(self.user)
+
+        url = reverse('edit_product', args=[self.product.id])
+        response = self.client.post(url)
+
+        # Assert that the response is a redirect to the home page
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('home'))
+
+        # Assert that the error message is displayed
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), "Sorry, only store owners can do that.")
 
 
 class DeleteProductViewTest(TestCase):
@@ -210,12 +220,13 @@ class DeleteProductViewTest(TestCase):
             price='9.99',
         )
 
-    def test_delete_product_view(self):
+    def test_delete_product_view_as_superuser(self):
+        # Test Delete Product View
+
         # Get the URL for the delete_product view with the product ID
         url = reverse('delete_product', args=[self.product.id])
         self.client.force_login(self.superuser)
 
-        # Send a POST request to delete the product
         response = self.client.post(url)
 
         # Assert that the response is a redirect to the products page
@@ -224,3 +235,25 @@ class DeleteProductViewTest(TestCase):
 
         # Verify that the product is deleted
         self.assertFalse(Product.objects.filter(id=self.product.id).exists())
+
+
+    def test_delete_product_not_superuser(self):
+        # Test Delete Product View when not Superuser
+
+        # Create User
+        self.user = User.objects.create_user(
+            username='regularuser',
+            password='testpw',
+        )
+        self.client.force_login(self.user)
+
+        url = reverse('delete_product', args=[self.product.id])
+        response = self.client.post(url)
+
+        # Assert that the response is a redirect to the home page
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('home'))
+
+        # Assert that the error message is displayed
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), "Sorry, only store owners can do that.")

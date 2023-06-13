@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.db import IntegrityError
@@ -146,28 +146,33 @@ def add_product(request):
     return render(request, template, context)
 
 
-class EditProductView(UpdateView):
-    """ Update Product """
-    model = Product
-    form_class = ProductForm
-    template_name = 'products/edit_product.html'
+def edit_product(request, product_id):
+    """ Edit a product in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        messages.info(request, f'You are editing {self.object.title}')
-        return super().get(request, *args, **kwargs)
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated product!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, 'Failed to update product. Please \
+                ensure the form is valid.')
+    else:
+        form = ProductForm(instance=product)
+        messages.info(request, f'You are editing {product.title}')
 
-    def form_valid(self, form):
-        messages.success(self.request, 'Successfully updated product!')
-        return super().form_valid(form)
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product,
+    }
 
-    def form_invalid(self, form):
-        messages.error(
-            self.request, 'Failed to update product. Please ensure the form is valid.')
-        return super().form_invalid(form)
-
-    def get_success_url(self):
-        return reverse('product_detail', args=[self.object.id])
+    return render(request, template, context)
 
 
 def delete_product(request, product_id):
