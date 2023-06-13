@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from products.models import Product, Category, Brand, Reviews
 from products.views import all_products, product_detail, add_product, edit_product, delete_product, add_review
+from products.forms import ReviewsForm
 
 from django.shortcuts import get_object_or_404
 from django.contrib.messages import get_messages
@@ -332,3 +333,64 @@ class AddReviewViewTest(TestCase):
         # Verify the error message
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), 'Your review has not been submitted.')
+
+
+class UpdateReviewViewTest(TestCase):
+    """
+    Test Edit Review View
+    """
+
+    def setUp(self):
+        # Create User
+        self.user = User.objects.create_user(
+            username='regularuser',
+            password='testpw',
+        )
+        self.client = Client()
+
+        # Create test product
+        self.product = Product.objects.create(
+            title="Test Product",
+            sku='123456',
+            description="Test description",
+            price='9.99',
+        )
+
+        # Create test review
+        self.review = Reviews.objects.create(
+            product=self.product,
+            user=self.user,
+            title='Initial Title',
+            review='Initial Review',
+        )
+
+    def test_update_review_view(self):
+        # Test Update Review Valid Form
+
+        url = reverse('update_review', kwargs={'pk': self.review.pk})
+        self.client.login(username='regularuser', password='testpw')
+
+        # Create a valid review form
+        form_data = {
+            'title': 'Updated Title',
+            'review': 'Updated Review',
+        }
+
+        # Send a POST request to update the review
+        response = self.client.post(url, form_data)
+
+        # Verify the response
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('product_detail', kwargs={'product_id': self.product.id}))
+
+        # Refresh the review from the database
+        # https://stackoverflow.com/questions/68971787/unit-test-for-django-update-form
+        self.review.refresh_from_db()
+
+        # Verify that the review is updated
+        self.assertEqual(self.review.title, 'Updated Title')
+        self.assertEqual(self.review.review, 'Updated Review')
+
+        # Verify the success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), 'Your review was updated!')
