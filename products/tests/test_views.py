@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from products.models import Product, Category, Brand, Reviews
 from products.views import all_products, product_detail, add_product, edit_product, delete_product, add_review
-from products.forms import ReviewsForm
 
 from django.shortcuts import get_object_or_404
 from django.contrib.messages import get_messages
@@ -394,3 +393,32 @@ class UpdateReviewViewTest(TestCase):
         # Verify the success message
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), 'Your review was updated!')
+
+    
+    def test_update_review_view_invalid_form(self):
+        # Test the Update Review Invalid Form
+
+        url = reverse('update_review', kwargs={'pk': self.review.pk})
+        self.client.login(username='regularuser', password='testpw')
+
+        # Create a valid review form
+        form_data = {
+            'title': '',
+            'review': 'Updated Review',
+        }
+
+        # Send a POST request with an invalid form
+        response = self.client.post(url, form_data)
+
+        # Verify the response status code
+        self.assertEqual(response.status_code, 200)
+
+        # Verify that the template used is the edit_review.html template
+        self.assertTemplateUsed(response, 'products/edit_review.html')
+
+        # Refresh the review from the database
+        self.review.refresh_from_db()
+
+        # Verify that the review is not updated
+        self.assertEqual(self.review.title, 'Initial Title')
+        self.assertEqual(self.review.review, 'Initial Review')
