@@ -2,16 +2,19 @@ from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.urls import reverse
 from products.models import Product, Category, Brand
-from products.views import EditProductView, all_products, product_detail, add_product
+from products.views import EditProductView, all_products, product_detail, add_product, delete_product
 
+from django.shortcuts import get_object_or_404
 from django.contrib.messages import get_messages
 from urllib.parse import urlencode
 from django.core.files.uploadedfile import SimpleUploadedFile
+
 
 class AllProductsViewTest(TestCase):
     """
     Test All Products View
     """
+
     def setUp(self):
         # Create Superuser
         testsuperuser = User.objects.create_superuser(
@@ -47,17 +50,17 @@ class AllProductsViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
 
-
     def test_all_products_with_search_query(self):
         # Test all products with empty search query
         response = self.client.get('/products/', {'q': ''})
         self.assertRedirects(response, '/products/')
         messages = list(get_messages(response.wsgi_request))
-        self.assertEqual(str(messages[0]), "You didn't enter any search criteria!")
+        self.assertEqual(str(messages[0]),
+                         "You didn't enter any search criteria!")
 
     def test_can_get_all_products_from_search(self):
         # Test retrieving all products with a search term
-        response = self.client.get('/products/', {'search_term': 'anime',})
+        response = self.client.get('/products/', {'search_term': 'anime', })
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
 
@@ -83,8 +86,9 @@ class ProductDetailTest(TestCase):
     """
     Test Product Details View
     """
+
     def setUp(self):
-         # Create Superuser
+        # Create Superuser
         testsuperuser = User.objects.create_superuser(
             username='superuser',
             password='testpw',
@@ -137,13 +141,19 @@ class ProductDetailTest(TestCase):
 
 
 class EditProductViewTest(TestCase):
+    """
+    Test Edit Product View
+    """
+
     def setUp(self):
+        # Create Superuser
         self.user = User.objects.create_superuser(
             username='superuser',
             password='testpw',
         )
         self.client.login(username='superuser', password='testpw')
 
+        # Create test product
         self.product = Product.objects.create(
             title="Test Product",
             sku='123456',
@@ -152,6 +162,7 @@ class EditProductViewTest(TestCase):
         )
 
     def test_edit_product_view(self):
+        # Test Edit Product view
         url = reverse('edit_product', args=[self.product.id])
 
         # GET request to retrieve the edit form
@@ -167,7 +178,7 @@ class EditProductViewTest(TestCase):
             'description': 'Updated description',
             'price': '19.99',
         }
-        
+
         response = self.client.post(url, data=updated_data, follow=True)
 
         # Check if the update is successful
@@ -176,3 +187,40 @@ class EditProductViewTest(TestCase):
 
         # Title successfully updated
         self.assertEqual(response.context['product'].title, 'Updated Product')
+
+
+class DeleteProductViewTest(TestCase):
+    """
+    Test Delete Product View
+    """
+
+    def setUp(self):
+        # Create Superuser
+        self.superuser = User.objects.create_superuser(
+            username='superuser',
+            password='testpw',
+        )
+        self.client = Client()
+
+        # Create test product
+        self.product = Product.objects.create(
+            title="Test Product",
+            sku='123456',
+            description="Test description",
+            price='9.99',
+        )
+
+    def test_delete_product_view(self):
+        # Get the URL for the delete_product view with the product ID
+        url = reverse('delete_product', args=[self.product.id])
+        self.client.force_login(self.superuser)
+
+        # Send a POST request to delete the product
+        response = self.client.post(url)
+
+        # Assert that the response is a redirect to the products page
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, reverse('products'))
+
+        # Verify that the product is deleted
+        self.assertFalse(Product.objects.filter(id=self.product.id).exists())
