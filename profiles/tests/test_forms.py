@@ -40,3 +40,36 @@ class UserProfileFormTest(TestCase):
         form = UserProfileForm()
         for field_name, field in form.fields.items():
             self.assertFalse(field.label)
+
+
+    def test_form_is_valid(self):
+        # Test Form is Valid
+        form_data = {
+            'full_name': 'Test User',
+            'email': 'testuser@email.com',
+            'phone_number': '12345678',
+            'country': 'IE',
+            'postcode': '12345',
+            'town_or_city': 'Dublin',
+            'street_address1': 'Street',
+            'county': 'Dublin',
+        }
+
+        form = UserProfileForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_form_is_invalid(self):
+        # Test Form is Invalid
+        form_data = {
+            'full_name': '',
+            'email': 'testuser@email.com',
+            'phone_number': '12345678',
+            'country': 'IE',
+            'postcode': '12345',
+            'town_or_city': 'Dublin',
+            'street_address1': 'Street',
+            'county': 'Dublin',
+        }
+
+        form = UserProfileForm(data=form_data)
+        self.assertTrue(form.is_valid())
