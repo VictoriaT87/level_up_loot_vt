@@ -44,11 +44,13 @@ class AllProductsViewTest(TestCase):
             image=image_file,
         )
 
+
     def test_can_get_products_page(self):
         # Assert that the products page template is used correctly
         response = self.client.get('/products/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
+
 
     def test_all_products_with_search_query(self):
         # Test all products with empty search query
@@ -58,11 +60,13 @@ class AllProductsViewTest(TestCase):
         self.assertEqual(str(messages[0]),
                          "You didn't enter any search criteria!")
 
+
     def test_can_get_all_products_from_search(self):
         # Test retrieving all products with a search term
         response = self.client.get('/products/', {'search_term': 'anime', })
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
+
 
     def test_sort(self):
         # Test sorting products by title in descending order
@@ -71,15 +75,96 @@ class AllProductsViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/products.html')
 
-    def test_get_add_product_page(self):
-        # Test accessing the add product page when logged in as a superuser
-        logged_in = self.client.login(username='superuser',
-                                      password='testpw')
-        self.assertTrue(logged_in)
-        testsuperuser = User.objects.get(username='superuser')
-        response = self.client.get('/products/add/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'products/add_product.html')
+
+class AddProductTest(TestCase):
+    """ Test Add Product View """
+
+    def setUp(self):
+        # Create Superuser
+        self.user = User.objects.create_superuser(
+            username='superuser',
+            password='testpw',
+        )
+        self.client.login(username='superuser', password='testpw')
+
+        # Create test brand and category
+        self.category = Category.objects.create(name='Gaming')
+        self.brand = Brand.objects.create(name='Sideshow')
+
+        
+
+
+    def test_add_product_view_as_superuser(self):
+        # Test Adding a Product
+
+        # Set up test image
+        # https://stackoverflow.com/questions/26298821/django-testing-model-with-imagefield
+        image_file = SimpleUploadedFile(
+            name='box.png',
+            content=open('media/box.png', 'rb').read(),
+            content_type='image/png'
+        )
+
+        # Set up category and brand for test product
+        category = Category.objects.get(pk=1)
+        brand = Brand.objects.get(pk=1)
+
+        # Create a valid product form
+        form_data = {
+            'category': category.pk,
+            'brand': brand.pk,
+            'sku': '123456',
+            'title': 'Test Product',
+            'alt_text': 'Alt text',
+            'description': 'Test description',
+            'price': '9.99',
+            'average_rating': '4.5',
+            'image': image_file,
+            'is_featured': True,
+            'on_sale': False,
+            'sale_price': '0.00',
+            'discount': 0,
+            'discounted_price': 0,
+            }
+
+        url = reverse('add_product')
+        response = self.client.post(url, form_data)
+
+        # Verify the response status code
+        self.assertEqual(response.status_code, 302)
+
+        # Verify that the product is created in the database
+        self.assertTrue(Product.objects.filter(title='Test Product').exists())
+
+        # Verify the success message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), 'Successfully added product!')
+
+        # Verify the redirect URL
+        product = Product.objects.get(title='Test Product')
+        self.assertRedirects(response, reverse('product_detail', args=[product.id]))
+
+    def test_add_product_view_not_superuser(self):
+        # Get the URL for adding a product
+        url = reverse('add_product')
+
+        # Create a non-superuser user and log in
+        user = User.objects.create_user(username='regularuser', password='testpw')
+        self.client.login(username='regularuser', password='testpw')
+
+        # Send a POST request to add a product
+        response = self.client.post(url)
+
+        # Verify the response status code
+        self.assertEqual(response.status_code, 302)
+
+        # Verify that the product is not created in the database
+        self.assertFalse(Product.objects.exists())
+
+        # Verify the error message
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), 'Sorry, only store owners can do that.')
+        self.assertRedirects(response, reverse('home'))
 
 
 class ProductDetailTest(TestCase):
@@ -422,3 +507,50 @@ class UpdateReviewViewTest(TestCase):
         # Verify that the review is not updated
         self.assertEqual(self.review.title, 'Initial Title')
         self.assertEqual(self.review.review, 'Initial Review')
+
+
+class DeleteReviewViewTest(TestCase):
+    """Test Delete Review view """
+
+    def setUp(self):
+        # Create User
+        self.user = User.objects.create_user(
+            username='regularuser',
+            password='testpw',
+        )
+        self.client = Client()
+
+        # Create test product
+        self.product = Product.objects.create(
+            title="Test Product",
+            sku='123456',
+            description="Test description",
+            price='9.99',
+        )
+
+        # Create test review
+        self.review = Reviews.objects.create(
+            product=self.product,
+            user=self.user,
+            title='Initial Title',
+            review='Initial Review',
+        )
+
+        def test_delete_review_view(self):
+            # Test the Delete Review View Works
+
+            # Get the URL for deleting the review
+            url = reverse('delete_review', kwargs={'pk': review.pk})
+
+            # Send a POST request to delete the review
+            response = self.client.post(url)
+
+            # Verify the response status code
+            self.assertEqual(response.status_code, 302)
+
+            # Verify that the review is deleted
+            self.assertFalse(Reviews.objects.filter(pk=self.review.pk).exists())
+
+            # Verify the success message
+            messages = list(get_messages(response.wsgi_request))
+            self.assertEqual(str(messages[0]), 'Review deleted successfully.')
