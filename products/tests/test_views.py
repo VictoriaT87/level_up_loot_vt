@@ -91,8 +91,6 @@ class AddProductTest(TestCase):
         self.category = Category.objects.create(name='Gaming')
         self.brand = Brand.objects.create(name='Sideshow')
 
-        
-
 
     def test_add_product_view_as_superuser(self):
         # Test Adding a Product
@@ -164,6 +162,8 @@ class AddProductTest(TestCase):
         # Verify the error message
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), 'Sorry, only store owners can do that.')
+
+        # Verify the redirect URL
         self.assertRedirects(response, reverse('home'))
 
 
