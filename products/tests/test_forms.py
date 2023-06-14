@@ -31,6 +31,57 @@ class ProductFormTest(TestCase):
             [(brand.id, brand.get_friendly_name())]
         )
 
+    def test_form_is_valid(self):
+        # Assert Form is Valid
+
+        category = Category.objects.create(name='Category')
+        brand = Brand.objects.create(name='Brand')
+
+        form_data = {
+            'category': category.pk,
+            'brand': brand.pk,
+            'sku': '123456',
+            'title': 'Test Product',
+            'alt_text': 'Alt text',
+            'description': 'Test description',
+            'price': '9.99',
+            'average_rating': '4.5',
+            'is_featured': True,
+            'on_sale': False,
+            'sale_price': '0.00',
+            'discount': 0,
+            'discounted_price': 0,
+        }
+
+        form = ProductForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    
+    def test_form_is_invalid(self):
+        # Assert Form is Invalid
+
+        category = Category.objects.create(name='Category')
+        brand = Brand.objects.create(name='Brand')
+
+        form_data = {
+            'category': category.pk,
+            'brand': brand.pk,
+            'sku': '123456',
+            'title': '',
+            'alt_text': 'Alt text',
+            'description': 'Test description',
+            'price': '9.99',
+            'average_rating': '4.5',
+            'is_featured': True,
+            'on_sale': False,
+            'sale_price': '0.00',
+            'discount': 0,
+            'discounted_price': 0,
+        }
+
+        form = ProductForm(data=form_data)
+        self.assertFalse(form.is_valid())
+
 
 class ReviewsFormTest(TestCase):
     """
