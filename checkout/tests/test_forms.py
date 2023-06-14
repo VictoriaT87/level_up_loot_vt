@@ -44,3 +44,19 @@ class OrderFormTest(TestCase):
         }
         form = OrderForm(data=form_data)
         self.assertTrue(form.is_valid())
+
+    def test_form_is_invalid(self):
+        # Test Form is Invalid
+        form_data = {
+            'full_name': '',
+            'email': '',
+            'phone_number': '12345678',
+            'street_address1': 'Street',
+            'street_address2': '',
+            'town_or_city': 'Dublin',
+            'postcode': '12345',
+            'country': 'IE',
+            'county': 'Dublin',
+        }
+        form = OrderForm(data=form_data)
+        self.assertFalse(form.is_valid())
