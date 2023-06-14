@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 
 from checkout.models import Order
-from checkout.forms import OrderForm
+from checkout.forms import OrderForm, CouponForm
 
 
 class OrderFormTest(TestCase):
@@ -59,4 +59,24 @@ class OrderFormTest(TestCase):
             'county': 'Dublin',
         }
         form = OrderForm(data=form_data)
+        self.assertFalse(form.is_valid())
+
+
+class CouponFormTest(TestCase):
+    """ Test Coupon Form """
+
+    def test_form_is_valid(self):
+        # Test Form is Valid
+        form_data = {
+            'code': 'test',
+        }
+        form = CouponForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_form_is_invalid(self):
+        # Test Form is Invalid
+        form_data = {
+            'code': '',
+        }
+        form = CouponForm(data=form_data)
         self.assertFalse(form.is_valid())
