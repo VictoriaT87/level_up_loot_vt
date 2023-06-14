@@ -107,7 +107,7 @@ class OrderLineItemModelTest(TestCase):
         self.line_item.save()
         self.assertEqual(self.line_item.lineitem_total, 30.00)
 
-    def test_lineitem_str_representation(self):
+    def test_lineitem_str(self):
         # Assert Line Item String is Correct
         expected_str = f'SKU {self.product.sku} on order {self.order.order_number}'
         self.assertEqual(str(self.line_item), expected_str)
