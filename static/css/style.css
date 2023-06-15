@@ -590,9 +590,9 @@ a:hover {
 
 .sale-badge {
     position: absolute;
+    font-size: 90%;
     right: 20px;
     top: 12px;
-    font-size: 60%;
     color: var(--white);
     background-color: var(--blue);
 }
@@ -1047,6 +1047,10 @@ a:hover {
 #mc_embed_signup h4 {
     margin: 0;
     font-weight: normal;
+}
+
+#mc_embed_signup .mc-field-group label {
+    padding-top: 5px;
 }
 
 #mc_embed_signup .helper_text {

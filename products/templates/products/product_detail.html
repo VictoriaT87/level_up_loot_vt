@@ -22,7 +22,7 @@
                     {% if product.image %}
                     <img class="card-img-top product-image-lg" src="{{ product.image.url }}" alt="{{ product.title }}">
                     {% else %}
-                    <img class="card-img-top product-image-lg" src="" alt="{{ product.title }}">
+                    <img class="card-img-top product-image-lg" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
                     {% endif %}
                 </div>
             </div>
@@ -107,7 +107,7 @@
 
                         <!-- if superuser, links for edit and delete -->
                         {% if request.user.is_superuser %}
-                        <small>
+                        <div>
                             <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a>
                             <!-- Modal for delete confirmation -->
                             <button class="btn delete-btn" data-toggle="modal"
@@ -117,7 +117,7 @@
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header m-auto">
-                                            <h1 class="text-center text-black">Attention!</h1>
+                                            <h2 class="text-center text-black">Attention!</h2>
                                             <button class="close" data-dismiss="modal" aria-label="Cerrar">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -140,7 +140,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </small>
+                        </div>
                         {% endif %}
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                             <h4 class="text-black">Review This Product</h4>
                             <div>
                                 Title:
-                                <input type="text" class="form-control" name="title" class="text-black">
+                                <input type="text" class="form-control text-black" name="title">
                                 <br>
                                 Review:
                                 <textarea name="review" rows="4" class="form-control"></textarea>
@@ -274,8 +274,6 @@
 <div class="col-12 d-none d-xl-block mb-5">
     <hr>
 </div>
-</section>
-
 
 <!-- Related Products -->
 <section>
@@ -311,42 +309,6 @@
                     <i class="fas fa-star mr-1"></i> {{product.average_rating }} / 5</small>
                 {% else %}
                 <small class="text-muted d-flex justify-content-center mt-2">No Rating</small>
-                {% endif %}
-                <!-- if superuser, links for edit and delete -->
-                {% if request.user.is_superuser %}
-                <small class="ml-3">
-                    <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a>
-                    <!-- Modal for delete confirmation -->
-                    <button class="btn delete-btn" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
-                    <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog"
-                        aria-labelledBy="fm-modal-grid" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="modal-header m-auto">
-                                    <h1 class="text-center text-black">Attention!</h1>
-                                    <button class="close" data-dismiss="modal" aria-label="Cerrar">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container-fluid">
-                                        <div class="row justify-content-center">
-                                            <div class="col-12 col-sm-6 text-center">
-                                                <p>Are you sure you want to delete {{product.title}}</p>
-                                                <p>This can not be undone.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="text-danger delete-btn"
-                                        href="{% url 'delete_product' product.id %}">Delete</a>
-                                    <button class="btn edit-btn" data-dismiss="modal">Cancel</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </small>
                 {% endif %}
             </div>
 
