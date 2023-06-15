@@ -5,15 +5,14 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('products', '0010_remove_product_favourites'),
+        ("products", "0010_remove_product_favourites"),
     ]
 
     operations = [
         migrations.AlterUniqueTogether(
-            name='reviews',
-            unique_together={('user', 'product')},
+            name="reviews",
+            unique_together={("user", "product")},
         ),
     ]

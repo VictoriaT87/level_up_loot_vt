@@ -6,35 +6,40 @@ from .models import Product, Category, Brand
 
 class ProductAdmin(admin.ModelAdmin):
     # search by username
-    search_fields = ['title',]
+    search_fields = [
+        "title",
+    ]
     list_display = (
-        'title',
-        'sku',
-        'category',
-        'brand',
-        'price',
-        'image',
-        'on_sale',
-        'sale_price',
-        'is_featured',
+        "title",
+        "sku",
+        "category",
+        "brand",
+        "price",
+        "image",
+        "on_sale",
+        "sale_price",
+        "is_featured",
     )
 
-    list_editable = ('is_featured', 'on_sale',)
+    list_editable = (
+        "is_featured",
+        "on_sale",
+    )
 
-    ordering = ('title',)
+    ordering = ("title",)
 
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
-        'friendly_name',
-        'name',
+        "friendly_name",
+        "name",
     )
 
 
 class BrandAdmin(admin.ModelAdmin):
     list_display = (
-        'friendly_name',
-        'name',
+        "friendly_name",
+        "name",
     )
 
 

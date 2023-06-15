@@ -14,9 +14,9 @@ def index(request):
     """
     products = Product.objects.all()
     context = {
-        'products': products,
+        "products": products,
     }
-    return render(request, 'home/index.html', context)
+    return render(request, "home/index.html", context)
 
 
 def faqs(request):
@@ -34,18 +34,21 @@ def privacy_policy(request):
 
 
 def contact(request):
-    """ View to return Contact Us form """
+    """View to return Contact Us form"""
     if request.method == "POST":
-        message_name = request.POST['name']
-        message_email = request.POST['email']
-        message = request.POST['message']
+        message_name = request.POST["name"]
+        message_email = request.POST["email"]
+        message = request.POST["message"]
 
-        send_mail('message from ' + message_name,
-                  message + ' reply to this message ' + message_email,
-                  message_email,
-                  ['victoriaemt@gmail.com'])
-        messages.success(request,
-                         'Thank you, your email has been sent. We will contact you shortly.')
+        send_mail(
+            "message from " + message_name,
+            message + " reply to this message " + message_email,
+            message_email,
+            ["victoriaemt@gmail.com"],
+        )
+        messages.success(
+            request, "Thank you, your email has been sent. We will contact you shortly."
+        )
         return render(request, "home/contact.html")
     else:
         return render(request, "home/contact.html")

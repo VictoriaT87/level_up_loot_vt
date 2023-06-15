@@ -4,18 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0012_auto_20230525_1212'),
+        ("products", "0012_auto_20230525_1212"),
     ]
 
     operations = [
         migrations.RemoveConstraint(
-            model_name='reviews',
-            name='reviews per user',
+            model_name="reviews",
+            name="reviews per user",
         ),
         migrations.AddConstraint(
-            model_name='reviews',
-            constraint=models.UniqueConstraint(fields=('user', 'product'), name='reviews_per_user'),
+            model_name="reviews",
+            constraint=models.UniqueConstraint(
+                fields=("user", "product"), name="reviews_per_user"
+            ),
         ),
     ]

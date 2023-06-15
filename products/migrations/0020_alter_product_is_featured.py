@@ -4,15 +4,16 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0019_alter_product_is_featured'),
+        ("products", "0019_alter_product_is_featured"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='product',
-            name='is_featured',
-            field=models.BooleanField(default=False, verbose_name='Feature on Home Page'),
+            model_name="product",
+            name="is_featured",
+            field=models.BooleanField(
+                default=False, verbose_name="Feature on Home Page"
+            ),
         ),
     ]

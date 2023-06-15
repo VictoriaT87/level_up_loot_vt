@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0016_alter_product_discount'),
+        ("products", "0016_alter_product_discount"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='product',
-            name='discount',
-            field=models.IntegerField(default=10, help_text='Discount in Percentage'),
+            model_name="product",
+            name="discount",
+            field=models.IntegerField(default=10, help_text="Discount in Percentage"),
         ),
     ]
