@@ -4,13 +4,20 @@ from products.models import Product
 from wishlist.models import Wishlist
 
 
+"""
+Originally wrote this using classmethods
+From tutorial https://www.youtube.com/watch?v=_8qLxaWMdzE
+Reverted to self setUp
+More in README.md
+"""
+
+
 class WishlistModelTest(TestCase):
     """
     Test for the wishlist model
     """
 
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         # Create a test User
         user = User.objects.create(username="testuser")
         # Create a test product

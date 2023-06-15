@@ -7,19 +7,24 @@ from wishlist.models import Wishlist
 from products.models import Product
 
 
+"""
+Originally wrote this using classmethods
+From tutorial https://www.youtube.com/watch?v=_8qLxaWMdzE
+Reverted to self setUp
+More in README.md
+"""
+
+
 class ViewWishlistTest(TestCase):
     """
     Test for viewing a wishlist
     """
 
-    @classmethod
-    def setUpClass(cls):
-        """
-        Create a user
-        """
-        super().setUpClass()
-        cls.client = Client()
-        cls.user = User.objects.create_user(username="testuser", password="testpass")
+    def setUp(self):
+        self.client = Client()
+
+        # Create a user
+        self.user = User.objects.create_user(username="testuser", password="testpass")
 
     def test_authenticated_user_view_wishlist(self):
         # Create a UserProfile if it doesn't exist
@@ -66,15 +71,14 @@ class AddWishlistTest(TestCase):
     Test for adding to a wishlist
     """
 
-    @classmethod
-    def setUpClass(cls):
-        """
-        Create a user and a product for testing
-        """
-        super().setUpClass()
-        cls.client = Client()
-        cls.user = User.objects.create_user(username="testuser", password="testpass")
-        cls.product = Product.objects.create(
+    def setUp(self):
+        self.client = Client()
+
+        # Create a user
+        self.user = User.objects.create_user(username="testuser", password="testpass")
+
+        # Create a test product
+        self.product = Product.objects.create(
             title="Test Product",
             description="Test description",
             price="9.99",
@@ -131,21 +135,24 @@ class RemoveWishlistTest(TestCase):
     Test for removing product from a wishlist
     """
 
-    @classmethod
-    def setUpClass(cls):
+    def setUp(self):
         """
         Create a user, product, and wishlist for testing
         """
-        super().setUpClass()
-        cls.client = Client()
-        cls.user = User.objects.create_user(username="testuser", password="testpass")
-        cls.product = Product.objects.create(
+
+        self.client = Client()
+
+        # Create a user
+        self.user = User.objects.create_user(username="testuser", password="testpass")
+
+        # Create a test product
+        self.product = Product.objects.create(
             title="Test Product",
             description="Test description",
             price="9.99",
         )
-        cls.wishlist = Wishlist.objects.create(user=cls.user)
-        cls.wishlist.products.add(cls.product)
+        self.wishlist = Wishlist.objects.create(user=self.user)
+        self.wishlist.products.add(self.product)
 
     def test_remove_wishlist(self):
         # Log in the user
