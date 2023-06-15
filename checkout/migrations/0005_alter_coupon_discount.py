@@ -4,15 +4,16 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0004_coupon'),
+        ("checkout", "0004_coupon"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='coupon',
-            name='discount',
-            field=models.DecimalField(decimal_places=2, help_text='Discount in Percentage', max_digits=6),
+            model_name="coupon",
+            name="discount",
+            field=models.DecimalField(
+                decimal_places=2, help_text="Discount in Percentage", max_digits=6
+            ),
         ),
     ]

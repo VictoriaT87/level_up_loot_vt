@@ -4,18 +4,17 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0008_auto_20230607_1059'),
+        ("checkout", "0008_auto_20230607_1059"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='coupon',
-            name='max_value',
+            model_name="coupon",
+            name="max_value",
         ),
         migrations.RemoveField(
-            model_name='coupon',
-            name='used',
+            model_name="coupon",
+            name="used",
         ),
     ]

@@ -16,31 +16,44 @@ class OrderFormTest(TestCase):
         self.assertEqual(form.Meta.model, Order)
         self.assertEqual(
             list(form.Meta.fields),
-            ['full_name', 'email', 'phone_number', 'street_address1', 'street_address2', 'town_or_city', 'postcode', 'country', 'county']
+            [
+                "full_name",
+                "email",
+                "phone_number",
+                "street_address1",
+                "street_address2",
+                "town_or_city",
+                "postcode",
+                "country",
+                "county",
+            ],
         )
 
     def test_form_placeholders(self):
         # Test form choices
         form = OrderForm()
         self.assertEqual(
-            form.fields['full_name'].widget.attrs['placeholder'], 'Full Name *')
+            form.fields["full_name"].widget.attrs["placeholder"], "Full Name *"
+        )
         self.assertEqual(
-            form.fields['email'].widget.attrs['placeholder'], 'Email Address *')
+            form.fields["email"].widget.attrs["placeholder"], "Email Address *"
+        )
         self.assertEqual(
-            form.fields['phone_number'].widget.attrs['placeholder'], 'Phone Number *')
+            form.fields["phone_number"].widget.attrs["placeholder"], "Phone Number *"
+        )
 
     def test_form_is_valid(self):
         # Test Form is Valid
         form_data = {
-            'full_name': 'Test User',
-            'email': 'testuser@email.com',
-            'phone_number': '12345678',
-            'street_address1': 'Street',
-            'street_address2': '',
-            'town_or_city': 'Dublin',
-            'postcode': '12345',
-            'country': 'IE',
-            'county': 'Dublin',
+            "full_name": "Test User",
+            "email": "testuser@email.com",
+            "phone_number": "12345678",
+            "street_address1": "Street",
+            "street_address2": "",
+            "town_or_city": "Dublin",
+            "postcode": "12345",
+            "country": "IE",
+            "county": "Dublin",
         }
         form = OrderForm(data=form_data)
         self.assertTrue(form.is_valid())
@@ -48,27 +61,27 @@ class OrderFormTest(TestCase):
     def test_form_is_invalid(self):
         # Test Form is Invalid
         form_data = {
-            'full_name': '',
-            'email': '',
-            'phone_number': '12345678',
-            'street_address1': 'Street',
-            'street_address2': '',
-            'town_or_city': 'Dublin',
-            'postcode': '12345',
-            'country': 'IE',
-            'county': 'Dublin',
+            "full_name": "",
+            "email": "",
+            "phone_number": "12345678",
+            "street_address1": "Street",
+            "street_address2": "",
+            "town_or_city": "Dublin",
+            "postcode": "12345",
+            "country": "IE",
+            "county": "Dublin",
         }
         form = OrderForm(data=form_data)
         self.assertFalse(form.is_valid())
 
 
 class CouponFormTest(TestCase):
-    """ Test Coupon Form """
+    """Test Coupon Form"""
 
     def test_form_is_valid(self):
         # Test Form is Valid
         form_data = {
-            'code': 'test',
+            "code": "test",
         }
         form = CouponForm(data=form_data)
         self.assertTrue(form.is_valid())
@@ -76,7 +89,7 @@ class CouponFormTest(TestCase):
     def test_form_is_invalid(self):
         # Test Form is Invalid
         form_data = {
-            'code': '',
+            "code": "",
         }
         form = CouponForm(data=form_data)
         self.assertFalse(form.is_valid())

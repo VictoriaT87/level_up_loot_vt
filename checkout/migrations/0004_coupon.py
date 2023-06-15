@@ -4,22 +4,32 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0003_order_user_profile'),
+        ("checkout", "0003_order_user_profile"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Coupon',
+            name="Coupon",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('code', models.CharField(max_length=50, unique=True)),
-                ('discount', models.PositiveIntegerField(help_text='Discount in Percentage')),
-                ('active', models.BooleanField(default=True)),
-                ('start_date', models.DateField()),
-                ('expiry_date', models.DateField()),
-                ('created_date', models.DateTimeField(auto_now_add=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("code", models.CharField(max_length=50, unique=True)),
+                (
+                    "discount",
+                    models.PositiveIntegerField(help_text="Discount in Percentage"),
+                ),
+                ("active", models.BooleanField(default=True)),
+                ("start_date", models.DateField()),
+                ("expiry_date", models.DateField()),
+                ("created_date", models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]

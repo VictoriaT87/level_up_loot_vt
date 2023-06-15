@@ -5,20 +5,24 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('checkout', '0005_alter_coupon_discount'),
+        ("checkout", "0005_alter_coupon_discount"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='order',
-            name='coupon',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='checkout.coupon'),
+            model_name="order",
+            name="coupon",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="checkout.coupon",
+            ),
         ),
         migrations.AlterField(
-            model_name='coupon',
-            name='discount',
-            field=models.IntegerField(help_text='Discount in Percentage'),
+            model_name="coupon",
+            name="discount",
+            field=models.IntegerField(help_text="Discount in Percentage"),
         ),
     ]
