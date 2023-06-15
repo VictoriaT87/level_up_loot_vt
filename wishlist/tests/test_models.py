@@ -3,23 +3,25 @@ from django.contrib.auth.models import User
 from products.models import Product
 from wishlist.models import Wishlist
 
+
 class WishlistModelTest(TestCase):
     """
     Test for the wishlist model
     """
+
     @classmethod
     def setUpTestData(cls):
         # Create a test User
-        user = User.objects.create(username='testuser')
+        user = User.objects.create(username="testuser")
         # Create a test product
         product = Product.objects.create(
             title="Test Product",
             description="Test description",
-            price='9.99',
+            price="9.99",
         )
 
         # Create a test Wishlist
-        Wishlist.objects.create(user=user, date_added='2023-06-01')
+        Wishlist.objects.create(user=user, date_added="2023-06-01")
 
         # Add the product to the wishlist
         wishlist = Wishlist.objects.get(user=user)
@@ -42,7 +44,7 @@ class WishlistModelTest(TestCase):
         wishlist = Wishlist.objects.get(id=1)
         user = wishlist.user
         self.assertIsNotNone(user)
-        self.assertEqual(user.username, 'testuser')
+        self.assertEqual(user.username, "testuser")
 
     def test_date_added_field(self):
         # test the date added field

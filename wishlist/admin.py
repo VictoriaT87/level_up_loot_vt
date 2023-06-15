@@ -6,14 +6,17 @@ from .models import Wishlist
 
 class WishlistAdmin(admin.ModelAdmin):
     # search by username
-    search_fields = ['user',]
+    search_fields = [
+        "user",
+    ]
     # adds boxes side by side to allow removing/adding products in admin
-    filter_horizontal = ('products',)
+    filter_horizontal = ("products",)
     list_display = (
-        'user',
-        'date_added',
+        "user",
+        "date_added",
     )
 
-    ordering = ('user',)
+    ordering = ("user",)
+
 
 admin.site.register(Wishlist, WishlistAdmin)

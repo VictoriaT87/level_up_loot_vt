@@ -4,20 +4,19 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0010_remove_product_favourites'),
-        ('wishlist', '0001_initial'),
+        ("products", "0010_remove_product_favourites"),
+        ("wishlist", "0001_initial"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='wishlist',
-            name='product',
+            model_name="wishlist",
+            name="product",
         ),
         migrations.AddField(
-            model_name='wishlist',
-            name='product',
-            field=models.ManyToManyField(blank=True, to='products.Product'),
+            model_name="wishlist",
+            name="product",
+            field=models.ManyToManyField(blank=True, to="products.Product"),
         ),
     ]

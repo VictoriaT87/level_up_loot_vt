@@ -4,14 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('profiles', '0002_userprofile_favourites'),
+        ("profiles", "0002_userprofile_favourites"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='userprofile',
-            name='favourites',
+            model_name="userprofile",
+            name="favourites",
         ),
     ]

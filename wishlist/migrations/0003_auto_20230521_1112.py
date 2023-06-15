@@ -5,20 +5,25 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0010_remove_product_favourites'),
-        ('wishlist', '0002_auto_20230521_1048'),
+        ("products", "0010_remove_product_favourites"),
+        ("wishlist", "0002_auto_20230521_1048"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='wishlist',
-            name='product',
+            model_name="wishlist",
+            name="product",
         ),
         migrations.AddField(
-            model_name='wishlist',
-            name='product',
-            field=models.ForeignKey(blank=True, default=1, null=True, on_delete=django.db.models.deletion.CASCADE, to='products.product'),
+            model_name="wishlist",
+            name="product",
+            field=models.ForeignKey(
+                blank=True,
+                default=1,
+                null=True,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="products.product",
+            ),
         ),
     ]
