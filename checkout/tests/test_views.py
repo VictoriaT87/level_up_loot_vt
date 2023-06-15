@@ -35,3 +35,17 @@ class AddCouponViewTest(TestCase):
         # Check the message returned
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), f'Coupon code: test applied')
+
+    
+    def test_add_wrong_coupon(self):
+        # Test Add Wrong Coupon
+
+        # Add the wrong coupon
+        response = self.client.post(reverse('add_coupon'), {'code': 'wrong'})
+
+        # Assert the coupon ID is not in the session storage
+        self.assertIsNone(self.client.session.get('coupon_id'))
+
+        # Check the message returned
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), f'Sorry, wrong is not a valid code')
