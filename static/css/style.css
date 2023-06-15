@@ -1044,8 +1044,9 @@ a:hover {
     margin: 0 20px;
 }
 
-#mc_embed_signup h2 {
+#mc_embed_signup h4 {
     margin: 0;
+    font-weight: normal;
 }
 
 #mc_embed_signup .helper_text {
