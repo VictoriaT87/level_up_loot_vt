@@ -47,7 +47,10 @@ def add_coupon(request):
 
 def remove_coupon(request):
     """ Remove coupon code """
-    del request.session['coupon_id']
+
+    # Based on unit testing - remove coupon_id only if in session
+    if 'coupon_id' in request.session:
+        del request.session['coupon_id']
     messages.success(request, "The coupon has been removed")
     return redirect('checkout')
 

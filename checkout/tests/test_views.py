@@ -49,3 +49,35 @@ class AddCouponViewTest(TestCase):
         # Check the message returned
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), f'Sorry, wrong is not a valid code')
+
+
+class RemoveCouponViewTest(TestCase):
+    """ Test Remove Coupon View """
+
+    def setUp(self):
+        self.client = Client()
+
+        # Create coupon
+        self.coupon = Coupon.objects.create(
+            code='test',
+            discount=10.0,
+            active=True,
+            start_date=date.today(),
+            expiry_date=date.today(),
+        )
+
+    def test_remove_coupon(self):
+        # Test Remove Coupon
+        
+        # Add the coupon ID to the session
+        self.client.session['coupon_id'] = 1
+
+        # Make a POST request to remove the coupon
+        response = self.client.post(reverse('remove_coupon'))
+
+        # Assert the coupon ID is removed from the session
+        self.assertIsNone(self.client.session.get('coupon_id'))
+
+        # Check the message returned
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), "The coupon has been removed")
