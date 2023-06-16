@@ -2,7 +2,7 @@
 
 :root {
     --white: #fff;
-    --blue: #3d85c6;
+    --blue: #2B5788;
     --black: #000;
     scroll-behavior: smooth;
 }
@@ -420,7 +420,7 @@ a:hover {
 
 .faq-font,
 .faq-content h4 {
-    color: #3d85c6;
+    color: #2B5788;
 }
 
 .privacy-container {
@@ -464,7 +464,6 @@ a:hover {
 .why-us h2 {
     color: var(--white);
     text-transform: uppercase;
-    font-weight: 600;
 }
 
 .why-us-item img {
@@ -743,7 +742,7 @@ a:hover {
 }
 
 .text-blue {
-    color: #3d85c6 !important;
+    color: #2B5788 !important;
 }
 
 .border-black {

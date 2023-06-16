@@ -12,7 +12,7 @@
                         <h2>Enter The Animus</h2>
                         <p> Bring home Ezio Auditore as he majestically materializes from the iconic Santa Maria del
                             Fiore!
-                            <a class='btn btn-lg btn-block hero-btn' href="/products/66/">Order Now</a>
+                            <a class='btn btn-lg btn-block hero-btn'  aria-label="Order Now" href="/products/66/">Order Now</a>
                         </p>
                     </div>
                 </div>
@@ -35,13 +35,6 @@
                     </p>
                 </div>
             </div>
-            <!-- <div class="col-lg-6 hero-text-mobile-small">
-                    <h2>Premium Collectible Statues</h2>
-                    <p>All shipped from Ireland</p>
-                    <p>Quick delivery</p>
-                    <p>No import fees!</p>
-                    <a class='btn btn-lg btn-block hero-btn-mobile' href="{% url 'products' %}">Shop Now</a></p>
-                </div> -->
         </div>
     </div>
 </section>
@@ -181,7 +174,7 @@
                         <p class="h4 mb-0 pb-1"><span class="text-left logo-font">€{{ product.price }}</span></p>
                     </div>
                     <a href="{% url 'product_detail' product.id %}"
-                        class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
+                        class="btn btn-sm product-btn text-shadow mt-1 rounded-0"  aria-label="Shop Now">
                         <span class="text-uppercase">Shop Now</span>
                         <span class="icon">
                             <i class="fas fa-shopping-bag"></i>
