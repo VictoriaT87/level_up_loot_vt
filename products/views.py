@@ -27,6 +27,7 @@ def all_products(request):
     categories = None
     sale = False
     direction = None
+    title = "Products"
 
     if request.GET:
         if "sort" in request.GET:
@@ -47,11 +48,13 @@ def all_products(request):
             category = request.GET["category"]
             products = products.filter(category__name=category)
             category = get_object_or_404(Category, name=category)
+            title = category.get_friendly_name()
 
         if "brand" in request.GET:
             brand = request.GET["brand"]
             products = products.filter(brand__name=brand)
             brand = get_object_or_404(Brand, name=brand)
+            title = brand.get_friendly_name()
 
         if "sale" in request.GET:
             sale = True
@@ -75,6 +78,7 @@ def all_products(request):
         "brand": brand,
         "current_categories": categories,
         "current_sorting": current_sorting,
+        "title": title,
     }
 
     return render(request, "products/products.html", context)
