@@ -8,7 +8,7 @@
             "sku": 209297,
             "title": "Funko Pop! Dragon Ball Z - Super Saiyan Gohan #509",
             "price": 11.99,
-            "image": "../media/gohan-funko.jpg",
+            "image": "../media/gohan-funko.webp",
             "description": "This Pop! Vinyl features Gohan in his Super Saiyan form! An absolute MUST for any true Dragon Ball collection! These won't last long, so order now!",
             "alt_text": "Toy model of an anime ninja character",
             "average_rating": 3.7917
@@ -23,7 +23,7 @@
             "sku": 278612,
             "title": "Funko POP! Jedi: Fallen Order - Merrin (Nightsister) #553",
             "price": 12.99,            
-            "image": "../media/merrin-funko.jpg",
+            "image": "../media/merrin-funko.webp",
             "description": "This Pop! features Merrin from 2019's smash-hit release Star Wars Jedi: Fallen Order. Merrin a Dathomirian Nightsister who lived on her homeworld of Dathomir furing the Imperial Era, She was also a survivor of General Grievous' massacre on the Nightsisters during the Clone Wars.",
             "alt_text": "Toy model of a Star Wars jedi",
             "average_rating": 3
@@ -83,7 +83,7 @@
             "sku": 286008,
             "title": "Funko Pop! Sonic the Hedgehog - Sonic with Chaos Emerald #284",
             "price": 12.99,            
-            "image": "../media/sonic-funko.jpg",
+            "image": "../media/sonic-funko.webp",
             "description": "Straight from the Green Hill Zone comes Funko's new Sonic the Hedgehog Pop! Vinyl Figures ready to speed their way into your Funko collection!",
             "alt_text": "Toy model of sonic the hedgehog",
             "average_rating": 2.6587
@@ -143,7 +143,7 @@
             "sku": 291820,
             "title": "Funko Pop! Fortnite - Meowscles #639",
             "price": 19.99,           
-            "image": "../media/meowsicles-funko.jpg",
+            "image": "../media/meowsicles-funko.webp",
             "description": "Funko's new wave of Fortnite Pop! Vinyl Figures features a range of epic player skins available in the game including TNTina, Meowscles, Eternal Voyager and Midas, who also comes with a Metallic finish!",
             "alt_text": "Tpoy model of a cat character from Fortnite",
             "average_rating": 0
@@ -158,7 +158,7 @@
             "sku": 213039,
             "title": "The Flash Movie Batman (Ben Affleck) Action Figure",
             "price": 34.99,           
-            "image": "../media/batman-mcfarlane.jpg",
+            "image": "../media/batman-mcfarlane.webp",
             "description": "18 cm tall, Each figure is fully articulated, Multiple accessories included, Officially-licensed DC Comics action figure, Window box packaging",
             "alt_text": "Action figure of Batman",
             "average_rating": 1
@@ -173,7 +173,7 @@
             "sku": 274341,
             "title": "Warhammer 40k Darktide Traitor Guard Action Figure",
             "price": 29.99,            
-            "image": "../media/warhammer-mcfarlane.jpg",
+            "image": "../media/warhammer-mcfarlane.webp",
             "description": "18 cm tall, Multiple points of articulation, Different weapon accessories included, Features a stylised display base, Window box collector packaging.",
             "alt_text": "Action figure of a guard character from Warhammer",
             "average_rating": 0
@@ -203,7 +203,7 @@
             "sku": 290573,
             "title": "The Joker (The Dark Knight Trilogy)",
             "price": 27.99,            
-            "image": "../media/joker-mcfarlane.jpg",
+            "image": "../media/joker-mcfarlane.webp",
             "description": "Incredibly detailed 7” scale figure based off The Dark Knight Trilogy. Designed with Ultra Articulation with up to 22 moving parts for full range of posing and play. The Joker comes with a stack of cash, Bane build-a figure hands, head and base. Included collectible art card with character art on the front, and character biography on the back",
             "alt_text": "Action figure of The Joker from Batman",
             "average_rating": 4
@@ -218,7 +218,7 @@
             "sku": 224603,
             "title": "Demon Slayer: Giyu Tomioka Action Figure",
             "price": 25.99,            
-            "image": "../media/giyu-mcfarlane.png",
+            "image": "../media/giyu-mcfarlane.webp",
             "description": "Fun pint sized 5 inch scale toy based on the Anime Demon Slayer, Designed with articulation for standard action figure movement, Giyu is based on his look from Demon Slayer season 1, Giyu includes a sword, Figure is showcased in Demon Slayer themed blister card packaging",
             "alt_text": "Toy model of a Japanese anime character in school clothes",
             "average_rating": 3.5
@@ -233,7 +233,7 @@
             "sku": 947048,
             "title": "Skyrim: Alduin (Gold) Action Figure",
             "price": 35.99,            
-            "image": "../media/alduin-mcfarlane.png",
+            "image": "../media/alduin-mcfarlane.webp",
             "description": "Alduin, the World Eater is a dragon and the primary antagonist of The Elder Scrolls V: Skyrim's Main Quest. He is considered the “wellspring” of the Nordic pantheon, as well as the harbinger of the apocalypse. Includes highly detailed dragon burial mound themed base and flight stand, Wings span wide at 15” and feature up and down movement, Alduin measures 9”H x 15”W x 10” D when fully displayed on elevated base.",
             "alt_text": "Model of a gold dragon from Skyrim",
             "average_rating": 5
@@ -248,7 +248,7 @@
             "sku": 283163,
             "title": "Avatar: The Last Airbender Final Battle 4-Pack Figures",
             "price": 40.00,            
-            "image": "../media/avatar-mcfarlane.png",
+            "image": "../media/avatar-mcfarlane.webp",
             "description": "Final Battle Pack Includes: Aang: Along his journey, Aang mastered waterbending, earthbending, and firebending, becoming a fully realized Avatar. With the Fire Nation on the brink of global domination, Aang faced Fire Lord Ozai in a life-or-death battle, emerging victorious. And thanks to the help of his friends, he ended the war and restored balance to the world.",
             "alt_text": "A box of toy figures of characters from the anime Avatar: The Last Airbender",
             "average_rating": 4.5
@@ -263,7 +263,7 @@
             "sku": 163810,
             "title": "House of the Dragon: Syrax/Caraxes Bundle (2) Figures",
             "price": 59.99,           
-            "image": "../media/hotd-mcfarlane.jpg",
+            "image": "../media/hotd-mcfarlane.webp",
             "description": "Double Pack of figures, featuring Syrax and Caraxes from the HBO show House of The Dragon. Includes House of the Dragon sculpted base. Dragon comes with large attachable wings. Figure is showcased in House of the Dragon window box packaging.",
             "alt_text": "Models of 2 dragons, one red, one gold, from the show House of the Dragon",
             "average_rating": 4.5
@@ -278,7 +278,7 @@
             "sku": 307550,
             "title": "The Witcher: Geralt of Rivia in Witcher Mode (The Witcher - Netflix S2)",
             "price": 29.99,            
-            "image": "../media/witcher-mode-mcfarlane.jpg",
+            "image": "../media/witcher-mode-mcfarlane.webp",
             "description": "Incredibly detailed 7 inch scale figure based off The Witcher on Netflix. Includes Geralt's silver sword and a base. Figure features Geralt in his Season 2 armor with his face pale and white from drinking potions creating the iconic 'toxic' look known in the series as 'Witcher Mode'.",
             "alt_text": "A toy figure of the character Geralt from The Witcher",
             "average_rating": 4.5
@@ -293,7 +293,7 @@
             "sku": 304225,
             "title": "My Hero Academia: Endeavor",
             "price": 29.99,           
-            "image": "../media/endeavor-mcfarlane.jpg",
+            "image": "../media/endeavor-mcfarlane.webp",
             "description": "Fun pint sized 5 inch scale toy based on the Anime My Hero Academia. Designed with articulation for standard action figure movement. Endeavor is featured in his Season 4 Hero Outfit with transparent flames to mimic his iconic look. Figure is showcased in My Hero Academia themed blister card packaging.",
             "alt_text": "A toy figure of a character from the anime My Hero Academia",
             "average_rating": 4.5
@@ -308,7 +308,7 @@
             "sku": 952813,
             "title": "Dungeons & Dragons Honor Among Thieves Golden Archive Edgin",
             "price": 29.99,           
-            "image": "../media/edgin-hasbro.jpg",
+            "image": "../media/edgin-hasbro.webp",
             "description": "OPEN THE DOORS TO THE GOLDEN ARCHIVE. This 6-inch scale, premium Edgin action figure is part of the action figures and collectibles inspired by Dungeons & Dragons lore and entertainment from nearly 50 years.",
             "alt_text": "A toy figure of a human male character from Dungeons and Dragons",
             "average_rating": 4.5
@@ -323,7 +323,7 @@
             "sku": 152107,
             "title": "Ghostbusters Fright Feature Stay Puft Marshmallow Man Ghost Figure with Fright Feature",
             "price": 12.99,           
-            "image": "../media/mashmallow-hasbro.jpg",
+            "image": "../media/mashmallow-hasbro.webp",
             "description": "From retro action figures to premium collectibles inspired by new entertainment, gooey ecto-plasm to figures and playsets, Ghostbusters toys from Hasbro are a spooktacular treat for kids and fans of all ages! Ghostbusters Fright Features scare up a button-activated spooky surprise.",
             "alt_text": "A toy figure of the Marshmallow Man from Ghostbusters",
             "average_rating": 1.5
@@ -338,7 +338,7 @@
             "sku": 227383,
             "title": "Power Rangers Lightning Collection Mighty Morphin Yellow Ranger Power Daggers Roleplay",
             "price": 131.99,           
-            "image": "../media/power-rangers-hasbro.jpg",
+            "image": "../media/power-rangers-hasbro.webp",
             "description": "These Mighty Morphin Power Rangers Lightning Collection Premium Roleplay Yellow Ranger Power Daggers have show-inspired design and deco, come with a cool stand for display, and includes awesome electronics that light up the blades and produce sound effects. IT'S MORPHIN TIME!",
             "alt_text": "2 yellow and silver toy daggers",
             "average_rating": 2
@@ -353,7 +353,7 @@
             "sku": 225619,
             "title": "Star Wars The Child Animatronic Edition, The Mandalorian Toy",
             "price": 66.99,           
-            "image": "../media/child-hasbro.jpg",
+            "image": "../media/child-hasbro.webp",
             "description": "The Child Animatronic Edition with sounds and motorized sequences! He may look like “Baby Yoda,” but this lovable creature is called The Child -- and now you can become his protector with this animatronic toy from Star Wars. ",
             "alt_text": "A toy figure of the character The Child from Star Wars",
             "average_rating": 4.5
@@ -368,7 +368,7 @@
             "sku": 202113,
             "title": "Star Wars The Black Series Darth Revan Force FX Elite Lightsaber",
             "price": 278.99,            
-            "image": "../media/revan-hasbro.jpg",
+            "image": "../media/revan-hasbro.webp",
             "description": "In the Star Wars lore, Darth Revan's journey from Sith to Jedi is evidenced by the color of his lightsaber blade! As a Sith Lord Revan wields the familiar red-bladed lightsaber, but as a redeemed Jedi Knight he brandishes a lightsaber with a purple blade! Fans can imagine the biggest battles and missions in the Star Wars lore with lightsabers from The Black Series.",
             "alt_text": "A lifesize lightsaber toy",
             "average_rating": 5
@@ -383,7 +383,7 @@
             "sku": 205995,
             "title": "Star Wars The Black Series Boba Fett Premium Electronic Helmet",
             "price": 131.99,           
-            "image": "../media/boba-hasbro.jpg",
+            "image": "../media/boba-hasbro.webp",
             "description": "Commemorate Star Wars: The Empire Strikes Back with The Black Series Boba Fett Premium Electronic Helmet! This roleplay item with premium deco, realistic detail, and movie-inspired design is a great addition to any Star Wars fan's collection.",
             "alt_text": "A helmet of Boba Fett from Star Wars",
             "average_rating": 4.5
@@ -413,7 +413,7 @@
             "sku": 225635,
             "title": "Marvel Legends Series Spider-Man: Across the Spider-Verse (Part One) Miles Morales",
             "price": 24.49,            
-            "image": "../media/miles-hasbro.jpg",
+            "image": "../media/miles-hasbro.webp",
             "description": "6 inch figure of Miles Morales. He faces a new villain with abilities that will take more than one Spider-Man to defeat. The Marvel Legends Series offers elite character-inspired product for Marvel fans and collectors.",
             "alt_text": "A toy figure of spiderman",
             "average_rating": 4
@@ -428,7 +428,7 @@
             "sku": 310883,
             "title": "Transformers: Power Charge Bumblebee Action Figure",
             "price": 49.49,            
-            "image": "../media/bumblebee-hasbro.jpg",
+            "image": "../media/bumblebee-hasbro.webp",
             "description": "Spin the core in the action figure's chest to amp up lights and phrases. Then convert to classic yellow Volkswagen Beetle toy car mode in 17 steps and rev the car to hear awesome sound effects.",
             "alt_text": "A toy figure of the character Bumblebee from Transformers",
             "average_rating": 2
@@ -758,7 +758,7 @@
             "sku": 122696,
             "title": "Dark Souls III: Yhorm 1/12",
             "price": 749.99,            
-            "image": "../media/yhrom-purearts.png",
+            "image": "../media/yhrom-purearts.webp",
             "description": "We are proud to present our limited masterpiece of Yhorm the Giant from Dark Souls III. This Colossal boss, also known as the Lord of Cinder, is recognizable by his enormous size, heavy machete, and glowing red eyes and skin. We wanted to represent Yhorm with his most iconic pose when he is sitting on his impressive throne. The big extra plus of this larger version is that the eyes, parts of Yhorm's skin and base can light up and glow thanks to LED devices that bring a whole new dimension to this masterpiece.",
             "alt_text": "A figure of a monster chracter from The Dark Souls game",
             "average_rating": 4.5
@@ -983,7 +983,7 @@
             "sku": 223414,
             "title": "Assassin's Creed: Animus Ezio",
             "price": 764.00,            
-            "image": "../media/animus-purearts.png",
+            "image": "../media/animus-purearts.webp",
             "description": "We are proud to present Animus Ezio, the latest 1/4 scale statue to complete our Assassin's Creed Animus Collection!  Bring home Ezio Auditore as he majestically materializes from the iconic Santa Maria del Fiore with both blades at the ready. Add to the ambiance with white LED lights incorporated into the Animus effect behind Ezio.",
             "alt_text": "An assassin in white cloak and hood",
             "average_rating": 5

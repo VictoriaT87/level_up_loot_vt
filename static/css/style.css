@@ -177,7 +177,7 @@ a:hover {
 }
 
 .hero-mobile .info {
-    background-image: url(/media/hero-mobile.png);
+    background-image: url(/media/hero-mobile.webp);
     height: 75vh;
     position: relative;
     background-size: cover;
@@ -258,7 +258,7 @@ a:hover {
 }
 
 .error-bg {
-    background-image: url(/media/error.png);
+    background-image: url(/media/error.webp);
     background-size: cover;
     background-position: 35em;
 }
@@ -1079,6 +1079,7 @@ a:hover {
 #mc_embed_signup .button {
     background-color: var(--blue);
     font-size: 20px;
+    height: 35px;
 }
 
 #mc_embed_signup .button:hover {
@@ -1198,7 +1199,7 @@ a:hover {
     }
 
     .hero .info {
-        background-image: url(/media/hero-mobile.png);
+        background-image: url(/media/hero-mobile.webp);
         position: absolute;
         background-size: cover;
         width: 100%;
@@ -1271,7 +1272,7 @@ a:hover {
     .brands-img-div img {
         opacity: 1;
     }
-    
+
     .brands-img-div .img-box-title {
         opacity: 0;
     }
@@ -1279,7 +1280,7 @@ a:hover {
     .brands-img-div:hover img {
         opacity: 0.3;
     }
-    
+
     .brands-img-div:hover .img-box-title {
         opacity: 1;
     }
@@ -1312,7 +1313,7 @@ a:hover {
         display: grid;
         grid-template-columns: 2fr 2fr;
         width: 96%;
-        align-items: center;
+        align-items: start;
         justify-content: space-evenly;
         justify-items: end;
     }
@@ -1443,7 +1444,7 @@ a:hover {
     }
 
     .hero .info {
-        background-image: url(/media/hero.png);
+        background-image: url(/media/hero.webp);
     }
 
     /* Categories Section */
