@@ -19,10 +19,11 @@
     <div class="row mt-3">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
+                <!-- Product Selector Box -->
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
                     {% include "products/includes/selector.html" %}
                 </div>
-
+                <!-- Product Selection Text -->
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="mt-3 text-center text-md-left">
                         {% if search_term or current_categories or current_sorting != 'None_None' %}
@@ -40,12 +41,20 @@
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
             <div class="card h-100">
+                <!-- Sale Badge -->
                 {% if product.on_sale %}
                 <h4><span class="h1 badge sale-badge">Save!</span></h4>
                 {% endif %}
+                <!-- Product Image -->
+                {% if product.image %}
                 <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top product-image" src="{{ product.image.url }}" alt="{{ product.alt_text }}">
+                    <img class="card-img-top product-image img-fluid" src="{{ product.image.url }}"
+                        alt="{{ product.title }}">
+                </a>{% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
                 </a>
+                {% endif %}
                 <div class="card-body d-flex flex-column align-items-center justify-content-center">
                     <h4 class="card-title text-black text-center mt-auto">{{ product.title }}</h4>
                     <div class="mt-auto card-links">
@@ -62,6 +71,7 @@
                         </a>
                         {% endif %}
                     </div>
+                    <!-- Product Rating -->
                     {% if product.average_rating %}
                     <small class="text-muted d-flex justify-content-center mt-2 align-items-center">
                         <i class="fas fa-star mr-1"></i> {{product.average_rating }} / 5</small>
@@ -78,7 +88,7 @@
                     </div>
                     {% endif %}
                 </div>
-
+                <!-- Product Price -->
                 <div class="card-footer bg-white text-center mb-2">
                     {% if product.on_sale %}
                     <div class="bg-white text-center mb-2 d-flex justify-content-around">
