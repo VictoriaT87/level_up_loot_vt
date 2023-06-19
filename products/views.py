@@ -224,7 +224,7 @@ def add_review(request, product_id):
     return redirect(reverse("product_detail", args=[product.id]))
 
 
-class UpdateReview(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class UpdateReview(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, UpdateView):
     """
     A view to edit a Review
     """
@@ -234,11 +234,16 @@ class UpdateReview(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = "products/edit_review.html"
     success_message = "Your review was updated!"
 
+    def test_func(self):
+        review = self.get_object()
+        user = self.request.user
+        return user == review.user or user.is_superuser
+
     def get_success_url(self):
         return reverse("product_detail", kwargs={"product_id": self.object.product_id})
 
 
-class DeleteReview(LoginRequiredMixin, DeleteView):
+class DeleteReview(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """
     A view to delete a Review
     """
@@ -246,6 +251,11 @@ class DeleteReview(LoginRequiredMixin, DeleteView):
     model = Reviews
     template_name = "products/delete_review.html"
     success_message = "Review deleted successfully."
+
+    def test_func(self):
+        review = self.get_object()
+        user = self.request.user
+        return user == review.user or user.is_superuser
 
     def get_success_url(self):
         return reverse("product_detail", kwargs={"product_id": self.object.product_id})

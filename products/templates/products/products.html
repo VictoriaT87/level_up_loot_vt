@@ -40,7 +40,7 @@
     <div class="row mb-5 product-row">
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-            <div class="card h-100">
+            <div class="product-card card h-100">
                 <!-- Sale Badge -->
                 {% if product.on_sale %}
                 <h4><span class="h1 badge sale-badge">Save!</span></h4>
@@ -151,22 +151,22 @@
 
         {% if forloop.counter|divisibleby:1 %}
         <div class="col-12 d-sm-none mb-5">
-            <hr>
+            <hr class="product-hr">
         </div>
         {% endif %}
         {% if forloop.counter|divisibleby:2 %}
         <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-            <hr>
+            <hr class="product-hr">
         </div>
         {% endif %}
         {% if forloop.counter|divisibleby:3 %}
         <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-            <hr>
+            <hr class="product-hr">
         </div>
         {% endif %}
         {% if forloop.counter|divisibleby:4 %}
         <div class="col-12 d-none d-xl-block mb-5">
-            <hr>
+            <hr class="product-hr">
         </div>
         {% endif %}
         {% endfor %}
