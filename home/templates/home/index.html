@@ -12,7 +12,8 @@
                         <h2>Enter The Animus</h2>
                         <p> Bring home Ezio Auditore as he majestically materializes from the iconic Santa Maria del
                             Fiore!
-                            <a class='btn btn-lg btn-block hero-btn'  aria-label="Order Now" href="/products/66/">Order Now</a>
+                            <a class='btn btn-lg btn-block hero-btn' aria-label="Order Now" href="/products/66/">Order
+                                Now</a>
                         </p>
                     </div>
                 </div>
@@ -158,8 +159,7 @@
     </h2>
     <p class="text-center h4 mb-5">Check out some of our top rated statues!</p>
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 mx-3 mb-5">
-        {% for product in products %}
-        {% if product.is_featured %}
+        {% for product in featured_products %}
         <div class="col mb-4">
             <div class="card h-100">
                 <a href="{% url 'product_detail' product.id %}">
@@ -174,7 +174,7 @@
                         <p class="h4 mb-0 pb-1"><span class="text-left logo-font">€{{ product.price }}</span></p>
                     </div>
                     <a href="{% url 'product_detail' product.id %}"
-                        class="btn btn-sm product-btn text-shadow mt-1 rounded-0"  aria-label="Shop Now">
+                        class="btn btn-sm product-btn text-shadow mt-1 rounded-0" aria-label="Shop Now">
                         <span class="text-uppercase">Shop Now</span>
                         <span class="icon">
                             <i class="fas fa-shopping-bag"></i>
@@ -183,7 +183,6 @@
                 </div>
             </div>
         </div>
-        {% endif %}
         {% endfor %}
     </div>
 </section>
@@ -201,7 +200,8 @@
                         <img class="icon-img" src="{{ MEDIA_URL }}box.webp" alt="cardboard box graphic">
                     </div>
                     <p class="why-us-title h3">Fast Shipping</p>
-                    <p class="why-us-p">All of our products are shipped from our Irish warehouse, meaning faster delivery!</p>
+                    <p class="why-us-p">All of our products are shipped from our Irish warehouse, meaning faster
+                        delivery!</p>
                 </div>
             </div><!-- End Item -->
 
@@ -211,7 +211,8 @@
                         <img class="icon-img" src="{{ MEDIA_URL }}hand.webp" alt="hand holding money">
                     </div>
                     <p class="why-us-title h3">No Import Fees</p>
-                    <p class="why-us-p">Take out the hassle of having to pay custom fees, shop within the EU and save money.</p>
+                    <p class="why-us-p">Take out the hassle of having to pay custom fees, shop within the EU and save
+                        money.</p>
                 </div><!-- End Item -->
             </div>
 
@@ -221,7 +222,8 @@
                         <img class="icon-img" src="{{ MEDIA_URL }}new-product.webp" alt="open cardboard box graphic">
                     </div>
                     <p class="why-us-title h3">New Products Weekly</p>
-                    <p class="why-us-p">We're constantly updating our stock with the lastest collectibles from the best brands!</p>
+                    <p class="why-us-p">We're constantly updating our stock with the lastest collectibles from the best
+                        brands!</p>
                 </div>
             </div><!-- End Item -->
         </div>

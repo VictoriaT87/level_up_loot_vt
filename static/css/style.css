@@ -433,6 +433,9 @@ a:hover {
 }
 
 .btt-button {
+    background-color: white;
+    border: 1px solid var(--blue) !important;
+    color: blue;
     height: 42px;
     width: 42px;
     position: fixed;
@@ -1559,5 +1562,6 @@ a:hover {
 @media (min-width: 1200px) {
     .container {
         max-width: 80%;
+        margin-bottom: 1em;
     }
 }
