@@ -20,26 +20,7 @@
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                    <div class="sort-select-wrapper w-50">
-                        <select id="sort-selector"
-                            class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
-                            </option>
-                            <option value="created_on__desc" {% if current_sorting == 'date_desc' %}selected{% endif %}>
-                                New Arrivals</option>
-                            <option value="average_rating__desc" {% if current_sorting == 'average_rating__desc' %}selected{% endif %}>
-                                Top Rated</option>
-                            <option value="price__asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
-                                (low to high)</option>
-                            <option value="price__desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
-                                (high to low)</option>
-                            <option value="title__asc" {% if current_sorting == 'title__asc' %}selected{% endif %}>Name
-                                (A-Z)</option>
-                            <option value="title__desc" {% if current_sorting == 'title__desc' %}selected{% endif %}>Name
-                                (Z-A)</option>
-
-                        </select>
-                    </div>
+                    {% include "products/includes/selector.html" %}
                 </div>
 
                 <div class="col-12 col-md-6 order-md-first">
@@ -91,133 +72,133 @@
                     {% if request.user.is_superuser %}
                     <div class="ml-3">
                         <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a> |
-                        <button class="btn delete-btn" data-toggle="modal" data-target="#fm-modal-grid">Delete</button>
-                        <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog"
-                            aria-labelledBy="fm-modal-grid" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header m-auto">
-                                        <h2 class="text-center text-black">Attention!</h2>
-                                        <button class="close" data-dismiss="modal" aria-label="Cerrar">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container-fluid">
-                                            <div class="row justify-content-center">
-                                                <div class="col-12 col-sm-6 text-center">
-                                                    <p>Are you sure you want to delete {{product.title}}</p>
-                                                    <p>This can not be undone.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                        <button class="btn delete-btn" data-toggle="modal"
+                            data-target="#fm-modal-grid-{{ product.id }}">Delete</button>
 
-                                    <div class="modal-footer">
-                                        <a class="text-danger delete-btn"
-                                            href="{% url 'delete_product' product.id %}">Delete</a>
-                                        <button class="btn edit-btn" data-dismiss="modal">Cancel</button>
+                    </div>
+                    {% endif %}
+                </div>
 
-                                    </div>
+                <div class="card-footer bg-white text-center mb-2">
+                    {% if product.on_sale %}
+                    <div class="bg-white text-center mb-2 d-flex justify-content-around">
+                        <p class="mb-0 pt-3 text-center">
+                            Price:
+                            <span
+                                class="h4 text-left font-weight-bold price-font-original text-decoration-line-through">
+                                €{{ product.price }}</span>
+                        </p>
+                        <p class="mb-0 pt-3 text-center">
+                            Sale Price:
+                            <span class="h4 text-left font-weight-bold price-font">
+                                €{{ product.sale_price|floatformat:2 }}</span>
+                        </p>
+                    </div>
+                    {% else %}
+                    <p class="mb-0 pt-3 pb-1 text-center"><span class="h3 text-left font-weight-bold price-font">
+                            €{{ product.price }}</span></p>
+                    {% endif %}
+
+                    <a href="{% url 'product_detail' product.id %}"
+                        class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
+                        <span class="text-uppercase">View Product</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Confirmation Modal -->
+        <!-- Removed from Card Element to Preven Hover Effect -->
+        <div class="modal fade" id="fm-modal-grid-{{ product.id }}" tabindex="-1" role="dialog"
+            aria-labelledBy="fm-modal-grid-{{ product.id }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header m-auto">
+                        <h2 class="text-center text-black">Attention!</h2>
+                        <button class="close" data-dismiss="modal" aria-label="Cerrar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row justify-content-center">
+                                <div class="col-12 col-sm-6 text-center">
+                                    <p>Are you sure you want to delete {{product.title}}</p>
+                                    <p>This can not be undone.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                        {% endif %}
-                    </div>
 
-                    <div class="card-footer bg-white text-center mb-2">
-                        {% if product.on_sale %}
-                        <div class="bg-white text-center mb-2 d-flex justify-content-around">
-                            <p class="mb-0 pt-3 text-center">
-                                Price:
-                                <span
-                                    class="h4 text-left font-weight-bold price-font-original text-decoration-line-through">
-                                    €{{ product.price }}</span>
-                            </p>
-                            <p class="mb-0 pt-3 text-center">
-                                Sale Price:
-                                <span class="h4 text-left font-weight-bold price-font">
-                                    €{{ product.sale_price|floatformat:2 }}</span>
-                            </p>
-                        </div>
-                        {% else %}
-                        <p class="mb-0 pt-3 pb-1 text-center"><span class="h3 text-left font-weight-bold price-font">
-                                €{{ product.price }}</span></p>
-                        {% endif %}
+                    <div class="modal-footer">
+                        <a class="text-danger delete-btn" href="{% url 'delete_product' product.id %}">Delete</a>
+                        <button class="btn edit-btn" data-dismiss="modal">Cancel</button>
 
-                        <a href="{% url 'product_detail' product.id %}"
-                            class="btn btn-sm product-btn text-shadow mt-1 rounded-0">
-
-                            <!-- <span class="icon">
-                            <i class="fas fa-info"></i>
-                        </span> -->
-                            <span class="text-uppercase">View Product</span>
-                        </a>
                     </div>
                 </div>
             </div>
-
-            {% if forloop.counter|divisibleby:1 %}
-            <div class="col-12 d-sm-none mb-5">
-                <hr>
-            </div>
-            {% endif %}
-            {% if forloop.counter|divisibleby:2 %}
-            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                <hr>
-            </div>
-            {% endif %}
-            {% if forloop.counter|divisibleby:3 %}
-            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                <hr>
-            </div>
-            {% endif %}
-            {% if forloop.counter|divisibleby:4 %}
-            <div class="col-12 d-none d-xl-block mb-5">
-                <hr>
-            </div>
-            {% endif %}
-            {% endfor %}
         </div>
+
+        {% if forloop.counter|divisibleby:1 %}
+        <div class="col-12 d-sm-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:2 %}
+        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% if forloop.counter|divisibleby:4 %}
+        <div class="col-12 d-none d-xl-block mb-5">
+            <hr>
+        </div>
+        {% endif %}
+        {% endfor %}
     </div>
+</div>
 
-    <div class="btt-button shadow-sm rounded-0 border border-black">
-        <a class="btt-link d-flex h-100">
-            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-        </a>
-    </div>
+<div class="btt-button shadow-sm rounded-0 border border-black">
+    <a class="btt-link d-flex h-100">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>
+</div>
 
-    {% endblock %}
+{% endblock %}
 
-    {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('.btt-link').click(function (e) {
-            window.scrollTo(0, 0)
-        })
-    </script>
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
 
-    <script type="text/javascript">
-        $('#sort-selector').change(function () {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
 
-            var selectedVal = selector.val();
-            if (selectedVal != "reset") {
-                var sort = selectedVal.split("__")[0];
-                var direction = selectedVal.split("__")[1];
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("__")[0];
+            var direction = selectedVal.split("__")[1];
 
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
 
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
 
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
-    {% endblock %}
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
+{% endblock %}

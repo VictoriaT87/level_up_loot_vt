@@ -586,6 +586,7 @@ a:hover {
 
 .description-card {
     max-height: 100%;
+    border: 1px solid #e1e2e7 !important;
 }
 
 .sale-badge {

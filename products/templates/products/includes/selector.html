@@ -1,0 +1,20 @@
+<div class="sort-select-wrapper w-50">
+    <select id="sort-selector"
+        class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+        <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+        </option>
+        <option value="created_on__desc" {% if current_sorting == 'date_desc' %}selected{% endif %}>
+            New Arrivals</option>
+        <option value="average_rating__desc" {% if current_sorting == 'average_rating__desc' %}selected{% endif %}>
+            Top Rated</option>
+        <option value="price__asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+            (low to high)</option>
+        <option value="price__desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+            (high to low)</option>
+        <option value="title__asc" {% if current_sorting == 'title__asc' %}selected{% endif %}>Name
+            (A-Z)</option>
+        <option value="title__desc" {% if current_sorting == 'title__desc' %}selected{% endif %}>Name
+            (Z-A)</option>
+
+    </select>
+</div>
