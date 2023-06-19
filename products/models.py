@@ -47,7 +47,7 @@ class Product(models.Model):
         "Category", null=True, blank=True, on_delete=models.SET_NULL
     )
     brand = models.ForeignKey("Brand", null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=6, null=True, blank=True, unique=True, help_text="SKU must be a 6 number digit unique code",)
     title = models.CharField(max_length=254)
     alt_text = models.CharField(max_length=254, default="alt text")
     description = models.TextField()
