@@ -602,13 +602,22 @@ a:hover {
     position: absolute;
     font-size: 1.25em;
     right: 20px;
-    top: 12px;
+    top: 15px;
+    font-weight: normal;
     color: var(--white);
     background-color: var(--blue);
 }
 
 .product-image-div {
-    height: 20em;
+    height: 25em;
+    display: flex;
+}
+
+.product-image-div a {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 .text-muted {
@@ -687,6 +696,12 @@ a:hover {
 .price-font-original {
     color: var(--black);
     text-decoration: line-through
+}
+
+.review-card {
+    background-color: var(--white);
+    border: 1px solid var(--blue);
+    color: var(--black);
 }
 
 .review-accordian {
@@ -1350,10 +1365,6 @@ a:hover {
         align-items: start;
         justify-content: space-evenly;
         justify-items: end;
-    }
-
-    .sale-badge {
-        right: 60px;
     }
 
     .error-bg {
