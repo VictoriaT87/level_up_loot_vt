@@ -247,10 +247,10 @@
                 </div>
 
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <form action="{% url 'add_review' product.id %}" method="POST" class="review-form">
                             {% csrf_token %}
-                            <h4 class="text-black">Review This Product</h4>
+                            <h4 class="text-white">Review This Product</h4>
                             <div>
                                 Title:
                                 <input type="text" class="form-control text-black" name="title">

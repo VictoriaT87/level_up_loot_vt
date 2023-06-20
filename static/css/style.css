@@ -563,11 +563,16 @@ a:hover {
 }
 
 .delete-btn {
-    color: #dc3545;
+    color: var(--white);
 }
 
 .edit-btn {
-    color: var(--blue);
+    color: var(--white);
+}
+
+.delete-btn:hover, .edit-btn:hover {
+    text-decoration: underline;
+    color: white;
 }
 
 .product-btn {
@@ -618,10 +623,6 @@ a:hover {
     margin: auto;
     justify-content: center;
     align-items: center;
-}
-
-.text-muted {
-    color: var(--white) !important;
 }
 
 .card-body, .card-footer {
