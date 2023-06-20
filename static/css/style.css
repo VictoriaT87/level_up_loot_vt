@@ -572,7 +572,7 @@ a:hover {
 
 .product-btn {
     color: var(--white);
-    background-color: var(--black);
+    background-color: var(--blue);
 }
 
 .product-btn:hover {
@@ -590,6 +590,7 @@ a:hover {
 .product-links {
     margin-top: 1em;
     line-height: 1em;
+    width: -webkit-fill-available;
 }
 
 .description-card {
@@ -599,19 +600,48 @@ a:hover {
 
 .sale-badge {
     position: absolute;
-    font-size: 90%;
+    font-size: 1.25em;
     right: 20px;
     top: 12px;
     color: var(--white);
     background-color: var(--blue);
 }
 
+.product-image-div {
+    height: 20em;
+}
+
+.text-muted {
+    color: var(--white) !important;
+}
+
+.card-body, .card-footer {
+    background-color: var(--blue);
+    color: white;
+    width: 100%;
+}
+
+.card-details-body {
+    background-color: var(--white);
+}
+
 .card-brand {
-    color: var(--blue);
+    color: var(--white);
+}
+
+.card-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+    flex: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
 }
 
 .card-links a {
-    color: var(--blue);
+    color: var(--white);
 }
 
 .card-links a:hover {
@@ -655,6 +685,7 @@ a:hover {
 }
 
 .price-font-original {
+    color: var(--black);
     text-decoration: line-through
 }
 
@@ -1145,13 +1176,6 @@ a:hover {
         padding-top: 0 !important;
     }
 
-    .card-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 1em;
-    }
-
     #mc_embed_signup .mc-field-group {
         width: 100%;
     }
@@ -1573,5 +1597,9 @@ a:hover {
     .container {
         max-width: 80%;
         margin-bottom: 1em;
+    }
+
+    .card-links {
+        display: block;
     }
 }

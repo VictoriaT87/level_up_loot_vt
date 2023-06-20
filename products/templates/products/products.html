@@ -43,20 +43,22 @@
             <div class="product-card card h-100">
                 <!-- Sale Badge -->
                 {% if product.on_sale %}
-                <h4><span class="h1 badge sale-badge">Save!</span></h4>
+                <span class="h1 badge sale-badge">Save!</span>
                 {% endif %}
                 <!-- Product Image -->
-                {% if product.image %}
-                <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top product-image img-fluid" src="{{ product.image.url }}"
-                        alt="{{ product.title }}">
-                </a>{% else %}
-                <a href="{% url 'product_detail' product.id %}">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
-                </a>
-                {% endif %}
+                <div class="product-image-div">
+                    {% if product.image %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img class="card-img-top product-image img-fluid" height="240px" src="{{ product.image.url }}"
+                            alt="{{ product.title }}">
+                    </a>{% else %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
+                    </a>
+                    {% endif %}
+                </div>
                 <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                    <h4 class="card-title text-black text-center mt-auto">{{ product.title }}</h4>
+                    <h4 class="card-title text-center mt-auto">{{ product.title }}</h4>
                     <div class="mt-auto card-links">
                         {% if product.brand %}
                         <a class="product-links text-decoration-none"
@@ -92,13 +94,13 @@
                 <div class="card-footer bg-white text-center mb-2">
                     {% if product.on_sale %}
                     <div class="bg-white text-center mb-2 d-flex justify-content-around">
-                        <p class="mb-0 pt-3 text-center">
+                        <p class="mb-0 pt-3 text-center text-black">
                             Price:
                             <span
                                 class="h4 text-left font-weight-bold price-font-original text-decoration-line-through">
                                 €{{ product.price }}</span>
                         </p>
-                        <p class="mb-0 pt-3 text-center">
+                        <p class="mb-0 pt-3 text-center text-black">
                             Sale Price:
                             <span class="h4 text-left font-weight-bold price-font">
                                 €{{ product.sale_price|floatformat:2 }}</span>
