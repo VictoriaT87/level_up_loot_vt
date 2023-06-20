@@ -61,13 +61,13 @@
                     <h4 class="card-title text-center mt-auto">{{ product.title }}</h4>
                     <div class="mt-auto card-links">
                         {% if product.brand %}
-                        <a class="product-links text-decoration-none"
+                        <a class="product-links"
                             href="{% url 'products' %}?brand={{ product.brand.name }}">
                             <span class="p-2 mt-4 card-brand">Brand: {{ product.brand.friendly_name }}</span>
                         </a>
                         {% endif %}
                         {% if product.category %}
-                        <a class="product-links text-decoration-none"
+                        <a class="product-links"
                             href="{% url 'products' %}?category={{ product.category.name }}">
                             <span class="p-2 mt-4 card-brand">Category: {{ product.category.friendly_name }}</span>
                         </a>
