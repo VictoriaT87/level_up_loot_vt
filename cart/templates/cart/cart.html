@@ -43,17 +43,26 @@
                     </div>
                     <div class="col-12 col-sm-6 mb-2">
                         <p class="my-0"><strong>{{ item.product.title }}</strong></p>
-                            <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+                        <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                     </div>
                     <div class="col-12 col-sm-6 order-sm-last">
+                        {% if item.product.on_sale %}
+                        <p class="my-0">Price Each: €{{ item.price }}</p>
+                        <p><strong>Subtotal: </strong>€{{ item.price | calc_subtotal:item.quantity }}</p>
+                        {% else %}
                         <p class="my-0">Price Each: €{{ item.product.price }}</p>
                         <p><strong>Subtotal: </strong>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                        {% endif %}
                     </div>
                     <div class="col-12 col-sm-6">
                         {% include "cart/quantity_form.html" %}
                     </div>
                 </div>
-                <div class="row"><div class="col"><hr></div></div>
+                <div class="row">
+                    <div class="col">
+                        <hr>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
 
@@ -80,13 +89,18 @@
                             <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
                         </td>
                         <td class="py-3">
+                            {% if item.product.on_sale %}
+                            <p class="my-0">€{{ item.price }}</p>
+                            <p class="my-0 small"><strike>€{{ item.product.price }}</strike></p>
+                            {% else %}
                             <p class="my-0">€{{ item.product.price }}</p>
+                            {% endif %}
                         </td>
                         <td class="py-3 w-25">
                             {% include "cart/quantity_form.html" %}
                         </td>
                         <td class="py-3 float-right">
-                            <p class="my-0"><strong></strong>€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0"><strong></strong>€{{ item.price | calc_subtotal:item.quantity }}</p>
                         </td>
                     </tr>
                     {% endfor %}
@@ -101,7 +115,7 @@
                         </td>
                     </tr>
                 </table>
-            {% else %}
+                {% else %}
                 <p class="lead mb-5">Your cart is empty.</p>
                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                     <span class="icon">
@@ -109,7 +123,7 @@
                     </span>
                     <span class="text-uppercase">Keep Shopping</span>
                 </a>
-            {% endif %}
+                {% endif %}
             </div>
 
         </div>

@@ -22,13 +22,21 @@ def cart_contents(request):
     for item_id, item_data in cart.items():
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
-            total += item_data * product.price
+
+            # If product is on sale, show sale price
+            if product.on_sale:
+                price = product.sale_price
+            else:
+                price = product.price
+
+            total += item_data * price
             product_count += item_data
             cart_items.append(
                 {
                     "item_id": item_id,
                     "quantity": item_data,
                     "product": product,
+                    "price": price,
                 }
             )
 
