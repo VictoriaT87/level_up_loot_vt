@@ -105,10 +105,9 @@
                         {% endif %}
 
 
-
-                        <!-- if superuser, links for edit and delete -->
-                        {% if request.user.is_superuser %}
-                        <div>
+                        <div class="detail-card-links">
+                            <!-- if superuser, links for edit and delete -->
+                            {% if request.user.is_superuser %}
                             <a href="{% url 'edit_product' product.id %}" class="btn edit-btn">Edit</a>
                             <!-- Modal for delete confirmation -->
                             <button class="btn delete-btn" data-toggle="modal"
@@ -302,14 +301,12 @@
                     <h4 class="card-title text-center mt-auto">{{ product.title }}</h4>
                     <div class="mt-auto card-links">
                         {% if product.brand %}
-                        <a class="product-links"
-                            href="{% url 'products' %}?brand={{ product.brand.name }}">
+                        <a class="product-links" href="{% url 'products' %}?brand={{ product.brand.name }}">
                             <span class="p-2 mt-4 card-brand">Brand: {{ product.brand.friendly_name }}</span>
                         </a>
                         {% endif %}
                         {% if product.category %}
-                        <a class="product-links"
-                            href="{% url 'products' %}?category={{ product.category.name }}">
+                        <a class="product-links" href="{% url 'products' %}?category={{ product.category.name }}">
                             <span class="p-2 mt-4 card-brand">Category: {{ product.category.friendly_name }}</span>
                         </a>
                         {% endif %}

@@ -683,6 +683,11 @@ a:hover {
     margin-right: 1em;
 }
 
+.detail-card-links {
+    background-color: var(--blue);
+    height: 2.5em;
+}
+
 .price-box {
     display: flex;
     justify-content: space-around;
@@ -847,8 +852,8 @@ a:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color: var(--blue);
+    border: 1px solid var(--blue);
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -860,13 +865,13 @@ a:hover {
 
 .allauth-form-inner-content button:hover,
 .allauth-form-inner-content input[type='submit']:hover {
-    color: #fff;
-    background-color: #222;
+    color: var(--white);
+    background-color: var(--black);
     border-color: #222;
 }
 
 .allauth-form-inner-content a {
-    color: #17a2b8;
+    color: var(--blue);
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
