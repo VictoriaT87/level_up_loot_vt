@@ -1,4 +1,6 @@
 from django.db import models
+import random
+import string
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 
@@ -40,6 +42,17 @@ class Brand(models.Model):
         return self.friendly_name
 
 
+def generate_sku():
+    """ Generate a random 6-digit SKU """
+    digits = string.digits
+    sku = ''.join(random.choice(digits) for x in range(6))
+
+    while Product.objects.filter(sku=sku).exists():
+        sku = ''.join(random.choice(digits) for x in range(6))
+
+    return sku
+
+
 class Product(models.Model):
     """Model for all products"""
 
@@ -47,7 +60,7 @@ class Product(models.Model):
         "Category", null=True, blank=True, on_delete=models.SET_NULL
     )
     brand = models.ForeignKey("Brand", null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=6, null=True, blank=True, unique=True, help_text="SKU must be a 6 number digit unique code",)
+    sku = models.CharField(max_length=6, unique=True, default=generate_sku, help_text="SKU randomly generated",)
     title = models.CharField(max_length=254)
     alt_text = models.CharField(max_length=254, default="alt text")
     description = models.TextField()
