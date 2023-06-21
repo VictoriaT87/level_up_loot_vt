@@ -90,17 +90,17 @@
                         </td>
                         <td class="py-3">
                             {% if item.product.on_sale %}
-                            <p class="my-0">€{{ item.price }}</p>
-                            <p class="my-0 small"><strike>€{{ item.product.price }}</strike></p>
+                            <p class="my-0">€{{ item.price|floatformat:2 }}</p>
+                            <p class="my-0 small"><strike>€{{ item.product.price|floatformat:2 }}</strike></p>
                             {% else %}
-                            <p class="my-0">€{{ item.product.price }}</p>
+                            <p class="my-0">€{{ item.product.price|floatformat:2 }}</p>
                             {% endif %}
                         </td>
                         <td class="py-3 w-25">
                             {% include "cart/quantity_form.html" %}
                         </td>
                         <td class="py-3 float-right">
-                            <p class="my-0"><strong></strong>€{{ item.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0"><strong></strong>€{{ item.price|floatformat:2 | calc_subtotal:item.quantity }}</p>
                         </td>
                     </tr>
                     {% endfor %}
