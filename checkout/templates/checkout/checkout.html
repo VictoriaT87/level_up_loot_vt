@@ -69,7 +69,7 @@
                     </form>
                     {% if coupon %}
                     <div class="d-flex justify-content-between align-items-center">
-                        <div>Coupon Applied: <span class="text-blue">{{ coupon.code }}</span> </div>
+                        <div>Applied coupon <span class="text-blue">{{ coupon.code }}</span> for {{ coupon.discount | floatformat:0 }}% off! </div>
                         <div><a class="btn text-blue btn-sm m-0 text-right" href="{% url 'remove_coupon' %}">Remove Coupon</a></div>
                     </div>
                     {% endif %}
