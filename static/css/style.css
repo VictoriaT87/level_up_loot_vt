@@ -45,11 +45,6 @@ a:hover {
     text-decoration: none;
 }
 
-.btn-danger:hover {
-    color: var(--black);
-    background-color: var(--white);
-}
-
 .fixed-top {
     position: fixed;
     top: 0;
@@ -61,6 +56,98 @@ a:hover {
 
 .header-container {
     padding-top: 20px;
+}
+
+
+/* Button Styling */
+
+.delete-btn {
+    color: var(--white);
+}
+
+.edit-btn {
+    color: var(--white);
+}
+
+.delete-btn:hover, .edit-btn:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.product-btn {
+    color: var(--white);
+    background-color: var(--blue);
+}
+
+.product-btn:hover {
+    color: var(--black);
+    background-color: var(--white);
+    border: 1px solid var(--black);
+}
+
+.btn.focus,
+.btn:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn-danger:hover {
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.btt-button {
+    background-color: white;
+    border: 1px solid var(--blue) !important;
+    color: blue;
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.btn-red {
+    background: red;
+    color: white;
+}
+
+.btn-red:hover {
+    background: rgb(255, 67, 67);
+    color: white;
+}
+
+.btn-dark:hover {
+    color: black;
+    background-color: white;
+    border-color: #1d2124;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
 }
 
 
@@ -173,6 +260,15 @@ a:hover {
     color: var(--black);
 }
 
+#delivery-banner {
+    background-color: var(--blue);
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+
+/* Hero Section */
+
 .hero {
     display: none;
 }
@@ -234,8 +330,6 @@ a:hover {
     max-width: 50%;
 }
 
-
-
 .hero-btn {
     max-width: 15em;
     margin: 1em auto;
@@ -257,6 +351,8 @@ a:hover {
     background: white;
     z-index: -1;
 }
+
+/* Error Pages */
 
 .error-container {
     margin: auto;
@@ -418,54 +514,7 @@ a:hover {
     text-shadow: 2px 4px 4px #000;
 }
 
-.faqs {
-    text-align: center;
-    max-width: 980px;
-    margin: auto;
-}
-
-.faq-font,
-.faq-content h4 {
-    color: #2B5788;
-}
-
-.privacy-container {
-    width: 80%;
-}
-
-.privacy-container li {
-    list-style-type: none;
-}
-
-.btt-button {
-    background-color: white;
-    border: 1px solid var(--blue) !important;
-    color: blue;
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-#delivery-banner {
-    background-color: var(--blue);
-    color: var(--white);
-    text-transform: uppercase;
-}
-
-.card {
-    border: 1px solid #e1e2e7 !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border-radius: 0.25rem;
-}
-
+/* Why Us Section */
 .why-us {
     padding: 2em;
 }
@@ -509,7 +558,30 @@ a:hover {
     border-bottom: 1px solid white;
 }
 
-/* -------------------------------- Product Form including clearable file input widget to handle image field */
+
+/* Page Styling */
+
+.faqs {
+    text-align: center;
+    max-width: 980px;
+    margin: auto;
+}
+
+.faq-font,
+.faq-content h4 {
+    color: #2B5788;
+}
+
+.privacy-container {
+    width: 80%;
+}
+
+.privacy-container li {
+    list-style-type: none;
+}
+
+
+/* Product Form and Page */
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -562,36 +634,6 @@ a:hover {
     margin: 1rem auto;
 }
 
-.delete-btn {
-    color: var(--white);
-}
-
-.edit-btn {
-    color: var(--white);
-}
-
-.delete-btn:hover, .edit-btn:hover {
-    text-decoration: underline;
-    color: white;
-}
-
-.product-btn {
-    color: var(--white);
-    background-color: var(--blue);
-}
-
-.product-btn:hover {
-    color: var(--black);
-    background-color: var(--white);
-    border: 1px solid var(--black);
-}
-
-.btn.focus,
-.btn:focus {
-    outline: 0;
-    box-shadow: none;
-}
-
 .product-links {
     margin-top: 1em;
     line-height: 1em;
@@ -625,6 +667,12 @@ a:hover {
     align-items: center;
 }
 
+.card {
+    border: 1px solid #e1e2e7 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+}
+
 .card-body, .card-footer {
     background-color: var(--blue);
     color: white;
@@ -656,6 +704,14 @@ a:hover {
 
 .card-links span:hover {
     text-decoration: underline;
+}
+
+.card-header {
+    background-color: var(--blue);
+}
+
+.image-container {
+    margin: 2em 0;
 }
 
 .product-details-container {
@@ -703,6 +759,9 @@ a:hover {
     text-decoration: line-through
 }
 
+
+/* Review Section */
+
 .review-card {
     background-color: var(--white);
     border: 1px solid var(--blue);
@@ -720,6 +779,8 @@ a:hover {
 .reviews {
     width: 100%;
 }
+
+/* Delete Modals */
 
 .delete {
     text-transform: uppercase;
@@ -742,23 +803,6 @@ a:hover {
     padding: 1em;
 }
 
-.favourites {
-    color: #555;
-}
-
-.favourites:hover {
-    color: #000;
-}
-
-.card-header {
-    background-color: var(--blue);
-}
-
-.image-container {
-    margin: 2em 0;
-}
-
-
 /* from Bulma */
 .icon {
     align-items: center;
@@ -766,37 +810,6 @@ a:hover {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
-}
-
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.btn-red {
-    background: red;
-    color: white;
-}
-
-.btn-red:hover {
-    background: rgb(255, 67, 67);
-    color: white;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
 }
 
 .text-black {
@@ -877,7 +890,7 @@ a:hover {
     line-height: 1.5;
 }
 
-/* ------------------------------- bootstrap toasts */
+/* Bootstrap Toasts */
 
 .message-container {
     position: fixed;
@@ -1095,6 +1108,8 @@ a:hover {
     padding: 0;
     margin: 0;
 }
+
+/* Mail Chimp */
 
 #mc_embed_signup {
     color: var(--white);
