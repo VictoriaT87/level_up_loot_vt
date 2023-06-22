@@ -16,6 +16,12 @@
     <meta name="keywords" content="gaming statues, collectibles, game figures, video games, 
         superhero collectible statues, collectable statues, assassin's creed statue collection, collectible figures for adults, premium collectible statues, tv show, anime,
         movies, funko pop, sideshow, batman, lord of the rings, avatar, batman, superman, free shipping, Ireland">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
     {% endblock %}
 
     {% block extra_meta %}
@@ -58,7 +64,8 @@
                         <input class="form-control border border-black rounded-0" type="text" name="q"
                             placeholder="Search Products">
                         <div class="input-group-append">
-                            <button class="search-button btn border border-black rounded-0" aria-label="Submit Search" type="submit">
+                            <button class="search-button btn border border-black rounded-0" aria-label="Submit Search"
+                                type="submit">
                                 <i class="search-button fas fa-arrow-right"></i>
                             </button>
                         </div>
