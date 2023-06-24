@@ -19,7 +19,7 @@
         <form method="post" class="review-form">
             {% csrf_token %}
             {{ form | crispy }}
-            <input class="btn btn-black my-2 ml-2" type="submit" value="Update">
+            <input class="btn product-btn my-2 ml-2" type="submit" value="Update">
             <a class="btn btn-outline-black my-2 ml-2" href="{% url 'products' %}">Cancel</a>
         </form>
     </div>

@@ -224,7 +224,9 @@ def add_review(request, product_id):
     return redirect(reverse("product_detail", args=[product.id]))
 
 
-class UpdateReview(LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, UpdateView):
+class UpdateReview(
+    LoginRequiredMixin, SuccessMessageMixin, UserPassesTestMixin, UpdateView
+):
     """
     A view to edit a Review
     """

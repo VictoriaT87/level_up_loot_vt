@@ -43,12 +43,12 @@ class Brand(models.Model):
 
 
 def generate_sku():
-    """ Generate a random 6-digit SKU """
+    """Generate a random 6-digit SKU"""
     digits = string.digits
-    sku = ''.join(random.choice(digits) for x in range(6))
+    sku = "".join(random.choice(digits) for x in range(6))
 
     while Product.objects.filter(sku=sku).exists():
-        sku = ''.join(random.choice(digits) for x in range(6))
+        sku = "".join(random.choice(digits) for x in range(6))
 
     return sku
 
@@ -60,7 +60,12 @@ class Product(models.Model):
         "Category", null=True, blank=True, on_delete=models.SET_NULL
     )
     brand = models.ForeignKey("Brand", null=True, blank=True, on_delete=models.SET_NULL)
-    sku = models.CharField(max_length=6, unique=True, default=generate_sku, help_text="SKU randomly generated",)
+    sku = models.CharField(
+        max_length=6,
+        unique=True,
+        default=generate_sku,
+        help_text="SKU randomly generated",
+    )
     title = models.CharField(max_length=254)
     alt_text = models.CharField(max_length=254, default="alt text")
     description = models.TextField()
@@ -104,7 +109,7 @@ class Reviews(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, blank=True)
-    review = models.TextField(max_length=500, blank=True)
+    review = models.TextField(max_length=1500, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
 

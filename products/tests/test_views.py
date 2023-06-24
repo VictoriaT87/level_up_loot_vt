@@ -35,8 +35,8 @@ class AllProductsViewTest(TestCase):
 
         # https://stackoverflow.com/questions/26298821/django-testing-model-with-imagefield
         image_file = SimpleUploadedFile(
-            name="box.png",
-            content=open("media/box.png", "rb").read(),
+            name="box.webp",
+            content=open("media/box.webp", "rb").read(),
             content_type="image/png",
         )
 
@@ -101,8 +101,8 @@ class AddProductTest(TestCase):
         # Set up test image
         # https://stackoverflow.com/questions/26298821/django-testing-model-with-imagefield
         image_file = SimpleUploadedFile(
-            name="box.png",
-            content=open("media/box.png", "rb").read(),
+            name="box.webp",
+            content=open("media/box.webp", "rb").read(),
             content_type="image/png",
         )
 
@@ -189,8 +189,8 @@ class ProductDetailTest(TestCase):
 
         # https://stackoverflow.com/questions/26298821/django-testing-model-with-imagefield
         image_file = SimpleUploadedFile(
-            name="box.png",
-            content=open("media/box.png", "rb").read(),
+            name="box.webp",
+            content=open("media/box.webp", "rb").read(),
             content_type="image/png",
         )
 

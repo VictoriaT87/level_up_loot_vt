@@ -4,15 +4,20 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0024_alter_product_sku'),
+        ("products", "0024_alter_product_sku"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='product',
-            name='sku',
-            field=models.CharField(blank=True, help_text='SKU must be a 6 number digit unique code', max_length=6, null=True, unique=True),
+            model_name="product",
+            name="sku",
+            field=models.CharField(
+                blank=True,
+                help_text="SKU must be a 6 number digit unique code",
+                max_length=6,
+                null=True,
+                unique=True,
+            ),
         ),
     ]

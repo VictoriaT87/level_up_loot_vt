@@ -5,7 +5,7 @@
 
 {% block page_header %}
 <div>
-    <div class="row">
+    <div class="row mx-auto ">
         <div class="col d-flex flex-column align-items-center mt-4">
             <h2 class="title-font">{{ title }}</h2>
             <hr class="w-50 text-center mb-1">
@@ -61,14 +61,12 @@
                     <h4 class="card-title text-center mt-auto">{{ product.title }}</h4>
                     <div class="mt-auto card-links">
                         {% if product.brand %}
-                        <a class="product-links"
-                            href="{% url 'products' %}?brand={{ product.brand.name }}">
+                        <a class="product-links" href="{% url 'products' %}?brand={{ product.brand.name }}">
                             <span class="p-2 mt-4 card-brand">Brand: {{ product.brand.friendly_name }}</span>
                         </a>
                         {% endif %}
                         {% if product.category %}
-                        <a class="product-links"
-                            href="{% url 'products' %}?category={{ product.category.name }}">
+                        <a class="product-links" href="{% url 'products' %}?category={{ product.category.name }}">
                             <span class="p-2 mt-4 card-brand">Category: {{ product.category.friendly_name }}</span>
                         </a>
                         {% endif %}

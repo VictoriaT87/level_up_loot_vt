@@ -5,15 +5,19 @@ import products.models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('products', '0025_alter_product_sku'),
+        ("products", "0025_alter_product_sku"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='product',
-            name='sku',
-            field=models.CharField(default=products.models.generate_sku, help_text='SKU randomly generated', max_length=6, unique=True),
+            model_name="product",
+            name="sku",
+            field=models.CharField(
+                default=products.models.generate_sku,
+                help_text="SKU randomly generated",
+                max_length=6,
+                unique=True,
+            ),
         ),
     ]

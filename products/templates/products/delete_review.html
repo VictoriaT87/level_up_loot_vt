@@ -15,9 +15,9 @@
     <div class="col-sm col-md-8 offset-md-2 p-2 my-5">
         <form class="delete-form" method="POST">
             {% csrf_token %}
-            <h3 class="text-black">Delete Review</h3>
-            <p class="h5">You are about to delete your review titled: "<strong>{{ object.title }}</strong>"</p>
-            <p>With the message:</p>
+            <h3 class="text-black mb-3 ">Delete Review</h3>
+            <p class="h5 mb-3">You are about to delete your review titled: "<strong>{{ object.title }}</strong>"</p>
+            <p class="mb-3">With the message:</p>
             <div><strong>{{ object.review }}</strong></div>
             <br>
             <p class="h5">This action cannot be undone!</p>

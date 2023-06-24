@@ -14,11 +14,11 @@ def index(request):
     View to return index page
     """
     products = Product.objects.all()
-    
+
     featured_products = list(Product.objects.filter(is_featured=True))
     if len(featured_products) > 5:
         featured_products = random.sample(featured_products, 5)
-    
+
     context = {
         "products": products,
         "featured_products": featured_products,
