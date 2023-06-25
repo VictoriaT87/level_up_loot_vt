@@ -1,6 +1,6 @@
 # LevelUp! Loot
 
-![Website responsiveness on multiple screen sizes](documentation/images/reponsiveness.png)
+![Website responsiveness on multiple screen sizes](documentation/images/responsiveness.png)
 
 Welcome to LevelUp! Loot. This website was built using Django, with custom Python, HTML and CSS for Code Institute P5 E-commerce Applications. This website is a B2C e-commerce application that allows users to purchase premium and exclusive collectible figures from across the realm of Pop Culture - including gaming, anime, TV show and movies.
 
