@@ -233,25 +233,37 @@ This User Story was implemented with the use of the AllAuth package, as well as 
 
 <br>
 
-## **Epic 6: [Bookings](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/7)**
+## **Epic 6: [Adding Products to Cart](https://github.com/VictoriaT87/level_up_loot_vt/issues/6)**
 
->Create an app to allow users to book sessions with the yoga teacher
+> Create an app to allow users to view products and add them to a cart
 
-This was from the User Story:
-#### **User Story: [Manage Bookings](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/25)**
-> As a Site User/Admin I can create, update, delete a booking so that I can manage my time slot as needed
+
+This was from these User Stories:
+#### **User Story: [View Products](https://github.com/VictoriaT87/level_up_loot_vt/issues/37)**
+> As a user I can view products so that I can decide which items I want to purchase
+
+#### **User Story: [Search Products](https://github.com/VictoriaT87/level_up_loot_vt/issues/38)**
+> As a user I can search all products and view categories so that I can see only the products I'm interested in
+
+#### **User Story: [View Product Details](https://github.com/VictoriaT87/level_up_loot_vt/issues/39)**
+> As a user I can view individual product details so that I can identify the price, description, rating, image and price.
+
+#### **User Story: [Identify Deals](https://github.com/VictoriaT87/level_up_loot_vt/issues/40)**
+> As a user I can easily view deals and sales so that I can take advantage of savings on products I want to purchase
 
 Which was down broken down into these tasks:
-- **Task: [Create Bookings app](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/10)**
-> Create an app inside the Django project to allow users to book a yoga session
-- **Task: [Add Booking](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/26)**
-> Create a booking system which will allow site users and admins to book a time slot
-- **Task: [Update/Delete Booking](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/27)**
-> Allow the booking app to be updated by a Site User/Admin to change the time and date for the booked timeslot or to delete the booking entirely.
-- **Task: [No duplicate bookings](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/29)**
-> Make sure that there are measures in place so that a timeslot isn't double booked by multiple users
+- **Task: [Create Products app](https://github.com/VictoriaT87/level_up_loot_vt/issues/12)**
+>  Create a products app to install the fixtures file
+- **Task: [Manage Products](https://github.com/VictoriaT87/level_up_loot_vt/issues/23)**
+> Allow admins/superusers to add products to the store through the frontend or admin panel
+- **Task: [Add/View Products](https://github.com/VictoriaT87/level_up_loot_vt/issues/24)**
+> Create a Product app which will show all available products, with prices and ratings.
+- **Task: [Update/Delete Products](https://github.com/VictoriaT87/level_up_loot_vt/issues/25)**
+> Allow Site Admins to update and delete products available on the site
+- **Task: [Add Sale Feature](https://github.com/VictoriaT87/level_up_loot_vt/issues/47)**
+> Add the ability for an admin/superuser to add products to a sale list, with calculated discount, for users to view
 
-This User Story was the main purpose for the website. I wanted users to be able to create bookings online for the service offered by the business. It was important that the booking system was easy to use with just a few clicks, with validation for double booking days or times. The booking links are individual based off the Appointment model PK which allows for easier updating and deleting based off that number. All appointments can be edited by the user on the website (with a widget that is restricted to 7 days ahead) and can also be edited on the admin panel by staff. When a user deletes their profile, it also deletes all bookings associated with that user, using the CASCADE effect on the model.
+These User Stories are the basis of the website. This adds the product app which allows Admins/Superusers to add products to the store, update or delete them, and publish them for Site Users to view. It also adds the Sale section which will allow Users to quickly view products that are on sale, which will entice more sales for discount prices. All products can be managed on both the frontend and the admin section, with everything reflected in the database.
 
 [Back to Top](#table-of-contents)
 
@@ -261,21 +273,27 @@ This User Story was the main purpose for the website. I wanted users to be able 
 
 <br>
 
-## **Epic 6: [Contact Form](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/42)**
+## **Epic 7: [Purchasing Items](https://github.com/VictoriaT87/level_up_loot_vt/issues/7)**
 
->Create a Contact Form and associated model to store contact submissions to the admin panel.
+> Allow users to purchase items in their cart
 
-This was from the User Story:
-#### **User Story: [Contact Form](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/38)**
-> As a user I can submit a contact form so that I can ask about any queries I have regarding the site or business
+This was from these User Stories:
+#### **User Story: [View Total Spending](https://github.com/VictoriaT87/level_up_loot_vt/issues/41)**
+As a user I can easily see how much my total purchase will be so that I can avoid spending too much
+
+#### **User Story: [View Items in Cart](https://github.com/VictoriaT87/level_up_loot_vt/issues/43)**
+As a user I can view items in my bag to be purchased so that I can identify the total cost of my purchase and all the items I will receive
+
+#### **User Story: [Safe and Secure Payment](https://github.com/VictoriaT87/level_up_loot_vt/issues/42)**
+As a user I can feel that my payment is safe and secure so that I can confidently provide the needed information to make a purchase
 
 Which was down broken down into these tasks:
-- **Task: [Contact Form](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/43)**
-> Create a contact form to insert into a template to allow users to send messages to the site admin
-- **Task: [Contact Model](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/44)**
-> Create a model for the Contact form which will allow all submitted forms to be stored on the admin panel.
+- **Task: [Create Cart App](https://github.com/VictoriaT87/level_up_loot_vt/issues/48)**
+> Create a cart app which will allow site users to view their cart, update it as they wish and see their current subtotal
+- **Task: [Set up Stripe Payments](https://github.com/VictoriaT87/level_up_loot_vt/issues/49)**
+> Set up webhooks to connect and allow Stripe payments on the website
 
-This User Story was important to the site, to allow any questions or queries to be asked by the user to the admin. I initally wanted the contact form to email to the user using EmailJS, however I couldn't get this working within Django. I then tried to use the Google STMP but again, this didn't work. So I decided created a custom model, which allows the data submitted through the form to be saved to the admin panel. This allows admins to see the name and email address of the user, as well as their message.
+This Epic was the breakdown of User Stories that will allow Site Users to add products to a cart, view the subtotals and checkout securely. Stripe was used for the Webhooks to handle payments. 
 
 [Back to Top](#table-of-contents)
 
@@ -285,21 +303,21 @@ This User Story was important to the site, to allow any questions or queries to 
 
 <br>
 
-## **Epic 7: [Front End Design](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/45)**
+## **Epic 8: [Front End Design](https://github.com/VictoriaT87/level_up_loot_vt/issues/8)**
 
 >Create templates, a colour scheme, navigation and responsiveness for the website
 
 This was from the User Story:
-#### **User Story: [Responsive Design](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/20)**
+#### **User Story: [Responsive Design](https://github.com/VictoriaT87/level_up_loot_vt/issues/21)**
 > As a Site User I expect responsive elements so that I can view the website across multiple devices
 
 Which was down broken down into these tasks:
-- **Task: [Create Templates](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/30)**
+- **Task: [Create Templates](https://github.com/VictoriaT87/level_up_loot_vt/issues/26)**
 > Create templates for each page needed within the site, including the home page, a booking page, a login/create account page and pages for further information.
-- **Task: [UI Design](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/31)**
+- **Task: [UI Design](https://github.com/VictoriaT87/level_up_loot_vt/issues/27)**
 > Design a website fitting of the theme with appropriate colours, easy to navigate, easily accessible information and has full screen reader capabilities.
 
-One of the most important parts of a website, the look and layout bring out emotions in the user. The website needed to be very calm, in fitting with the theme of the business so a colour scheme was chosen to fit that, as well as images and logo. The responsiveness of the website has been extensively tested, as documented in the testing section.
+One of the most important parts of a website, the look and layout bring out emotions in the user. The website needs to be easy to navigate, while not feeling too cluttered with the many options for products to buy. The responsiveness of the website has been extensively tested, as documented in the testing section.
 
 [Back to Top](#table-of-contents)
 
@@ -309,20 +327,21 @@ One of the most important parts of a website, the look and layout bring out emot
 
 <br>
 
-## **Epic 8: [Error Pages](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/40)**
+## **Epic 9: [Error Pages](https://github.com/VictoriaT87/level_up_loot_vt/issues/9)**
 
->Create custom error page templates for 404, 403 and 500 errors.
+> Create custom error page templates for 404, 403 and 500 errors.
 
 This was from the User Story:
-#### **User Story: [Error Pages](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/41)**
+#### **User Story: [Error Pages](https://github.com/VictoriaT87/level_up_loot_vt/issues/50)**
 > As a user I can see custom error pages so that I can see exactly what my issue was and report it to the site admin if needed
 
 Which was down broken down into these tasks:
-- **Task: [404 Error Page](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/35)**
+- **Task: [404 Error Page](https://github.com/VictoriaT87/level_up_loot_vt/issues/29)**
 > Add a custom 404 Page to show the user which error they encountered while keeping the base template and css of the website.
-- **Task: [403 Error Page](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/36)**
-> Create a full Testing.md document with all necessary information on how the project was manually/automatically tested.
-- **Task: [500 Error Page](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/37)**
+- **Task: [403 Error Page](https://github.com/VictoriaT87/level_up_loot_vt/issues/30)**
+> Add a custom 403 Page to show the user which error they encountered while keeping the base template and css of the website.
+- **Task: [500 Error Page](https://github.com/VictoriaT87/level_up_loot_vt/issues/31)**
+> Add a custom 500 Page to show the user which error they encountered while keeping the base template and css of the website.
 
 Creating custom error page templates makes the website feel more fleshed out. Before their implementation, they were provided as a basic white page with black text. Hopefully the user never sees these pages but in the event that they do, it's important that the page still looks individual to the website.
 
@@ -334,14 +353,14 @@ Creating custom error page templates makes the website feel more fleshed out. Be
 
 <br>
 
-## **Epic 9: [Create Documentation](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/14)**
+## **Epic 10: [Create Documentation](https://github.com/VictoriaT87/level_up_loot_vt/issues/51)**
 
 >Create both a README.md file and a Testing.md file to show the process of creating the project
 
 Which was down broken down into these tasks:
-- **Task: [Create README.md](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/32)**
+- **Task: [Create README.md](https://github.com/VictoriaT87/level_up_loot_vt/issues/34)**
 > Create an app inside the Django project to allow users to book a yoga session
-- **Task: [Create Testing.md](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/33)**
+- **Task: [Create Testing.md](https://github.com/VictoriaT87/level_up_loot_vt/issues/35)**
 > Create a full Testing.md document with all necessary information on how the project was manually/automatically tested.
 
 Document everything needed for the process of developing and testing the website.
@@ -353,20 +372,22 @@ Document everything needed for the process of developing and testing the website
 ---
 
 #### **Others**
-- **Task: [Testing](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/39)**
+- **Task: [Testing](https://github.com/VictoriaT87/level_up_loot_vt/issues/52)**
 > Create manual and/or automated tests for a Full-Stack Web application using an MVC framework and related contemporary technologies
 
 Automatic tests were written using TestCase from Django, as well as manual testing of code and resposivness. Covered in the Testing section.
 
-- **Task: [Allow Email and Password Changing](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/34)**
+- **Task: [Allow Email and Password Changing](https://github.com/VictoriaT87/level_up_loot_vt/issues/28)**
 > Allow the User to reset both their passwords and their email addresses if they've forgotten either.
 
-This was marked was Won't Have by the end of the project. The reason for this was that I could not get the email system to work on the project. I tried both EmailJS and a Google STMP with App Access. Neither would send an email to a test account when deployed to Heroku. For this reason, I removed any links for password or email resetting. This will be further expanded on in the Bugs section.
+This is all handled through the AllAuth authentication system. Users who have forgotten their password have the option to have it emailed to them.
 
-- **Task: [Updating Information Posts on the Front Page](https://github.com/VictoriaT87/P4-Aventine-Wellness/issues/21)**
-> Allow the Site Admin to update the front page with updated information on the latest booking information
+- **User Story: [Wishlists](https://github.com/VictoriaT87/level_up_loot_vt/issues/44)**
+> As a user I can add products to a wishlist so that I can easily see which items I would like to buy eventually
+- **Task: [Wishlist](https://github.com/VictoriaT87/level_up_loot_vt/issues/45)**
+> Add an app with views/models/URLs to allow users to store a wishlist of products
 
-This was marked was Won't Have by the end of the project. I originally thought to have a blog post section on the website, to allow site admins to write posts to the front page and showcase some videos on Yoga/Meditation. Due to time constraints, this feature was deemed unneccessary but could be implemented in the future.
+These 2 tasks were added on later in the planning when I realised that the majority of e-commerce stores have some sort of wishlist/favourites section and as a user of those sites myself, I find this function very useful. Instead of having to return to the "All Products" section to find a certain product, allowing users to store their favourites in one place will make it more likely for them to return to purchase these items quickly.
 
 <br>
 
