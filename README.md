@@ -399,13 +399,13 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 ### Wireframes
 
-- My starting point for this project was to decide on a layout using a wireframe. I went for a Hero Image for the front page, to quickly show the user what the business was about at first view. The booking system being the most important part was also given a wireframe and I decided early on I wanted a button layout, as I thought this was cleaner looking than a form.
+- My starting point for this project was to decide on a layout using a wireframe. I went for a Hero Image for the front page, to quickly show the user what the business was about at first view. The products page each has a card, showing all details quickly so users can easily see the product, the price and a quick description.
 
-<img src="documentation/images/front-page-wireframe.png" alt="front page wireframe" width="600"/>
+<img src="documentation/images/index-wireframe.png" alt="front page wireframe" width="600"/>
 
 <br>
 
-<img src="documentation/images/appointments-wireframe.png" alt="front page wireframe" width="600"/>
+<img src="documentation/images/products-wireframe.png" alt="products wireframe" width="600"/>
 
 <br>
 
