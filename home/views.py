@@ -1,10 +1,8 @@
-from django.shortcuts import render, reverse
+from django.shortcuts import render, redirect
 from products.models import Product
-from django.core.mail import send_mail
+from .forms import ContactForm
 from django.contrib import messages
 import random
-
-from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -41,21 +39,28 @@ def privacy_policy(request):
 
 
 def contact(request):
-    """View to return Contact Us form"""
-    if request.method == "POST":
-        message_name = request.POST["name"]
-        message_email = request.POST["email"]
-        message = request.POST["message"]
+    """
+    View to return Contact Us form
+    """
 
-        send_mail(
-            "message from " + message_name,
-            message + " reply to this message " + message_email,
-            message_email,
-            ["victoriaemt@gmail.com"],
-        )
-        messages.success(
-            request, "Thank you, your email has been sent. We will contact you shortly."
-        )
-        return render(request, "home/contact.html")
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                "Thank you, your email has been sent. We will contact you shortly.",
+            )
+            return redirect("contact")
+        else:
+            messages.error(
+                request, "Form submission failed. Please check the form and try again."
+            )
     else:
-        return render(request, "home/contact.html")
+        form = ContactForm()
+
+    context = {
+        "form": form,
+    }
+
+    return render(request, "home/contact.html", context)
