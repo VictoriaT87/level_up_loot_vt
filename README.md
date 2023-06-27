@@ -411,12 +411,14 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 ### Database Schema
 
-- The AllAuth Database is the main one used with everything linked from there.
-- The Appointment Database pulls the UserId from the AllAuth database, and then creates a Date and Timeblock for a user's booked appointment. This allowed for validation, so that no 2 users can book the same timeslot and that 1 user can't have multiple appointments on the same day.
-- The Profile Form is used in conjunction with the AllAuth SignUpForm. When a user registers with the SignUpForm, a Profile object is created, storing the users First Name and Last Name and linking it to their exclusive UserID.
-- The Contact Database is used purely for creating and storing Contact Form submissions on the admin panel so admin's to view.
+- Both the AllAuth User and the Products Database are the main ones in the schema, connecting all products and profiles.
+- The Products Database allows for a connection to the Checkout Databases, including the orders, order items and coupons.
+- The Products Database also allows us to create a Wishlist for users. This is a ManyToMany database, which allows us to have 1 user wishlist as many products as they want.
+- The Profile Database is separate from the User, so that users to the site don't need to have created an account to make an order but if they do, they can save their profile information for quicker checkout next time. 
+- The Review Database is connected to the Profile Database - this means that registered users can leave a review for a product, as well as update and delete those reviews.
+- The Contact Database is used purely for creating and storing Contact Form submissions on the admin panel for staff to view.
 
-![Database Schema](documentation/images/schema.png)
+![Database Schema](documentation/images/database.png)
 
 [Back to Top](#table-of-contents)
 
