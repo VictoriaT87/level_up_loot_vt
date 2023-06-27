@@ -426,9 +426,9 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 ## The Scope Plane
 - Home page with hero image that immediately tells the user what the site is for.
-- Account registration which will allow for restricted viewing on Editing and Deleting pages and booking an appointment.
+- Account registration which will allow for restricted viewing on Editing and Deleting reviews, wishlists and saving their information for quicker checkout next time.
 - Fully responsive website, tested across all screen sizes, with navigation for mobile.
-- Ability to create, view, update and delete appointments.
+- Ability to create, view, update and delete reviews for users and products for superusers.
 
 <br>
 
