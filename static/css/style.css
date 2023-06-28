@@ -803,6 +803,10 @@ a:hover {
     padding: 1em;
 }
 
+.delete-p {
+    font-size: large;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;

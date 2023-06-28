@@ -88,37 +88,8 @@
             aria-labelledby="pills-delete-tab">
             <h2>Warning!</h2>
             <h3>Account deletion is permanent. Proceed?</h3>
-            <!-- Modal for delete confirmation -->
-            <button class="btn btn-danger btn-lg mt-3" data-toggle="modal" data-target="#fm-modal-grid">Delete This
-                Account</button>
-            <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledBy="fm-modal-grid"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header m-auto">
-                            <h1 class="text-center text-black">Attention!</h1>
-                            <button class="close" data-dismiss="modal" aria-label="Cerrar">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="container-fluid">
-                                <div class="row justify-content-center">
-                                    <div class="col-12 col-sm-6 text-center">
-                                        <p>Are you sure you want to delete your profile?</p>
-                                        <p>This can not be undone.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a class='profile-btns btn btn-danger btn-lg' href="{% url 'user-delete' user.pk %}">Delete
-                                Account</a>
-                            <button class="btn edit-btn" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a class="btn btn-danger btn-lg mt-3" href="{% url 'user-delete' user.pk %}">Delete This
+                Account</a>
         </div>
     </div>
 

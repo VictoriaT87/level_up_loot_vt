@@ -17,8 +17,8 @@
     <p class="delete-p">Are you sure you want to delete your account? This action cannot be undone.</p>
     <form action="." method="POST" class="padding" id="delete">{% csrf_token %}
       {{ form.as_p}}
-      <button type="submit" class="btn btn-red rounded-0 text-uppercase mr-2">Confirm</button>
-      <a class="btn btn-black rounded-0 text-uppercase ml-2" href="{% url 'profile' %}">Return</a>
+      <button type="submit" class="profile-btns btn btn-danger">Confirm</button>
+      <a class="btn product-btn" href="{% url 'profile' %}">Return</a>
     </form>
   </div>
 </div>
