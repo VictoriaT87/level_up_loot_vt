@@ -508,10 +508,10 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 <br>
 
-### About Page
-![About Page Image](documentation/images/about-page.png)
-- The About page gives the user a chance to learn more about both the Manor Hosue where the sessions will take place and what each session will entail.
-- Information about both Yoga and Meditation are also shown, with links to credited sources about each for users to research themselves. 
+### FAQs Page
+![FAQs Page Image](documentation/images/faqs.png)
+- The FAQs page gives the user information about shipping, cancellations, order modifications and payment options.
+- There is a link system at the top of the page to allow users to quickly get to the section they need.
 
 <br>
 

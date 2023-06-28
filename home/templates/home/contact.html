@@ -26,7 +26,7 @@
                     <div class="info-item  d-flex flex-column justify-content-center align-items-center">
                         <i class="fas fa-map"></i>
                         <h3>Our Address</h3>
-                        <p>Brighten Roads, Kerrymount,
+                        <p>Kerrymount,
                             Foxrock,
                             Co. Dublin</p>
                     </div>
@@ -51,7 +51,7 @@
             </div>
 
             <!-- Contact Form -->
-            <div class="col-12 col-md-8 contact-form-container">
+            <div class="col-12 contact-form-container">
                 <div class="contact-form">
                     <!-- Section Heading -->
                     <div class="section-heading">
@@ -63,19 +63,20 @@
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="text" name="name" class="form-control mb-30"
-                                    placeholder="Your Name" required>
+                                <input type="text" name="name" class="form-control mb-30" placeholder="Your Name"
+                                    required>
                             </div>
                             <div class="col-lg-6">
-                                <input type="email" name="email" class="form-control mb-30"
-                                    placeholder="Your Email" required>
+                                <input type="email" name="email" class="form-control mb-30" placeholder="Your Email"
+                                    required>
                             </div>
                             <div class="col-12">
                                 <textarea name="message" class="form-control mb-30 message" placeholder="Your Message"
                                     required></textarea>
                             </div>
                             <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-lg product-btn text-shadow mt-1 rounded-0">Send Message</button>
+                                <button type="submit" class="btn btn-lg product-btn text-shadow mt-1 rounded-0">Send
+                                    Message</button>
                             </div>
                             <div id="messages" class="hide"></div>
                         </div>
