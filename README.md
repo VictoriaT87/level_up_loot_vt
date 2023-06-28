@@ -520,12 +520,9 @@ These 2 tasks were added on later in the planning when I realised that the major
 <br>
 
 ### Contact Page
-![Contact Page Image](documentation/images/contact-page.png)
+![Contact Page Image](documentation/images/contact.png)
 - The contact page features small icons with quick and easy to read information with a phone number, address and email.
 - The page also hold a form for users to get in contact with the business. This form stores the posted information in the Admin panel, for staff to read easily.
-- There is also directions on how to get to LevelUp! Loot, as well as an embedded Google Map pointing to the business.
-
-![Contact Page Map Image](documentation/images/contact-page-map.png)
 
 <br>
 
@@ -534,9 +531,10 @@ These 2 tasks were added on later in the planning when I realised that the major
 <br>
 
 ### Restricted Pages
-![Logged in Nav Image](documentation/images/logged-in.png)
-![Logged out Nav Image](documentation/images/logged-out.png)
+![Logged in Nav Image](documentation/images/logged-in-nav.png)
+![Logged out Nav Image](documentation/images/logged-out-nav.png)
 - Some pages are restricted to logged in users only. Links to these pages are only show in the Navbar when a user logged in.
+- The Wishlist is exclusively for users who register an account.
 
 <br>
 
@@ -544,14 +542,40 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 <br>
 
-### Booking Page
-![Booking Page Image](documentation/images/booking-page.png)
-- The Booking Page allows users to book an appointment, saved to their profile.
-- Each day for the next 7 days has 4 appointments each to choose from.
-- Booked appointments will show as buttons with the text "Booked" and those buttons will be disabled.
-- Clicking a button to choose a timeslot will take you to a confirmation page. If a user doesn't want this time, they can return to the booking page and choose another or confirm the original appointment time shown.
+### Products Page
+![Products Page Image](documentation/images/booking-page.png)
+- The Products Page lists all products initially.
+- This can be changed by choosing a category or a brand from the drop down navbar menu or by using the Selector Box to sort items.
+- Each individual product has a card with all details listed (rating, price, brand, category) and each card also has a hover effect.
+- Clicking on the "View Product" button will bring the user to the product detail page for that item.
 
-![Booking Confirm Image](documentation/images/booking-confirm.png)
+<br>
+
+[Back to Top](#table-of-contents)
+
+<br>
+
+### Product Details Page
+![Product Detail Image](documentation/images/product-detail.png)
+- The product detail page shows a larger product image, a description for the product, as well as allowing the user to add this product to their cart for the amount they want.
+- The page also shows user left reviews, with the option for logged in users to leave their own.
+- Reviews are able to be updated or deleted by the User who left them or by admin/superusers. This is all CRUD functionality.
+
+![Review Image](documentation/images/reviews.png)
+![Review Image](documentation/images/update-review.png)
+![Review Image](documentation/images/delete-review.png)
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+<br>
+
+### Wishlist Page
+![Wishlist Image](documentation/images/wishlist.png)
+- The Wishlist page allows users to have a list of all the products they have added to their Wishlist, by clicking the heart icon on each product.
+- On the Wishlist page, there is ashort summary of the product, as well as a link to the product detail page, which allows users to add it to their cart.
+- The page also has a remove option, which allows users to remove product from their Wishlist - again this is done through CRUD functionality.
 
 <br>
 
@@ -560,18 +584,14 @@ These 2 tasks were added on later in the planning when I realised that the major
 <br>
 
 ### Profile Page
-![Profile Image](documentation/images/profile.png)
+![Profile Image](documentation/images/account-dashboard.png)
+- The Account Profile page has a tabbed dashboard which allows users to update their information - name and shipping address - which can be used for a quicker checkout process.
+- This Profile page also shows the users Order History, which allows them to see the summary of all past purchases.
+- On this dashboard, the user also has the option to delete their profile. This deletes all associated order histories and information. There is a modal for deletion confirmation.
 
-![Appointment Image](documentation/images/appointments.png)
-- The Profile page stores both the users information, as well as their appointments.
-- The user can update their first name, last name and their booked appointments from here.
-![Edit Profile Image](documentation/images/edit-profile.png)
-![Edit Appointment Image](documentation/images/edit-appointment.png)
-- Users can also delete their profile and their appointments from this page too. Each action has a confirmation tied to it.
-![Delete Profile Image](documentation/images/delete-profile.png)
-![Delete Appointment Image](documentation/images/delete-appointment.png)
-
-- All of this is done with database information being created, read, updated and deleted (CRUD).
+![Order History Image](documentation/images/account-orders.png)
+![Delete Profile Image](documentation/images/account-delete.png)
+![Delete Profile Image](documentation/images/profile-delete.png)
 
 <br>
 
