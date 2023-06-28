@@ -587,7 +587,7 @@ These 2 tasks were added on later in the planning when I realised that the major
 ![Profile Image](documentation/images/account-dashboard.png)
 - The Account Profile page has a tabbed dashboard which allows users to update their information - name and shipping address - which can be used for a quicker checkout process.
 - This Profile page also shows the users Order History, which allows them to see the summary of all past purchases.
-- On this dashboard, the user also has the option to delete their profile. This deletes all associated order histories and information. There is a modal for deletion confirmation.
+- On this dashboard, the user also has the option to delete their profile. This deletes all associated order histories and information. There is a separate page for deletion confirmation.
 
 ![Order History Image](documentation/images/account-orders.png)
 ![Delete Profile Image](documentation/images/account-delete.png)
@@ -599,35 +599,15 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 <br>
 
-### Register Page
-![Register Page Image](documentation/images/register-page.png)
-- The Register Page has a custom form, which asks users to provide a username, their full name and their email address and password.
-- When these are entered, they're saved to a Profile database and the username, first name and last name all show on the Profile page of the logged in user.
-
-<br>
-
-[Back to Top](#table-of-contents)
-
-<br>
-
-### Log Out Page
-![Register Page Image](documentation/images/log-out.png)
-- The log out page is another restricted page which asks the registered user to confirm they would like to log out of their account.
-
-
-[Back to Top](#table-of-contents)
-
-<br>
-
 ### Admin Page
-![Admin Dashboard Image](documentation/images/admin-home.png)
+![Admin Dashboard Image](documentation/images/admin-dashboard.png)
 - The admin dashboard is restricted to Super Users and anyone the Super User designates as staff. The dashboard is populated with the information from the Models in each app.
-- The booked appointments for each user are shown, with their name, the date of the appointment, the time they have chosen and the date the user booked the appointment.
-![Admin Appointments Image](documentation/images/admin-appts.png)
-- The Profiles of each registered user is also posted here, with the username, first name and last name of the User saved.
-![Admin Profiles Image](documentation/images/admin-profiles.png)
+- There is a section for products, wishlists, users, contact form submissions and orders.
+![Admin Products Image](documentation/images/admin-products.png)
+- The Products section of the admin, allows for adding, removing and updating all products.
+- There are also checkboxes to allow admins to update products as on_sale (with a default 10% off) and to be featured on the home page.
+![Admin Contact Image](documentation/images/admin-contact.png)
 - The Contact form submissions are saved to the admin panel. The name, email and message from the contact form is shown to the admin, to allow them to reply to the User easily.
-![Admin Profiles Image](documentation/images/admin-contact.png)
 
 [Back to Top](#table-of-contents)
 
@@ -635,8 +615,8 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 ## Future Features
 
-- There are definitely some features I would like to include, including better options for a registered user. Currently there is no way to reset a password or change an email address. I tried to implement these using AllAuth however I couldn't get the email system to work. More information about that is provided in the [Bugs](#bugs) section.
-- I originally wanted to add an blog to the website which would be updated with the latest information about the business and would also allow Staff to add blog posts with some Yoga videos and wellness information. The reason for not implementing them at the current time was purely down to time contraints on an already massive project.
+- There are a few features I would like to add to the website, given more time. Currently the product ratings are just random numbers entered when the product is being added (initally with a fixtures file) but I would like for users to also be able to add a product rating too which is caluclated as an average. 
+- The coupons currently can be added any number of times - there is no limit for one use per customer. I trid to implemenet that to no sucess. More information about it can be found in the [Bugs Section](#bugs-not-fixed)
 
 <br>
 
@@ -646,15 +626,16 @@ These 2 tasks were added on later in the planning when I realised that the major
 ## The Surface Plane
 ## Design
 ### Colour Scheme
- -   The colour scheme was important to the site and what the business offered. The setting of the Meditation and Yoga settings are outside in a manor garden and so it needed to be a mellow colour, something that showed relaxation and spiritualness. For this reason I decided on a green that was close to a forest green. I stuck with the green and white combination throughout the site. Some buttons are accentuated with a slightly darker green colouring. 
+ -  The colour scheme was designed so that while it stands out as a bright interface, the colours also don't distract from the product images, as these are the main point of the website.
+ - For this I chose a blue to stand out on the white background - they compliment each other well enough without one being overly distracting from the other.
 
 ![Color Scheme](documentation/images/colours.png)
 
 ### Typography
- -   The font chosen for the website is a font called Raleway. This was picked because it looked like an elegant font, which fits well with the theme of the business and the expected users. I wanted the typography to compliment the website, not overpower what it was saying. The font was found on [Google Font](https://fonts.google.com/specimen/Raleway) and imported to the website with a CSS import.
+ -   The font chosen for the website is a font called Fjalla One. This was picked because it is very easy to read with a medium contrast but it also has a somewhat fantasy feel to it, in fitting with the expected user base of people who like Pop Culture. I wanted the typography to compliment the website, not overpower what it was saying. The font was found on [Google Font](https://fonts.google.com/specimen/Fjalla+One) and imported to the website with a CSS import.
 
 ### Images
-- All images were chosen to compliment the project theme of relaxation, wellbeing and spiritualness. Images were all taken from [Pexels.com](https://www.pexels.com/).
+- All product images were taken from their respective brands websites, as well as some from [Gamestop](https://www.gamestop.com/).
 
 <br>
 
@@ -685,11 +666,13 @@ These 2 tasks were added on later in the planning when I realised that the major
 * [dj-database-url](https://pypi.org/project/dj-database-url/) - A package used to utilize DATABASE_URL environment variable.
 * [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Facilitates integration with Cloudinary by implementing Django Storage API.  
 * [django-allauth](https://django-allauth.readthedocs.io/en/latest/) - Allows authentication, registration and account management in Django.
+* [django-countries, v7.2.1](https://pypi.org/project/django-countries/7.2.1/) - Django application used to provide country choices for use with forms, and a country field for models.
 * [gunicorn](https://gunicorn.org/) - A Python WSGI HTTP Server for UNIX.
 * [psycopg2](https://pypi.org/project/psycopg2/) - A PostgreSQL database adapter.
+* [boto3==1.26.27](https://pypi.org/project/boto3/) - An Amazon Web Services (AWS) software development kit (SDK) used to connect to the S3 bucket
 * [Black](https://pypi.org/project/black/) - A Python code formatter.
-* [django-bootstrap-datepicker-plus](https://pypi.org/project/django-bootstrap-datepicker-plus/) - A calendar widget with extra customization.
-*[Css Minifier](https://www.toptal.com/developers/cssminifier) - Minify CSS for better response time.
+* [django storages](https://django-storages.readthedocs.io/en/latest/) - Collection of custom storage backends for Django.
+* [Css Minifier](https://www.toptal.com/developers/cssminifier) - Minify CSS for better response time.
 
 <br>
 
@@ -708,9 +691,12 @@ These 2 tasks were added on later in the planning when I realised that the major
 * [Coolors](https://coolors.co/)
 * [AmIResponsive](https://ui.dev/amiresponsive)
 * [Real Python](https://realpython.com/)
-* [Pexels](https://www.pexels.com/)
 * [Online Convert](https://image.online-convert.com/convert-to-webp)
 * [Pic Resize](https://picresize.com/)
+* [Sideshow](https://www.sideshow.com/)
+* [Hasbro](https://shop.hasbro.com/)
+* [Darkhorse](https://www.darkhorsedirect.com/)
+* [Gamestop](https://www.gamestop.com/)
 
 <br>
 
@@ -724,9 +710,10 @@ These 2 tasks were added on later in the planning when I realised that the major
 - HTML
   - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/)
   - The only warnings that were given were because of the nature of Django Template Syntax.
-![W3 Errors](documentation/images/w3-errors.png)
+![W3 Errors](documentation/images/w3-validation.png)
 - CSS
   - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/)
+  ![W3 Errors](documentation/images/css-validation.png)
 - Python
   - No errors were returned when passing through [CI Python Linter](https://pep8ci.herokuapp.com/)
 
