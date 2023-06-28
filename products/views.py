@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.http import HttpResponseRedirect, HttpResponse
 from django.views.generic import UpdateView, DeleteView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
-from django.urls import reverse_lazy
 from django.db import IntegrityError
 from django.db.models import Q
 from django.db.models.functions import Lower

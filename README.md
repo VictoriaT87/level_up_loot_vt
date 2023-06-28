@@ -716,19 +716,19 @@ These 2 tasks were added on later in the planning when I realised that the major
   ![W3 Errors](documentation/images/css-validation.png)
 - Python
   - No errors were returned when passing through [CI Python Linter](https://pep8ci.herokuapp.com/)
+  - The only issue that was brought up by the Linter were some lines too long. As these were less than 5 characters and that code had already been formatted by the Black plugin, I left these alone.
 
 <br>
 
 ### Lighthouse Testing
 ![Lighthouse Metrics](documentation/images/lighthouse-desktop.png)
-  - Testing on Desktop has given a variety of scores, going from a score between 85 and 97 for Performance and a score between 83 to 92 for Best Practices. The last tests before submissions are posted below.
-  - When tested on desktop, the website scores 95 on performance.
-  - For a while, the best score I could achieve for Best Practices was only 83. The main reason for the lower score on Best Practices was because the Boostrap and jQuery files that are rendered logged an issue to the console which said "Audit usage of navigator...". As these were from CDN files, I was unable to fix this error manually. However upon further testing, this seems to have disappeared as an error.
-  - The other reason was because 1 image (the hero image) doesn't have the correct aspect ratio but no matter which width and height I gave, it didn't fix the issue. I assume this is because it's rendered with a border-radius. I could not fix this.
+  - Testing on desktop originally gave a low Accesibility score with an 87. The reason for this was because the contrast on the blue colour I had originally chosen did not have a suffiecient contrast ratio.
+  - By using the linked colour contrast checker in Lighthouse, I was able to see I neeeded to change this blue to a darker colour.
+  - I then checked the rest of the colours on the page - specifically the Categories section and realised I needed to change the contrast on these too. My fix for that was to add a drop shadow on the text.
+  - After these fixes, my metrics were as shown in the top image. 99 Performance, 98 Accessibility, 92 Best Practices, 100 SEO.
 
- <br>
-
-![Lighthouse Metrics](documentation/images/lighthouse-practices-desktop.png)
+- ![Lighthouse Metrics](documentation/images/lighthouse-desktop-accessibility.png)
+- ![Lighthouse Metrics](documentation/images/lighthouse-contrast.png)
 
 <br>
 
