@@ -443,12 +443,12 @@ These 2 tasks were added on later in the planning when I realised that the major
 ## Existing Features
 
 ### Home Page
-![Hero Image](documentation/images/home-page.png)
-- The home page features a hero image, with some text explaining the main purpose of the website and a small image to compliment the text.
+![Hero Image](documentation/images/hero.png)
+- The home page features a hero image, with some text that show a product for sale. This lets the user know immediately what type of items are available.
 - The index page is split into multiple sections, with the information easy to read and eye catching to a visitor.
-- Along with this is a link. This link will ask the visitor to create a profile to book an apppointment if they're not logged in. If they are a logged in user, this link will instead suggest they book an appointment.
-![Hero Link Logged In](documentation/images/home-btn.png)
-![Hero Link Not Logged In](documentation/images/home-btn-register.png)
+- There is a button that links to the product details page.
+
+![Hero Mobile Image](documentation/images/hero-mobile.png)
 
 <br>
 
@@ -456,10 +456,12 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 <br>
 
-### Wellness Section
-![Wellness Section Image](documentation/images/wellness-section.png)
-- The Wellness section of the index page explains what the booked sessions entail in a quick to read paragraph.
-- Under this, there are 2 cards, with images and text, with a quick explanation of what Yoga and Meditation are.
+### Brands Section
+![Brand Section Image](documentation/images/brands.png)
+- The Brands section is a section of images which links to a search for each brand name.
+- There is a hover effect on each image for larger screen sizes, which shows text with the name of each Brand. On mobile, this hover effect is the default.
+
+![Brand Mobile Image](documentation/images/brand-mobile.png)
 
 <br>
 
@@ -467,16 +469,38 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 <br>
 
-### Benefits Section
-![Benefits Section Image](documentation/images/benefits-section.png)
-- The benefits section of the home page provides some information to the user about how a wellness session can benefit their health, as well as provding a colour break up between large text sections.
+### Categories Section
+![Categories Section Image](documentation/images/categories.png)
+- The categories section is used to add more colour to the page. Each panel links to a search of categories. On mobile this section is condensed to a vertical view.
+
+![Categories Mobile Image](documentation/images/categories-mobile.png)
 
 <br>
 
-### Instructors Section
-![Instructors Section Image](documentation/images/instructors-section.png)
-- The Instructors section allows users to get a more peronal feel for the business by introducing them to the people they would likely meet if they booked a session.
-- Each of the 3 instructors has a card with their name, photo and an explanation of their expertise in Yoga and Meditiation.
+### Featured Products Section
+![Featured Products Section Image](documentation/images/featured.png)
+- The Featured Products section will take a random list of 5 products that have been marked as "Is_Featured" on the admin panel.
+- Each product has a card with it's details, price and if it's also on sale.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+<br>
+
+### Why Shop With Us Section
+![Featured Products Section Image](documentation/images/why-shop.png)
+- The "Why Shop With Us" section gives users a quick summary of reasons to shop with this store.
+- There are icons and a single line of text giving 3 quick reasons why a user would want to shop online - quick shipping, weekly rotation of products and no import fees are reasons why users would want to shop with an online store and also come back to shop again.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+### Footer
+![Footer Image](documentation/images/footer.png)
+- The footer is used across all pages, with links to Contact, FAQs, Privacy Policies and an email address.
+- The footer also has our newsletter signup, generated through MailChimp. This makes it available across every page to maximise the chance of someone signing up.
 
 <br>
 
