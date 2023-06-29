@@ -732,22 +732,24 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 <br>
 
- - On mobile, the performace is 92. This was originally lower because of a cumulative layout shift of 0.219. Recommendations for this were to add width and height to images and change the images to .webp format.
+ - On mobile, the performace is 86. This was originally lower because of a cumulative layout shift of 0.219. Recommendations for this were to add width and height to images and change the images to .webp format.
  - To change images from .jpg to .webp I used the website [WEBP Converter](https://cloudconvert.com/webp-converter).
- - I also removed the background image on the Hero section of the index page to try and help with the CLS.
- - The final issue and the largest still is "Eliminate render-blocking resources". This has to do with the Boostrap CSS file and the jQuery script. After researching, because they're from a CDN, I don't see any option to change them.
+ - I also changed the background image on the Hero section of the index page to a smaller version to try and help with the CLS.
+ - The main issues with this low rating is because Lighthouse recommends to use HTTP2, which I am unable to change because the website is hosted on Heroku.
+ - There is also an issue with "Reduced unused JavaScript" which then lists Stripe, AWS, Mailchimp and jQuery. These are all included in the base template, so unless I split them out to use only with each app they're associated with (and this would be massively time consuming for me to figure out), I have decided to leave it as is and include screenshots.
 
 ![Lighthouse Metrics](documentation/images/lighthouse-mobile.png)
-![Lighthouse Metrics](documentation/images/lighthouse-mobile-performance.png)
+![Lighthouse Metrics](documentation/images/lighthouse-mobile-perf.png)
+![Lighthouse Metrics](documentation/images/lighthouse-mobile-js.png)
 
 | Page | Device | Category | Result |
 |------|--------|----------|--------|
-|Index | Mobile | Performance | 92% |
-|||Accessibility| 100% |
+|Index | Mobile | Performance | 86% |
+|||Accessibility| 98% |
 |||Best Practice | 92% |
 |||SEO | 100% |
-|| Desktop | Performance | 95% |
-||| Accessibility | 100% |
+|| Desktop | Performance | 100% |
+||| Accessibility | 98% |
 ||| Best Practice | 92% |
 ||| SEO | 100% |
  <br>
