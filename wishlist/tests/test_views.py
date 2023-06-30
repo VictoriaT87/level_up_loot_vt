@@ -27,6 +27,8 @@ class ViewWishlistTest(TestCase):
         self.user = User.objects.create_user(username="testuser", password="testpass")
 
     def test_authenticated_user_view_wishlist(self):
+        # Test Wishlist View When Logged in
+
         # Create a UserProfile if it doesn't exist
         user_profile = UserProfile.objects.get_or_create(user=self.user)
 
@@ -49,6 +51,8 @@ class ViewWishlistTest(TestCase):
         self.assertEqual(response.context["wishlist"], wishlist)
 
     def test_unauthenticated_user_view_wishlist(self):
+        # Test Wishlist View When Not Logged In
+
         # Make a GET request to the wishlist view
         response = self.client.get(reverse("wishlist"))
 
@@ -85,6 +89,8 @@ class AddWishlistTest(TestCase):
         )
 
     def test_authenticated_user_add_wishlist(self):
+        # Test Adding Product To Wishlist Logged In
+
         # Create a UserProfile if it doesn't exist
         user_profile = UserProfile.objects.get_or_create(user=self.user)
 
@@ -113,6 +119,8 @@ class AddWishlistTest(TestCase):
         )
 
     def test_unauthenticated_user_view_wishlist(self):
+        # Test Adding Product To Wishlist Not Logged In
+
         # Make a GET request to the wishlist view
         response = self.client.get(reverse("wishlist"))
 
@@ -155,6 +163,8 @@ class RemoveWishlistTest(TestCase):
         self.wishlist.products.add(self.product)
 
     def test_remove_wishlist(self):
+        # Test Removing Product From Wishlist When Logged In
+
         # Log in the user
         self.client.force_login(self.user)
 
@@ -178,6 +188,8 @@ class RemoveWishlistTest(TestCase):
         )
 
     def test_remove_wishlist_unauthenticated_user(self):
+        # Test Removing Product From Wishlist When Not Logged In
+
         # Make a POST request to remove the product from the wishlist without logging in
         response = self.client.post(reverse("remove_wishlist", args=[self.product.id]))
 

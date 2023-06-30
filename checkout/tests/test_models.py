@@ -58,7 +58,7 @@ class OrderModelTest(TestCase):
         self.assertEqual(self.order.county, "Dublin")
 
     def test_order_str(self):
-        """Test the order number string"""
+        # Test the order number string
         self.order = Order.objects.get(email="testuser@email.com")
         self.assertEqual(str(self.order), self.order.order_number)
 

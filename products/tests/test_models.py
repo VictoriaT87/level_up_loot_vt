@@ -12,8 +12,7 @@ class CategoryModelTest(TestCase):
     Test Category Model
     """
 
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         # Setup new Category to test
         Category.objects.create(
             name="Test Category", friendly_name="Friendly Test Category"
@@ -49,10 +48,10 @@ class BrandModelTest(TestCase):
     Test Brand Model
     """
 
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         # Setup new Brand to test
-        Brand.objects.create(name="Test Brand", friendly_name="Friendly Test Brand")
+        Brand.objects.create(
+            name="Test Brand", friendly_name="Friendly Test Brand")
 
     def test_name_field(self):
         # Test the name field label
@@ -84,8 +83,7 @@ class ProductModelTest(TestCase):
     Test Product Model
     """
 
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         # Set up test Product
         category = Category.objects.create(name="Category")
         brand = Brand.objects.create(name="Brand")
@@ -136,8 +134,7 @@ class ReviewsModelTest(TestCase):
     Test Review Model
     """
 
-    @classmethod
-    def setUpTestData(cls):
+    def setUp(self):
         # Create a user and a product for testing
         user = User.objects.create(username="testuser")
         product = Product.objects.create(title="Test Product", price=9.99)
