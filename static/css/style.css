@@ -1196,6 +1196,17 @@ a:hover {
 
 /* -------------------------------- Media Queries */
 
+/* For small devices in landscape mode */
+@media (max-height: 700px) and (orientation: landscape)  {
+    .hero-mobile, .hero-mobile .info {
+        min-height: 100vh;
+    }
+
+    .hero-inner-mobile {
+        top: 4em!important;
+    }
+}
+
 @media only screen and (max-height: 500px) {
     .hero-mobile .info {
         background-image: url(/media/hero-mobile-sm.png);
