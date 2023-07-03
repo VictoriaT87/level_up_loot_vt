@@ -34,6 +34,6 @@
 ### Samsung Tab 10
 <br>
 
-![Samsung Tab 10](images/samsung-tab-1.jpg)
-![Samsung Tab 10](images/samsung-tab-2.jpg)
-![Samsung Tab 10](images/samsung-tab-3.jpg)
+![Samsung Tab 10](images/samsung-tab-1.png)
+![Samsung Tab 10](images/samsung-tab-2.png)
+![Samsung Tab 10](images/samsung-tab-3.png)
