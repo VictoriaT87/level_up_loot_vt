@@ -15,9 +15,13 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
+        # Make the automatically generated SKU read-only
+        self.fields['sku'].disabled = True
+
         categories = Category.objects.all()
         brands = Brand.objects.all()
-        # create tuple list of friendly namea
+        # create tuple list of friendly names
         friendly_names_categories = [(c.id, c.get_friendly_name()) for c in categories]
         friendly_names_brands = [(b.id, b.get_friendly_name()) for b in brands]
 
