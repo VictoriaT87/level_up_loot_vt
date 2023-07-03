@@ -679,6 +679,14 @@ a:hover {
     width: 100%;
 }
 
+.card-footer {
+    height: 113px;
+}
+
+.sale-footer {
+    justify-content: space-evenly;
+}
+
 .card-details-body {
     background-color: var(--white);
 }
@@ -755,7 +763,7 @@ a:hover {
 }
 
 .price-font-original {
-    color: var(--black);
+    color: var(--blue);
     text-decoration: line-through
 }
 
