@@ -1,4 +1,4 @@
- # Aventine Gardens
+ # LevelUp! Loot
  ## Screenshots on various devices
 
  -------------------------------
@@ -9,6 +9,7 @@
 ![Huawei Vertical](images/huawei1.jpg)
 ![Huawei Vertical](images/huawei2.jpg)
 ![Huawei Vertical](images/huawei3.jpg)
+![Huawei Vertical](images/huawei4.jpg)
 
 <br>
 

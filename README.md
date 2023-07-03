@@ -794,26 +794,16 @@ These 2 tasks were added on later in the planning when I realised that the major
 
  Below is a description of bugs encountered and how I was able to fix them or why I couldn't.
 
-### Validation for Creating and Editing Appointments
+### Adding an incorrect SKU throws a server error
 
   - #### Issue:
 
-    - User could select days that they had already booked or when updating an appointment, could select the same day and time as any other booked appointment.
+    - When Adding or Updating Products, the SKU could be any combination of letters or numbers and any length - resulting an error on form submission
 
   - #### Fix:
 
-    - This was the hardest to fix issue I've encountered so far as a developer. I had 4 calls with Tutor Support (Ed is a star!), 2 with my Mentor, sent the code separately to my Mentor for him to look into on his own time and had over 100 tabs open in Chrome to try to understand and fix it. 
-    - I knew the code to validate should be something like this "Appointment.objects.filter(user=user, date=date).exists()" from researching on my own through Stack Overflow and other resources online. However, at first, it wasn't working at all. After a call with Ed from Tutor Support, he made me realise I needed to call this within the Clean() method of my form and that I needed to write "user=self.user".
-    - With this working, I was able to get a validation error for booking on the same day as the user already had one appointment, however, the timeslot validation still wasn't working.
-    - Another call with tutor support made me realise, that calling 2 if statements with a "raise forms.ValidationError" on each was only doing one or the other, not both. After looking into this more, I found this [Stackoverflow.com, What is best practice when using ValidationError and Constraint (new in Django 2.2)?](https://stackoverflow.com/questions/59592746/what-is-best-practice-when-using-validationerror-and-constraint-new-in-django-2) and saw I could create an error dictionary so this was implemented.
-    - This now all worked when Creating an appointment but updating an appointment still didn't stop a user from updating their appointment to the same day they already had an appointment.
-    - Another call (honestly, thank you Ed from Tutor Support!) and I was able to realise I needed to call a new validation error on the UpdateView in my Views, instead of having it on my form. I messed with many different ways to do this by reading through the [Django Documentation on making queries](https://docs.djangoproject.com/en/4.1/topics/testing/tools/) and it now works.
-    - Users can no longer book an appointment if they have one currently booked on the same day. Users also can't book an appointment for the same timeslot as another user and users can't edit their appointment to the same date or time as a currently booked appointment in the database.
-    - The only issue that it currently has is that when a user edits their appointment, if they wanted to keep the same date but change the time, this still shows the message "Cannot schedule more than one appointment on a single day!" which is bad practice. However, with the amount of time and calls and messages I needed to get it to this working stage, I didn't have time to figure out how to stop that from happening. This is something I would like to look into more when I have spare time. Without knowing how to change it on the backend, I added a paragraph of text explaing this to the user on the front end.
-    - I am 100% sure there is a better/easier way for this to be done but with my beginner knowledge, this was the best I could do but it works!
-
-![Double Appointment](documentation/images/double-appointment.png)
-![Original Form Validation](documentation/images/form-validation.png) 
+    - My inital thought was to add help-text to the model so that the form would tell the user what to write in the code. However, this didn't solve the issue that someone could intentionally or unintentionally still add an incorrect SKU and cause the same failure.
+    - I then decided to have a SKU automatically generated when a new product was being added. This field pre-populates with a 6 digit code and is always unique. On top of that, I also made the field Read-Only on the Product Form, therefore it doesn't need to be touched by the admin and can't cause an issue.
 
 <br>
 
@@ -1053,7 +1043,7 @@ The following are the steps I went through to deploy my live site:
 
 <br>
 
-The live link can be found here - [LevelUp! Loot](https://aventine-wellness-p4.herokuapp.com/)
+The live link can be found here - [LevelUp! Loot](https://levelup-loot-vt.herokuapp.com/)
 
 <br>
 
