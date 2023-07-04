@@ -805,30 +805,26 @@ These 2 tasks were added on later in the planning when I realised that the major
     - My inital thought was to add help-text to the model so that the form would tell the user what to write in the code. However, this didn't solve the issue that someone could intentionally or unintentionally still add an incorrect SKU and cause the same failure.
     - I then decided to have a SKU automatically generated when a new product was being added. This field pre-populates with a 6 digit code and is always unique. On top of that, I also made the field Read-Only on the Product Form, therefore it doesn't need to be touched by the admin and can't cause an issue.
 
+![SKU](documentation/images/sku-readonly.png) 
+
 <br>
 
 [Back to Top](#table-of-contents)
 
 <br>
 
-  ### DateTime Errors across the website
+  ### Delete Modal Not Deleting Correct Product ID
 
   - #### Issue:
 
-    - Validation for booking appointments and editing appointments would fail because of the time being deemed "invalid".
+    - When clicking on "Delete" on the all products page, the product ID for deletion would only point to the first product ID.
 
   - #### Fix:
 
-    - This seemed like an easy to handle issue but it was very trying! Because I needed to restrict users from booking appointments at any day at all in the future, I decided to add a calendar widget to the edit appointments form. The django-bootstrap-datepicker-plus widget was the one I chose as it had customization.
-    - However, with this added, the form would not validate because it deemed the time to be incorrect as it was rendering the time as "YYYY-MM-DD" when I had the form rendering the time as "DD-MM-YYYY".
-    - I tried a combination of multiple options I found on [StackOverflow, How to change Date Format in a form field Django](https://stackoverflow.com/questions/67538930/how-to-change-date-format-in-a-form-field-django). This included setting a widget on the form itself, setting the form date field to have a DateInput of "format='%d%m%Y'" and trying to put a date time input directly on a form through Jinja {{date|date:'%d-%m-%Y'}} 
-    - Looking into this, I understood that I needed to set a "DATE_FORMAT" my my settings.py file, however even then it wouldn't validate.
-    - I then set "USE_L10N = False" in settings.py but again this didn't solve the issue.
-    - At this stage I removed the widget to try and get the input to work without it but this lead me to the problem of either letting a use book a date that could be 100 years from now or disabling the field altogether which wouldn't be good UX.
-    - I then looked at Django's Documentation and found out about setting DATE_INPUT_FORMATS in my settings.py. I did this and only added the one I wanted ["%m/%d/%Y"] but because the date was different across the site with the Create Appointment URL, the date input and what was saved to the database, I soon realised I needed to add all the options available.
-    - Once this was implemented, my widget works, the time is displayed correctly on the appointment booking page and it saves correctly to the database.
+    - This fix was actually quite easy in the end but it wasn't spotted for a long time, so thank you to [Sean Finn](https://github.com/seanf316/) my classmate for finding it.
+    - The product cards on the product page were being rendered with a loop - {% for product in products %}, however I originally had the modal for deletion outside the loop. Therefore it rendered for the first product only. Moving the deletion modal into the loop, made sure that when clicking Delete, it was for the correct Product ID.
 
-![Valid Date](documentation/images/valid-date.png) 
+![Delete Modal](documentation/images/delete-product.png) 
 
 <br>
 
@@ -854,22 +850,17 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 <br>
 
-### UserPassesTestMixin Issue 
+### Reviews Can Be Updated By Any User, Multiple Reviews Allowed 
 
   - #### Issue:
 
-    - Django Debug error: "404 Page Not Found: No profile found matching the query"
+    - Any user can update any other users review by changing the review ID in the update URL. Also, multiple reviews could be submitted by a user for the same product.
 
   - #### Fix:
 
-    - I need to apologise to the Assessor for a Git commit on 05/04 - This was when I was trying to sort out everything with this bug and needed to flush my database. I wasn't able to add everything needed to the commit message so I will put it here. On commit [#commit 997fe7b](https://github.com/VictoriaT87/P4-Aventine-Wellness/commit/997fe7be1e125398a11f8ed581bd8a8b355b5f58), 11 files were changed with 170 additions and 44 deletions. This was to flush my database and migrate it again, add UserPassesMixin to my views, add signals, and rename databases.
-
-    - This issue was my fault completely. I originally did not have a profile model for users and later on decided to add one. Because of this, when users signed up, there was a clash in the database with users who were given a unique Profile ID which didn't correspond with the User ID.
-    - When I realised that any logged in user could change the URL PK number to any other number, I decided to add the UserPassesTestMixin to my edit and delete views.
-    - Unfortunately because of the issue with the ID checks, this always gave me a 404  page "No profile found matching the query", even when the user was trying to access their own page - they would never pass the test as the Profile and User ID didn't match.
-    - To fix this, I needed to completely purge all database tables and rebuild them. I did this using "python manage.py flush" command.
-    - I needed to remake a superuser and make all migrations again.
-    - Because of this issue and the fact that I had a SQLite local database and a database connected from ElephantSQL, these 2 have a disconnect. As the ElephantSQL database is the official one I'm using, I have not flushed the SQLite database, for fear of ruining the project. This may be something I can do safely but I've chosen to avoid it when it's unneccessary.
+    - I used CBVs for my Review forms - to allow updating and deleting. However, I originally only had the LoginRequiredMixin on these.
+    - I needed to add the UserPassesTestMixin to these CBVs, so that only the original auther of the reviews could update or delete their own review.
+    - For the reviews being 1 per user - I found this article on [StackOverflow](https://stackoverflow.com/questions/68135234/how-to-allow-users-to-rate-a-product-only-once), which allowed me to a UnqiueContraint to the review model.
 
 <br>
 
@@ -877,19 +868,23 @@ These 2 tasks were added on later in the planning when I realised that the major
 
 <br>
 
-### Env.py File Disappeared
+### Wishlists
 
   - #### Issue:
 
-    - Upon logging in to Gitpod one morning, my env.py file had disappeard so the entire site would not connect.
+    - The Wishlist would only allow 1 product to be added per user.
 
   - #### Fix:
 
-    - During the development of this project, Code Institute announced that we would no longer be able to get free use of GitPod and would need to migrate to CodeAnywhere.
-    - As I had very little time remaining of my free time on Gitpod, I decided to try migrate over. I created an account and linked my repository to CodeAnywhere. However, it seemed very slow and sluggish and I needed to reinstall every package and make an env.py file etc.
-    - In the end, I decided to stay on GitPod for the remainder of this project. However when I logged in the next day, I realised my env.py file was missing completely and the project wouldn't run.
-    - After checking on the Slack channel with the Tutors, I was told this would happen because I opened the repository on a different platform.
-    - I was able to pull all the data I needed for the recreation of the env.py file from my Heroku deployment thankfully and I was able to reinstall everything needed to get it back up and running.
+    - The most trouble I had with this project seemed to be with the Wishlist. This particular issue was more to do with a misunderstanding of my models.
+    - The original model I created for the wishlist used a ForiegnKey for both the user and the product. This meant that I could add 1 product to 1 user's Wishlist.
+    - I also had an issue where a newly registered user would not have a Wishlist automatically created on account creation - so when that user tried to add a product to a wishlist, this would throw an error as a wishlist didn't exist. I originally thought to create a signal that would create the Wishlist, the same way the UserProfile would be deleted, however this seemed like it was an overcomplication of the issue.
+    - To fix everything, I had a complete re-write of the Wishlist app. I changed the model from ForeignKeys to a ManyToManyField key for Products and a OneToOneField for the User.
+    - For the views, I found these articles - [Django Docs](https://docs.djangoproject.com/en/4.2/ref/models/querysets/#get-or-create) and [https://www.queworx.com/django/django-get_or_create/](https://www.queworx.com/django/django-get_or_create/) - which would allow me to get_or_create a Wishlist for a user. Alongside the Try and Except statements, this would handle any error that might be created if a user did not currently have a Wishlist associated with their account ID.
+    - However, on the actual template then, this was giving me the error "AttributeError::: 'tuple' object has no attribute 'products'" when trying to iterate over the Wishlist with {% if wishlist %} and {% for product in wishlist %}. Researching this wasn't easy, it took me a few days to try and understand what was happening and why.
+    - I finally realised the the get_or_create was creating a tuple, so I couldn't iterate over it with just the {% if wishlist %} syntax - I needed to check if the wishlist exists with products first and then I needed to access the products on the wishlist. This lead me to try {% if wishlist.products.exists %} and {% for product in wishlist.products.all %} which worked. This - to my knowledge - was because the Wishlist itself was only a type of holder for many products. The wishlist itelf was 1 item - the products were what we needed to access.
+    - I feel there was probably an easier way to achieve the same outcome - but this solution worked for me, it's being saved properly to the database and so was fit for purpose here.
+
 
 <br>
 
