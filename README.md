@@ -16,7 +16,6 @@ Users have the ability to search products and view product details, add products
 # Table of Contents
 
 1. [UX](#ux)
-  
 2. [The Strategy Plane](#the-strategy-plane)
     * [Targeted Users](#targeted-users)
     * [Site Goals](#site-goals)
@@ -47,18 +46,26 @@ Users have the ability to search products and view product details, add products
       * [Colour Scheme](#colour-scheme)
       * [Typography](#typography)
       * [Images](#images)
-8. [Technologies](#technologies)
+8. [Business Model](#business-model)
+    * [Marketing Strategy](#marketing-strategy)
+      * [Social Media Marketing](#social-media-marketing)
+      * [Newsletter Marketing](#newsletter-marketing)
+    * [SEO](#search-engine-optimization-seo)
+      * [Keywords](#keywords)
+      * [SiteMap](#sitemapxml)
+      * [Robots](#robotstxt)
+9. [Technologies](#technologies)
     * [Languages Used](#languages-used)
     * [Libraries And Frameworks](#libraries-and-frameworks)
     * [Tools and Resources](#tools-and-resources)
-9. [Testing](#testing)
+10. [Testing](#testing)
     * [Validator Testing](#validator-testing)
     * [Other Testing](#other-testing)
-10. [Bugs Found and Fixed](#bugs-found-and-fixed)
+11. [Bugs Found and Fixed](#bugs-found-and-fixed)
     * [Bugs Not Fixed](#bugs-not-fixed)
-11. [Credits And Sources](#credits-and-sources)
-12. [Deployment](#deployment)
-13. [Acknowledgements](#acknowledgements)
+12. [Credits And Sources](#credits-and-sources)
+13. [Deployment](#deployment)
+14. [Acknowledgements](#acknowledgements)
 
 <br>
 
@@ -105,55 +112,6 @@ The Project board can be found [here](https://github.com/users/VictoriaT87/proje
 ![Project Kanban](documentation/images/project-board.png)
 
 [Back to Top](#table-of-contents)
-
-<br>
-
-## **Ecommerce Business Model**
-
-This website follows a Business to Customer model - it sells products related to Pop Culture directly to the customer. The website has been built for quick checkout for both registered and unregistered users, with extra features available to users who have signed up to the website, as well as users who subscribe to the newsletter.
-
-[Back to Top](#table-of-contents)
-
-## **Marketing Strategy**
-
-### **Social Media Marketing**
-
-A mockup design of a Facebook page is included. The main goal of this Facebook page would be to showcase new deals on products, give coupon code discounts to followers, and have targeted ads for different times of the year - "End of School Sale", "Christmas Sale", "New Season of X Show Starting Soon" etc.
-
-![Facebook 1](documentation/images/facebook-mockup.png)
-
-### **Newsletter Marketing**
-
-The website has an embedded [Mailchimp](https://mailchimp.com/?currency=EUR) newsletter in the footer, as well as a pop-up form for the first visit. The reason for both would be to allow users who return to sign up, even after they have dismissed the inital pop-up. The campaign sends out a custom thank you email with a discount code to encourage users to subscribe.
-
-This newsletter can in turn be used by the site owner to send subscribers emails on the latest products, deals, and discounts available.
-
-![Newsletter Pop-Up](documentation/images/newsletter-popup.png)
-![Newsletter Email](documentation/images/newsletter.png)
-
-[Back to Top](#table-of-contents)
-
-## **Search Engine Optimization (SEO)**
-
-### **Keywords**
-
-For finding meta keywords for the website, I used [Wordtracker](https://www.wordtracker.com/search). The keywords were chosen based on their performance and volume, as the competition stat wasn't show for the majority of the keywords.
-
-![Keywords](documentation/images/wordtracker.png)
-
-### **Sitemap.xml**
-
-I created a sitemap using [XML-Sitemaps](https://www.xml-sitemaps.com) on my live website [https://levelup-loot-vt.herokuapp.com/](https://levelup-loot-vt.herokuapp.com/)
-
-The XML that was created is in the root directory of the website.
-
-### **Robots.txt**
-
-The robots.txt file was created using this guide [https://www.conductor.com/academy/robotstxt/](https://www.conductor.com/academy/robotstxt/).
-
-![Robots](documentation/images/robots.png)
-
-[Back to top](#table-of-contents)
 
 <br>
 
@@ -689,6 +647,55 @@ These 2 tasks were added on later in the planning when I realised that the major
 <br>
 
 [Back to Top](#table-of-contents)
+
+<br>
+
+## **Business Model**
+
+This website follows a Business to Customer model - it sells products related to Pop Culture directly to the customer. The website has been built for quick checkout for both registered and unregistered users, with extra features available to users who have signed up to the website, as well as users who subscribe to the newsletter.
+
+[Back to Top](#table-of-contents)
+
+## **Marketing Strategy**
+
+### **Social Media Marketing**
+
+A mockup design of a Facebook page is included. The main goal of this Facebook page would be to showcase new deals on products, give coupon code discounts to followers, and have targeted ads for different times of the year - "End of School Sale", "Christmas Sale", "New Season of X Show Starting Soon" etc.
+
+![Facebook 1](documentation/images/facebook-mockup.png)
+
+### **Newsletter Marketing**
+
+The website has an embedded [Mailchimp](https://mailchimp.com/?currency=EUR) newsletter in the footer, as well as a pop-up form for the first visit. The reason for both would be to allow users who return to sign up, even after they have dismissed the inital pop-up. The campaign sends out a custom thank you email with a discount code to encourage users to subscribe.
+
+This newsletter can in turn be used by the site owner to send subscribers emails on the latest products, deals, and discounts available.
+
+![Newsletter Pop-Up](documentation/images/newsletter-popup.png)
+![Newsletter Email](documentation/images/newsletter.png)
+
+[Back to Top](#table-of-contents)
+
+## **Search Engine Optimization (SEO)**
+
+### **Keywords**
+
+For finding meta keywords for the website, I used [Wordtracker](https://www.wordtracker.com/search). The keywords were chosen based on their performance and volume, as the competition stat wasn't show for the majority of the keywords.
+
+![Keywords](documentation/images/wordtracker.png)
+
+### **Sitemap.xml**
+
+I created a sitemap using [XML-Sitemaps](https://www.xml-sitemaps.com) on my live website [https://levelup-loot-vt.herokuapp.com/](https://levelup-loot-vt.herokuapp.com/)
+
+The XML that was created is in the root directory of the website.
+
+### **Robots.txt**
+
+The robots.txt file was created using this guide [https://www.conductor.com/academy/robotstxt/](https://www.conductor.com/academy/robotstxt/).
+
+![Robots](documentation/images/robots.png)
+
+[Back to top](#table-of-contents)
 
 <br>
 
