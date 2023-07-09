@@ -808,22 +808,25 @@ The robots.txt file was created using this guide [https://www.conductor.com/acad
 <br>
 
 ### Lighthouse Testing
+#### Desktop
 ![Lighthouse Metrics](documentation/images/lighthouse-desktop.png)
-  - Testing on desktop originally gave a low Accesibility score with an 87. The reason for this was because the contrast on the blue colour I had originally chosen did not have a suffiecient contrast ratio.
-  - By using the linked colour contrast checker in Lighthouse, I was able to see I neeeded to change this blue to a darker colour.
-  - I then checked the rest of the colours on the page - specifically the Categories section and realised I needed to change the contrast on these too. My fix for that was to add a drop shadow on the text.
-  - After these fixes, my metrics were as shown in the top image. 99 Performance, 98 Accessibility, 92 Best Practices, 100 SEO.
+- Testing on desktop initially resulted in a low Accessibility score of 87. This was due to the insufficient contrast ratio of the blue color I had originally chosen.
+- To address this issue, I used a color contrast checker in Lighthouse and discovered that I needed to change the blue color to a darker shade.
+- I also checked the colors used in the Categories section and realized that I needed to improve the contrast there as well. To resolve this, I added a drop shadow effect to the text.
+- After implementing these fixes, the updated metrics showed significant improvements: 99 Performance, 98 Accessibility, 92 Best Practices, and 100 SEO.
 
 - ![Lighthouse Metrics](documentation/images/lighthouse-desktop-accessibility.png)
 - ![Lighthouse Metrics](documentation/images/lighthouse-contrast.png)
 
 <br>
 
- - On mobile, the performace is 86. This was originally lower because of a cumulative layout shift of 0.219. Recommendations for this were to add width and height to images and change the images to .webp format.
- - To change images from .jpg to .webp I used the website [WEBP Converter](https://cloudconvert.com/webp-converter).
- - I also changed the background image on the Hero section of the index page to a smaller version to try and help with the CLS.
- - The main issues with this low rating is because Lighthouse recommends to use HTTP2, which I am unable to change because the website is hosted on Heroku.
- - There is also an issue with "Reduced unused JavaScript" which then lists Stripe, AWS, Mailchimp and jQuery. These are all included in the base template, so unless I split them out to use only with each app they're associated with (and this would be massively time consuming for me to figure out), I have decided to leave it as is and include screenshots.
+#### Mobile
+
+- On mobile, the performance score is 93. Initially, it was lower due to a cumulative layout shift (CLS) of 0.219. To address this, recommendations were provided to add width and height attributes to images and convert the images from .jpg to .webp format.
+- To convert the images from .jpg to .webp, I used the [WEBP Converter](https://cloudconvert.com/webp-converter) website.
+- Additionally, I changed the background image on the Hero section of the index page to a smaller version in order to mitigate the CLS issue.
+- The main challenges with achieving a higher rating are related to Lighthouse's recommendation to use HTTP2, which is not within my control as the website is hosted on Heroku.
+- There is also an issue related to "Reduced unused JavaScript," which specifically mentions Stripe, AWS, Mailchimp, and jQuery. Since these libraries are included in the base template and separating them would require significant time and effort, I have chosen to leave them as they are and provide screenshots as evidence.
 
 ![Lighthouse Metrics](documentation/images/lighthouse-mobile.png)
 ![Lighthouse Metrics](documentation/images/lighthouse-mobile-perf.png)
@@ -831,7 +834,7 @@ The robots.txt file was created using this guide [https://www.conductor.com/acad
 
 | Page | Device | Category | Result |
 |------|--------|----------|--------|
-|Index | Mobile | Performance | 86% |
+|Index | Mobile | Performance | 93% |
 |||Accessibility| 98% |
 |||Best Practice | 92% |
 |||SEO | 100% |
