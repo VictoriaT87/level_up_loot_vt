@@ -42,6 +42,8 @@ Users have the ability to search products and view product details, add products
     * [Product Details](#product-details-page)
     * [Wishlist](#wishlist)
     * [My Profile](#profile-page)
+    * [Cart Page](#cart-page)
+    * [Checkout Page](#checkout-page)
     * [Admin Page](#admin-page)
     * [Future Features](#future-features)
 7. [The Surface Plane](#the-surface-plane)
@@ -553,7 +555,7 @@ These 2 tasks were added on later in the planning when I realised that the major
 <br>
 
 ### Products Page
-![Products Page Image](documentation/images/booking-page.png)
+![Products Page Image](documentation/images/products.png)
 - The Products Page lists all products initially.
 - This can be changed by choosing a category or a brand from the drop down navbar menu or by using the Selector Box to sort items.
 - Each individual product has a card with all details listed (rating, price, brand, category) and each card also has a hover effect.
@@ -602,6 +604,32 @@ These 2 tasks were added on later in the planning when I realised that the major
 ![Order History Image](documentation/images/account-orders.png)
 ![Delete Profile Image](documentation/images/account-delete.png)
 ![Delete Profile Image](documentation/images/profile-delete.png)
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+<br>
+
+### Cart Page
+![Cart Image](documentation/images/cart.png)
+- The cart page shows everything a user has in their cart currently.
+- This page allows for updating quantities, deleting products from their cart and seeing details of each product.
+- The subtotals are calculated automatically and if a product is on sale, it will show the original price of each item and the sale price.
+
+<br>
+
+[Back to Top](#table-of-contents)
+
+<br>
+
+### Checkout Page
+![Checkout Image](documentation/images/checkout.png)
+![Coupon Image](documentation/images/coupon.png)
+- The checkout page shows the products, prices, a coupon section, includes a users information and a stripe element for secure card payments.
+- The coupon code section allows a user to add a coupon code, which then shows how much of a discount the user will get, as well as their newly updated total price.
+- On successful checkout, an order summary page is shown. This will include the discount if a coupon was used, and has a link to brows more products after.
+![Order Summary Image](documentation/images/order-confirm.png)
 
 <br>
 
