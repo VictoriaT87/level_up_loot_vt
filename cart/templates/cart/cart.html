@@ -2,6 +2,8 @@
 {% load static %}
 {% load cart_tools %}
 
+{% block extra_title %} - Cart{% endblock %}
+
 {% block page_header %}
 <div class="header-container">
     <div class="row">
@@ -27,19 +29,19 @@
             <div class="d-block d-md-none">
                 <div class="row">
                     <div class="col text-center">
-                        {% include "cart/cart_total.html" %}
+                        {% include "./includes/cart_total.html" %}
                     </div>
                 </div>
                 <div class="row mt-5">
                     <div class="col text-center">
-                        {% include "cart/checkout_buttons.html" %}
+                        {% include "./includes/checkout_buttons.html" %}
                         <p class="text-purple font-weight-bold mb-5 mt-5">A summary of your cart contents is below:</p>
                     </div>
                 </div>
                 {% for item in cart_items %}
                 <div class="row">
                     <div class="col-12 col-sm-6 mb-2">
-                        {% include "cart/product_image.html" %}
+                        {% include "./includes/product_image.html" %}
                     </div>
                     <div class="col-12 col-sm-6 mb-2">
                         <p class="my-0"><strong>{{ item.product.title }}</strong></p>
@@ -55,7 +57,7 @@
                         {% endif %}
                     </div>
                     <div class="col-12 col-sm-6">
-                        {% include "cart/quantity_form.html" %}
+                        {% include "./includes/quantity_form.html" %}
                     </div>
                 </div>
                 <div class="row">
@@ -82,7 +84,7 @@
                     {% for item in cart_items %}
                     <tr>
                         <td class="p-3 w-25">
-                            {% include "cart/product_image.html" %}
+                            {% include "./includes/product_image.html" %}
                         </td>
                         <td class="py-3">
                             <p class="my-0"><strong>{{ item.product.title }}</strong></p>
@@ -97,7 +99,7 @@
                             {% endif %}
                         </td>
                         <td class="py-3 w-25">
-                            {% include "cart/quantity_form.html" %}
+                            {% include "./includes/quantity_form.html" %}
                         </td>
                         <td class="py-3 float-right">
                             <p class="my-0"><strong></strong>€{{ item.price|floatformat:2 | calc_subtotal:item.quantity }}</p>
@@ -106,12 +108,12 @@
                     {% endfor %}
                     <tr>
                         <td colspan="5" class="pt-5 text-right">
-                            {% include "cart/cart_total.html" %}
+                            {% include "./includes/cart_total.html" %}
                         </td>
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            {% include "cart/checkout_buttons.html" %}
+                            {% include "./includes/checkout_buttons.html" %}
                         </td>
                     </tr>
                 </table>
