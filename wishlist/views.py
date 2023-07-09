@@ -73,3 +73,27 @@ def remove_wishlist(request, product_id):
     messages.info(request, f"{product.title} has been removed from your Wishlist!")
 
     return redirect(reverse("wishlist"))
+
+
+def clear_wishlist(request):
+    """
+    Remove all products from the Wishlist
+    """
+
+    if not request.user.is_authenticated:
+        messages.error(
+            request, "Sorry, you need to be logged in to edit your Wishlist."
+        )
+        return redirect(reverse("account_login"))
+        
+    wishlist = Wishlist.objects.get(user=request.user)
+
+    products = wishlist.products.all()
+
+    for product in products:
+        wishlist.products.remove(product)
+
+    wishlist.products.remove(product)
+    messages.info(request, "Wishlist cleared!")
+
+    return redirect(reverse("wishlist"))

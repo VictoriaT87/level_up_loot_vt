@@ -3,17 +3,9 @@
 
 {% block extra_title %}Wishlist | {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 <div class="overlay"></div>
-<div class="container mb-2">
+<div class="m-5">
     <div class="container mb-1">
         <div class="row">
             <div class="col">
@@ -24,11 +16,60 @@
     <div class="container mb-5">
         <!-- if products exist in the users wishlist -->
         {% if wishlist.products.exists %}
+        <p class="text-center"><a href="{% url 'clear_wishlist' %}" class="text-uppercase">Clear
+                Wishlist</a></p>
         <div class="row">
             <div class="col-12">
                 <p class="text-center">Here are all the items you've added to your wishlist!</p>
             </div>
         </div>
+
+        <div class="d-block d-md-none">
+            <!-- for each product in the wishlist -->
+            {% for product in wishlist.products.all %}
+            <div class="text-center">
+                <div data-label="Product:" class="mb-3">
+                    {% if product.image %}
+                    <img class="img-fluid rounded w-50" src="{{ product.image.url }}" alt="{{ product.title }}">
+                    {% else %}
+                    <img class="img-fluid rounded w-50" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
+                    {% endif %}
+                </div>
+                <div data-label="Name:" class="mb-3">
+                    <p class="h6">{{ product.title }}</p>
+                </div>
+                <div data-label="Price:" class="mb-3">
+                    <div>
+                        <p class="mb-0 pb-1"><span class="text-left h5 brand-font">€{{ product.price }}</span></p>
+                        {% if product.on_sale %}
+                        <p class="mb-0"><s>€{{ product.sale_price|floatformat:2 }}</s></p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="wishlist mb-3" data-label="View Product:">
+                    View Product:
+                    <a href="{% url 'product_detail' product.id %}" aria-label="Link to View Product Detail Page">
+                        <i class="fas fa-eye text-muted"></i>
+                    </a>
+                </div>
+                <div class="wishlist mb-3" data-label="Remove Product:">
+                    Remove Product:
+                    <a href="{% url 'remove_wishlist' product.id %}?next={% url 'wishlist' %}"
+                        aria-label="Link to Remove Product">
+                        <i class="fas fa-minus-circle text-muted"></i>
+                    </a>
+                </div>
+            </div>
+
+            {% if forloop.counter|divisibleby:1 %}
+            <div class="col-12 d-sm-none mt-3 mb-3">
+                <hr class="product-hr">
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Table only shows on screens larger than 768px -->
         <div class="table-responsive rounded-0">
             <table class="table wishlist-table text-align-center">
                 <thead class="wishlist-head">
@@ -71,10 +112,11 @@
                             </a>
                         </td>
                         <td class="wishlist" data-label="Remove Product:">
-                            <a href="{% url 'remove_wishlist' product.id %}?next={% url 'wishlist' %}" aria-label="Link to Remove Product">
+                            <a href="{% url 'remove_wishlist' product.id %}?next={% url 'wishlist' %}"
+                                aria-label="Link to Remove Product">
                                 <i class="fas fa-minus-circle text-muted"></i>
                             </a>
-                        </td>                        
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -84,10 +126,10 @@
         {% else %}
         <div class="row">
             <div class="col-12">
-                <p class="text-center text-black mt-3 h5">Your Wishlist is currently empty - click the <span class="icon"><i
-                            class="fas fa-heart fa-fw"></i></span> icon to add some!</p>
+                <p class="text-center text-black mt-3 h5">Your Wishlist is currently empty - click the <span
+                        class="icon"><i class="fas fa-heart fa-fw"></i></span> icon to add some!</p>
                 <div class="text-center mt-4">
-                    <a href="{% url 'products' %}" class="btn btn-black rounded-0 text-uppercase mt-1">
+                    <a href="{% url 'products' %}" class="btn product-btn rounded-0 text-uppercase mt-1">
                         Go to Products
                     </a>
                 </div>
@@ -95,6 +137,8 @@
         </div>
         {% endif %}
     </div>
+
+
 
 
 </div>
