@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /accounts/
 Disallow: /cart/
+Disallow: /profiles/
+Disallow: /checkout/
+Disallow: /admin/
 Sitemap: https://levelup-loot-vt.herokuapp.com/sitemap.xml
