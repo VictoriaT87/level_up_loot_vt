@@ -102,7 +102,11 @@
                             {% include "./includes/quantity_form.html" %}
                         </td>
                         <td class="py-3 float-right">
-                            <p class="my-0"><strong></strong>€{{ item.price|floatformat:2 | calc_subtotal:item.quantity }}</p>
+                            {% if item.product.on_sale %}
+                            <p class="my-0">€{{ item.price | calc_subtotal:item.quantity }}</p>
+                            {% else %}
+                            <p class="my-0">€{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            {% endif %}
                         </td>
                     </tr>
                     {% endfor %}

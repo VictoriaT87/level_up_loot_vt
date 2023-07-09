@@ -25,6 +25,7 @@ Users have the ability to search products and view product details, add products
     * [Epic Breakdowns](#epic-breakdowns)
 4. [Skeleton Plane](#skeleton-plane)
     * [Wireframes](#wireframes)
+    * [Database Schema](#database-schema) 
 5. [The Scope Plane](#the-scope-plane)
 6. [The Structure Plane](#the-structure-plane)
     * [Features](#features)
