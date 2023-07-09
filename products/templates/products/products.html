@@ -45,6 +45,19 @@
                 {% if product.on_sale %}
                 <span class="h1 badge sale-badge">Save!</span>
                 {% endif %}
+
+                <!-- Wishlist Badge -->
+
+                {% if product in wishlist.products.all %}
+                <a href="{% url 'remove_wishlist' product.id %}" aria-label="Remove product from Wishlist">
+                    <div class="wishlist-badge"><i class="fas fa-heart"></i></div>
+                </a>
+                {% else %}
+                <a href="{% url 'add_wishlist' product.id %}" aria-label="Add product to Wishlist">
+                    <div class="wishlist-badge"><i class="far fa-heart"></i></div>
+                </a>
+                {% endif %}
+
                 <!-- Product Image -->
                 <div class="product-image-div">
                     {% if product.image %}

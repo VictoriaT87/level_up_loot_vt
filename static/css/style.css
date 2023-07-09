@@ -645,6 +645,15 @@ a:hover {
     border: 1px solid #e1e2e7 !important;
 }
 
+.wishlist-badge {
+    position: absolute;
+    font-size: 1.25em;
+    left: 20px;
+    top: 15px;
+    font-weight: normal;
+    color: var(--blue);
+}
+
 .sale-badge {
     position: absolute;
     font-size: 1.25em;

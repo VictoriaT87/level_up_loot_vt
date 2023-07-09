@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
 from django.contrib import messages
 from django.http import Http404
 
@@ -52,7 +52,9 @@ def add_wishlist(request, product_id):
         wishlist.products.add(product)
         messages.info(request, f"{product.title} has been added to your Wishlist!")
 
-    return redirect(reverse("product_detail", args=[product_id]))
+    redirect_url = request.META.get("HTTP_REFERER", reverse("products"))
+
+    return HttpResponseRedirect(redirect_url)
 
 
 def remove_wishlist(request, product_id):
@@ -72,7 +74,9 @@ def remove_wishlist(request, product_id):
     wishlist.products.remove(product)
     messages.info(request, f"{product.title} has been removed from your Wishlist!")
 
-    return redirect(reverse("wishlist"))
+    redirect_url = request.META.get("HTTP_REFERER", reverse("products"))
+
+    return HttpResponseRedirect(redirect_url)
 
 
 def clear_wishlist(request):

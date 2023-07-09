@@ -19,6 +19,7 @@ def all_products(request):
     """A view to show all products, including sorting and search queries"""
 
     products = Product.objects.all()
+    user = request.user
     query = None
     sort = None
     brand = None
@@ -26,6 +27,11 @@ def all_products(request):
     sale = False
     direction = None
     title = "Products"
+
+    if user.is_authenticated:
+        wishlist, created = Wishlist.objects.get_or_create(user=user)
+    else:
+        wishlist = None
 
     if request.GET:
         if "sort" in request.GET:
@@ -77,6 +83,7 @@ def all_products(request):
         "current_categories": categories,
         "current_sorting": current_sorting,
         "title": title,
+        "wishlist": wishlist,
     }
 
     return render(request, "products/products.html", context)
