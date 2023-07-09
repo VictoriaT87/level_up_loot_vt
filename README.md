@@ -559,6 +559,7 @@ These 2 tasks were added on later in the planning when I realised that the major
 - The Products Page lists all products initially.
 - This can be changed by choosing a category or a brand from the drop down navbar menu or by using the Selector Box to sort items.
 - Each individual product has a card with all details listed (rating, price, brand, category) and each card also has a hover effect.
+- Each product can also be added to a logged in users wishlist if they click the heart icon.
 - Clicking on the "View Product" button will bring the user to the product detail page for that item.
 
 <br>
