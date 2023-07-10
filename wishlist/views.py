@@ -1,4 +1,10 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import (
+    render,
+    redirect,
+    reverse,
+    get_object_or_404,
+    HttpResponseRedirect,
+)
 from django.contrib import messages
 from django.http import Http404
 
@@ -89,7 +95,7 @@ def clear_wishlist(request):
             request, "Sorry, you need to be logged in to edit your Wishlist."
         )
         return redirect(reverse("account_login"))
-        
+
     wishlist = Wishlist.objects.get(user=request.user)
 
     products = wishlist.products.all()

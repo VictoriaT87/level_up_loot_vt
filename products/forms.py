@@ -17,7 +17,7 @@ class ProductForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         # Make the automatically generated SKU read-only
-        self.fields['sku'].disabled = True
+        self.fields["sku"].disabled = True
 
         categories = Category.objects.all()
         brands = Brand.objects.all()

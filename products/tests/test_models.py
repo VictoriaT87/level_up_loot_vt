@@ -50,8 +50,7 @@ class BrandModelTest(TestCase):
 
     def setUp(self):
         # Setup new Brand to test
-        Brand.objects.create(
-            name="Test Brand", friendly_name="Friendly Test Brand")
+        Brand.objects.create(name="Test Brand", friendly_name="Friendly Test Brand")
 
     def test_name_field(self):
         # Test the name field label
