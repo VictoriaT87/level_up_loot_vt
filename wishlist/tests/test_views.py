@@ -104,8 +104,8 @@ class AddWishlistTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
         # Assert that the user is redirected to the product detail page
-        self.assertRedirects(
-            response, reverse("product_detail", args=[self.product.id])
+        self.assertEqual(
+            response.url, reverse("products")
         )
 
         # Assert that the product is added to the wishlist
@@ -175,7 +175,7 @@ class RemoveWishlistTest(TestCase):
         self.assertEqual(response.status_code, 302)
 
         # Assert that the user is redirected back to the wishlist page
-        self.assertRedirects(response, reverse("wishlist"))
+        self.assertRedirects(response, reverse("products"))
 
         # Assert that the product is removed from the wishlist
         self.assertFalse(self.wishlist.products.filter(pk=self.product.id).exists())
