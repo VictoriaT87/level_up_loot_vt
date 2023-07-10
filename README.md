@@ -883,7 +883,23 @@ The robots.txt file was created using this guide [https://www.conductor.com/acad
 
 # Bugs
 
- Below is a description of bugs encountered and how I was able to fix them or why I couldn't.
+Below is a description of bugs encountered and how I was able to fix them or why I couldn't.
+
+### Adding a blank quantity would throw a 500 error
+
+  - #### Issue:
+
+    - When Adding or Updating Products, if the quantity was blank or an empty string, a 500 server error would be thrown
+
+  - #### Fix:
+
+    - Initially I googled this and thought I might need to update the quantity_input_script.html to check for NaN (Not a Number). However, this seemed like it would be quite involved and I didn't think I would be able to make it work.
+    - I then decided to check in the views for a validation. My views for add_to_cart and adjust_cart were updated with form validation and this works. The website now shows an error toast message if the quantity is blank.
+
+![Quanitity Error 1](documentation/images/quantity-error1.png)
+![Quanitity Error 2](documentation/images/quantity-error2.png)
+
+<br>
 
 ### Adding an incorrect SKU throws a server error
 
