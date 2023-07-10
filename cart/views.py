@@ -18,10 +18,19 @@ def add_to_cart(request, item_id):
     """
 
     product = Product.objects.get(pk=item_id)
-    quantity = int(request.POST.get("quantity"))
+    quantity = request.POST.get("quantity")
     redirect_url = request.POST.get("redirect_url")
     item = f"{item_id}"
     cart = request.session.get("cart", {})
+
+    # Validate for NaN/blank quantity
+    try:
+        # Try quantity as int
+        quantity = int(quantity)
+    except (TypeError, ValueError):
+        # If not, throw an error
+        messages.error(request, "Invalid quantity. Please enter a valid number.")
+        return redirect(redirect_url)
 
     if item in list(cart.keys()):
         cart[item] += quantity
@@ -38,8 +47,15 @@ def adjust_cart(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
 
     product = get_object_or_404(Product, pk=item_id)
-    quantity = int(request.POST.get("quantity"))
+    quantity = request.POST.get("quantity")
     cart = request.session.get("cart", {})
+
+    # Validate for NaN/blank quantity
+    if not quantity:
+        messages.error(request, "Invalid quantity. Please enter a valid number.")
+        return redirect(reverse("view_cart"))
+
+    quantity = int(quantity)
 
     if quantity > 0:
         # update quantity
