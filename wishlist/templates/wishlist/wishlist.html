@@ -46,12 +46,14 @@
                         {% endif %}
                     </div>
                 </div>
+                <!-- Link to View Product -->
                 <div class="wishlist mb-3" data-label="View Product:">
                     View Product:
                     <a href="{% url 'product_detail' product.id %}" aria-label="Link to View Product Detail Page">
                         <i class="fas fa-eye text-muted"></i>
                     </a>
                 </div>
+                <!-- Link to Remove Product -->
                 <div class="wishlist mb-3" data-label="Remove Product:">
                     Remove Product:
                     <a href="{% url 'remove_wishlist' product.id %}?next={% url 'wishlist' %}"
