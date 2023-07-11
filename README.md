@@ -94,7 +94,7 @@ Users have the ability to search products and view product details, add products
 
 ### Project Goals
 
-- Create a fully working e-commerce application that would look and feel like a professionally designed online store. Taking all of my knowledge from the 4 projects before, I wasnted this website to be as comprehensive and complete as I could possibly make it.
+- Create a fully working e-commerce application that would look and feel like a professionally designed online store. Taking all of my knowledge from the 4 projects before, I wanted this website to be as comprehensive and complete as I could possibly make it.
 - In my previous projects, I had yet to write anything like a wishlist or user reviews so these were something I wanted to incorporate to further expand my knowledge of CRUD functionality.
 
 <br>
@@ -655,7 +655,7 @@ These 2 tasks were added on later in the planning when I realised that the major
 ## Future Features
 
 - There are a few features I would like to add to the website, given more time. Currently the product ratings are just random numbers entered when the product is being added (initally with a fixtures file) but I would like for users to also be able to add a product rating too which is caluclated as an average. 
-- The coupons currently can be added any number of times - there is no limit for one use per customer. I trid to implemenet that to no sucess. More information about it can be found in the [Bugs Section](#bugs-not-fixed)
+- Currently, the coupons can be added any number of times - there is no limit for one use per customer. I tried to implement that to no success. More information about it can be found in the [Bugs Section](#bugs-not-fixed)
 
 <br>
 
